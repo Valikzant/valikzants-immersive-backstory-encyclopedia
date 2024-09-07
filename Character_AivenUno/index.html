@@ -85,18 +85,17 @@
         .profile-pic {
             width: 60px;
             height: 60px;
-            background-color: #2a2a4a;
             border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5rem;
-            color: #4a4a6a;
+            overflow: hidden;
             transition: all 0.3s ease;
         }
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         .profile-pic.expanded {
-            width: 120px;
-            font-size: 2rem;
+            width: 125px;
         }
         .expanded {
             max-height: 1000px;
@@ -125,7 +124,9 @@
     <body>
     <div class="container">
         <button id="toggleButton">
-            <div class="profile-pic">AU</div>
+            <div class="profile-pic">
+                <img alt="Aiven Uno profile picture" src="https://cdn.discordapp.com/attachments/886237435921580073/1282105149266854011/image.png?ex=66de24f7&is=66dcd377&hm=70f7727e25c04747afb018522906818bbb69735f7c2d988e007f24f62ba68dad&" width="60" height="60">
+            </div>
             <span class="tooltip">Click to toggle character info</span>
         </button>
         <div class="character-card">
