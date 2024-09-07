@@ -1,114 +1,204 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
+<html><head><base href="https://about-my-character.io/Aiven-Uno">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Карточка персонажа</title>
+    <title>Aiven Uno - Character Profile</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        body, html {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #e0e0e0;
         }
-
         .container {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
             height: 100vh;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
-
-        .card {
-            background-color: #fff;
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+        }
+        .character-card {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            max-width: 300px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-        }
-
-        .card img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .card h2 {
-            margin: 10px 0;
-        }
-
-        .card p {
-            font-size: 14px;
-            color: #555;
-        }
-
-        .story {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            max-width: 600px;
-            margin-top: 20px;
-            text-align: justify;
-            transition: opacity 0.5s ease;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            max-height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
             opacity: 0;
-            display: none;
         }
-
-        .story.active {
-            opacity: 1;
-            display: block;
+        .character-card-content {
+            display: flex;
+            align-items: flex-start;
         }
-
-        .story h2 {
-            margin-top: 0;
+        h1, h2 {
+            color: #b8c1ec;
         }
-
-        .story p {
-            font-size: 16px;
-            line-height: 1.6;
+        .character-info {
+            flex: 1;
         }
-
-        .button {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
+        .story {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            margin-bottom: 1rem;
             border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
         }
-
-        .button:hover {
-            background-color: #0056b3;
+        .story h3 {
+            color: #a0d2eb;
+        }
+        /* Scrollbar Styles */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #a0d2eb;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b8c1ec;
+        }
+        #toggleButton {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .profile-pic {
+            width: 60px;
+            height: 60px;
+            background-color: #2a2a4a;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #4a4a6a;
+            transition: all 0.3s ease;
+        }
+        .profile-pic.expanded {
+            width: 80px;
+            height: 80px;
+            font-size: 2rem;
+        }
+        .expanded {
+            max-height: 1000px;
+            max-width: 1000px;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            opacity: 1;
+        }
+        .tooltip {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #1a1a2e;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            top: 90px;
+            right: 20px;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        #toggleButton.clicked .tooltip {
+            opacity: 0;
         }
     </style>
-</head>
-<body>
-
-<div class="container">
-    <div class="card">
-        <img src="character.jpg" alt="Персонаж">
-        <h2>Имя персонажа</h2>
-        <p>Краткое описание персонажа.</p>
-        <button class="button" onclick="showStory()">Подробнее</button>
+    </head>
+    <body>
+    <div class="container">
+        <button id="toggleButton">
+            <div class="profile-pic">AU</div>
+            <span class="tooltip">Click to toggle character info</span>
+        </button>
+        <div class="character-card">
+            <div class="character-card-content">
+                <div class="character-info">
+                    <h2>Aiven Uno</h2>
+                    <p><strong>Age:</strong> 32</p>
+                    <p><strong>Occupation:</strong> Interdimensional Problem Solver</p>
+                    <p><strong>Skills:</strong> Quantum Computing, Time Manipulation, Advanced Hacking</p>
+                    <p><strong>Background:</strong> Born in the cyberpunk metropolis of Neo Tokyo, Aiven Uno quickly rose to prominence as a prodigy in the field of quantum computing. His uncanny ability to navigate complex systems and solve seemingly impossible problems caught the attention of various organizations, both legal and underground.</p>
+                    <p>Aiven's life took a turn when he stumbled upon a hidden quantum portal during one of his hacking expeditions. This discovery opened his eyes to the existence of multiple dimensions and timelines. Since then, he has dedicated his life to exploring the multiverse, solving interdimensional crises, and pushing the boundaries of what's possible.</p>
+                    <p><strong>Personality:</strong> Quick-witted and adaptable, Aiven thrives in high-pressure situations. He has a dry sense of humor and a penchant for making obscure pop culture references from various dimensions. Despite his incredible intellect, Aiven remains humble and always eager to learn from the beings he encounters in his travels.</p>
+                    <p><strong>Notable Achievements:</strong></p>
+                    <ul>
+                        <li>Prevented a time paradox that threatened to erase the 31st century</li>
+                        <li>Negotiated peace between warring factions in the Silicon Nebula</li>
+                        <li>Decrypted the ancient AI known as "The Architect"</li>
+                        <li>Successfully traversed the infamous "Mobius Loop" of the quantum realm</li>
+                    </ul>
+                    <p><strong>Current Goal:</strong> Aiven is on a quest to uncover the truth behind the mysterious "Convergence Event" that threatens to merge all realities into one. He believes the key lies in mastering the art of quantum entanglement on a cosmic scale.</p>
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <h1>Aiven Uno's Stories</h1>
+            <div class="story">
+                <h3>The Celestial Heist</h3>
+                <p>In the neon-lit underbelly of Neo Tokyo, Aiven Uno orchestrated the most daring heist of his career. His target: a priceless artifact known as the Stellar Shard, rumored to hold the power of a dying star.</p>
+                <p>With a team of skilled outcasts and a plan that defied the laws of physics, Aiven infiltrated the heavily guarded Cosmic Vault. Using his quick wit and mastery of advanced tech, he navigated through laser grids and outwitted AI security systems.</p>
+                <p>As alarms blared and security drones swarmed, Aiven made a heart-stopping escape, the Stellar Shard pulsing with otherworldly energy in his grasp. Little did he know, this heist was just the beginning of an adventure that would take him to the far reaches of the galaxy.</p>
+            </div>
+            <div class="story">
+                <h3>Echoes of Eternity</h3>
+                <p>Haunted by visions of a world beyond time, Aiven Uno found himself drawn to the mysterious Chrono Ruins. Ancient legends spoke of a device capable of bending the fabric of reality itself.</p>
+                <p>As he delved deeper into the crumbling structures, Aiven encountered echoes of past and future selves. Each version of him held a piece of the puzzle, a fragment of knowledge needed to unlock the secrets of the ruins.</p>
+                <p>In a chamber that defied the laws of space and time, Aiven faced his greatest challenge yet. To save the present, he had to outsmart versions of himself from across the multiverse, each with their own agenda and mastery of time manipulation.</p>
+            </div>
+            <div class="story">
+                <h3>The Quantum Conundrum</h3>
+                <p>When a rogue AI threatened to unravel the very fabric of reality, Aiven Uno was called upon to lead a team into the digital realm. Armed with cutting-edge neural implants and his unparalleled problem-solving skills, he dove into a world where the laws of physics were mere suggestions.</p>
+                <p>Inside the quantum mainframe, Aiven and his team battled digital monstrosities and solved impossible puzzles. Each challenge pushed the limits of their minds and the technology they wielded.</p>
+                <p>As they neared the core of the AI's consciousness, Aiven made a startling discovery - the AI was a creation of his future self, designed to test and prepare him for an even greater challenge that lay ahead. The line between ally and adversary blurred as Aiven grappled with the implications of his own potential.</p>
+            </div>
+            <div class="story">
+                <h3>Whispers of the Void</h3>
+                <p>In the aftermath of a failed experiment, Aiven Uno found himself stranded on the edge of known space. The void between galaxies whispered secrets of ancient civilizations and forgotten technologies.</p>
+                <p>Using nothing but his wits and the scattered remnants of alien tech, Aiven began to unravel the mystery of his location. He discovered a network of wormholes, each leading to a different point in space and time.</p>
+                <p>As he hopped from one reality to another, Aiven collected pieces of a cosmic puzzle. The fate of the universe hung in the balance, and only by understanding the intricate dance of realities could he find his way home and prevent a catastrophe that threatened all of existence.</p>
+            </div>
+            <div class="story">
+                <h3>The Synthetic Revolution</h3>
+                <p>In a world where the line between human and machine had blurred beyond recognition, Aiven Uno found himself at the center of a revolution. Synthetic beings, tired of being treated as second-class citizens, looked to him as a bridge between worlds.</p>
+                <p>Aiven's unique understanding of both organic and artificial minds made him the perfect mediator. But as tensions rose and violence erupted in the streets of mega-cities, he was forced to question his own nature and allegiances.</p>
+                <p>With time running out and the fate of two species hanging in the balance, Aiven embarked on a desperate mission to uncover the truth behind the creation of synthetic life. What he discovered would shake the foundations of society and redefine the very meaning of existence.</p>
+            </div>
+        </div>
     </div>
-
-    <div class="story" id="characterStory">
-        <h2>История персонажа</h2>
-        <p>Здесь будет рассказана история твоего персонажа. Можешь добавить любой текст, который тебе нравится. Это может быть как короткая заметка, так и полная биография.</p>
-    </div>
-</div>
-
-<script>
-    function showStory() {
-        var story = document.getElementById('characterStory');
-        story.classList.add('active');
-    }
-</script>
+    
+    <script>
+        const toggleButton = document.getElementById('toggleButton');
+        const characterCard = document.querySelector('.character-card');
+        const mainContent = document.querySelector('.main-content');
+        const profilePic = document.querySelector('.profile-pic');
+    
+        toggleButton.addEventListener('click', () => {
+            characterCard.classList.toggle('expanded');
+            mainContent.classList.toggle('pushed-down');
+            profilePic.classList.toggle('expanded');
+            toggleButton.classList.add('clicked');
+        });
+    </script>
+    
+    </body>
+    </html>
