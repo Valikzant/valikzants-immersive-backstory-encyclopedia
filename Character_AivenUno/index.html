@@ -1,203 +1,256 @@
-<html><head><base href="https://about-my-character.io/Aiven-Uno">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aiven Uno - Character Profile</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            color: #e0e0e0;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        .main-content {
-            flex: 1;
-            padding: 2rem;
-            overflow-y: auto;
-            transition: all 0.3s ease;
-        }
-        .character-card {
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            backdrop-filter: blur(4px);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            max-height: 0;
-            padding-top: 0;
-            padding-bottom: 0;
-            opacity: 0;
-        }
-        .character-card-content {
-            display: flex;
-            align-items: flex-start;
-        }
-        h1, h2 {
-            color: #b8c1ec;
-        }
-        .character-info {
-            flex: 1;
-        }
-        .story {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 5px;
-        }
-        .story h3 {
-            color: #a0d2eb;
-        }
-        /* Scrollbar Styles */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1a1a2e;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #a0d2eb;
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #b8c1ec;
-        }
-        #toggleButton {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .profile-pic {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        .profile-pic img {
-            width: 100%;
-            height: 100%;
-            object-fit: fill;
-        }
-        .profile-pic.expanded {
-            width: 125px;
-        }
-        .expanded {
-            max-height: 1000px;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-            opacity: 1;
-        }
-        .tooltip {
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.9);
-            color: #1a1a2e;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            top: 90px;
-            right: 20px;
-            opacity: 1;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-        #toggleButton.clicked .tooltip {
-            opacity: 0;
-        }
-    </style>
-    </head>
-    <body>
-    <div class="container">
-        <button id="toggleButton">
-            <div class="profile-pic">
-                <img alt="Aiven Uno profile picture" src="https://cdn.discordapp.com/attachments/886237435921580073/1282105149266854011/image.png?ex=66de24f7&is=66dcd377&hm=70f7727e25c04747afb018522906818bbb69735f7c2d988e007f24f62ba68dad&" width="60" height="60">
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Test Site</title><style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        transition: all 0.5s ease;
+    }
+    .main-content {
+        flex-grow: 1;
+        padding: 5vh 20px;
+        transition: margin-left 0.5s;
+    }
+    .container {
+        border-radius: 20px;
+        width: 95%;
+        max-width: 1400px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        position: relative;
+        margin: 0 auto;
+    }
+    .top-section {
+        padding: 40px;
+        display: flex;
+        align-items: center;
+        transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+        max-height: 400px;
+        opacity: 1;
+        overflow: hidden;
+    }
+    .top-section.hidden {
+        max-height: 0;
+        padding: 0;
+        opacity: 0;
+    }
+    .profile-image {
+        width: 200px;
+        height: 200px;
+        border-radius: 20px;
+        margin-right: 40px;
+    }
+    .about-me {
+        flex: 1;
+    }
+    .bottom-section {
+        padding: 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    h1, h2 {
+        margin-top: 0;
+    }
+    .toggle-btn {
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 10;
+    }
+    .section {
+        margin-bottom: 30px;
+    }
+    .theme-chooser {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 300px;
+        margin: 20px auto;
+    }
+    .theme-btn {
+        width: 30px;
+        height: 30px;
+        border: none;
+        border-radius: 50%;
+        margin: 5px;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+    .theme-btn:hover {
+        transform: scale(1.2);
+    }
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: -250px;
+        transition: left 0.5s;
+        z-index: 1000;
+        padding-top: 60px;
+    }
+    .sidebar.open {
+        left: 0;
+    }
+    .sidebar-toggle {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1001;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    .sidebar a {
+        display: block;
+        padding: 15px 25px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+    .sidebar a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+</style></head><body>
+    <button class="sidebar-toggle" onclick="toggleSidebar()" style="color: white;">☰</button>
+    <div class="sidebar" id="sidebar">
+        <a href="#" onclick="showThemeChooser()">Choose Theme</a>
+        <a href="#main">Go to Main</a>
+        <a href="#about">About</a>
+        <a href="#server">Server</a>
+    </div>
+    <div class="main-content" id="main-content">
+        <div class="container" id="main">
+            <button class="toggle-btn" onclick="toggleTopSection()">Hide/Show</button>
+            <div class="top-section" id="topSection">
+                <img class="profile-image" src="https://cdn.discordapp.com/attachments/886237435921580073/1282105149266854011/image.png?ex=66de24f7&is=66dcd377&hm=70f7727e25c04747afb018522906818bbb69735f7c2d988e007f24f62ba68dad&" alt="Pfp Placeholder" width="200" height="200">
+                <div class="about-me">
+                    <h1>Test Subject</h1>
+                    <p>Web Developer &amp; Designer Extraordinaire</p>
+                    <p>Transforming ideas into captivating digital experiences</p>
+                </div>
             </div>
-            <span class="tooltip">Click to toggle character info</span>
-        </button>
-        <div class="character-card">
-            <div class="character-card-content">
-                <div class="character-info">
-                    <h2>Aiven Uno</h2>
-                    <p><strong>Age:</strong> 32</p>
-                    <p><strong>Occupation:</strong> Interdimensional Problem Solver</p>
-                    <p><strong>Skills:</strong> Quantum Computing, Time Manipulation, Advanced Hacking</p>
-                    <p><strong>Background:</strong> Born in the cyberpunk metropolis of Neo Tokyo, Aiven Uno quickly rose to prominence as a prodigy in the field of quantum computing. His uncanny ability to navigate complex systems and solve seemingly impossible problems caught the attention of various organizations, both legal and underground.</p>
-                    <p>Aiven's life took a turn when he stumbled upon a hidden quantum portal during one of his hacking expeditions. This discovery opened his eyes to the existence of multiple dimensions and timelines. Since then, he has dedicated his life to exploring the multiverse, solving interdimensional crises, and pushing the boundaries of what's possible.</p>
-                    <p><strong>Personality:</strong> Quick-witted and adaptable, Aiven thrives in high-pressure situations. He has a dry sense of humor and a penchant for making obscure pop culture references from various dimensions. Despite his incredible intellect, Aiven remains humble and always eager to learn from the beings he encounters in his travels.</p>
-                    <p><strong>Notable Achievements:</strong></p>
+            <div class="bottom-section">
+                <div class="section" id="about">
+                    <h2>About Me</h2>
+                    <p>Greetings! I'm John, a web development virtuoso with a penchant for crafting digital masterpieces. With over 7 years of experience, I've honed my skills in the art of turning complex ideas into user-friendly, visually stunning websites. My journey in the tech world has been nothing short of exhilarating, filled with challenges that fuel my passion for innovation.</p>
+                </div>
+                
+                <div class="section">
+                    <h2>Experience</h2>
+                    <p>My professional journey has been a thrilling ride across the digital landscape. I've collaborated with startups that disrupted industries and established giants that shape our online world. Each project has been a unique adventure, presenting its own set of challenges and opportunities for growth.</p>
                     <ul>
-                        <li>Prevented a time paradox that threatened to erase the 31st century</li>
-                        <li>Negotiated peace between warring factions in the Silicon Nebula</li>
-                        <li>Decrypted the ancient AI known as "The Architect"</li>
-                        <li>Successfully traversed the infamous "Mobius Loop" of the quantum realm</li>
+                        <li>Lead Developer at TechNova Solutions (2019-Present)</li>
+                        <li>Senior Web Developer at DigitalCraft Inc. (2017-2019)</li>
+                        <li>Frontend Specialist at WebWizards LLC (2015-2017)</li>
                     </ul>
-                    <p><strong>Current Goal:</strong> Aiven is on a quest to uncover the truth behind the mysterious "Convergence Event" that threatens to merge all realities into one. He believes the key lies in mastering the art of quantum entanglement on a cosmic scale.</p>
+                </div>
+                
+                <div class="section">
+                    <h2>Philosophy</h2>
+                    <p>I believe that great web design is about more than just aesthetics. It's about creating intuitive, accessible experiences that resonate with users on a deeper level. My approach combines cutting-edge technology with timeless design principles to create websites that not only catch the eye but also capture the heart.</p>
+                </div>
+                
+                <div class="section">
+                    <h2>Fun Facts</h2>
+                    <ul>
+                        <li>I once coded an entire website while on a 12-hour flight, fueled by nothing but airplane coffee and my imagination.</li>
+                        <li>My record for solving a Rubik's cube is 47 seconds - I apply the same problem-solving skills to tackling complex coding challenges.</li>
+                        <li>I'm an avid hiker and often find inspiration for color schemes from nature's palette.</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h2>Current Projects</h2>
+                    <p>I'm always working on something exciting. Here are a few projects currently on my radar:</p>
+                    <ul>
+                        <li>Developing an AI-powered chatbot for a mental health support platform</li>
+                        <li>Creating an interactive data visualization tool for climate change awareness</li>
+                        <li>Building a progressive web app for a revolutionary fitness tracking concept</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h2>Let's Connect</h2>
+                    <p>Whether you have a project in mind, want to discuss the latest tech trends, or just share a good coding joke, I'm always eager to connect with fellow tech enthusiasts. Don't hesitate to reach out - let's create something amazing together!</p>
+                </div>
+
+                <div class="section" id="server">
+                    <h2>Server Information</h2>
+                    <p>This section would typically contain information about the server hosting this website. For demonstration purposes, let's imagine some server details:</p>
+                    <ul>
+                        <li>Server Type: Apache HTTP Server</li>
+                        <li>Operating System: Ubuntu 20.04 LTS</li>
+                        <li>PHP Version: 7.4.3</li>
+                        <li>Database: MySQL 8.0</li>
+                        <li>Last Maintenance: 2023-06-15</li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="main-content">
-            <h1>Aiven Uno's Stories</h1>
-            <div class="story">
-                <h3>The Celestial Heist</h3>
-                <p>In the neon-lit underbelly of Neo Tokyo, Aiven Uno orchestrated the most daring heist of his career. His target: a priceless artifact known as the Stellar Shard, rumored to hold the power of a dying star.</p>
-                <p>With a team of skilled outcasts and a plan that defied the laws of physics, Aiven infiltrated the heavily guarded Cosmic Vault. Using his quick wit and mastery of advanced tech, he navigated through laser grids and outwitted AI security systems.</p>
-                <p>As alarms blared and security drones swarmed, Aiven made a heart-stopping escape, the Stellar Shard pulsing with otherworldly energy in his grasp. Little did he know, this heist was just the beginning of an adventure that would take him to the far reaches of the galaxy.</p>
-            </div>
-            <div class="story">
-                <h3>Echoes of Eternity</h3>
-                <p>Haunted by visions of a world beyond time, Aiven Uno found himself drawn to the mysterious Chrono Ruins. Ancient legends spoke of a device capable of bending the fabric of reality itself.</p>
-                <p>As he delved deeper into the crumbling structures, Aiven encountered echoes of past and future selves. Each version of him held a piece of the puzzle, a fragment of knowledge needed to unlock the secrets of the ruins.</p>
-                <p>In a chamber that defied the laws of space and time, Aiven faced his greatest challenge yet. To save the present, he had to outsmart versions of himself from across the multiverse, each with their own agenda and mastery of time manipulation.</p>
-            </div>
-            <div class="story">
-                <h3>The Quantum Conundrum</h3>
-                <p>When a rogue AI threatened to unravel the very fabric of reality, Aiven Uno was called upon to lead a team into the digital realm. Armed with cutting-edge neural implants and his unparalleled problem-solving skills, he dove into a world where the laws of physics were mere suggestions.</p>
-                <p>Inside the quantum mainframe, Aiven and his team battled digital monstrosities and solved impossible puzzles. Each challenge pushed the limits of their minds and the technology they wielded.</p>
-                <p>As they neared the core of the AI's consciousness, Aiven made a startling discovery - the AI was a creation of his future self, designed to test and prepare him for an even greater challenge that lay ahead. The line between ally and adversary blurred as Aiven grappled with the implications of his own potential.</p>
-            </div>
-            <div class="story">
-                <h3>Whispers of the Void</h3>
-                <p>In the aftermath of a failed experiment, Aiven Uno found himself stranded on the edge of known space. The void between galaxies whispered secrets of ancient civilizations and forgotten technologies.</p>
-                <p>Using nothing but his wits and the scattered remnants of alien tech, Aiven began to unravel the mystery of his location. He discovered a network of wormholes, each leading to a different point in space and time.</p>
-                <p>As he hopped from one reality to another, Aiven collected pieces of a cosmic puzzle. The fate of the universe hung in the balance, and only by understanding the intricate dance of realities could he find his way home and prevent a catastrophe that threatened all of existence.</p>
-            </div>
-            <div class="story">
-                <h3>The Synthetic Revolution</h3>
-                <p>In a world where the line between human and machine had blurred beyond recognition, Aiven Uno found himself at the center of a revolution. Synthetic beings, tired of being treated as second-class citizens, looked to him as a bridge between worlds.</p>
-                <p>Aiven's unique understanding of both organic and artificial minds made him the perfect mediator. But as tensions rose and violence erupted in the streets of mega-cities, he was forced to question his own nature and allegiances.</p>
-                <p>With time running out and the fate of two species hanging in the balance, Aiven embarked on a desperate mission to uncover the truth behind the creation of synthetic life. What he discovered would shake the foundations of society and redefine the very meaning of existence.</p>
-            </div>
-        </div>
     </div>
-    
+
     <script>
-        const toggleButton = document.getElementById('toggleButton');
-        const characterCard = document.querySelector('.character-card');
-        const mainContent = document.querySelector('.main-content');
-        const profilePic = document.querySelector('.profile-pic');
-    
-        toggleButton.addEventListener('click', () => {
-            characterCard.classList.toggle('expanded');
-            mainContent.classList.toggle('pushed-down');
-            profilePic.classList.toggle('expanded');
-            toggleButton.classList.add('clicked');
+    const themes = [
+        { name: 'Dark', bgColor: 'linear-gradient(135deg, #000428, #004e92)', textColor: '#ffffff', containerBg: 'rgba(255, 255, 255, 0.1)', btnColor: '#6a3093', sidebarBg: 'rgba(0, 0, 0, 0.9)' },
+        { name: 'Light', bgColor: 'linear-gradient(135deg, #f5f7fa, #c3cfe2)', textColor: '#000000', containerBg: 'rgba(0, 0, 0, 0.1)', btnColor: '#6a3093', sidebarBg: 'rgba(255, 255, 255, 0.9)' },
+        { name: 'Purple', bgColor: 'linear-gradient(135deg, #2c003e, #000428)', textColor: '#ffffff', containerBg: 'rgba(255, 255, 255, 0.1)', btnColor: '#6a3093', sidebarBg: 'rgba(44, 0, 62, 0.9)' }
+    ];
+
+    function createThemeButtons() {
+        const themeChooser = document.createElement('div');
+        themeChooser.className = 'theme-chooser';
+        themeChooser.id = 'themeChooser';
+        themes.forEach((theme, index) => {
+            const button = document.createElement('button');
+            button.className = 'theme-btn';
+            button.style.background = theme.bgColor;
+            button.title = theme.name;
+            button.onclick = () => applyTheme(index);
+            themeChooser.appendChild(button);
         });
+        return themeChooser;
+    }
+
+    function applyTheme(index) {
+        const theme = themes[index];
+        document.body.style.background = theme.bgColor;
+        document.body.style.color = theme.textColor;
+        document.querySelector('.container').style.backgroundColor = theme.containerBg;
+        document.querySelector('.toggle-btn').style.backgroundColor = theme.btnColor;
+        document.querySelector('.sidebar').style.backgroundColor = theme.sidebarBg;
+        document.querySelectorAll('.sidebar a').forEach(a => {
+            a.style.color = theme.textColor;
+        });
+    }
+
+    function toggleTopSection() {
+        const topSection = document.getElementById('topSection');
+        topSection.classList.toggle('hidden');
+    }
+
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('open');
+        const mainContent = document.getElementById('main-content');
+        mainContent.style.marginLeft = sidebar.classList.contains('open') ? '250px' : '0';
+    }
+
+    function showThemeChooser() {
+        const existingChooser = document.getElementById('themeChooser');
+        if (existingChooser) {
+            existingChooser.remove();
+        } else {
+            const themeChooser = createThemeButtons();
+            document.querySelector('.container').prepend(themeChooser);
+        }
+    }
+
+    applyTheme(0); // Apply default theme
     </script>
-    
-    </body>
-    </html>
+</body></html>
