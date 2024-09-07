@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карточка персонажа</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .card h2 {
+            margin: 10px 0;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .story {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin-top: 20px;
+            text-align: justify;
+            transition: opacity 0.5s ease;
+            opacity: 0;
+            display: none;
+        }
+
+        .story.active {
+            opacity: 1;
+            display: block;
+        }
+
+        .story h2 {
+            margin-top: 0;
+        }
+
+        .story p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <img src="character.jpg" alt="Персонаж">
+        <h2>Имя персонажа</h2>
+        <p>Краткое описание персонажа.</p>
+        <button class="button" onclick="showStory()">Подробнее</button>
+    </div>
+
+    <div class="story" id="characterStory">
+        <h2>История персонажа</h2>
+        <p>Здесь будет рассказана история твоего персонажа. Можешь добавить любой текст, который тебе нравится. Это может быть как короткая заметка, так и полная биография.</p>
+    </div>
+</div>
+
+<script>
+    function showStory() {
+        var story = document.getElementById('characterStory');
+        story.classList.add('active');
+    }
+</script>
