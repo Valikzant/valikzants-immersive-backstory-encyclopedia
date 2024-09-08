@@ -9,58 +9,56 @@
     }
     .main-content {
         flex-grow: 1;
-        padding: 5vh 20px;
+        padding: 5vh 5px;
         transition: margin-left 0.5s;
     }
     .container {
         border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
         width: 95%;
         max-width: 1400px;
         overflow: hidden;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
         position: relative;
         margin: 0 auto;
     }
     .top-section {
-        padding: 40px;
+        padding: 15px;
         display: flex;
-        align-items: center;
-        transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
-        max-height: 400px;
+        align-items:self-start;
+        transition: max-height 1s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.1s ease-out, padding 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        max-height: 800px;
         opacity: 1;
         overflow: hidden;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
     }
     .top-section.hidden {
-        max-height: 0;
         padding: 0;
+        display: flex;
+        align-items:self-start;
+        max-height: 0;
         opacity: 0;
     }
     .profile-image {
-        width: 200px;
-        height: 200px;
+        width: device-width;
+        height: auto;
+        float: left;
         border-radius: 20px;
-        margin-right: 40px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        max-width: 100%;
     }
     .about-me {
-        flex: 1;
+        flex:content;
+        margin-right: 15px;
+        text-align: justify;
     }
     .bottom-section {
-        padding: 40px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        text-align: justify;
     }
     h1, h2 {
         margin-top: 0;
-    }
-    .toggle-btn {
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 10;
     }
     .section {
         margin-bottom: 30px;
@@ -77,6 +75,7 @@
         height: 30px;
         border: none;
         border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.25);
         margin: 5px;
         cursor: pointer;
         transition: transform 0.3s;
@@ -84,28 +83,41 @@
     .theme-btn:hover {
         transform: scale(1.2);
     }
+    .toggle-btn {
+        border-radius: 5px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        cursor: pointer;
+        transition: background-color 0.3s;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 10;
+    }
     .sidebar {
-        width: 250px;
+        width: 230px;
         height: 100vh;
         position: fixed;
         top: 0;
-        left: -250px;
-        transition: left 0.5s;
+        left: -300px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+        transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         z-index: 1000;
         padding-top: 60px;
+        padding-left: 20px;
     }
     .sidebar.open {
-        left: 0;
+        left: -25px;
     }
     .sidebar-toggle {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1001;
-        background: none;
-        border: none;
-        font-size: 24px;
+        border-radius: 5px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
         cursor: pointer;
+        transition: background-color 0.3s;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1001;
     }
     .sidebar a {
         display: block;
@@ -116,90 +128,127 @@
     .sidebar a:hover {
         background-color: rgba(255, 255, 255, 0.1);
     }
+    .orientation-message {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        text-align: center;
+        padding-top: 40vh;
+        z-index: 2000;
+    }
+    .orientation-message-content {
+        position: relative;
+        display: inline-block;
+    }
+    .close-btn, .dont-show-btn {
+        vertical-align: middle;
+        background: transparent;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* Медиа-запросы для изменения размера текста и изображений */
+
+    /* Для экранов с шириной до 768 пикселей */
+    @media (max-width: 768px) {
+        body {
+            font-size: 16px;
+        }
+        img {
+            width: 40%; /* Изображение займет всю ширину экрана */
+            height: auto; /* Высота изображения будет автоматически подстроена */
+        }
+    }
+
+    /* Для экранов с шириной от 769 до 1200 пикселей */
+    @media (min-width: 769px) and (max-width: 1200px) {
+        body {
+            font-size: 18px;
+        }
+        img {
+            width: 25%; /* Изображение займет 80% ширины экрана */
+            height: auto;
+        }
+    }
+
+    /* Для экранов с шириной более 1200 пикселей */
+    @media (min-width: 1201px) {
+        body {
+            font-size: 20px;
+        }
+        img {
+            width: 10%; /* Изображение займет 60% ширины экрана */
+            height: auto;
+        }
+    }
+
 </style></head><body>
-    <button class="sidebar-toggle" onclick="toggleSidebar()" style="color: white;">☰</button>
+    <div class="orientation-message" id="orientationMessage">
+        <p>Для лучшего отображения переверните устройство в горизонтальное положение.<br> </p>
+        <div class="close-btn" onclick="closeOrientationMessage()">Закрыть</div>
+        <div class="dont-show-btn" onclick="dontShowAgain()">Больше не показывать</div>
+    </div>
     <div class="sidebar" id="sidebar">
-        <a href="#" onclick="showThemeChooser()">Choose Theme</a>
-        <a href="#main">Go to Main</a>
-        <a href="#about">About</a>
-        <a href="#server">Server</a>
+        <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+        <a href="#" onclick="showThemeChooser()">Выбрать тему</a>
+        <a href="#main">На главную</a>
+        <a href="#about">О сайте</a>
+        <a href="#server">Discord Aavikko</a>
     </div>
     <div class="main-content" id="main-content">
         <div class="container" id="main">
-            <button class="toggle-btn" onclick="toggleTopSection()">Hide/Show</button>
+            <button class="toggle-btn" onclick="toggleTopSection()">☰</button>
             <div class="top-section" id="topSection">
-                <img class="profile-image" src="https://cdn.discordapp.com/attachments/886237435921580073/1282105149266854011/image.png?ex=66de24f7&is=66dcd377&hm=70f7727e25c04747afb018522906818bbb69735f7c2d988e007f24f62ba68dad&" alt="Pfp Placeholder" width="200" height="200">
+
                 <div class="about-me">
-                    <h1>Test Subject</h1>
-                    <p>Web Developer &amp; Designer Extraordinaire</p>
-                    <p>Transforming ideas into captivating digital experiences</p>
+                    <h1>Айвен Уно</h1>
+                    <img class="profile-image" src="https://cdn.discordapp.com/attachments/886237435921580073/1282105149266854011/image.png?ex=66de24f7&is=66dcd377&hm=70f7727e25c04747afb018522906818bbb69735f7c2d988e007f24f62ba68dad&" alt="Pfp Placeholder">
+                    <p>Решив осмотреть этого вульпканина, вы сразу же замечаете его глаза: большие, фиолетовые, с розовыми искорками, словно миниатюрные галактики, полные тайн и неизведанных глубин. Эти глаза будто заглядывают вам обратно в душу. <br><br> Мягкая серо-лавандовая шерсть обрамляет этот завораживающий взгляд и нежно переливается в свете, создавая ощущение пушистого, чистого облака. А низкое, стройное телосложение намекает на юношескую грацию и подвижность. <br><br> Приметы: большие фиолетовые глаза, низкий рост, уши, направленные в стороны, и чёрный кончик хвоста.</p>
                 </div>
+                
             </div>
             <div class="bottom-section">
+                
                 <div class="section" id="about">
-                    <h2>About Me</h2>
-                    <p>Greetings! I'm John, a web development virtuoso with a penchant for crafting digital masterpieces. With over 7 years of experience, I've honed my skills in the art of turning complex ideas into user-friendly, visually stunning websites. My journey in the tech world has been nothing short of exhilarating, filled with challenges that fuel my passion for innovation.</p>
-                </div>
-                
-                <div class="section">
-                    <h2>Experience</h2>
-                    <p>My professional journey has been a thrilling ride across the digital landscape. I've collaborated with startups that disrupted industries and established giants that shape our online world. Each project has been a unique adventure, presenting its own set of challenges and opportunities for growth.</p>
-                    <ul>
-                        <li>Lead Developer at TechNova Solutions (2019-Present)</li>
-                        <li>Senior Web Developer at DigitalCraft Inc. (2017-2019)</li>
-                        <li>Frontend Specialist at WebWizards LLC (2015-2017)</li>
-                    </ul>
-                </div>
-                
-                <div class="section">
-                    <h2>Philosophy</h2>
-                    <p>I believe that great web design is about more than just aesthetics. It's about creating intuitive, accessible experiences that resonate with users on a deeper level. My approach combines cutting-edge technology with timeless design principles to create websites that not only catch the eye but also capture the heart.</p>
-                </div>
-                
-                <div class="section">
-                    <h2>Fun Facts</h2>
-                    <ul>
-                        <li>I once coded an entire website while on a 12-hour flight, fueled by nothing but airplane coffee and my imagination.</li>
-                        <li>My record for solving a Rubik's cube is 47 seconds - I apply the same problem-solving skills to tackling complex coding challenges.</li>
-                        <li>I'm an avid hiker and often find inspiration for color schemes from nature's palette.</li>
-                    </ul>
-                </div>
-                
-                <div class="section">
-                    <h2>Current Projects</h2>
-                    <p>I'm always working on something exciting. Here are a few projects currently on my radar:</p>
-                    <ul>
-                        <li>Developing an AI-powered chatbot for a mental health support platform</li>
-                        <li>Creating an interactive data visualization tool for climate change awareness</li>
-                        <li>Building a progressive web app for a revolutionary fitness tracking concept</li>
-                    </ul>
-                </div>
-                
-                <div class="section">
-                    <h2>Let's Connect</h2>
-                    <p>Whether you have a project in mind, want to discuss the latest tech trends, or just share a good coding joke, I'm always eager to connect with fellow tech enthusiasts. Don't hesitate to reach out - let's create something amazing together!</p>
+                    <h2>История</h2>
+                    <p>Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера.</p>
                 </div>
 
-                <div class="section" id="server">
-                    <h2>Server Information</h2>
-                    <p>This section would typically contain information about the server hosting this website. For demonstration purposes, let's imagine some server details:</p>
-                    <ul>
-                        <li>Server Type: Apache HTTP Server</li>
-                        <li>Operating System: Ubuntu 20.04 LTS</li>
-                        <li>PHP Version: 7.4.3</li>
-                        <li>Database: MySQL 8.0</li>
-                        <li>Last Maintenance: 2023-06-15</li>
-                    </ul>
+                <div class="section" id="about">
+                    <h2>История</h2>
+                    <p>Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера.</p>
                 </div>
+
+                <div class="section" id="about">
+                    <h2>История</h2>
+                    <p>Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера.</p>
+                </div>
+
+                <div class="section" id="about">
+                    <h2>История</h2>
+                    <p>Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера.</p>
+                </div>
+
+                <div class="section" id="about">
+                    <h2>История</h2>
+                    <p>Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера. Куча случайного текста для примера.</p>
+                </div>
+
             </div>
         </div>
     </div>
 
     <script>
     const themes = [
-        { name: 'Dark', bgColor: 'linear-gradient(135deg, #000428, #004e92)', textColor: '#ffffff', containerBg: 'rgba(255, 255, 255, 0.1)', btnColor: '#6a3093', sidebarBg: 'rgba(0, 0, 0, 0.9)' },
-        { name: 'Light', bgColor: 'linear-gradient(135deg, #f5f7fa, #c3cfe2)', textColor: '#000000', containerBg: 'rgba(0, 0, 0, 0.1)', btnColor: '#6a3093', sidebarBg: 'rgba(255, 255, 255, 0.9)' },
-        { name: 'Purple', bgColor: 'linear-gradient(135deg, #2c003e, #000428)', textColor: '#ffffff', containerBg: 'rgba(255, 255, 255, 0.1)', btnColor: '#6a3093', sidebarBg: 'rgba(44, 0, 62, 0.9)' }
+        { name: 'Dark', bgColor: 'linear-gradient(135deg, #313338, #1e1f22)', textColor: '#ffffff', containerBg: 'rgb(30, 31, 34, 0.9)', btnColor: '#313338', sidebarBg: 'rgb(30, 31, 34)' },
+        { name: 'Light', bgColor: 'linear-gradient(135deg, #c4c9ce, #ffffff)', textColor: '#000000', containerBg: 'rgb(232, 238, 244)', btnColor: '#c4c9ce', sidebarBg: 'rgb(232, 238, 244)' },
+        { name: 'Purple', bgColor: 'linear-gradient(135deg, #2c003e, #000428)', textColor: '#ffffff', containerBg: 'rgb(44, 0, 62)', btnColor: '#6a3093', sidebarBg: 'rgba(44, 0, 62)' }
     ];
 
     function createThemeButtons() {
@@ -221,9 +270,22 @@
         const theme = themes[index];
         document.body.style.background = theme.bgColor;
         document.body.style.color = theme.textColor;
-        document.querySelector('.container').style.backgroundColor = theme.containerBg;
+        
+        document.querySelector('.toggle-btn').style.color = theme.textColor;
         document.querySelector('.toggle-btn').style.backgroundColor = theme.btnColor;
+        document.querySelector('.toggle-btn').style.borderColor = theme.btnColor;
+
+        document.querySelector('.container').style.backgroundColor = theme.containerBg;
+        document.querySelector('.container').style.borderColor = theme.btnColor;
+
+        document.querySelector('.top-section').style.borderColor = theme.btnColor;
+
+        document.querySelector('.sidebar-toggle').style.color = theme.textColor;
+        document.querySelector('.sidebar-toggle').style.backgroundColor = theme.btnColor;
+        document.querySelector('.sidebar-toggle').style.borderColor = theme.btnColor;
+
         document.querySelector('.sidebar').style.backgroundColor = theme.sidebarBg;
+        document.querySelector('.sidebar').style.borderColor = theme.btnColor;
         document.querySelectorAll('.sidebar a').forEach(a => {
             a.style.color = theme.textColor;
         });
@@ -247,9 +309,32 @@
             existingChooser.remove();
         } else {
             const themeChooser = createThemeButtons();
-            document.querySelector('.container').prepend(themeChooser);
+            document.querySelector('.sidebar').prepend(themeChooser);
         }
     }
+
+    function checkOrientation() {
+        const orientationMessage = document.getElementById('orientationMessage');
+        if (window.innerWidth < window.innerHeight && !localStorage.getItem('dontShowOrientationMessage')) {
+            orientationMessage.style.display = 'block';
+        } else {
+            orientationMessage.style.display = 'none';
+        }
+    }
+
+    function closeOrientationMessage() {
+        const orientationMessage = document.getElementById('orientationMessage');
+        orientationMessage.style.display = 'none';
+    }
+
+    function dontShowAgain() {
+        localStorage.setItem('dontShowOrientationMessage', 'true');
+        
+        closeOrientationMessage();
+    }
+    localStorage.removeItem('dontShowOrientationMessage');
+    window.addEventListener('resize', checkOrientation);
+    checkOrientation(); // Проверка ориентации пользователя при загрузке страницы
 
     applyTheme(0); // Apply default theme
     </script>
