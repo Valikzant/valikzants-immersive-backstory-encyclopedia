@@ -1,0 +1,275 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta THEME_NAME="viewport" content="width=device-width, initial-scale=1.0"><title>Test Site</title>
+<link rel="stylesheet" href="./../../CSS/styles.css">
+</head>
+<body>
+
+    <div class="theme-chooser-modal" id="CONST_THEME_CHOOSER">
+        <div class="theme-chooser-content">
+            <h1 class="close-modal" onclick="FUNC_CLOSE_THEME_CHOOSER()">X</h1>
+            <h2>Библиотека</h2>
+            <div class="theme-preview-container" id="themePreviewContainer"></div>
+        </div>
+    </div>
+    <div class="orientation-message" id="orientationMessage">
+        <p>Для лучшего отображения переверните устройство в горизонтальное положение.<br> </p>
+        <div class="close-btn" onclick="FUNC_CLOSE_ORIENTATION_MESSAGE()">Закрыть</div>
+        <div class="dont-show-btn" onclick="FUNC_DONT_SHOW_AGAIN()">Больше не показывать</div>
+    </div>
+    <div class="sidebar" id="sidebar">
+        <h2 class="sidebar-toggle" onclick="FUNC_TOGGLE_SIDE_BAR()">☰</h2>
+        <a href="#main">На главную</a>
+        <a href="#about">О сайте</a>
+        <a href="#server">Discord Aavikko</a>
+        <a href="#" onclick="FUNC_TOGGLE_THEME_CHOOSER()">Выбор темы</a>
+    </div>
+    <div class="main-content" id="main-content">
+        <div class="container" id="main">
+            <h2 class="toggle-btn" onclick="FUNC_TOGGLE_TOP_SECTION()">☰</h2>
+            <div class="top-section" id="CONST_TOP_SECTION">
+
+                <div class="about-me">
+                    <h1>Айвен Уно</h1>
+                    <img class="profile-image" src="https://cdn.discordapp.com/attachments/886237435921580073/1282105149266854011/image.png?ex=66de24f7&is=66dcd377&hm=70f7727e25c04747afb018522906818bbb69735f7c2d988e007f24f62ba68dad&" alt="Pfp Placeholder">
+                    <p>
+                        Решив осмотреть этого вульпканина, вы сразу же замечаете его глаза: 
+                        большие, фиолетовые, с розовыми искорками, словно миниатюрные галактики, 
+                        полные тайн и неизведанных глубин. Эти глаза будто заглядывают вам обратно в душу.
+                        <br><br>
+                        Мягкая серо-лавандовая шерсть обрамляет этот завораживающий взгляд и нежно переливается в свете, 
+                        создавая ощущение пушистого, чистого облака. 
+                        А низкое, стройное телосложение намекает на юношескую грацию и подвижность.
+                        <br><br>
+                        Приметы: большие фиолетовые глаза, низкий рост, уши, направленные в стороны, и чёрный кончик хвоста.
+                    </p>
+                </div>
+                
+            </div>
+            <div class="bottom-section">
+                
+                <div class="section" id="about">
+                    <h2>Предыстория:</h2>
+                    <p>
+                        Шаблон истории.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* ======================================================================= */
+    function FUNC_ADJUST_OBJECTS_SIZE() {
+        const width = window.outerWidth;
+
+        if (width <= 480) {
+            document.body.style.fontSize = '35px';
+            document.querySelector('h1').style.fontSize = '2em';
+            document.querySelector('h2').style.fontSize = '1.5em';
+            document.querySelector('.profile-image').style.width = '350px';
+        } else if (width <= 768) {
+            document.body.style.fontSize = '25px';
+            document.querySelector('h1').style.fontSize = '1.8em';
+            document.querySelector('h2').style.fontSize = '1.3em';
+            document.querySelector('.profile-image').style.width = '200px';
+        } else {
+            document.body.style.fontSize = '15px';
+            document.querySelector('h1').style.fontSize = '1.6em';
+            document.querySelector('h2').style.fontSize = '1.1em';
+            document.querySelector('.profile-image').style.width = '150px';
+        }
+    }
+
+    window.addEventListener('load', FUNC_ADJUST_OBJECTS_SIZE);
+    window.addEventListener('resize', FUNC_ADJUST_OBJECTS_SIZE);
+    
+    const INCLUDED_THEMES = [
+    // Базовые
+    { THEME_NAME: 'Тень', 
+    COLOR_BACKGROUND: 'linear-gradient(135deg, #313338, #1e1f22)', 
+    COLOR_TEXT: '#cccccc', 
+    COLOR_CONTAINER: 'rgb(30, 31, 34, 0.95)', 
+    COLOR_BUTTON: '#313338', 
+    COLOR_SIDEBAR: 'rgb(30, 31, 34, 0.95)'},
+    
+    { THEME_NAME: 'Свет', 
+    COLOR_BACKGROUND: 'linear-gradient(135deg, #c4c9ce, #ffffff)', 
+    COLOR_TEXT: '#000000', 
+    COLOR_CONTAINER: 'rgb(232, 238, 244, 0.95)', 
+    COLOR_BUTTON: '#c4c9ce', 
+    COLOR_SIDEBAR: 'rgb(232, 238, 244, 0.95)'},
+
+    { THEME_NAME: 'Ночь', 
+    COLOR_BACKGROUND: 'linear-gradient(135deg, #13293d, #16324f)', 
+    COLOR_TEXT: '#3e92cc', 
+    COLOR_CONTAINER: 'rgb(22, 50, 79, 0.95)', 
+    COLOR_BUTTON: '#13293d', 
+    COLOR_SIDEBAR: 'rgb(22, 50, 79, 0.95)'},
+
+    { THEME_NAME: 'Заря', 
+    COLOR_BACKGROUND: 'linear-gradient(135deg, #81171b, #540804)', 
+    COLOR_TEXT: '#ea8c55', 
+    COLOR_CONTAINER: 'rgb(84, 8, 4, 0.95)', 
+    COLOR_BUTTON: '#540804', 
+    COLOR_SIDEBAR: 'rgb(84, 8, 4, 0.95)'},
+
+    { THEME_NAME: 'Утро', 
+    COLOR_BACKGROUND: 'linear-gradient(135deg, #f38375, #ef6351)', 
+    COLOR_TEXT: '#ffe3e0', 
+    COLOR_CONTAINER: 'rgb(239, 99, 81, 0.95)', 
+    COLOR_BUTTON: '#ef6351', 
+    COLOR_SIDEBAR: 'rgb(239, 99, 81, 0.95)'},
+
+    { THEME_NAME: 'Light', 
+    COLOR_BACKGROUND: 'linear-gradient(135deg, #c4c9ce, #ffffff)', 
+    COLOR_TEXT: '#000000', 
+    COLOR_CONTAINER: 'rgb(232, 238, 244)', 
+    COLOR_BUTTON: '#c4c9ce', 
+    COLOR_SIDEBAR: 'rgb(232, 238, 244)'},
+
+    { THEME_NAME: 'Light', 
+    COLOR_BACKGROUND: 'linear-gradient(135deg, #c4c9ce, #ffffff)', 
+    COLOR_TEXT: '#000000', 
+    COLOR_CONTAINER: 'rgb(232, 238, 244)', 
+    COLOR_BUTTON: '#c4c9ce', 
+    COLOR_SIDEBAR: 'rgb(232, 238, 244)'},
+    ];
+
+    function FUNC_TOGGLE_TOP_SECTION() {
+        const CONST_TOP_SECTION = document.getElementById('CONST_TOP_SECTION');
+        CONST_TOP_SECTION.classList.toggle('hidden');
+    }
+
+    function FUNC_TOGGLE_SIDE_BAR() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('open');
+        const mainContent = document.getElementById('main-content');
+    }
+
+    function FUNC_TOGGLE_THEME_CHOOSER() {
+        const CONST_THEME_CHOOSER = document.getElementById('CONST_THEME_CHOOSER');
+        CONST_THEME_CHOOSER.style.display = 'flex';
+        FUNC_CREATE_THEME_PREVIEWS();
+    }
+
+    function FUNC_CLOSE_THEME_CHOOSER() {
+        const CONST_THEME_CHOOSER = document.getElementById('CONST_THEME_CHOOSER');
+        CONST_THEME_CHOOSER.style.display = 'none';
+    }
+
+    function FUNC_CREATE_THEME_PREVIEWS() {
+        const themePreviewContainer = document.getElementById('themePreviewContainer');
+        themePreviewContainer.innerHTML = ''; // Очищаем контейнер перед добавлением новых элементов
+
+        INCLUDED_THEMES.forEach((theme, index) => {
+            const preview = document.createElement('div');
+            preview.className = 'theme-preview';
+            preview.style.background = theme.COLOR_BACKGROUND;
+            preview.style.width = '100%';
+            preview.onclick = () => FUNC_APPLY_THEME(index);
+
+            const span = document.createElement('span');
+            span.textContent = theme.THEME_NAME;
+            span.style.color = theme.COLOR_TEXT;
+            preview.appendChild(span);
+
+            themePreviewContainer.appendChild(preview);
+        });
+    }
+
+    function FUNC_APPLY_THEME(index, theme_load = null) {
+
+        let theme 
+        if (theme_load === null) {
+            theme = INCLUDED_THEMES[index];
+        } else {
+            theme = theme_load;
+        }
+
+        // Применяем стили темы к элементам страницы
+        document.body.style.background = theme.COLOR_BACKGROUND;
+        document.body.style.color = theme.COLOR_TEXT;
+
+        const toggleBtn = document.querySelector('.toggle-btn');
+        toggleBtn.style.color = theme.COLOR_TEXT;
+
+        const container = document.querySelector('.container');
+        container.style.backgroundColor = theme.COLOR_CONTAINER;
+        container.style.borderColor = theme.COLOR_BUTTON;
+
+        const topSection = document.querySelector('.top-section');
+        topSection.style.borderColor = theme.COLOR_BUTTON;
+
+        const section = document.querySelector('.section');
+        section.style.borderColor = theme.COLOR_BUTTON;
+
+        const sidebarToggle = document.querySelector('.sidebar-toggle');
+        sidebarToggle.style.color = theme.COLOR_TEXT;
+
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.style.backgroundColor = theme.COLOR_SIDEBAR;
+        sidebar.style.borderColor = theme.COLOR_BUTTON;
+
+        const sidebarLinks = document.querySelectorAll('.sidebar a');
+        sidebarLinks.forEach(link => {
+            link.style.color = theme.COLOR_TEXT;
+        });
+
+        const themeBtns = document.querySelectorAll('.theme-btn');
+        themeBtns.forEach(btn => {
+            btn.style.borderColor = theme.COLOR_BUTTON;
+        });
+
+        // Обновляем стили модального окна выбора темы
+        const themeChooser = document.getElementById('CONST_THEME_CHOOSER');
+        themeChooser.style.backgroundColor = theme.COLOR_CONTAINER;
+        themeChooser.style.color = theme.COLOR_TEXT;
+
+        const closeModal = themeChooser.querySelector('.close-modal');
+        closeModal.style.color = theme.COLOR_TEXT;
+
+        const themeChooserContent = themeChooser.querySelector('.theme-chooser-content');
+        themeChooserContent.style.backgroundColor = theme.COLOR_CONTAINER;
+        themeChooserContent.style.color = theme.COLOR_TEXT;
+
+        // Обновляем стили прокрутки
+        document.documentElement.style.setProperty('--scrollbar-thumb-color', theme.COLOR_BUTTON);
+        document.documentElement.style.setProperty('--scrollbar-thumb-hover-color', theme.COLOR_CONTAINER);
+        document.documentElement.style.setProperty('--scrollbar-track-color', theme.COLOR_SIDEBAR);
+
+        // Сохраняем выбранную тему в локальном хранилище
+        localStorage.setItem('theme', JSON.stringify(theme));
+
+        // Закрываем модальное окно после выбора темы
+        FUNC_CLOSE_THEME_CHOOSER();
+    }
+    function FUNC_CHECK_ORIENTATION() {
+        const orientationMessage = document.getElementById('orientationMessage');
+        if (window.innerWidth < window.innerHeight && !localStorage.getItem('dontShowOrientationMessage')) {
+            orientationMessage.style.display = 'block';
+        } else {
+            orientationMessage.style.display = 'none';
+        }
+    }
+
+    function FUNC_CLOSE_ORIENTATION_MESSAGE() {
+        const orientationMessage = document.getElementById('orientationMessage');
+        orientationMessage.style.display = 'none';
+    }
+
+    function FUNC_DONT_SHOW_AGAIN() {
+        localStorage.setItem('dontShowOrientationMessage', 'true');
+        FUNC_CLOSE_ORIENTATION_MESSAGE();
+    }
+    localStorage.removeItem('dontShowOrientationMessage');
+    //window.addEventListener('resize', FUNC_CHECK_ORIENTATION);
+    //FUNC_CHECK_ORIENTATION(); // Проверка ориентации пользователя при загрузке страницы
+
+    if (localStorage.getItem('theme') !== null) {
+        theme = JSON.parse(localStorage.getItem('theme')); // Извлекаем объект темы
+        FUNC_APPLY_THEME(0, theme); // Применяем выбранную тему
+    } else {
+        FUNC_APPLY_THEME(0); // Применяем тему по умолчанию
+    }
+    </script>
+</body>
+</html>
