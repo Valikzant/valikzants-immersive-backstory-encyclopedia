@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     const expandableSections = document.querySelectorAll('.BODY_SECTION.EXPANDABLE');
     
