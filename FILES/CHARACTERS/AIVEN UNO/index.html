@@ -4,133 +4,297 @@
 <script src="./../../JS/code.js"></script>
 <body id="body">
 
+    <!-- Начало BODY -->
     <div class="BODY">
 
-        <div class="BODY_SECTION IMPORTANT" style="grid-area: header;">
-            <h1>Айвен Уно</h1>
+        <!-- Начало верхней части страницы -->
+        <div class="BODY_SECTION ANIMATED" style="grid-area: header;">
+            <div class="SECTION_CONTENT">   
+                <h1>Айвен Уно</h1>
+            </div>
         </div>
+        <!-- Конец верхней части страницы -->
 
-        <div class="BODY_SECTION" style="grid-area: character;  min-height: 100%;">
-
+        <!-- Начало секции тела -->
+        <div class="BODY_SECTION ANIMATED" style="grid-area: character;  min-height: 100%;">
+            
+            <!-- Заголовок секции -->
             <div class="SECTION_TITLE" style="position: sticky; top: 10px;">
                 <h1>Информация</h1>
             </div>
 
-            <div class="SECTION_DEVIDER"></div>
-
-                <div class="SECTION_CONTENT">
-
-                    <img src="pfp.png" alt="Aiven UNO" class="CONTENT_IMAGE ICON">
-
-                    <bold>Имя:          </bold> Айвен Уно <br>
-                    <bold>Частые роли:  </bold> Уборщик <br>
-                    <bold>Раса:         </bold> Вульпканин <br>
-                    <bold>Пол:          </bold> Мужской <br>
-                    <bold>Рост:         </bold> 160 см <br>
-                    <bold>Возраст:      </bold> 19 лет <br>
-                    <bold>Отношения:    </bold> Свободен <br>
-                    
-                </div>
+            <!-- Контент секции -->
+            <div class="SECTION_CONTENT">
+                <img src="pfp.png" alt="Aiven UNO" class="CONTENT_IMAGE ICON">
+                <bold>Имя:          </bold> Айвен Уно <br>
+                <bold>Частые роли:  </bold> Уборщик <br>
+                <bold>Раса:         </bold> Вульпканин <br>
+                <bold>Пол:          </bold> Мужской <br>
+                <bold>Рост:         </bold> 160 см <br>
+                <bold>Возраст:      </bold> 19 лет <br>
+                <bold>Отношения:    </bold> Свободен <br>
+            </div>
 
         </div>
+        <!-- Конец секции тела -->
 
-        <div class="BODY_SECTION EXPANDABLE" style="grid-area: description;  min-height: 100%;">
+        <!-- Начало секции тела -->
+        <div class="BODY_SECTION" style="grid-area: description;  min-height: 100%;">
 
+            <!-- Заголовок секции -->
             <div class="SECTION_TITLE" style="position: sticky; top: 10px;">
                 <h1>Описание персонажа</h1>
             </div>
 
-            <div class="SECTION_DEVIDER"></div>
-
-                <div class="SECTION_CONTENT">
-                    Решив осмотреть этого вульпканина, вы сразу же замечаете его глаза: 
-                    большие, фиолетовые, с розовыми искорками, словно миниатюрные галактики, 
-                    полные тайн и неизведанных глубин. Эти глаза будто заглядывают вам обратно в душу.
-                    <br><br>
-                    Мягкая серо-лавандовая шерсть обрамляет этот завораживающий взгляд и нежно переливается в свете, 
-                    создавая ощущение пушистого, чистого облака. А низкое, стройное телосложение намекает на юношескую грацию и подвижность.
-                    <br><br>
-                    Приметы: большие фиолетовые глаза, низкий рост, уши, направленные в стороны, и чёрный кончик хвоста.
-                </div>
-
+            <!-- Контент секции -->
+            <div class="SECTION_CONTENT EXPANDABLE">
+                
+                Решив осмотреть этого вульпканина, вы сразу же замечаете его глаза: 
+                большие, фиолетовые, с розовыми искорками, словно миниатюрные галактики, 
+                полные тайн и неизведанных глубин. Эти глаза будто заглядывают вам обратно в душу.
+                <br><br>
+                Мягкая серо-лавандовая шерсть обрамляет этот завораживающий взгляд и нежно переливается в свете, 
+                создавая ощущение пушистого, чистого облака. А низкое, стройное телосложение намекает на юношескую грацию и подвижность.
+                <br><br>
+                Приметы: большие фиолетовые глаза, низкий рост, уши, направленные в стороны, и чёрный кончик хвоста.
+                
+            </div>
         </div>
+        <!-- Конец секции тела -->
 
+        <!-- Начало секции тела -->
         <div class="BODY_SECTION" style="grid-area: navigator;  min-height: 100%;">
 
+            <!-- Заголовок секции -->
             <div class="SECTION_TITLE" style="position: sticky; top: 10px;">
                 <h1>Навигатор</h1>
             </div>
 
-            <div class="SECTION_DEVIDER"></div>
-
-                <div class="SECTION_CONTENT" style="position: sticky; top: 70px;">
-                    <div class="SECTION_BUTTON">Начало</div>
-                    <div class="SECTION_BUTTON">Секция 1</div>
-                    <div class="SECTION_BUTTON">Секция 2</div>
-                    <div class="SECTION_BUTTON">Секция 3</div>
-                    <div class="SECTION_BUTTON">Секция 4</div>
-                    <div class="SECTION_BUTTON">Секция 5</div>
-                    <div class="SECTION_BUTTON">Секция 6</div>
-                    <div class="SECTION_BUTTON">...     </div>
-                </div>
-
+            <!-- Контент секции -->
+            <div class="SECTION_CONTENT" style="position: sticky; top: 75px;">
+                <div onclick='scrollToSection("start")' class="SECTION_BUTTON">Предыстория</div>
+                <div onclick='scrollToSection("iwasfound")' class="SECTION_BUTTON">Меня нашли</div>
+                <div onclick='scrollToSection("newworld")' class="SECTION_BUTTON">Новый мир</div>
+                <div onclick='scrollToSection("start")' class="SECTION_BUTTON">Секция 3</div>
+                <div onclick='scrollToSection("start")' class="SECTION_BUTTON">Секция 4</div>
+                <div onclick='scrollToSection("start")' class="SECTION_BUTTON">Секция 5</div>
+                <div onclick='scrollToSection("start")' class="SECTION_BUTTON">Секция 6</div>
+                <div onclick='scrollToSection("start")' class="SECTION_BUTTON">...     </div>
+            </div>
         </div>
+        <!-- Конец секции тела -->
 
+        <!-- Начало секции тела -->
         <div class="BODY_SECTION" style="grid-area: content;">
 
+            <!-- Заголовок секции -->
             <div class="SECTION_TITLE" style="position: sticky; top: 10px;">
-                <h1>Лор и истории</h1>
+                <h1>Предыстория</h1>
             </div>
 
+            <!-- Контент секции -->
+            <div class="SECTION_CONTENT EXPANDABLE" id="start">
+                В небольшой деревушке Инх-Унжо, затерянной среди густых лесов и извилистых рек далекой планеты, 
+                родился мальчик по имени Айвен. Жизнь в этом уголке вселенной текла неспешно, 
+                подчиняясь ритмам природы и древним традициям. Жители деревни почитали духов, 
+                населяющих их мир, а шаманы, словно проводники между мирами, проводили священные ритуалы и 
+                общались с потусторонними силами.
+                <br><br>
+                Имя "Айвен", что на древнем языке его народа означало "Созвездие", было дано мальчику неспроста. 
+                Его необычайно большие и выразительные глаза, казалось, 
+                отражали всю глубину и таинственность ночного неба. Фамилия "Уно" 
+                происходила от названия родной деревни, навсегда связывая его с местом, где он появился на свет. 
+                Однако внимание, которое привлекали его удивительные глаза, 
+                часто заставляло Айвена избегать близких контактов и отстраняться от древних традиций, 
+                которые и без того не находили отклика в его юной душе.
+                <br><br>
+                Но однажды мирную ночь в Инх-Унжо нарушили оглушительные звуки, доносящиеся с небес. 
+                Огромные металлические птицы, каких жители деревни никогда прежде не видели, 
+                опустились на землю. Это были шаттлы корпорации НаноТрейзен, прибывшие для изучения планеты.
+                <br><br>
+                Страх охватил Айвена, и он, повинуясь инстинкту, решил спрятаться. 
+                В царящей суматохе мальчик незаметно проскользнул в один из шаттлов, 
+                надеясь найти там безопасное убежище. Шаттл, в котором оказался Айвен, 
+                предназначался для перевозки оборудования и образцов. 
+                Никто не заметил маленького вульпканина, забившегося в темный угол грузового отсека.
+                Когда двигатели шаттла загудели, прогреваясь, Айвен понял, 
+                что оказался внутри одной из металлических птиц. 
+                Охваченный паникой и окруженный тьмой, он не смог найти выход и решил остаться внутри.
+                <br><br>
+                Шаттл взмыл ввысь, унося Айвена прочь от родной планеты навстречу неизвестности. 
+                Его путь лежал к станции центрального командования НаноТрейзен, 
+                где ему предстояло столкнуться с совершенно новым и незнакомым миром, 
+                полным удивительных открытий и непредсказуемых испытаний.
+            </div>
+            <!-- Конец контента секции -->
+
+            <!-- Разделитель секции -->
             <div class="SECTION_DEVIDER"></div>
 
-                <div class="SECTION_CONTENT">
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
-                    A lot of content A lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of contentA lot of content
+            <!-- Заголовок секции -->
+            <div class="SECTION_TITLE" style="position: sticky; top: 10px;">
+                <h1>Меня нашли</h1>
+            </div>
+
+            <!-- Контент секции -->
+            <div class="SECTION_CONTENT EXPANDABLE" id="iwasfound">
+                Долго скрываться у Айвена не получилось, голод выманил его на исследование места, куда он попал. 
+                Выглянув из отсека, Айвен сразу же засветился на камерах, 
+                которые просматривал один из сотрудников безопасности.
+                <br><br>
+                — Эй, кто здесь? — раздался голос, и вскоре в коридоре, куда уже вышел Айвен, 
+                появился высокий человек в форме безопасности НаноТрейзен. Его глаза расширились от удивления, 
+                когда он увидел маленького вульпканина, забегающего обратно.
+                <br><br>
+                — Похоже, у нас безбилетник на борту, — пробормотал он в рацию, 
+                связавшись с главой службы безопасности. — Бэрри, здесь ребенок, похоже, из той деревни.
+                <br><br>
+                ГСБ, женщина средних лет с суровым лицом, быстро прибыла на место. 
+                Она окинула Айвена взглядом, полным смеси удивления и раздражения.
+                <br><br>
+                — Как тебя зовут? — спросила она, пытаясь говорить мягко, хотя это ей плохо удавалось.
+                <br><br>
+                — Айвен, — тихо ответил мальчик, поднимая голову и глядя на нее своими большими глазами.
+                <br><br>
+                Ладно, Айвен. Похоже, ты теперь с нами. 
+                Мы не можем лететь обратно, мы почти прилетели на ЦК... — ГСБ вздохнула с расстроенным тоном.
+                <br><br>
+                Айвен кивнул, хотя в его глазах читалась неуверенность. 
+                Он не знал, что ждет его впереди, но понимал, что возврата к прежней жизни нет.
+                <br><br>
+                Шаттл продолжил свой путь к станции центрального командования НаноТрейзен. 
+                Айвен получил немного еды и воды, а также набор с современной одеждой. Наблюдая за сотрудниками, 
+                он ловил на себе удивлённые взгляды, хотя и сам был удивлён не меньше.
+                <br><br>
+                Единственный, кто казался ему более отстраненным от происходящего вокруг себя — 
+                это уборщик, тщательно отмывающий пол от краски, которую кто-то пролил. 
+                Айвена забавляло движение швабры, словно он смотрел на бегающего зверя.          
+            </div>
+            <!-- Конец контента секции -->
+
+            <!-- Разделитель секции -->
+            <div class="SECTION_DEVIDER"></div>
+
+            <!-- Заголовок секции -->
+            <div class="SECTION_TITLE" style="position: sticky; top: 10px;">
+                <h1>Новый мир</h1>
+            </div>
+
+            <!-- Контент секции -->
+            <div class="SECTION_CONTENT EXPANDABLE" id="newworld">
+                Когда шаттл наконец прибыл на станцию, Айвен был поражен ее размерами и сложностью. 
+                Он никогда не видел ничего подобного — огромные металлические конструкции, 
+                светящиеся экраны и множество людей в форме, сновавших туда-сюда.
+                <br><br>
+                Почувствовав толчок по спине Айвен обернулся, это была Бэрри. — Так, малыш, пойдём со мной, 
+                нужно оформлять на тебя документы... 
+                — На лице ГСБ была явная усталость, словно ей не хотелось этим заниматься, 
+                но работа требовала обратное. 
+                <br><br>
+                Прийдя в офис ГСБ, Айвена усадили в кресло, 
+                после чего Бэрри положила перед ним лист бумаги. 
+                — Заполни эту форму, нам нужно знать данные для оформления тебя на временную жилую станцию. 
+                — Проговорила ГСБ. 
+                <br><br>
+                Жилая станция? Айвен слегка удивился внутри своей головы. 
+                Неужели он будет жить на такой же большой, как ЦК, станции. — Хорошо. 
+                — Неуверенно ответил Айвен. 
+                <br><br>
+                Перед тем как взглянуть на листок, любопытство заставило Айвена оглянуться вокруг. 
+                Кабинет выглядел тёмным, с красным деревянным полом, 
+                и такой же, но уже черной, мебелью. 
+                ГСБ тем временем пристально смотрела в непонятное устройство за столом, 
+                где её пальцы что-то нажимали. 
+                <br><br>
+                Получив достаточно деталей о комнате, 
+                Айвен перевёл взгляд в листок и неуверенно схватил ручку, лежащую рядом: 
+                
+                <div class="CONTENT_DOCUMENTLIKE">
+                <strong>Имя:</strong> Айвен<br>
+                <strong>Фамилия:</strong> Уно<br>
+                <strong>Возраст:</strong> 18 лет<br>
+                <strong>Наличие родителей:</strong> мама Сарома Цурэ, папа Шихто Цурэ<br>
+                <strong>Ваши навыки и умения:</strong> Я ум-<br>
                 </div>
+                
+                Не успев дописать, Айвен услышал стук в дверь кабинета ГСБ. — Входите! 
+                — Сказала Бэрри, нажав снова что-то на устройстве. 
+                Когда дверь открылась, то Айвен увидел уже знакомый силуэт, 
+                это уборщик с шаттла, на котором он летел сюда. 
+                <br><br>
+                Здравствуйте! — Сказал тот уборщик, сняв кепку с головы, 
+                оголив свою чешуйчатую белую голову. 
+                — Я по поводу этого юноши. — Произнёс он, смотря на Айвена. 
+                <br><br>
+                Так? Вы что-то знаете о нем? — Спросила ГСБ, переглядывая между уборщиком и Айвеном. 
+                <br><br>
+                К сожалению нет, но он сильно напомнил мне моего племянника. 
+                Я думаю я мог бы научить его уборке с вашего позволения. 
+                Лишние руки всегда пойдут на пользу! — С улыбкой объяснил ситуацию уборщик. 
+                <br><br>
+                Хм. Мы ещё не оформили документы. — Перевела ГСБ взгляд на Айвена 
+                — Ты ещё не закончил? — Спросила она. 
+                <br><br>
+                Нет.. Я остановился на умениях. — Ответил Айвен. 
+                <br><br>
+                Запиши, что ты умеешь заниматься уборкой и я уже тебя всему научу. 
+                — Продолжил после ответа Айвена уборщик. 
+                <br><br>
+                Хорошо. — Отправив взгляд обратно в листок, Айвен продолжил заполнение: 
+
+                <div class="CONTENT_DOCUMENTLIKE">
+                <strong>Имя:</strong> Айвен<br>
+                <strong>Фамилия:</strong> Уно<br>
+                <strong>Возраст:</strong> 18 лет<br>
+                <strong>Наличие родителей:</strong> мама Сарома Цурэ, папа Шихто Цурэ<br>
+                <strong>Ваши навыки и умения:</strong> Я умею заниматься уборкой. <br>
+                </div>
+
+                Этого хватит...? — Как закончил, спросил Айвен, показав листок в сторону уборщика. 
+                <br><br>
+                Малыш, покажи сначала листок мне, я этим занимаюсь. 
+                — С ухмылкой проговорила ГСБ, вызвав также смешок и у уборщика. 
+                <br><br>
+                Со смущением Айвен встал из-за стола, и подошёл вместе с листком к столу Бэрри. 
+                — Вот.. — Пробормотал он. 
+                <br><br>
+                Так... Мгм-мгм... — Оглянула листок ГСБ, взяв недолгую паузу. 
+                — Ладно... Не будем тебя мучать... Этого минимально достаточно. 
+                <br><br>
+                О, тогда будет у вас возможность заселить его на Torus-304? 
+                Я живу на той дорм-станции. Там я и смогу помочь! — Перебил уборщик. 
+                <br><br>
+                Обернувшись в монитор устройства, ГСБ что-то сделала пальцами на экране и продолжила. 
+                — Записала. Пусть ждёт снаружи документов. Процесс не быстрый. 
+                <br><br>
+                Отлично. — Обрадовался уборщик, зная, что у него появится новый знакомый.
+                    — Пойдём пока посидим здесь. — Пригласил Айвена уборщик наружу. 
+                <br><br>
+                Выйдя из кабинета, Айвен сел на сидения, находящиеся рядом, где присел и сам уборщик, 
+                заведя длинный разговор из вопросов и историй вместе с Айвеном.
+                <br><br>
+                Пока ГСБ оформляла документы внутри своего офиса, 
+                Айвен с уборщиком разговаривали об устройстве станций, различных технологиях, 
+                которыми повседневно пользуются, а также о месте, где живёт сам уборщик. 
+                Айвену было любопытно испытать технологии, от которых он жил так далеко все это время.          
+            </div>
+            <!-- Конец контента секции -->
+
+            <!-- Разделитель секции -->
+            <div class="SECTION_DEVIDER"></div>
+
+            <!-- Заголовок секции -->
+            <div class="SECTION_TITLE" style="position: sticky; top: 10px;">
+                <h1>Шаблон</h1>
+            </div>
+
+            <!-- Контент секции -->
+            <div class="SECTION_CONTENT EXPANDABLE" id="newworld">
+                Шаблон
+                <br><br>
+                Шаблон                              
+            </div>
+            <!-- Конец контента секции -->
 
         </div>
 
