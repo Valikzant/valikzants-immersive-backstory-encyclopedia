@@ -251,7 +251,6 @@ img {
   border-radius: 10px;
   border: 1px solid rgb(var(--text));
   padding: 10px;
-  font-family: 'dudka';
   margin: 20px 0px 20px 0px;
 }
 .CONTENT_DOCUMENTLIKE::before ,
@@ -259,7 +258,6 @@ img {
   content: ' . . . ';
   width: 100%;
   text-align: center;
-
   display: block;
   margin: 10px 0px 10px 0px;
 }
