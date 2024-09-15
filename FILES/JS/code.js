@@ -11,8 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
-    section.scrollIntoView();
-    window.scrollBy(0, -75);
+    /*fix for mobile browsers*/
+    setTimeout(() => {
+        section.scrollIntoView(true);
+    }, 10);
+    setTimeout(() => {
+        window.scrollBy(0, -75);
+    }, 10);
+    
 }
 
 function setTheme(theme) {
