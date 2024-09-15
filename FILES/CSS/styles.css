@@ -77,6 +77,7 @@ body {
 
 h1 {
 
+  font-size: 22.5px;
   padding: 0px;
   margin: 0px;
 
@@ -84,6 +85,7 @@ h1 {
 
 h2 {
 
+  font-size: 17.5px;
   padding: 0px;
   margin: 0px;
 
@@ -102,23 +104,20 @@ img {
 .BODY {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  grid-template-areas: 
-    "header header"
-    "sidebar content"
-    "sidebar content"
-    "sidebar content";
+  margin-top: 70px;
   min-width: 300px;
   max-width: 100%;
   gap: 10px;
   align-items:flex-start;
   box-shadow: 
-    6px 6px 10px -1px rgba(0, 0, 0, 1),
+    6px 6px 10px -1px rgba(var(--second), 0.1),
     -6px -6px 10px -1px rgba(var(--main), 0.1);
-  background-color: rgb(calc(var(--solid) * 0.25));
+  background-color: rgb(var(--solid));
   border-radius: 10px;
   padding: 10px;
   z-index: 1;
 }
+
 
 .BODY_DEVIDER {
   display: flex;
@@ -135,7 +134,7 @@ img {
   flex-direction: column;
   align-items: flex-start;
   box-shadow: 
-  6px 6px 10px -1px rgba(0, 0, 0, 1),
+  6px 6px 10px -1px rgba(var(--second), 0.1),
   -6px -6px 10px -1px rgba(var(--main), 0.1);
   background-color: rgb(var(--solid));
   border-radius: 10px;
@@ -160,6 +159,9 @@ img {
   z-index: -1;
 }
 
+.BODY_SECTION.HIDDEN {
+  display: none;
+}
 
 
 /* SECTION */
@@ -173,19 +175,21 @@ img {
   background-color: rgb(var(--solid));
   transition: box-shadow 0.25s ease, filter 0.1s ease, font-size 0.5s ease;
   box-shadow: 
-    6px 6px 10px -1px rgba(0, 0, 0, 1),
+    6px 6px 10px -1px rgba(var(--second), 0.1),
     -6px -6px 10px -1px rgba(var(--main), 0.1);
   color: rgb(var(--text));
   padding: 10px 10px;
   margin: 5px 0px;
   cursor: pointer;
-  position: sticky; 
+
+  opacity: 1;
   float: left;
+  pointer-events: auto;
 }
 .SECTION_BUTTON:active {
   filter: brightness(0.75);
   box-shadow: 
-    10px 10px 10px -1px rgba(0, 0, 0, 1) inset,
+    10px 10px 10px -1px rgba(var(--second), 0.1) inset,
     -10px -10px 10px -1px rgba(var(--main), 0.1) inset;
 }
 .SECTION_TITLE {
@@ -201,7 +205,7 @@ img {
     rgb(var(--second)) 50%,
     rgb(var(--main)) 100%
   );
-  z-index: 1;
+  z-index: 2;
 }
 .SECTION_DEVIDER {
   display: flex;
@@ -221,7 +225,7 @@ img {
   padding: 10px;
   z-index: 0;
   box-shadow: 
-  10px 10px 10px -1px rgba(0, 0, 0, 1) inset,
+  10px 10px 10px -1px rgba(var(--second), 0.1) inset,
   -10px -10px 10px -1px rgba(var(--main), 0.1) inset;
 }
 .SECTION_CONTENT.EXPANDABLE {
@@ -261,7 +265,34 @@ img {
   display: block;
   margin: 10px 0px 10px 0px;
 }
-
+.CONTENT_THEME_PREVIEW {
+  --preview-text: var(--text);
+  --preview-solid: var(--solid);
+  --preview-main: var(--main);
+  --preview-second: var(--second);
+  border-radius: 10px;
+  border: 5px solid rgb(var(--preview-main));
+  width: 100%;
+  font-size: 20px;
+  height: 100%;
+  margin: 10px 0px 10px 0px;
+  box-shadow: 
+  10px 10px 10px -1px rgba(var(--preview-second), 0.1) inset,
+  -10px -10px 10px -1px rgba(var(--preview-main), 0.1) inset;
+  background-color: rgb(var(--preview-main));
+  background-image: linear-gradient(
+    to right,
+    rgb(var(--preview-solid)) 0%,
+    rgb(var(--preview-solid)) 50%,
+    rgb(var(--preview-second)) 50%,
+    rgb(var(--preview-main)) 100%
+  );
+  color: rgb(var(--preview-text));
+  padding: 10px;
+}
+.CONTENT_THEME_PREVIEW:hover {
+  cursor: pointer;
+}
 
 /* MEDIA */
 
@@ -269,7 +300,6 @@ img {
   .BODY {
     grid-template-columns: 1fr 3fr;
     grid-template-areas: 
-    "header         header"
     "character      description"
     "navigator      content";
   }
@@ -281,12 +311,6 @@ img {
     font-size: 17.5px;
   }
   .SECTION_CONTENT.EXPANDED {
-    font-size: 22.5px;
-  }
-  h1 {
-    font-size: 27.5px;
-  }
-  h2 {
     font-size: 22.5px;
   }
 }
@@ -295,7 +319,6 @@ img {
   .BODY {
     grid-template-columns: 1fr 2fr;
     grid-template-areas: 
-    "header         header"
     "character      description"
     "navigator      content";
   }
@@ -309,19 +332,12 @@ img {
   .SECTION_CONTENT.EXPANDED {
     font-size: 22.5px;
   }
-  h1 {
-    font-size: 27.5px;
-  }
-  h2 {
-    font-size: 22.5px;
-  }
 }
 
 @media (max-width: 768px) {
   .BODY {
     grid-template-columns: 1fr;
     grid-template-areas: 
-    "header         header"
     "character      character"
     "description    description"
     "navigator      navigator"
@@ -337,19 +353,12 @@ img {
   .SECTION_CONTENT.EXPANDED {
     font-size: 20px;
   }
-  h1 {
-    font-size: 25px;
-  }
-  h2 {
-    font-size: 20px;
-  }
 }
   
 @media (max-width: 480px) {
   .BODY {
     grid-template-columns: 1fr;
     grid-template-areas: 
-    "header         header"
     "character      character"
     "description    description"
     "navigator      navigator"
@@ -363,12 +372,6 @@ img {
     font-size: 12.5px;
   } 
   .SECTION_CONTENT.EXPANDED {
-    font-size: 17.5px;
-  }
-  h1 {
-    font-size: 22.5px;
-  }
-  h2 {
     font-size: 17.5px;
   }
 }
