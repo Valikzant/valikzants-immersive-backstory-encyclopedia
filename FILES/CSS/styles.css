@@ -283,7 +283,7 @@ img {
   background-image: linear-gradient(
     to right,
     rgb(var(--preview-solid)) 0%,
-    rgb(var(--preview-solid)) 50%,
+    rgb(var(--preview-solid)) 40%,
     rgb(var(--preview-second)) 50%,
     rgb(var(--preview-main)) 100%
   );
