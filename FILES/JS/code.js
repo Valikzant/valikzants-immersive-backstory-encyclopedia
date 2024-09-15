@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
-    section.scrollIntoView({ behavior: 'smooth' });
+    section.scrollIntoView();
     window.scrollBy(0, -75);
 }
 
