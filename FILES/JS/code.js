@@ -11,14 +11,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
-    /*fix for mobile browsers*/
     setTimeout(() => {
-        section.scrollIntoView(true);
-    }, 10);
-    setTimeout(() => {
-        window.scrollBy(0, -75);
-    }, 10);
-    
+        //behaivor not smooth
+        section.scrollIntoView({ behavior: 'auto', block: 'start', inline: 'nearest' });
+
+        if (sectionId.startsWith('story_')) {
+            setTimeout(() => {
+                window.scrollBy(0, -150);
+            }, 100);
+        }
+
+    }, 100);
 }
 
 function setTheme(theme) {

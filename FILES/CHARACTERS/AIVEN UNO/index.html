@@ -9,7 +9,7 @@
     
         <div class="BODY">
             
-            <div class="BODY_SECTION ANIMATED HIDDEN" id="themeChooserWindow" style="box-shadow: 0 0 1000px rgb(0, 0, 0); position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 4; width: calc(100% - 40px); max-height: 750px; max-width: 700px;">
+            <div class="BODY_SECTION HIDDEN" id="themeChooserWindow" style="box-shadow: 0 0 100px rgb(0, 0, 0); position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 4; width: calc(100% - 40px); max-height: 750px; max-width: 700px;">
                 <div class="SECTION_TITLE">
                     <h1>Выбор темы</h1>
                 </div>
@@ -115,14 +115,14 @@ text: "0, 0, 0", solid: "255, 255, 255", main: "255, 255, 255", second: "255, 25
                 <!-- Контент секции -->
                 <div class="SECTION_CONTENT" style="position: sticky; top: 150px;">
                     <!-- ДЛЯ РЕДАКТИРОВАНИЯ: Название кнопок делайте в соответствии с заголовками историй -->
-                    <div onclick='scrollToSection("start")' class="SECTION_BUTTON">Предыстория</div>
-                    <div onclick='scrollToSection("iwasfound")' class="SECTION_BUTTON">Меня нашли</div>
-                    <div onclick='scrollToSection("newworld")' class="SECTION_BUTTON">Новый мир</div>
-                    <div onclick='scrollToSection("twist")' class="SECTION_BUTTON">Неожиданый поворот</div>
-                    <div onclick='scrollToSection("dormstation")' class="SECTION_BUTTON">Torus-304</div>
-                    <div onclick='scrollToSection("theroom")' class="SECTION_BUTTON">Каюта Айвена</div>
-                    <div onclick='scrollToSection("start")' class="SECTION_BUTTON">...</div>
-                    <div onclick='scrollToSection("start")' class="SECTION_BUTTON">...</div>
+                    <div onclick='scrollToSection("story_start")' class="SECTION_BUTTON">Предыстория</div>
+                    <div onclick='scrollToSection("story_iwasfound")' class="SECTION_BUTTON">Меня нашли</div>
+                    <div onclick='scrollToSection("story_newworld")' class="SECTION_BUTTON">Новый мир</div>
+                    <div onclick='scrollToSection("story_twist")' class="SECTION_BUTTON">Неожиданый поворот</div>
+                    <div onclick='scrollToSection("story_dormstation")' class="SECTION_BUTTON">Torus-304</div>
+                    <div onclick='scrollToSection("story_theroom")' class="SECTION_BUTTON">Каюта Айвена</div>
+                    <div onclick='scrollToSection("story_start")' class="SECTION_BUTTON">...</div>
+                    <div onclick='scrollToSection("story_start")' class="SECTION_BUTTON">...</div>
                     <!-- ДЛЯ РЕДАКТИРОВАНИЯ: Также в scrollToSection указывайте тот id, которым вы назвали блок истории -->
                 </div>
             </div>
@@ -140,7 +140,7 @@ text: "0, 0, 0", solid: "255, 255, 255", main: "255, 255, 255", second: "255, 25
                     <h1>НАЗВАНИЕ БЛОКА</h1>
                 </div>
     
-                <div class="SECTION_CONTENT EXPANDABLE" id="id БЛОКА ИСТОРИИ К КОТОРОМУ ОТСЫЛАЕТСЯ КНОПКА">
+                <div class="SECTION_CONTENT EXPANDABLE" id="story_id БЛОКА ИСТОРИИ К КОТОРОМУ ОТСЫЛАЕТСЯ КНОПКА">
                     КОНТЕНТ БЛОКА
                     <br><br>
                     КОНТЕНТ БЛОКА
@@ -154,7 +154,7 @@ text: "0, 0, 0", solid: "255, 255, 255", main: "255, 255, 255", second: "255, 25
                 </div>
                 
                 <!-- Контент секции -->
-                <div class="SECTION_CONTENT EXPANDABLE" id="start">
+                <div class="SECTION_CONTENT EXPANDABLE" id="story_start">
                     В небольшой деревушке Инх-Унжо, затерянной среди густых лесов и извилистых рек далекой планеты, 
                     родился мальчик по имени Айвен. Жизнь в этом уголке вселенной текла неспешно, 
                     подчиняясь ритмам природы и древним традициям. Жители деревни почитали духов, 
@@ -198,7 +198,7 @@ text: "0, 0, 0", solid: "255, 255, 255", main: "255, 255, 255", second: "255, 25
                 </div>
     
                 <!-- Контент секции -->
-                <div class="SECTION_CONTENT EXPANDABLE" id="iwasfound">
+                <div class="SECTION_CONTENT EXPANDABLE" id="story_iwasfound">
                     Долго скрываться у Айвена не получилось, голод выманил его на исследование места, куда он попал. 
                     Выглянув из отсека, Айвен сразу же засветился на камерах, 
                     которые просматривал один из сотрудников безопасности.
@@ -242,7 +242,7 @@ text: "0, 0, 0", solid: "255, 255, 255", main: "255, 255, 255", second: "255, 25
                 </div>
     
                 <!-- Контент секции -->
-                <div class="SECTION_CONTENT EXPANDABLE" id="newworld">
+                <div class="SECTION_CONTENT EXPANDABLE" id="story_newworld">
                     Когда шаттл наконец прибыл на станцию, Айвен был поражен ее размерами и сложностью. 
                     Он никогда не видел ничего подобного — огромные металлические конструкции, 
                     светящиеся экраны и множество людей в форме, сновавших туда-сюда.
@@ -350,7 +350,7 @@ text: "0, 0, 0", solid: "255, 255, 255", main: "255, 255, 255", second: "255, 25
                 </div>
     
                 <!-- Контент секции -->
-                <div class="SECTION_CONTENT EXPANDABLE" id="twist">
+                <div class="SECTION_CONTENT EXPANDABLE" id="story_twist">
                     После часа ожидания и получения документов, уборщик, который представился в разговоре как Ре-Гош, 
                     проводил Айвена в секцию станции с шаттлами транспортировки сотрудников. 
                     <br><br>
@@ -421,7 +421,7 @@ text: "0, 0, 0", solid: "255, 255, 255", main: "255, 255, 255", second: "255, 25
                 </div>
     
                 <!-- Контент секции -->
-                <div class="SECTION_CONTENT EXPANDABLE" id="dormstation">
+                <div class="SECTION_CONTENT EXPANDABLE" id="story_dormstation">
                     Пролетев достаточно времени и постоянно волнуясь, что он сел не туда, 
                     Айвен все же услышал объявление о нужной станции. 
                     — Прибытие к жилой станции Torus-304. Приготовьте свои вещи. — Сказал динамик над его головой. 
@@ -481,7 +481,7 @@ text: "0, 0, 0", solid: "255, 255, 255", main: "255, 255, 255", second: "255, 25
                 </div>
     
                 <!-- Контент секции -->
-                <div class="SECTION_CONTENT EXPANDABLE" id="theroom">
+                <div class="SECTION_CONTENT EXPANDABLE" id="story_theroom">
                     Когда лифт остановился, Айвен почувствовал легкий толчок, и стена перед ним снова раздвинулась, 
                     открывая доступ в новый коридор, который был освещен мягким голубоватым светом, 
                     а на стенах мерцали номера комнат. 
@@ -535,7 +535,7 @@ text: "0, 0, 0", solid: "255, 255, 255", main: "255, 255, 255", second: "255, 25
                 </div>
     
                 <!-- Контент секции -->
-                <div class="SECTION_CONTENT EXPANDABLE" id="newworld">
+                <div class="SECTION_CONTENT EXPANDABLE" id="story_newworld">
                     Шаблон
                     <br><br>
                     Шаблон                              
@@ -551,7 +551,7 @@ text: "0, 0, 0", solid: "255, 255, 255", main: "255, 255, 255", second: "255, 25
                 </div>
     
                 <!-- Контент секции -->
-                <div class="SECTION_CONTENT EXPANDABLE" id="newworld">
+                <div class="SECTION_CONTENT EXPANDABLE" id="story_newworld">
                     Шаблон
                     <br><br>
                     Шаблон                              
