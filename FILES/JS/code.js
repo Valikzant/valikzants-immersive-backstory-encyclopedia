@@ -12,24 +12,37 @@ document.addEventListener('DOMContentLoaded', function() {
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
     setTimeout(() => {
-        //behaivor not smooth
         section.scrollIntoView({ behavior: 'auto', block: 'start', inline: 'nearest' });
-
         if (sectionId.startsWith('story_')) {
             setTimeout(() => {
                 window.scrollBy(0, -150);
             }, 100);
         }
-
     }, 100);
 }
 
 function setTheme(theme) {
     const body = document.querySelector('body');
-    body.style.setProperty('--text', theme.text);
-    body.style.setProperty('--solid', theme.solid);
-    body.style.setProperty('--main', theme.main);
-    body.style.setProperty('--second', theme.second);
+    const properties = ['--text', '--solid', '--main', '--second'];
+
+    for (let i = 0; i < properties.length; i++) {
+        const transition = `all 0.5s ease`;
+        body.style.setProperty(`transition`, transition);
+        setTimeout(() => {
+            body.style.setProperty(properties[i], theme[properties[i].substring(2)]);
+        } , 50 * i);   
+    }
+
+    localStorage.setItem('theme', JSON.stringify(theme));
+}
+
+function setThemeRapidly(theme) {
+    const body = document.querySelector('body');
+    const properties = ['--text', '--solid', '--main', '--second'];
+
+    for (let i = 0; i < properties.length; i++) {
+        body.style.setProperty(properties[i], theme[properties[i].substring(2)]);
+    }
 
     localStorage.setItem('theme', JSON.stringify(theme));
 }
@@ -50,8 +63,6 @@ window.onload = function() {
         document.getElementById("themeChooser").appendChild(theme_button);
     }
 
-    /*info section that themes saves across pages*/
-
     const info = document.createElement("div");
     info.classList.add("SECTION_CONTENT");
     info.innerHTML = "Темы сохраняются локально (если разрешено браузером), и загружаются на любой странице, даже если на ней не предусмотрены темы.";
@@ -67,7 +78,7 @@ window.onload = function() {
 
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
-        setTheme(JSON.parse(savedTheme));
+        setThemeRapidly(JSON.parse(savedTheme));
     }
     else {
         setTheme(themes[0]);
