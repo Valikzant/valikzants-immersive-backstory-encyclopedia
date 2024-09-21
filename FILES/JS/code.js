@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
     setTimeout(() => {
@@ -21,13 +22,12 @@ function scrollToSection(sectionId) {
     }, 100);
 }
 
+
 function setTheme(theme) {
     const body = document.querySelector('body');
     const properties = ['--text', '--solid', '--main', '--second'];
 
     for (let i = 0; i < properties.length; i++) {
-        const transition = `all 0.5s ease`;
-        body.style.setProperty(`transition`, transition);
         setTimeout(() => {
             body.style.setProperty(properties[i], theme[properties[i].substring(2)]);
         } , 50 * i);   
@@ -35,6 +35,7 @@ function setTheme(theme) {
 
     localStorage.setItem('theme', JSON.stringify(theme));
 }
+
 
 function setThemeRapidly(theme) {
     const body = document.querySelector('body');
@@ -47,7 +48,12 @@ function setThemeRapidly(theme) {
     localStorage.setItem('theme', JSON.stringify(theme));
 }
 
+
 window.onload = function() { 
+
+
+    // Темы
+
     document.getElementById("themeChooser").innerHTML = "";
     for (let i = 0; i < themes.length; i++) {
         const theme_button = document.createElement("div");
@@ -63,18 +69,13 @@ window.onload = function() {
         document.getElementById("themeChooser").appendChild(theme_button);
     }
 
+
+    // О сохранении тем
+
     const info = document.createElement("div");
     info.classList.add("SECTION_CONTENT");
     info.innerHTML = "Темы сохраняются локально (если разрешено браузером), и загружаются на любой странице, даже если на ней не предусмотрены темы.";
     document.getElementById("themeChooser").appendChild(info);
-    
-    const close_button = document.createElement("div");
-    close_button.classList.add("SECTION_BUTTON");
-    close_button.innerHTML = "Закрыть";
-    close_button.onclick = function() {
-        toggleThemeChooser();
-    }
-    document.getElementById("themeChooser").appendChild(close_button);
 
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
@@ -83,9 +84,27 @@ window.onload = function() {
     else {
         setTheme(themes[0]);
     }
+
+
+    // Постепенно убираем подсказки
+
+    const hints = document.querySelectorAll('.SECTION_HINT');
+
+    hints.forEach(hint => {
+        hint.style.opacity = 0;
+    });
+
+
+    // А также закрываем экран загрузки
+
+    const loadingScreen = document.getElementById("loadingScreen");
+
+    setTimeout(() => {
+        loadingScreen.style.opacity = 0;
+    }, 150);
 }
 
-/* theme chooser opener */
+
 function toggleThemeChooser() {
     const themeChooser = document.getElementById("themeChooserWindow");
     themeChooser.classList.toggle('HIDDEN');
