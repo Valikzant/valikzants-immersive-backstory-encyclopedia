@@ -153,10 +153,11 @@ img {
 
 .BODY_SECTION.CLICKABLE:hover {
   transform: scale(1.05);
+  filter: brightness(1.15) drop-shadow(0 0 10px rgba(var(--main), 0.75));
 }
 
 .BODY_SECTION.WINDOW {
-  box-shadow: 0 0 100px rgb(var(--main));
+  box-shadow: 0 0 50px rgb(var(--main));
   position: fixed; 
   top: 50%; 
   left: 50%; 
@@ -233,13 +234,14 @@ img {
 }
 .SECTION_BUTTON:hover {
   transform: scale(1.05);
+  filter: brightness(1.15) drop-shadow(0 0 10px rgba(var(--main), 0.75));
 }
 
 .SECTION_HINT {
   transition: opacity 4s cubic-bezier(0.755, 0.05, 0.855, 0.06);
   opacity: 1;
   pointer-events: none;
-  box-shadow: 0 0 100px rgb(var(--main));
+  box-shadow: 0 0 50px rgb(var(--main));
   background-color: rgb(var(--solid));
   border-radius: 10px;
   padding: 10px;
@@ -294,6 +296,7 @@ img {
 }
 .SECTION_CONTENT.CLICKABLE:hover {
   transform: scale(1.05);
+  filter: brightness(1.15) drop-shadow(0 0 10px rgba(var(--main), 0.75));
 }
 .SECTION_CONTENT.EXPANDABLE {
   cursor: pointer;
