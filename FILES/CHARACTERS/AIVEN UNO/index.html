@@ -23,6 +23,12 @@
   h1 {
     font-size: 22.5px;
   }
+  h1.FOLDABLE {
+    display: inline;
+  }
+  h1.FOLDED {
+    display: none;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -44,6 +50,12 @@
   }
   h1 {
     font-size: 22.5px;
+  }
+  h1.FOLDABLE {
+    display: inline;
+  }
+  h1.FOLDED {
+    display: none;
   }
 }
 
@@ -69,6 +81,12 @@
   h1 {
     font-size: 20px;
   }
+  h1.FOLDABLE {
+    display: inline;
+  }
+  h1.FOLDED {
+    display: none;
+  }
 }
   
 @media (max-width: 480px) {
@@ -92,6 +110,12 @@
   }
   h1 {
     font-size: 17.5px;
+  }
+  h1.FOLDABLE {
+    display: none;
+  }
+  h1.FOLDED {
+    display: inline;
   }
 }
     </style>
@@ -207,17 +231,21 @@ text: "0, 0, 0", solid: "255, 255, 255", main: "255, 255, 255", second: "255, 25
             <!-- Начало верхней части страницы -->
             <div class="BODY_SECTION ANIMATED" style="position: fixed; top: 10px; z-index: 3; width: calc(100% - 40px);">
                 <div class="SECTION_CONTENT" style="padding: 0px 10px; display:flex; flex-direction: row; align-items: center; justify-content: center;">
-                    <div onclick='scrollToSection("body")' style="flex-shrink: 2; white-space: nowrap; padding: 10px; margin: 0px;" class="SECTION_BUTTON">
-                        <h1>Айвен Уно</h1> 
+                    <div onclick='scrollToSection("body")' style="flex-shrink: 2; white-space: nowrap; padding: 10px; margin: 0px; justify-content: center;" class="SECTION_BUTTON">
+                        <h1 class="FOLDABLE">Айвен Уно</h1> <h1 class="FOLDED">↑</h1>
                         <!--    ДЛЯ РЕДАКТИРОВАНИЯ:
                                 Полное Имя персонажа 
                                 (Если полное название слишком длинное, используйте только имя/прозвище)
                                 Например: Айвен Уно -> Айвен                                        -->
                     </div> 
-                    <h1 style="flex-shrink: 1; width: 100%;"></h1>
-                    <div style="flex-shrink: 2; padding: 10px; margin: 0px;" class="SECTION_BUTTON"  onclick="window.location.href='../../../FILES/index.html'" ><h1>EgoKvento</h1></div>
-                    <h1 style="flex-shrink: 1; width: 100%;"></h1>
-                    <div onclick="toggleThemeChooser()" style="flex-shrink: 2; padding: 10px; margin: 0px;" class="SECTION_BUTTON"><h1>Темы</h1></div>
+                    <h1 class="FOLDABLE" style="flex-shrink: 1; width: 100%;"></h1>
+                    <div style="flex-shrink: 2; padding: 10px; margin: 0px; justify-content: center;" class="SECTION_BUTTON"  onclick="window.location.href='../../../FILES/index.html'" >
+                      <h1 class="FOLDABLE">ProfileParagon</h1> <h1 class="FOLDED">PP</h1>
+                    </div>
+                    <h1 class="FOLDABLE" style="flex-shrink: 1; width: 100%;"></h1>
+                    <div onclick="toggleThemeChooser()" style="flex-shrink: 2; padding: 10px; margin: 0px; justify-content: center;" class="SECTION_BUTTON">
+                      <h1 class="FOLDABLE">Темы</h1> <h1 class="FOLDED">•••</h1>
+                    </div>
                 </div>
             </div>
             <!-- Конец верхней части страницы -->

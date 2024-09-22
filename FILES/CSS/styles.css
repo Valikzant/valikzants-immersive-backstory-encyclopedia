@@ -36,7 +36,6 @@ html {
 }
 
 body {
-
   /* VARIABLES */
   --text: 225, 217, 249;
   --solid: 5, 2, 13;
@@ -56,25 +55,30 @@ body {
 
   background-color: rgb(var(--solid));
   color: rgb(var(--text));
-
 }
 
 h1 {
-
   font-size: 22.5px;
   padding: 0px;
   margin: 0px;
   transition: font-size 0.5s ease;
-
+}
+h1.FOLDABLE {
+  display: none;
+  padding: 0px;
+  margin: 0px;
+}
+h1.FOLDED {
+  display: none;
+  content: "";
+  margin-right: 5px;
 }
 
 h2 {
-
   font-size: 17.5px;
   padding: 0px;
   margin: 0px;
   transition: font-size 0.5s ease;
-
 }
 
 img {

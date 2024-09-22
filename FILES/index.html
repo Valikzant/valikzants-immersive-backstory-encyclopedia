@@ -21,6 +21,12 @@
   h1 {
     font-size: 22.5px;
   }
+  h1.FOLDABLE {
+    display: inline;
+  }
+  h1.FOLDED {
+    display: none;
+  }
   h2 {
     font-size: 17.5px;
   }
@@ -43,6 +49,12 @@
   }
   h1 {
     font-size: 22.5px;
+  }
+  h1.FOLDABLE {
+    display: inline;
+  }
+  h1.FOLDED {
+    display: none;
   }
   h2 {
     font-size: 17.5px;
@@ -70,6 +82,12 @@
   h1 {
     font-size: 20px;
   }
+  h1.FOLDABLE {
+    display: inline;
+  }
+  h1.FOLDED {
+    display: none;
+  }
   h2 {
     font-size: 15px;
   }
@@ -95,6 +113,12 @@
   }
   h1 {
     font-size: 17.5px;
+  }
+  h1.FOLDABLE {
+    display: none;
+  }
+  h1.FOLDED {
+    display: inline;
   }
   h2 {
     font-size: 12.5px;
@@ -210,11 +234,17 @@ text: "0, 0, 0", solid: "255, 255, 255", main: "255, 255, 255", second: "255, 25
             <!-- Начало верхней части страницы -->
             <div class="BODY_SECTION ANIMATED" style="position: fixed; top: 10px; z-index: 3; width: calc(100% - 40px);">
                 <div class="SECTION_CONTENT" style="padding: 0px 10px; display:flex; flex-direction: row; align-items: center; justify-content: space-evenly;">
-                    <div onclick='scrollToSection("body")' style="flex-shrink: 2; white-space: nowrap; padding: 10px; margin: 0px;" class="SECTION_BUTTON"><h1>Главная</h1> </div> 
-                    <h1 style="flex-shrink: 1; width: 100%;"></h1>
-                    <div style="flex-shrink: 2; padding: 10px; margin: 0px;" class="SECTION_BUTTON"><h1>EgoKvento</h1></div>
-                    <h1 style="flex-shrink: 1; width: 100%;"></h1>
-                    <div onclick="toggleThemeChooser()" style="flex-shrink: 2; padding: 10px; margin: 0px;" class="SECTION_BUTTON"><h1>Темы</h1></div>
+                    <div onclick='scrollToSection("body")' style="flex-shrink: 2; white-space: nowrap; padding: 10px; margin: 0px; justify-content: center;" class="SECTION_BUTTON">
+                      <h1 class="FOLDABLE">Главная</h1> <h1 class="FOLDED">↑</h1>
+                    </div> 
+                    <h1 class="FOLDABLE" style="flex-shrink: 1; width: 100%;"></h1>
+                    <div style="flex-shrink: 2; padding: 10px; margin: 0px; justify-content: center;" class="SECTION_BUTTON">
+                      <h1 class="FOLDABLE">ProfileParagon</h1> <h1 class="FOLDED">PP</h1>
+                    </div>
+                    <h1 class="FOLDABLE" style="flex-shrink: 1; width: 100%;"></h1>
+                    <div onclick="toggleThemeChooser()" style="flex-shrink: 2; padding: 10px; margin: 0px; justify-content: center;" class="SECTION_BUTTON">
+                      <h1 class="FOLDABLE">Темы</h1> <h1 class="FOLDED">•••</h1>
+                    </div>
                 </div>
             </div>
             <!-- Конец верхней части страницы -->
@@ -674,83 +704,83 @@ text: "0, 0, 0", solid: "255, 255, 255", main: "255, 255, 255", second: "255, 25
                 <div class="SECTION_CONTENT" style="margin: 0; padding: 7.5px; display: flex; flex-direction: row; box-shadow: none; overflow-y: auto;">
     
                   <!-- Карточка персонажа -->
-                  <div class="BODY_SECTION BORDERED CLICKABLE" onclick="window.location.href='CHARACTERS/AIVEN UNO/index.html'" style="max-width: 220px; min-width: 220px; min-height: 250px; margin:2.5px;">
+                  <div class="BODY_SECTION BORDERED CLICKABLE" onclick="window.location.href='CHARACTERS/AIVEN UNO/index.html'" style="max-width: 150px; min-width: 150px; min-height: 175px; margin:2.5px;">
   
-                    <img class="CONTENT_IMAGE ICON" style="min-width: 200px; max-width: 200px" src="CHARACTERS/AIVEN UNO/pfp.png">
+                    <img class="CONTENT_IMAGE ICON" style="min-width: 130px; max-width: 130px" src="CHARACTERS/AIVEN UNO/pfp.png">
 
                     <h1>Айвен Уно</h1>
     
                   </div>
 
                   <!-- Карточка персонажа -->
-                  <div class="BODY_SECTION BORDERED CLICKABLE" style="max-width: 220px; min-width: 220px; min-height: 250px; margin:2.5px;">
+                  <div class="BODY_SECTION BORDERED CLICKABLE" style="max-width: 150px; min-width: 150px; min-height: 175px; margin:2.5px;">
 
-                    <img class="CONTENT_IMAGE ICON" style="min-width: 200px; max-width: 200px" src="CHARACTERS/PLACEHOLDER/pfp.png">
+                    <img class="CONTENT_IMAGE ICON" style="min-width: 130px; max-width: 130px" src="CHARACTERS/PLACEHOLDER/pfp.png">
 
-                    <h1>Неизвестный персонаж</h1>
-
-                  </div>
-
-                  <!-- Карточка персонажа -->
-                  <div class="BODY_SECTION BORDERED CLICKABLE" style="max-width: 220px; min-width: 220px; min-height: 250px; margin:2.5px;">
-
-                    <img class="CONTENT_IMAGE ICON" style="min-width: 200px; max-width: 200px" src="CHARACTERS/PLACEHOLDER/pfp.png">
-
-                    <h1>Неизвестный персонаж</h1>
+                    <h2>Неизвестный персонаж</h2>
 
                   </div>
 
                   <!-- Карточка персонажа -->
-                  <div class="BODY_SECTION BORDERED CLICKABLE" style="max-width: 220px; min-width: 220px; min-height: 250px; margin:2.5px;">
+                  <div class="BODY_SECTION BORDERED CLICKABLE" style="max-width: 150px; min-width: 150px; min-height: 175px; margin:2.5px;">
 
-                    <img class="CONTENT_IMAGE ICON" style="min-width: 200px; max-width: 200px" src="CHARACTERS/PLACEHOLDER/pfp.png">
+                    <img class="CONTENT_IMAGE ICON" style="min-width: 130px; max-width: 130px" src="CHARACTERS/PLACEHOLDER/pfp.png">
 
-                    <h1>Неизвестный персонаж</h1>
-
-                  </div>
-
-                  <!-- Карточка персонажа -->
-                  <div class="BODY_SECTION BORDERED CLICKABLE" style="max-width: 220px; min-width: 220px; min-height: 250px; margin:2.5px;">
-
-                    <img class="CONTENT_IMAGE ICON" style="min-width: 200px; max-width: 200px" src="CHARACTERS/PLACEHOLDER/pfp.png">
-
-                    <h1>Неизвестный персонаж</h1>
+                    <h2>Неизвестный персонаж</h2>
 
                   </div>
 
                   <!-- Карточка персонажа -->
-                  <div class="BODY_SECTION BORDERED CLICKABLE" style="max-width: 220px; min-width: 220px; min-height: 250px; margin:2.5px;">
+                  <div class="BODY_SECTION BORDERED CLICKABLE" style="max-width: 150px; min-width: 150px; min-height: 175px; margin:2.5px;">
 
-                    <img class="CONTENT_IMAGE ICON" style="min-width: 200px; max-width: 200px" src="CHARACTERS/PLACEHOLDER/pfp.png">
+                    <img class="CONTENT_IMAGE ICON" style="min-width: 130px; max-width: 130px" src="CHARACTERS/PLACEHOLDER/pfp.png">
 
-                    <h1>Неизвестный персонаж</h1>
-
-                  </div>
-
-                  <!-- Карточка персонажа -->
-                  <div class="BODY_SECTION BORDERED CLICKABLE" style="max-width: 220px; min-width: 220px; min-height: 250px; margin:2.5px;">
-
-                    <img class="CONTENT_IMAGE ICON" style="min-width: 200px; max-width: 200px" src="CHARACTERS/PLACEHOLDER/pfp.png">
-
-                    <h1>Неизвестный персонаж</h1>
+                    <h2>Неизвестный персонаж</h2>
 
                   </div>
 
                   <!-- Карточка персонажа -->
-                  <div class="BODY_SECTION BORDERED CLICKABLE" style="max-width: 220px; min-width: 220px; min-height: 250px; margin:2.5px;">
+                  <div class="BODY_SECTION BORDERED CLICKABLE" style="max-width: 150px; min-width: 150px; min-height: 175px; margin:2.5px;">
 
-                    <img class="CONTENT_IMAGE ICON" style="min-width: 200px; max-width: 200px" src="CHARACTERS/PLACEHOLDER/pfp.png">
+                    <img class="CONTENT_IMAGE ICON" style="min-width: 130px; max-width: 130px" src="CHARACTERS/PLACEHOLDER/pfp.png">
 
-                    <h1>Неизвестный персонаж</h1>
+                    <h2>Неизвестный персонаж</h2>
 
                   </div>
 
                   <!-- Карточка персонажа -->
-                  <div class="BODY_SECTION BORDERED CLICKABLE" style="max-width: 220px; min-width: 220px; min-height: 250px; margin:2.5px;">
+                  <div class="BODY_SECTION BORDERED CLICKABLE" style="max-width: 150px; min-width: 150px; min-height: 175px; margin:2.5px;">
 
-                    <img class="CONTENT_IMAGE ICON" style="min-width: 200px; max-width: 200px" src="CHARACTERS/PLACEHOLDER/pfp.png">
+                    <img class="CONTENT_IMAGE ICON" style="min-width: 130px; max-width: 130px" src="CHARACTERS/PLACEHOLDER/pfp.png">
 
-                    <h1>Неизвестный персонаж</h1>
+                    <h2>Неизвестный персонаж</h2>
+
+                  </div>
+
+                  <!-- Карточка персонажа -->
+                  <div class="BODY_SECTION BORDERED CLICKABLE" style="max-width: 150px; min-width: 150px; min-height: 175px; margin:2.5px;">
+
+                    <img class="CONTENT_IMAGE ICON" style="min-width: 130px; max-width: 130px" src="CHARACTERS/PLACEHOLDER/pfp.png">
+
+                    <h2>Неизвестный персонаж</h2>
+
+                  </div>
+
+                  <!-- Карточка персонажа -->
+                  <div class="BODY_SECTION BORDERED CLICKABLE" style="max-width: 150px; min-width: 150px; min-height: 175px; margin:2.5px;">
+
+                    <img class="CONTENT_IMAGE ICON" style="min-width: 130px; max-width: 130px" src="CHARACTERS/PLACEHOLDER/pfp.png">
+
+                    <h2>Неизвестный персонаж</h2>
+
+                  </div>
+
+                  <!-- Карточка персонажа -->
+                  <div class="BODY_SECTION BORDERED CLICKABLE" style="max-width: 150px; min-width: 150px; min-height: 175px; margin:2.5px;">
+
+                    <img class="CONTENT_IMAGE ICON" style="min-width: 130px; max-width: 130px" src="CHARACTERS/PLACEHOLDER/pfp.png">
+
+                    <h2>Неизвестный персонаж</h2>
 
                   </div>
     
