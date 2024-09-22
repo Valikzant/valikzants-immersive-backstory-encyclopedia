@@ -32,8 +32,9 @@ function setTheme(theme) {
             body.style.setProperty(properties[i], theme[properties[i].substring(2)]);
         } , 50 * i);   
     }
-
-    localStorage.setItem('theme', JSON.stringify(theme));
+    if (localStorage.getItem('themeSaving')) {
+        localStorage.setItem('theme', JSON.stringify(theme));
+    }
 }
 
 
@@ -45,16 +46,61 @@ function setThemeRapidly(theme) {
         body.style.setProperty(properties[i], theme[properties[i].substring(2)]);
     }
 
-    localStorage.setItem('theme', JSON.stringify(theme));
+    if (localStorage.getItem('themeSaving')) {
+        localStorage.setItem('theme', JSON.stringify(theme));
+    }
 }
 
 
 window.onload = function() { 
 
+    document.getElementById("themeChooser").innerHTML = "";
+
+
+    // Добавляем переключатель сохранения темы
+
+    const buttonNest = document.createElement("div");
+    buttonNest.classList.add("SECTION_CONTENT");
+    buttonNest.style.setProperty("justify-content", "center");
+    buttonNest.style.setProperty("min-height", "95px");
+    buttonNest.style.setProperty("margin", "0px 0px 10px 0px");
+    buttonNest.innerHTML = "Переключение сохранения тем:";
+    const saveButton = document.createElement("div");
+    saveButton.classList.add("SECTION_BUTTON");
+    if (localStorage.getItem('themeSaving')) {
+        saveButton.innerHTML = "Сохранение тем включено";
+    }
+    else {
+        saveButton.innerHTML = "Сохранение тем выключено";
+    }
+    saveButton.style.setProperty("justify-content", "center");
+    saveButton.style.setProperty("self-align", "center");
+    saveButton.onclick = function() {
+        localStorage.removeItem('theme');
+        console.info(localStorage.getItem('themeSaving'))
+        if (localStorage.getItem('themeSaving')) {
+            localStorage.removeItem('themeSaving');
+            saveButton.innerHTML = "Сохранение тем выключено";
+        }
+        else {
+            localStorage.setItem('themeSaving', true);
+            saveButton.innerHTML = "Сохранение тем включено";
+        }
+    }
+    buttonNest.appendChild(saveButton);
+    document.getElementById("themeChooser").appendChild(buttonNest);
+
+
+    // О сохранении тем
+
+    const info = document.createElement("div");
+    info.classList.add("SECTION_CONTENT");
+    info.innerHTML = "Если сохранение тем включено, то они сохраняются в локальное хранилище браузера (при возможности). Сохранённые темы игнорируют тему по-умолчанию, которая задается автором страницы.";
+    document.getElementById("themeChooser").appendChild(info);
+
 
     // Темы
 
-    document.getElementById("themeChooser").innerHTML = "";
     for (let i = 0; i < themes.length; i++) {
         const theme_button = document.createElement("div");
         theme_button.classList.add("CONTENT_THEME_PREVIEW");
@@ -70,12 +116,7 @@ window.onload = function() {
     }
 
 
-    // О сохранении тем
-
-    const info = document.createElement("div");
-    info.classList.add("SECTION_CONTENT");
-    info.innerHTML = "Темы сохраняются локально (если разрешено браузером), и загружаются на любой странице, даже если на ней не предусмотрены темы.";
-    document.getElementById("themeChooser").appendChild(info);
+    // Загружаем тему
 
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
@@ -101,7 +142,7 @@ window.onload = function() {
 
     setTimeout(() => {
         loadingScreen.style.opacity = 0;
-    }, 150);
+    }, 200);
 }
 
 

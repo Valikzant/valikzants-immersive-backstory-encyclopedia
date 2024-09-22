@@ -80,6 +80,16 @@ h2 {
   margin: 0px;
   transition: font-size 0.5s ease;
 }
+h2.FOLDABLE {
+  display: none;
+  padding: 0px;
+  margin: 0px;
+}
+h2.FOLDED {
+  display: none;
+  content: "";
+  margin-right: 5px;
+}
 
 img {
 
