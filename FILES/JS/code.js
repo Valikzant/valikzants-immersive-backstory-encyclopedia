@@ -57,6 +57,13 @@ window.onload = function() {
     document.getElementById("themeChooser").innerHTML = "";
 
 
+    // Удаляем сохранённую тему для тех, у кого она была сохранена без функции
+
+    if (!localStorage.getItem('themeSaving')) {
+        localStorage.removeItem('theme');
+    }
+
+
     // Добавляем переключатель сохранения темы
 
     const buttonNest = document.createElement("div");
