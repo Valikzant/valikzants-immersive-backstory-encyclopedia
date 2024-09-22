@@ -152,8 +152,10 @@ img {
 }
 
 .BODY_SECTION.CLICKABLE:hover {
-  transform: scale(1.05);
-  filter: brightness(1.15) drop-shadow(0 0 10px rgba(var(--main), 0.75));
+  cursor: pointer;
+  transform: scale(1.05) rotateX(1deg) rotateY(-10deg) rotateZ(1deg);
+  filter: brightness(1.1);
+  z-index: 4;
 }
 
 .BODY_SECTION.WINDOW {
@@ -233,8 +235,10 @@ img {
     -10px -10px 10px -1px rgba(var(--main), 0.1) inset;
 }
 .SECTION_BUTTON:hover {
-  transform: scale(1.05);
-  filter: brightness(1.15) drop-shadow(0 0 10px rgba(var(--main), 0.75));
+  cursor: pointer;
+  transform: scale(1.05) rotateX(1deg) rotateY(-10deg) rotateZ(1deg);
+  filter: brightness(1.1);
+  z-index: 4;
 }
 
 .SECTION_HINT {
@@ -295,8 +299,10 @@ img {
   transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .SECTION_CONTENT.CLICKABLE:hover {
-  transform: scale(1.05);
-  filter: brightness(1.15) drop-shadow(0 0 10px rgba(var(--main), 0.75));
+  cursor: pointer;
+  transform: scale(1.05) rotateX(1deg) rotateY(-10deg) rotateZ(1deg);
+  filter: brightness(1.1);
+  z-index: 4;
 }
 .SECTION_CONTENT.EXPANDABLE {
   cursor: pointer;
@@ -364,7 +370,9 @@ img {
 }
 .CONTENT_THEME_PREVIEW:hover {
   cursor: pointer;
-  transform: scale(1.03);
+  transform: scale(1.02) rotateX(10deg) rotateY(-1.5deg) rotateZ(0.1deg);
+  filter: brightness(1.1);
+  z-index: 4;
 }
 
 ::-webkit-scrollbar {
