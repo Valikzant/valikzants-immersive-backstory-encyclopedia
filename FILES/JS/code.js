@@ -87,11 +87,11 @@ window.onload = function() {
         console.info(localStorage.getItem('themeSaving'))
         if (localStorage.getItem('themeSaving')) {
             localStorage.removeItem('themeSaving');
-            saveButton.innerHTML = "Сохранение тем выключено";
+            saveButton.innerHTML = "Сохраненная тема удалена";
         }
         else {
             localStorage.setItem('themeSaving', true);
-            saveButton.innerHTML = "Сохранение тем включено";
+            saveButton.innerHTML = "После выбора тема запомнится";
         }
     }
     buttonNest.appendChild(saveButton);
