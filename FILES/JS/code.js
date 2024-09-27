@@ -7,6 +7,25 @@ document.addEventListener('DOMContentLoaded', function () {
       this.classList.toggle('EXPANDED');
     });
   });
+
+  const logoSymbols = "☰ ☱ ☲ ☳ ☴ ☵ ☶ ☷".split(' ');
+  const changingLetters = document.querySelectorAll('.LETTER_CHANGING');
+
+  function updateSymbols() {
+    changingLetters.forEach(element => {
+      const randomSymbol = logoSymbols[Math.floor(Math.random() * logoSymbols.length)];
+      element.textContent = randomSymbol;
+    });
+  }
+
+  // Функция обновления символов
+
+  setInterval(updateSymbols, 1000); // Обновляем символы каждую секунду
+
+  // Начальное обновление символов
+
+  updateSymbols();
+
 });
 
 

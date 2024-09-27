@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Test Site</title>
-  <link rel="stylesheet" href="CSS/styles.css?v=update8">
+  <link rel="stylesheet" href="CSS/styles.css?v=update9">
 </head>
-<script src="JS/code.js?v=update8"></script>
+<script src="JS/code.js?v=update9"></script>
 <style>
   @media (max-width: 14000px) {
     .BODY {
@@ -33,7 +33,7 @@
     }
 
     h1.FOLDABLE {
-      display: inline;
+      display: flex;
     }
 
     h1.FOLDED {
@@ -45,7 +45,7 @@
     }
 
     h2.FOLDABLE {
-      display: inline;
+      display: flex;
     }
 
     h2.FOLDED {
@@ -77,7 +77,7 @@
     }
 
     h1.FOLDABLE {
-      display: inline;
+      display: flex;
     }
 
     h1.FOLDED {
@@ -89,7 +89,7 @@
     }
 
     h2.FOLDABLE {
-      display: inline;
+      display: flex;
     }
 
     h2.FOLDED {
@@ -129,7 +129,7 @@
     }
 
     h1.FOLDED {
-      display: inline;
+      display: flex;
     }
 
     h2 {
@@ -141,7 +141,7 @@
     }
 
     h2.FOLDED {
-      display: inline;
+      display: flex;
     }
   }
 
@@ -177,7 +177,7 @@
     }
 
     h1.FOLDED {
-      display: inline;
+      display: flex;
     }
 
     h2 {
@@ -189,7 +189,7 @@
     }
 
     h2.FOLDED {
-      display: inline;
+      display: flex;
     }
   }
 </style>
@@ -198,8 +198,8 @@
 
   <div class="LOADING_SCREEN" id="loadingScreen"></div>
 
-  <!--    Разделы сайта, что можно редактировать, имеют комментарий: "ДЛЯ РЕДАКТИРОВАНИЯ" 
-Чтобы найти эти разделы, просто воспользуйтесь поиском по файлу index.html         -->
+  <!--    Разделы сайта, что можно редактировать, имеют комментарий: "ДЛЯ РЕДАКТИРОВАНИЯ"     -->
+  <!--    Чтобы найти эти разделы, просто воспользуйтесь поиском по файлу index.html          -->
 
   <div class="BODY">
 
@@ -384,7 +384,15 @@
         <div
           style="flex-shrink: 2; padding: 0px; white-space: nowrap; margin: 0px; justify-content: center; background: none; box-shadow: none;"
           class="SECTION_BUTTON">
-          <h1 class="FANCY FOLDABLE" style="font-size: 25px; margin: 7.5px;">V I B E</h1>
+          <h1 class="FANCY FOLDABLE" style="font-size: 25px; margin: 7.5px;">
+            <div class="LETTER">V</div>
+            <div class="LETTER_CHANGING" style="opacity: 0.5;">☰</div>
+            <div class="LETTER">I</div>
+            <div class="LETTER_CHANGING" style="opacity: 0.5;">☰</div>
+            <div class="LETTER">B</div>
+            <div class="LETTER_CHANGING" style="opacity: 0.5;">☰</div>
+            <div class="LETTER">E</div>
+          </h1>
           <h1 class="FOLDED FANCY" style="font-size: 25px; margin: 7.5px;">V I B E</h1>
         </div>
         <span class="SECTION_TOOLTIP">
@@ -407,7 +415,7 @@
 
       <!-- Заголовок секции -->
       <div class="SECTION_TITLE" style="position: sticky; top: 100px;">
-        <h1>Информация</h1>
+        <h1 class="FANCY">V I B E</h1>
       </div>
 
       <!-- Подсказка секции -->
@@ -418,7 +426,8 @@
       <!-- Контент секции -->
       <div class="SECTION_CONTENT EXPANDABLE">
 
-        V I B E (Valikzant's Immersive Backstory Encyclopedia) – это статичная онлайн-платформа,
+        <strong>V I B E</strong> (<strong>V</strong>alikzant's <strong>I</strong>mmersive <strong>B</strong>ackstory
+        <strong>E</strong>ncyclopedia) – это статичная онлайн-платформа,
         где писатели, ролевики и любители историй могут делиться своими уникальными персонажами.
         <br><br>
         Создавайте подробные профили, рассказывайте истории, исследуйте персонажей, созданные другими пользователями,
@@ -427,7 +436,8 @@
         <small>
           Сайт работает на основе бесплатного хостинга Github Pages.
           <br><br>
-          Внести свой вклад или изменения: <a class="SECTION_LINK" href="https://github.com/Valikzant/aavikko_characters.github.io">GitHub</a>.
+          Внести свой вклад или изменения: <a class="SECTION_LINK"
+            href="https://github.com/Valikzant/aavikko_characters.github.io">GitHub</a>.
         </small>
 
       </div>
