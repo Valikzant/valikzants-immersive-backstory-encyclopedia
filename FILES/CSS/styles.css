@@ -1,9 +1,9 @@
 /* FONTS */
 
-@font-face {  /* INTERFACE */
-    font-family: 'geologica';
-    src: url(
-        '../FONTS/geologica/Geologica-Light.ttf'
+@font-face {
+  /* INTERFACE */
+  font-family: 'geologica';
+  src: url('../FONTS/geologica/Geologica-Light.ttf'
     );
 }
 
@@ -11,8 +11,13 @@
 /* ANIMATIONS */
 
 @keyframes spin {
-  from { --border-angle: 0deg; }
-  to { --border-angle: 360deg; }
+  from {
+    --border-angle: 0deg;
+  }
+
+  to {
+    --border-angle: 360deg;
+  }
 }
 
 
@@ -23,15 +28,22 @@ html {
   letter-spacing: 1.5px;
   line-height: 1.5;
 }
+
 * {
   box-sizing: border-box;
   font-family: 'geologica';
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
@@ -63,15 +75,27 @@ h1 {
   margin: 0px;
   transition: font-size 0.5s ease;
 }
+
 h1.FOLDABLE {
   display: none;
   padding: 0px;
   margin: 0px;
 }
+
 h1.FOLDED {
   display: none;
   content: "";
   margin-right: 5px;
+}
+
+h1.FANCY {
+  filter: blur(0.5px);
+  color: rgv(var(--text));
+  text-shadow:
+    1px 1px 2px rgb(var(--main)),
+    -1px 1px 2px rgb(var(--second)),
+    -1px -1px 2px rgb(var(--text)),
+    1px -1px 2px rgb(var(--second));
 }
 
 h2 {
@@ -80,11 +104,13 @@ h2 {
   margin: 0px;
   transition: font-size 0.5s ease;
 }
+
 h2.FOLDABLE {
   display: none;
   padding: 0px;
   margin: 0px;
 }
+
 h2.FOLDED {
   display: none;
   content: "";
@@ -126,10 +152,10 @@ img {
   grid-template-columns: 1fr 3fr;
   margin-top: 70px;
   min-width: 300px;
-  max-width: 100%;
+  max-width: 100vw;
   gap: 10px;
-  align-items:flex-start;
-  box-shadow: 
+  align-items: flex-start;
+  box-shadow:
     6px 6px 10px -1px rgba(var(--second), 0.1),
     -6px -6px 10px -1px rgba(var(--main), 0.1);
   background-color: rgb(var(--solid));
@@ -152,9 +178,9 @@ img {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  box-shadow: 
-  6px 6px 10px -1px rgba(var(--second), 0.1),
-  -6px -6px 10px -1px rgba(var(--main), 0.1);
+  box-shadow:
+    6px 6px 10px -1px rgba(var(--second), 0.1),
+    -6px -6px 10px -1px rgba(var(--main), 0.1);
   background-color: rgb(var(--solid));
   border-radius: 10px;
   padding: 10px;
@@ -174,43 +200,44 @@ img {
 
 .BODY_SECTION.WINDOW {
   box-shadow: 0 0 50px rgb(var(--main));
-  position: fixed; 
-  top: 50%; 
-  left: 50%; 
-  transform: translate(-50%, -50%); 
-  z-index: 4; 
-  width: calc(100% - 40px); 
-  max-height: 750px; 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  width: calc(100% - 40px);
+  max-height: 750px;
   max-width: 700px;
 }
 
 .BODY_SECTION.BORDERED {
-  background-image: linear-gradient(
-    45deg,
-    rgba(var(--second), 0.5),
-    rgba(var(--main), 0.5),
-    rgba(var(--second), 0.5)
-  );
+  background-image: linear-gradient(45deg,
+      rgba(var(--second), 0.5),
+      rgba(var(--main), 0.5),
+      rgba(var(--second), 0.5));
 }
 
-@property --border-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false;}
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 .BODY_SECTION.ANIMATED {
-  background-image: conic-gradient(
-    from var(--border-angle),
-    rgba(var(--main), 0.25),
-    rgba(var(--main), 0.3),
-    rgba(var(--main), 0.4),
-    rgba(var(--main), 0.5),
-    rgba(var(--main), 0.65),
-    rgba(var(--main), 0.8),
-    rgba(var(--main), 0.9),
-    rgba(var(--main), 0.8),
-    rgba(var(--main), 0.65),
-    rgba(var(--main), 0.5),
-    rgba(var(--main), 0.4),
-    rgba(var(--main), 0.3),
-    rgba(var(--main), 0.25)
-  );
+  background-image: conic-gradient(from var(--border-angle),
+      rgba(var(--main), 0.25),
+      rgba(var(--main), 0.3),
+      rgba(var(--main), 0.4),
+      rgba(var(--main), 0.5),
+      rgba(var(--main), 0.65),
+      rgba(var(--main), 0.8),
+      rgba(var(--main), 0.9),
+      rgba(var(--main), 0.8),
+      rgba(var(--main), 0.65),
+      rgba(var(--main), 0.5),
+      rgba(var(--main), 0.4),
+      rgba(var(--main), 0.3),
+      rgba(var(--main), 0.25));
   animation: 15s spin linear infinite;
 }
 
@@ -229,14 +256,13 @@ img {
   justify-content: space-between;
   background-color: rgb(var(--solid));
   transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.25s ease, filter 0.1s ease, font-size 0.5s ease;
-  box-shadow: 
+  box-shadow:
     6px 6px 10px -1px rgba(var(--second), 0.1),
     -6px -6px 10px -1px rgba(var(--main), 0.1);
   color: rgb(var(--text));
   padding: 10px 10px;
   margin: 5px 0px;
   cursor: pointer;
-
   opacity: 1;
   float: left;
   pointer-events: auto;
@@ -244,15 +270,49 @@ img {
 
 .SECTION_BUTTON:active {
   filter: brightness(0.75);
-  box-shadow: 
+  box-shadow:
     10px 10px 10px -1px rgba(var(--second), 0.1) inset,
     -10px -10px 10px -1px rgba(var(--main), 0.1) inset;
 }
+
 .SECTION_BUTTON:hover {
   cursor: pointer;
   transform: scale(1.05) rotateX(1deg) rotateY(-10deg) rotateZ(1deg);
   filter: brightness(1.1);
   z-index: 4;
+}
+
+.SECTION_BUTTON:hover+.SECTION_TOOLTIP {
+  opacity: 1;
+  transform: scale(1) translateY(50px);
+  transition: opacity 2.25s cubic-bezier(.74, .05, .21, 1.26), transform 1.5s cubic-bezier(.74, .05, .23, 1.12);
+}
+
+.SECTION_TOOLTIP {
+  opacity: 0;
+  position: absolute;
+  background-color: rgb(var(--solid));
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  transform: scale(0.1) translateY(-50px);
+  transition: opacity 2s cubic-bezier(1, 0, 0, 1.11), transform 4s cubic-bezier(1, 0, 0, 1.11);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.SECTION_TOOLTIP::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgb(var(--solid));
+  pointer-events: none;
 }
 
 .SECTION_HINT {
@@ -263,27 +323,25 @@ img {
   background-color: rgb(var(--solid));
   border-radius: 10px;
   padding: 10px;
-  z-index: 2; 
-  position: absolute; 
-  top: 50%; 
-  left: 50%; 
-  transform: translate(-50%, -50%); 
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
 }
 
 .SECTION_TITLE {
-  box-sizing:content-box;
+  box-sizing: content-box;
   font-weight: bolder;
   text-align: left;
   transform: translate(-10px, -10px);
   border-radius: 10px;
   padding: 10px;
   width: 100%;
-  background-image: linear-gradient(
-    to right,
-    rgb(var(--second)) 50%,
-    rgb(var(--main)) 100%
-  );
+  background-image: linear-gradient(to right,
+      rgb(var(--second)) 50%,
+      rgb(var(--main)) 100%);
   z-index: 2;
 }
 
@@ -295,6 +353,19 @@ img {
   padding: 7.5px 0px 12.5px 0px;
 }
 
+.SECTION_LINK {
+  color: rgb(var(--text));
+  text-decoration: none;
+  filter: brightness(1.1);
+  transition: filter 2s cubic-bezier(0.165, 0.84, 0.44, 1), color 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.SECTION_LINK:hover {
+  color: rgb(var(--second));
+  cursor: pointer;
+  filter: brightness(2);
+}
+
 .SECTION_CONTENT {
   text-align: justify;
   margin: 0px 0px 0px 0px;
@@ -304,24 +375,28 @@ img {
   background-color: rgb(var(--solid));
   padding: 10px;
   z-index: 0;
-  box-shadow: 
-  10px 10px 10px -1px rgba(var(--second), 0.1) inset,
-  -10px -10px 10px -1px rgba(var(--main), 0.1) inset;
+  box-shadow:
+    10px 10px 10px -1px rgba(var(--second), 0.1) inset,
+    -10px -10px 10px -1px rgba(var(--main), 0.1) inset;
 }
+
 .SECTION_CONTENT.CLICKABLE {
   cursor: pointer;
   transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
+
 .SECTION_CONTENT.CLICKABLE:hover {
   cursor: pointer;
   transform: scale(1.05) rotateX(1deg) rotateY(-10deg) rotateZ(1deg);
   filter: brightness(1.1);
   z-index: 4;
 }
+
 .SECTION_CONTENT.EXPANDABLE {
   cursor: pointer;
   transition: filter 0.1s ease, font-size 0.5s ease;
 }
+
 .SECTION_CONTENT.EXPANDED {
   font-size: 20px;
 }
@@ -334,6 +409,7 @@ img {
   float: left;
   margin: 0px 10px 0px 0px;
 }
+
 .CONTENT_IMAGE.ICON {
   border-radius: 10px;
   margin: 10px 0px 10px 0px;
@@ -342,13 +418,15 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 .CONTENT_DOCUMENTLIKE {
   border-radius: 10px;
   border: 1px solid rgb(var(--text));
   padding: 10px;
   margin: 20px 0px 20px 0px;
 }
-.CONTENT_DOCUMENTLIKE::before ,
+
+.CONTENT_DOCUMENTLIKE::before,
 .CONTENT_DOCUMENTLIKE::after {
   content: ' . . . ';
   width: 100%;
@@ -356,6 +434,7 @@ img {
   display: block;
   margin: 10px 0px 10px 0px;
 }
+
 .CONTENT_THEME_PREVIEW {
   --preview-text: var(--text);
   --preview-solid: var(--solid);
@@ -367,21 +446,20 @@ img {
   font-size: 20px;
   height: 100%;
   margin: 10px 0px 10px 0px;
-  box-shadow: 
-  10px 10px 10px -1px rgba(var(--preview-second), 0.1) inset,
-  -10px -10px 10px -1px rgba(var(--preview-main), 0.1) inset;
+  box-shadow:
+    10px 10px 10px -1px rgba(var(--preview-second), 0.1) inset,
+    -10px -10px 10px -1px rgba(var(--preview-main), 0.1) inset;
   background-color: rgb(var(--preview-main));
-  background-image: linear-gradient(
-    to right,
-    rgb(var(--preview-solid)) 0%,
-    rgb(var(--preview-solid)) 50%,
-    rgb(var(--preview-second)) 60%,
-    rgb(var(--preview-main)) 100%
-  );
+  background-image: linear-gradient(to right,
+      rgb(var(--preview-solid)) 0%,
+      rgb(var(--preview-solid)) 50%,
+      rgb(var(--preview-second)) 60%,
+      rgb(var(--preview-main)) 100%);
   color: rgb(var(--preview-text));
   transition: all 0.5s ease;
   padding: 10px;
 }
+
 .CONTENT_THEME_PREVIEW:hover {
   cursor: pointer;
   transform: scale(1.02) rotateX(10deg) rotateY(-1.5deg) rotateZ(0.1deg);
@@ -395,12 +473,10 @@ img {
 }
 
 ::-webkit-scrollbar-track {
-  background-image: linear-gradient(
-    rgb(var(--solid)) 0%,
-    rgb(var(--second)) 25%,
-    rgb(var(--second)) 75%,
-    rgb(var(--solid)) 100%
-  );
+  background-image: linear-gradient(rgb(var(--solid)) 0%,
+      rgb(var(--second)) 25%,
+      rgb(var(--second)) 75%,
+      rgb(var(--solid)) 100%);
   border-radius: 15px;
 }
 
