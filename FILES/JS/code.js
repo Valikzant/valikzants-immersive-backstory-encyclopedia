@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Функция обновления символов
 
-  setInterval(updateSymbols, 1000); // Обновляем символы каждую секунду
+  setInterval(updateSymbols, 1000); 
 
   // Начальное обновление символов
 
