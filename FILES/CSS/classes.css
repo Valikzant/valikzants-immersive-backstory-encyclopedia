@@ -1,0 +1,1165 @@
+/* Day 1 - Ah, %^$& here we go again. */
+
+/* Day 2 - Окей я вроде справляюсь.   */
+
+/* Day 3 - Новый дизайн, летс го      */
+
+/* Day 5 - Время отформатировать эту с"%?: */
+/*                :                   */
+
+/* Day 6 - Всем привет, я сходил подстричься.*/
+
+/* Day 7 - Короче вести дневник не для меня */
+
+/* TODO надо добавить карточку персонажа с картинкой, изменяемой по размерам */
+
+/* TODO надо добавить стили текста, по типу 'документ', 'и может что то другое' */
+
+/* TODO надо добавить стили внутренних блоков, по типу 'слайдер картинок', 'список' */
+
+/* TODO надо добавить ... */
+
+/* ============ */
+
+/* FONTS        */
+
+@font-face {
+  /* INTERFACE */
+  font-family     : 'geologica';
+  src             : url('../FONTS/geologica/Geologica-Light.ttf');
+}
+@font-face {
+  /* HANDWRITING */
+  font-family     : 'caveat';
+  src             : url('../FONTS/caveat/Caveat-Regular.ttf');
+}
+@font-face {
+  /* ANCIENT HANDWRITING */
+  font-family     : 'great_vibes';
+  src             : url('../FONTS/great_vibes/GreatVibes-Regular.ttf');
+}
+@font-face {
+  /* SCREEN TEXT */
+  font-family     : 'play';
+  src             : url('../FONTS/play/Play-Regular.ttf');
+}
+@font-face {
+  /* NEON SIGN */
+  font-family     : 'train_one';
+  src             : url('../FONTS/train_one/TrainOne-Regular.ttf');
+}
+@font-face {
+  /* NEON SIGN 2 */
+  font-family     : 'rubik';
+  src             : url('../FONTS/rubik/RubikMonoOne-Regular.ttf');
+}
+@font-face {
+  /* GRAFFITI */
+  font-family     : 'mister_brush';
+  src             : url('../FONTS/mister_brush/MisterBrush.ttf');
+}
+@font-face {
+  /* ANCIENT SIGN */
+  font-family     : 'rubik_dirt';
+  src             : url('../FONTS/rubik/RubikDirt-Regular.ttf');
+}
+
+/* FONTS        */
+
+/* ============ */
+
+/* ANIMATIONS   */
+
+@keyframes HINT_DISAPPEAR {
+  0% {
+    opacity       : 1;
+  }
+
+  100% {
+    opacity       : 0;
+  }
+}
+
+@keyframes BLINKING {
+  0% {
+    opacity       : 1;
+  }
+
+  100% {
+    opacity       : 0;
+  }
+}
+
+@keyframes SCREEN_LINES {
+  0% {
+    background-position : 0% 0%;
+  }
+
+  50% {
+    background-position : 5% 5%;
+  }
+
+  100% {
+    background-position : 0% 0%;
+  }
+  
+}
+
+@keyframes NEON_SHINING {
+  0% {
+    opacity       : 1;
+  }
+
+  7% {
+    opacity       : 0.9;
+  }
+
+  9% {
+    opacity       : 0.25;
+  }
+  10% {
+    opacity       : 0.3;
+  }
+  11% {
+    opacity       : 0.25;
+  }
+
+  15% {
+    opacity       : 1;
+  }
+
+  30% {
+    opacity       : 0.7;
+  }
+  
+  40% {
+    opacity       : 0.8;
+  }
+
+  50% {
+    opacity       : 0.9;
+  }
+
+  60% {
+    opacity       : 1;
+  }
+
+  70% {
+    opacity       : 1;
+  }
+
+  80% {
+    opacity       : 0.8;
+  }
+
+  90% {
+    opacity       : 1;
+  }
+
+  100% {
+    opacity       : 1;
+  }
+  
+}
+
+/* ANIMATIONS   */
+
+/* ============ */
+
+/* DEFAULT html */
+
+html {
+  box-sizing      : border-box;
+  letter-spacing  : 1px;
+  line-height     : 1.5;
+}
+
+* {
+
+  /* FOR DEBUG 
+  outline: white solid 1px !important;
+  /* FOR DEBUG */
+
+  font-family     : 'geologica';
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome, Edge, Opera and Firefox */  
+
+  transition      : 
+  width var(--transition-fast), 
+  height var(--transition-fast);
+  -webkit-transition: 
+  width var(--transition-fast), 
+  height var(--transition-fast);
+  -moz-transition : 
+  width var(--transition-fast), 
+  height var(--transition-fast);
+  -ms-transition  : 
+  width var(--transition-fast), 
+  height var(--transition-fast);
+  -o-transition   : 
+  width var(--transition-fast), 
+  height var(--transition-fast);
+}
+
+/* DEFAULT html */
+
+/* ============ */
+
+/* DEFAULT body */
+
+@property --sides-size {
+  syntax: '<length>';
+  inherits: false;
+}
+
+body {
+  /* VARIABLES */
+  --text          : 0, 0, 0;
+  --solid         : 0, 0, 0;
+
+  --light-shadow  : 0, 0, 0;
+  --dark-shadow   : 0, 0, 0;
+
+  --main          : 0, 0, 0;
+
+  --sides-size    : 25px;
+  --images-size   : 25px;
+  --vertical      : 1;
+  --horizontal    : 1;
+
+  --font-modifier : 1;
+  --interface-modifier: 1;
+  --hue           : 0deg;
+
+  --transition-fast: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  --transition-slow: 2s cubic-bezier(.11,.86,.59,.97);
+  --transition-long: 10s cubic-bezier(.55,.55,.55,.55);
+
+  box-sizing      : border-box;
+
+  font-family     : 'geologica';
+  font-size       : 15px;
+
+  min-height      : 100vh;
+  max-height      : 100vh;
+
+  margin          : 0px;
+  padding         : 0px;
+
+  background-color: rgb(var(--solid));
+  color           : rgb(var(--text));
+
+  display         : grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 
+    "H H"
+    "S C"
+    "S С";
+}
+
+/* DEFAULT body */
+
+/* ============ */
+
+/* DEFAULT h    */
+
+h1.FANCY, h2.FANCY, h3.FANCY {
+  color           : transparent;
+  text-shadow     :
+    1px 1px 1px rgb(var(--main)),
+    -1px 1px 1px rgb(var(--main)),
+    -1px -1px 1px rgb(var(--text)),
+    1px -1px 1px rgb(var(--main));
+  
+  mix-blend-mode  : normal;
+}
+
+h1, h2, h3 {
+  margin          : 0px;
+  padding         : 0px;
+
+  white-space     : nowrap;
+
+  z-index         : 2;
+}
+h2::before, h3::before {
+  content         : "-";
+  visibility      : hidden;
+}
+
+h1.TITLE, h2.TITLE, h3.TITLE {
+  width           : 100%;
+  text-align      : left;
+
+  position        : sticky;
+  top             : 0px;
+
+  transition      : 
+  box-shadow var(--transition-fast),
+  background-color var(--transition-fast);
+
+  background-color: rgb(var(--solid));
+  box-shadow      : 
+  12px -17.5px 0px 0px rgb(var(--solid)),
+  12px 5.1px 0px 0px rgb(var(--solid)),
+  12px 0px 0px 0px rgb(var(--solid)),
+  -12px -17.5px 0px 0px rgb(var(--solid)),
+  -12px 5.1px 0px 0px rgb(var(--solid)),
+  -12px 0px 0px 0px rgb(var(--solid));
+
+  margin-bottom   : 5px;
+  margin-top      : 5px;
+
+  z-index         : 3;
+}
+h1.TITLE.INVISIBLE, h2.TITLE.INVISIBLE, h3.TITLE.INVISIBLE {
+  background      : none;
+  box-shadow      : none;
+}
+h1.HINT, h2.HINT, h3.HINT {
+  position        : relative;
+
+  display         : block;
+
+  text-align      : center;
+
+  top             : 50%;
+  left            : 50%;
+
+  transform       : translate(-50%, -50%);
+
+  outline         : 1px solid rgba(var(--main), 0.5);
+  
+  padding         : 5px;
+
+  pointer-events  : none;
+  
+  background      : 
+  radial-gradient(
+    ellipse at bottom left, 
+    rgb(var(--main), 0.20) 0%, 
+    rgb(var(--main), 0.15) 25%, 
+    rgb(var(--main), 0.05) 50%, 
+    rgba(var(--main), 0.1) 75%, 
+    rgba(var(--main), 0.20) 100%
+  );
+
+  border-radius   : 15px;
+
+  animation       : HINT_DISAPPEAR var(--transition-fast) 1s;
+  animation-fill-mode: forwards;
+
+  backdrop-filter : blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+
+  z-index         : 3;
+}
+
+/* DEFAULT h           */
+
+/* =================== */
+
+/* DEFAULT p           */
+
+p {
+  margin          : 0px;
+  padding         : 0px;
+
+  display         : inline !important;
+
+  font-size       : 1.15em;
+}
+
+/* DEFAULT p             */
+
+/* ===================== */
+
+/* TEXT BLOCKS and FONTS */
+
+.TEXT_BLOCK {
+  display:inline-block;
+  padding         : 15px;
+  margin          : 10px 0px;
+
+  z-index         : 2;
+}
+.TEXT_BLOCK p {
+  z-index         : 3;
+}
+.TEXT_BLOCK::after {
+  content         : "";
+  opacity         : 0.25;
+  display         : flex;
+  flex-direction  : column;
+  text-align   : left;
+  padding-top     : 5px;
+  font-weight     : bold;
+  font-family     : 'geologica';
+  font-size       : 0.75rem;
+  z-index         : 2;
+}
+.TEXT_BLOCK::before {
+  content         : "";
+  z-index         : -1;
+}
+
+/* TEXT DEFAULT       */
+
+.TEXT_BLOCK.DEFAULT {
+  padding         : 0px;
+}
+
+/* TEXT PAPER         */
+
+.TEXT_BLOCK.PAPER {
+  padding         : 15px 15px 10px 25px;
+
+  position        : relative;
+
+  outline         : 1px solid rgb(var(--text), 0.25);
+}
+.TEXT_BLOCK.PAPER p {
+  font-family     : 'Times New Roman', serif;
+
+  font-size       : 1.25em;
+}
+.TEXT_BLOCK.PAPER::after {
+  content         : "Текст на бумаге";
+}
+.TEXT_BLOCK.PAPER::before {
+  content         : "";
+
+  position        : absolute;
+
+  top             : 0px;
+  left            : 0px;
+
+  width           : 100%;
+  height          : 100%;
+  
+  background      : 
+  linear-gradient(
+    90deg,
+    rgb(var(--light-shadow)),
+    rgb(var(--solid))
+  );
+}
+p.TEXT_PAPER {
+  font-family     : 'Times New Roman', serif !important;
+
+  font-size       : 1.25em !important;
+}
+
+/* TEXT HANDWRITING   */
+
+.TEXT_BLOCK.PAPER.HANDWRITTEN p {
+  font-family     : 'caveat';
+
+  font-size       : 2em;
+  line-height     : 1;
+}
+.TEXT_BLOCK.PAPER.HANDWRITTEN::after {
+  content         : "Рукописная записка";
+}
+p.TEXT_HANDWRITING {
+  font-family     : 'caveat' !important;
+
+  font-size       : 2em !important;
+  line-height     : 1 !important;
+}
+
+/* TEXT VINTAGE PAPER */
+
+.TEXT_BLOCK.PAPER.VINTAGE {
+  outline         : 2px solid rgb(var(--text), 0.25);
+}
+.TEXT_BLOCK.PAPER.VINTAGE p {
+  font-family     : 'great_vibes';
+
+  font-weight     : 400;
+  
+  font-size       : 2em;
+  line-height     : 1;
+}
+.TEXT_BLOCK.PAPER.VINTAGE::after {
+  content         : "Текст на старой бумаге";  
+}
+.TEXT_BLOCK.PAPER.VINTAGE::before {
+  content         : "";
+
+  position        : absolute;
+
+  top             : 0px;
+  left            : 0px;
+
+  width           : 100%;
+  height          : 100%;
+  
+  background      : 
+  linear-gradient(
+    90deg,
+    rgb(var(--solid)),
+    rgb(var(--light-shadow))
+  );
+
+  filter          : sepia(100%);
+}
+p.TEXT_VINTAGE {
+  font-family     : 'great_vibes' !important;
+
+  font-weight     : 400 !important;
+  
+  font-size       : 2em !important;
+  line-height     : 1 !important;
+}
+
+/* TEXT NEWSPAPER     */
+
+.TEXT_BLOCK.NEWSPAPER {
+  padding         : 15px 15px 10px 25px;
+
+  position        : relative;
+
+  outline         : 1px solid rgb(var(--text), 0.25);
+}
+.TEXT_BLOCK.NEWSPAPER p {
+  font-family     : 'Times New Roman', serif;
+
+  font-size       : 1.25em;
+}
+.TEXT_BLOCK.NEWSPAPER h2 {
+  font-family     : 'Times New Roman', serif;
+
+  margin          : 0px 0px 10px 0px;
+
+  border-bottom   : 1px solid rgb(var(--text), 0.25);
+}
+.TEXT_BLOCK.NEWSPAPER::after {
+  content         : "Текст на газете";
+}
+.TEXT_BLOCK.NEWSPAPER::before {
+  content         : "";
+
+  position        : absolute;
+
+  top             : 0px;
+  left            : 0px;
+
+  width           : 100%;
+  height          : 100%;
+  
+  background      : 
+  linear-gradient(
+    90deg,
+    rgb(var(--light-shadow)),
+    rgb(var(--solid))
+  );
+}
+
+/* TEXT HANDWRITING POEM */
+
+.TEXT_BLOCK.POEM {
+  text-align      : center;
+
+  outline         : 1px solid rgb(var(--text), 0.25);
+}
+.TEXT_BLOCK.POEM p {
+  font-family     : 'caveat';
+
+  font-size       : 2.25em;
+}
+.TEXT_BLOCK.POEM::after {
+  content         : "Стихотворный блок";
+}
+
+/* TEXT ON SCREEN     */
+
+.TEXT_BLOCK.ON_SCREEN {
+  text-shadow     :
+    0 0 5px rgb(var(--light-shadow));
+
+  padding         : 15px 15px 10px;
+
+  outline         : 1px solid rgb(var(--main), 0.75);
+
+  position        : relative;
+
+  background-size : 50px 50px ;
+  background-image: 
+  linear-gradient(0deg, transparent 24%, rgb(var(--text),0.1) 25%, rgb(var(--text),0.1) 26%, transparent 27%,transparent 74%, rgb(var(--text),0.1) 75%, rgb(var(--text),0.1) 76%, transparent 77%,transparent),
+  linear-gradient(90deg, transparent 24%, rgb(var(--text),0.1) 25%, rgb(var(--text),0.1) 26%, transparent 27%,transparent 74%, rgb(var(--text),0.1) 75%, rgb(var(--text),0.1) 76%, transparent 77%,transparent);
+
+  animation       : SCREEN_LINES var(--transition-long) infinite;
+}
+.TEXT_BLOCK.ON_SCREEN p {
+  font-family     : 'play';
+
+  text-shadow     :
+    0 0 1px rgb(var(--main)),
+    1px 1px 0px rgb(var(--main));
+
+  filter          : brightness(1.2);
+
+  color           : rgb(var(--text));
+}
+.TEXT_BLOCK.ON_SCREEN::after {
+  content         : "Текст на экране";
+}
+.TEXT_BLOCK.ON_SCREEN::before {
+  content         : "";
+
+  position        : absolute;
+
+  top             : 0px;
+  left            : 0px;
+
+  width           : 100%;
+  height          : 100%;
+  
+  background      :
+  radial-gradient(at 0% 0%, rgb(var(--text), 0.05) 0%, transparent 50%, transparent 100%),
+  radial-gradient(at 100% 0%, rgb(var(--text), 0.05) 0%, transparent 50%, transparent 100%),
+  radial-gradient(at 100% 100%, rgb(var(--text), 0.05) 0%, transparent 50%, transparent 100%),
+  radial-gradient(at 0% 100%, rgb(var(--text), 0.05) 0%, transparent 50%, transparent 100%);
+}
+p.TEXT_ON_SCREEN {
+  font-family     : 'play' !important;
+}
+
+/* TEXT ON SCREEN WRITING */
+
+.TEXT_BLOCK.ON_SCREEN.WRITING > p::after {
+  content         : "|";
+
+  animation       : BLINKING var(--transition-fast) infinite;
+}
+.TEXT_BLOCK.ON_SCREEN.WRITING::after {
+  content         : "Введенный текст на экране";
+}
+.TEXT_BLOCK.ON_SCREEN.WRITING::before {
+  content         : "";
+
+  position        : absolute;
+
+  top             : 0px;
+  left            : 0px;
+
+  width           : 100%;
+  height          : 100%;
+  
+  background      :
+  radial-gradient(at 0% 0%, rgb(var(--text), 0.05) 0%, transparent 50%, transparent 100%),
+  radial-gradient(at 100% 0%, rgb(var(--text), 0.05) 0%, transparent 50%, transparent 100%),
+  radial-gradient(at 100% 100%, rgb(var(--text), 0.05) 0%, transparent 50%, transparent 100%),
+  radial-gradient(at 0% 100%, rgb(var(--text), 0.05) 0%, transparent 50%, transparent 100%);
+}
+
+/* NEON SIGN OLD      */
+
+.TEXT_BLOCK.NEON_SIGN {
+  align-self      : center;
+
+  color           : rgb(var(--main));
+  text-shadow: 
+    0 0 5px rgb(var(--solid)),
+    0 0 10px rgb(var(--solid)),
+    0 0 15px rgb(var(--solid)),
+    0 0 20px rgb(var(--solid)),
+    0 0 35px rgb(var(--main)),
+    0 0 40px rgb(var(--main)),
+    0 0 50px rgb(var(--main)),
+    0 0 75px rgb(var(--main));
+
+  padding         : 15px 15px 10px;
+}
+.TEXT_BLOCK.NEON_SIGN.OLD p {
+  font-family     : 'train_one';
+  font-size       : 2.25em;
+
+  font-weight     : bolder;
+
+  animation       : NEON_SHINING var(--transition-long) infinite;
+}
+.TEXT_BLOCK.NEON_SIGN::after {
+  content         : "";
+}
+
+/* NEON SIGN MODERN   */
+
+.TEXT_BLOCK.NEON_SIGN.MODERN p {
+  font-family     : 'rubik';
+  font-size       : 2em;
+
+  animation       : NEON_SHINING var(--transition-long) infinite;
+}
+
+/* GRAFFITI SIGN     */
+
+.TEXT_BLOCK.GRAFFITI {
+  align-self      : center;
+
+  color           : rgb(var(--text));
+  text-shadow: 
+    2px 2px 0 rgb(var(--main), 0.5), 
+    4px 4px 0 rgb(var(--main), 0.25),
+    -1px -1px 0 rgb(var(--main), 0.25),
+    0 0 4px rgb(var(--solid)),
+    0 0 8px rgb(var(--solid)),
+    0 0 10px rgb(var(--solid)),
+    0 0 35px rgb(var(--text));
+
+  padding         : 15px 15px 10px;
+}
+.TEXT_BLOCK.GRAFFITI p {
+  font-family     : 'mister_brush';
+  font-style      : italic;
+  font-size       : 2.25em;
+
+  color           : rgb(var(--main));
+
+  font-weight     : bolder;
+}
+.TEXT_BLOCK.GRAFFITI::after {
+  content         : "";
+}
+
+/* FUTURE SIGN       */
+
+.TEXT_BLOCK.FUTURE_SIGN {
+  align-self      : center;
+
+  color           : rgb(var(--text));
+  text-shadow: 
+    1px 1px 0 rgb(var(--main));
+
+  padding         : 15px 15px 10px;
+}
+.TEXT_BLOCK.FUTURE_SIGN p {
+  font-family     : 'play';
+  font-size       : 2.25em;
+
+  font-weight     : bolder;
+}
+.TEXT_BLOCK.FUTURE_SIGN p::before, .TEXT_BLOCK.FUTURE_SIGN p::after {
+  content         : "—";
+
+  display: inline;
+
+  height: 10px;
+  width: 100%;
+}
+.TEXT_BLOCK.FUTURE_SIGN::after {
+  content         : "";
+}
+
+/* ANCIENT STONE SIGN */
+
+.TEXT_BLOCK.ANCIENT_STONE_SIGN {
+  align-self      : center;
+
+  color           : rgb(var(--text));
+  text-shadow     : 
+  1px 1px 0 rgb(var(--text),0.7),
+  2px 2px 0 rgb(var(--dark-shadow));
+
+  padding         : 15px 15px 10px;
+}
+.TEXT_BLOCK.ANCIENT_STONE_SIGN p {
+  font-family     : 'rubik_dirt';
+  font-size       : 2em;
+}
+.TEXT_BLOCK.ANCIENT_STONE_SIGN::after {
+  content         : "";
+}
+
+/* TEXT AUTHOR NOTE   */
+
+.TEXT_BLOCK.AUTHOR_NOTE {
+  padding         : 15px 15px 10px;
+
+  outline         : 1px solid rgb(var(--main), 0.5);
+  border-left     : 5px solid rgb(var(--main));
+}
+.TEXT_BLOCK.AUTHOR_NOTE::after {
+  content         : "Записка от автора";
+}
+
+/* TEXT IMPORTANT     */
+
+.TEXT_BLOCK.IMPORTANT {
+  padding         : 15px 15px 10px;
+
+  outline         : 1px solid rgb(var(--text), 0);
+  border-left     : 2.5px solid rgb(var(--main));
+}
+.TEXT_BLOCK.IMPORTANT::after {
+  content         : "Важное";
+}
+
+/* TEXT BLOCKS and FONTS */
+
+/* ===================== */
+
+/* BLOCKS and ELEMENTS   */
+
+.BLOCK {
+  display         : flex;
+  flex-direction  : column;
+  background-color: rgb(var(--solid));
+
+  box-shadow      :  
+    4px 4px 5px rgb(var(--dark-shadow), 0.3),
+    -4px -4px 5px rgb(var(--light-shadow), 0.45);
+
+  padding         : 15px;
+
+  border-radius   : 15px;
+
+  transition      : 
+  opacity var(--transition-fast), 
+  transform var(--transition-fast),
+  box-shadow var(--transition-fast),
+  background-color var(--transition-fast),
+  color var(--transition-fast);
+
+  /*visibility: hidden; debug*/
+}
+.BLOCK.INNER {
+  margin          : 5px 0px 5px 0px;
+  box-shadow      : 
+    4px 4px 5px rgb(var(--dark-shadow), 0.3) inset,
+    -4px -4px 5px rgb(var(--light-shadow), 0.45) inset;
+}
+.BLOCK.INNER.IMAGE {
+  padding         : 0px;
+  
+  margin          : 0px;
+
+  border-radius   : 15px;
+
+  width           : calc(var(--sides-size) * 15);
+}
+.BLOCK.INNER.INVISIBLE {
+  margin          : 5px 0px 5px 0px;
+  padding         : 0px;
+
+  background      : transparent;
+
+  width           : 100%;
+
+  box-shadow      : none;
+
+  outline         : none !important;
+}
+.BLOCK.SPECIAL {
+  position        : relative;
+
+  box-shadow      : none;
+  background      : 
+  radial-gradient(
+    ellipse at bottom left, 
+    rgb(var(--main), 0.25) 0%, 
+    rgb(var(--main), 0.15) 25%, 
+    rgb(var(--main), 0.1) 50%, 
+    rgba(var(--main), 0.1) 75%, 
+    rgba(var(--main), 0.05) 100%
+  );
+
+  isolation       : isolate;
+
+  outline         : 1px solid rgba(var(--main), 0.5);
+}
+.BLOCK.SPECIAL::after {
+  content         : "";
+
+  margin          : 0;
+  padding         : 0;
+
+  top             : 0;
+  left            : 0;
+
+  transform: scale(0.98);
+
+  position        : absolute;
+
+  background      : 
+  radial-gradient(
+    ellipse at bottom left, 
+    rgb(var(--main), 0.20) 0%, 
+    rgb(var(--main), 0.15) 25%, 
+    rgb(var(--main), 0.05) 50%, 
+    rgba(var(--main), 0.1) 75%, 
+    rgba(var(--main), 0.20) 100%
+  );
+
+  filter          : blur(25px);
+
+  width           : 100%;
+  height          : 100%;
+
+  z-index: -1;
+}
+.BLOCK.SPECIAL::before {
+  content         : "";
+
+  margin          : 0;
+  padding         : 0;
+
+  top             : 0;
+  left            : 0;
+
+  position        : absolute;
+
+  width           : 100%;
+  height          : 100%;
+
+  box-shadow      : 
+    5px 5px 5px rgb(var(--dark-shadow), 0.5);
+
+  border-radius  : 15px;
+
+  backdrop-filter : blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+
+  z-index: -1;
+}
+.BLOCK.HIDDEN {
+  opacity         : 0;
+  transform       : scale(0);
+  pointer-events  : none;
+}
+
+.BUTTON {
+  cursor          : pointer;
+
+  justify-content : center;
+  align-content   : center;
+  text-align      : center;
+
+  border-radius   : 15px;
+
+  min-width       : var(--sides-size);
+  min-height      : var(--sides-size);
+
+  transition      : 
+  opacity var(--transition-fast), 
+  transform var(--transition-fast),
+  box-shadow var(--transition-fast);
+}
+.BUTTON.ACTIVE {
+  position: relative;
+
+  box-shadow      : none;
+  background      : 
+  radial-gradient(
+    ellipse at bottom left, 
+    rgb(var(--main), 0.25) 0%, 
+    rgb(var(--main), 0.1) 25%, 
+    rgb(var(--main), 0.05) 50%, 
+    rgba(var(--main), 0.05) 75%, 
+    rgba(var(--main), 0.01) 100%
+  );
+
+  isolation       : isolate;
+
+  border-left     : 1px solid rgba(var(--main), 0.25);
+  border-bottom   : 1px solid rgba(var(--main), 0.35);
+  border-right    : 1px solid rgba(var(--text), 0.1);
+  border-top      : 1px solid rgba(var(--text), 0.1);
+}
+.BUTTON.ACTIVE::after {
+  content         : "";
+
+  margin          : 0;
+  padding         : 0;
+
+  top             : 0;
+  left            : 0;
+
+  transform: scale(1.01);
+
+  position        : absolute;
+
+  background      : 
+  radial-gradient(
+    ellipse at bottom left, 
+    rgb(var(--main), 0.20) 0%, 
+    rgb(var(--main), 0.15) 25%, 
+    rgb(var(--main), 0.05) 50%, 
+    rgba(var(--main), 0.1) 75%, 
+    rgba(var(--main), 0.20) 100%
+  );
+
+  filter          : blur(15px);
+
+  width           : 100%;
+  height          : 100%;
+
+  z-index: -1;
+}
+.BUTTON.HIDDEN {
+  display         : none !important;
+}
+.BUTTON:hover {
+  transform       : scale(0.95);
+  filter          : brightness(1.25);
+}
+.BUTTON[disabled] {
+  filter          : grayscale(1) brightness(0.5);
+
+  pointer-events  : none;
+
+  cursor          : not-allowed;
+}
+.BUTTON.SIDEBAR {
+  font-size       : clamp(10px, 1.25em, 18px);
+}
+.BUTTON_HELP {
+  cursor          : help;
+
+  position        : absolute;
+
+  top             : 0px;
+  left            : 0px;
+
+  justify-content : center;
+  align-content   : center;
+  text-align      : center;
+
+  font-size       : clamp(10px, 1em, 14px);
+
+  border-radius   : 15px;
+
+  min-width       : var(--sides-size);
+  min-height      : var(--sides-size);
+
+  transition      : all var(--transition-fast);
+
+  z-index         : 4;
+}
+
+.SPACER {
+  flex-grow       : 1;
+}
+
+.ICON {
+  pointer-events  : none;
+  padding         : 0px;
+  margin          : 0px;
+
+  font-size       : 1.5em;
+
+  color           : transparent;
+  text-shadow     :
+    1px 1px 1px rgb(var(--main)),
+    -1px 1px 1px rgb(var(--main)),
+    -1px -1px 1px rgb(var(--text)),
+    1px -1px 1px rgb(var(--main));
+  
+  mix-blend-mode  : normal;
+}
+
+/* BLOCKS and ELEMENTS  */
+
+/* ==================== */
+
+/* MEDIA                */
+
+@media (max-width : 14000px) { /*hell, man, your monitor is big. futureproof enough. or i will just use 'min-width' some time later. - Valikzant*/
+
+  body {
+    font-size     : calc(15px * var(--font-modifier));
+    --sides-size  : calc(25px * var(--interface-modifier));
+    --images-size : calc(120px * (var(--interface-modifier) / 2));
+    --vertical    : 1;
+    --horizontal  : 2;
+  }
+
+}
+
+@media (max-width: 1200px) {
+
+  body {
+    font-size     : calc(14px * var(--font-modifier));
+    --sides-size  : calc(20px * var(--interface-modifier));
+    --images-size : calc(100px * (var(--interface-modifier) / 2));
+    --vertical    : 1;
+    --horizontal  : 2;
+  }
+
+}
+
+@media (max-width : 991px) {
+
+  body {
+    font-size     : calc(13px * var(--font-modifier));
+    --sides-size  : calc(20px * var(--interface-modifier));
+    --images-size : calc(80px * (var(--interface-modifier) / 2));
+    --vertical    : 2;
+    --horizontal  : 1;
+  }
+}
+
+@media (max-width : 768px) {
+
+  body {
+    font-size     : calc(13px * var(--font-modifier));
+    --sides-size  : calc(18px * var(--interface-modifier));
+    --images-size : calc(70px * (var(--interface-modifier) / 2));
+    --vertical    : 2;
+    --horizontal  : 1;
+  }
+
+} 
+
+@media (max-width: 600px) {
+
+  body {
+    font-size     : calc(13px * var(--font-modifier));
+    --sides-size  : calc(13px * var(--interface-modifier));
+    --images-size : calc(60px * (var(--interface-modifier) / 2));
+    --vertical    : 2;
+    --horizontal  : 1;
+  }
+
+} 
+
+@media (max-width: 480px) {
+
+  body {
+    font-size      : calc(10px * var(--font-modifier));
+    --sides-size  : calc(11px * var(--interface-modifier));
+    --images-size : calc(60px * (var(--interface-modifier) / 2));
+    --vertical    : 2;
+    --horizontal  : 1;
+  }
+
+}
+
+@media (max-width: 360px) {
+
+  body {
+    font-size     : calc(10px * var(--font-modifier));
+    --sides-size  : calc(10px * var(--interface-modifier));
+    --images-size : calc(50px * (var(--interface-modifier) / 2));
+    --vertical    : 2;
+    --horizontal  : 1;
+  }
+
+}
+
+/* MEDIA                */
+
+/* ==================== */
