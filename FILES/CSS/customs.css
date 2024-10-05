@@ -1,0 +1,785 @@
+/* ===================== */
+
+/* WARNINGS and ELEMENTS */
+
+#WARNING {
+  position        : absolute;
+
+  bottom          : 0;
+  left            : 0;
+
+  margin          : 10px;
+  padding         : 5px;
+
+  display         : flex;
+  flex-direction  : column;
+  align-items     : center;
+  justify-content : center;
+
+  translate       : 0% ;
+
+  z-index         : 3;
+}
+
+/* WARNINGS and ELEMENTS */
+
+/* ===================== */
+
+/* TOOLTIP and ELEMENTS  */
+
+#TOOLTIP_HELP {
+  position        : fixed;
+
+  margin          : 10px;
+
+  min-width       : 100px;
+  max-width       : 350px;
+
+  display         : none;
+
+  box-shadow      : 
+    15px 15px 5px rgb(var(--dark-shadow), 0.5);
+
+  text-align      : justify;
+
+  z-index         : 6;
+}
+
+/* TOOLTIP and ELEMENTS */
+
+/* ==================== */
+
+/* HEADER and ELEMENTS  */
+
+#HEADER {
+  grid-area       : H;
+
+  margin          : 5px;
+  gap             : 7.5px;
+
+  min-height      : var(--sides-size);
+  max-height      : var(--sides-size);
+
+  white-space     : nowrap;
+
+  display         : flex;
+  flex-direction  : row;
+  align-items     : center;
+  justify-content : space-between;
+
+  z-index         : 2;
+}
+
+#LOGO_CONSTANT_PART {
+  display         : inline;
+
+  letter-spacing  : -8px;
+
+  margin          : 0px;
+  padding         : 0px;
+}
+
+#LOGO_CHANGING_PART {
+  display         : inline;
+
+  opacity         : 0.35;
+
+  letter-spacing  : -8px;
+
+  margin          : 0px;
+  padding         : 0px;
+
+  z-index         : -1;
+}
+
+/* HEADER and ELEMENTS  */
+
+/* ==================== */
+
+/* SIDEBAR and ELEMENTS */
+
+#SIDEBAR {
+  grid-area       : S;
+
+  margin          : 5px;
+  gap             : 7.5px;
+
+  flex-direction  : column;
+  
+  align-items     : center;
+
+  display         : flex;
+  flex-direction  : column;
+
+  text-overflow   : "";
+
+  max-width       : 100%;
+
+  z-index         : 2;
+}
+
+#SIDEBAR > * {
+  min-width       : calc(var(--sides-size) * 2);
+  max-width       : calc(var(--sides-size) * 2);
+}
+
+/* SIDEBAR and ELEMENTS */
+
+/* ==================== */
+
+/* THEMES and ELEMENTS  */
+
+#THEMES {
+  grid-area       : C;
+
+  position        : relative;
+
+  margin          : 5px;
+  gap             : 7.5px;
+
+  text-align      : justify;
+
+  overflow-y      : auto;
+  overflow-x      : hidden;
+
+  max-width       : 100%;
+
+  display         : flex;
+  align-items     : start;
+  justify-content : start;
+  align-content   : flex-start;
+
+  flex-direction  : row;
+  flex-wrap       : wrap;
+}
+
+/* HUE SHIFTING          */
+
+#HUE_CHOOSERS {
+  gap             : 4px;
+
+  padding         : 7.5px;
+
+  position        : relative;
+
+  align-content   : center;
+  align-items     : center;
+  justify-items   : center;
+  justify-content : center;
+
+  width           : calc((var(--sides-size) * 7.6) * var(--horizontal));
+  height          : calc((var(--sides-size) * 7.6) * var(--vertical));
+
+  display         : flex;
+  flex-wrap       : wrap;
+  flex-direction  : row;
+}
+
+#HUE_CHOOSERS > *:not(:nth-child(1)) {
+  width           : calc(var(--sides-size) * 3.4);
+  height          : calc(var(--sides-size) * 3.4);
+
+  box-shadow:  
+    2px 2px 5px rgb(var(--main), 0.75) inset,
+    2px 2px 5px rgb(var(--dark-shadow), 0.3);
+}
+
+/* THEME CHOOSING        */
+
+#THEME_CHOOSERS {
+  gap             : 4px;
+  
+  padding         : 7.5px;
+
+  position        : relative;
+
+  align-content   : center;
+  align-items     : center;
+  justify-items   : center;
+  justify-content : center;
+
+  width           : calc((var(--sides-size) * 7.6) * var(--horizontal));
+  height          : calc((var(--sides-size) * 7.6) * var(--vertical));
+
+  display         : flex;
+  flex-wrap       : wrap;
+  flex-direction  : row;
+}
+
+#THEME_CHOOSERS > *:not(:nth-child(1)) {
+  width           : calc((var(--sides-size) * 3.4) * 2);
+  height          : calc((var(--sides-size) * 3.4) * 1);
+
+  box-shadow:  
+    2px 2px 5px rgb(var(--light-shadow)) inset,
+    2px 2px 5px rgb(var(--dark-shadow), 0.3);
+}
+
+/* FONT CHOOSING         */
+
+#FONT_SIZE_CHOOSERS {
+  gap             : 4px;
+  
+  padding         : 7.5px;
+
+  position        : relative;
+
+  align-content   : center;
+  align-items     : center;
+  justify-items   : center;
+  justify-content : center;
+
+  width           : calc((var(--sides-size) * 7.6) * var(--horizontal));
+  height          : calc((var(--sides-size) * 7.6) * var(--vertical));
+
+  display         : flex;
+  flex-wrap       : wrap;
+  flex-direction  : row;
+}
+
+#FONT_SIZE_CHOOSERS > *:not(:nth-child(1)) {
+  width           : calc((var(--sides-size) * 3.4) * 2);
+  height          : calc((var(--sides-size) * 3.4) * 1);
+
+  background-color: rgb(var(--solid));
+  box-shadow:  
+    2px 2px 5px rgb(var(--light-shadow)) inset,
+    2px 2px 5px rgb(var(--dark-shadow), 0.3);
+
+  border-radius   : 15px;
+
+  display         : flex;
+  text-align      : center;
+  align-items     : center;
+}
+
+/* INTERFACE CHOOSING         */
+
+#INTERFACE_SIZE_CHOOSERS {
+  gap             : 4px;
+  
+  padding         : 7.5px;
+
+  position        : relative;
+
+  align-content   : center;
+  align-items     : center;
+  justify-items   : center;
+  justify-content : center;
+
+  width           : calc((var(--sides-size) * 7.6) * var(--horizontal));
+  height          : calc((var(--sides-size) * 7.6) * var(--vertical));
+
+  display         : flex;
+  flex-wrap       : wrap;
+  flex-direction  : row;
+}
+
+#INTERFACE_SIZE_CHOOSERS > *:not(:nth-child(1)) {
+  width           : calc((var(--sides-size) * 3.4) * 2);
+  height          : calc((var(--sides-size) * 3.4) * 1);
+
+  background-color: rgb(var(--solid));
+  box-shadow:  
+    2px 2px 5px rgb(var(--light-shadow)) inset,
+    2px 2px 5px rgb(var(--dark-shadow), 0.3);
+
+  border-radius   : 15px;
+
+  display         : flex;
+  text-align      : center;
+  align-items     : center;
+}
+
+/* THEMES and ELEMENTS   */
+
+/* ===================== */
+
+/* SETTINGS and ELEMENTS */
+
+#SETTINGS {
+  grid-area       : C;
+
+  position        : relative;
+
+  margin          : 5px;
+  gap             : 7.5px;
+
+  text-align      : justify;
+
+  overflow-y      : auto;
+  overflow-x      : hidden;
+
+  max-width       : 100%;
+
+  display         : flex;
+  align-items     : start;
+  justify-content : start;
+  align-content   : flex-start;
+
+  flex-direction  : row;
+  flex-wrap       : wrap;
+}
+
+/* SAVING CHOOSING       */
+
+#CUSTOMIZATION_SAVING_CHOOSERS {
+  gap             : 5px;
+  
+  padding         : 7.5px;
+
+  position        : relative;
+
+  align-content   : center;
+  align-items     : center;
+  justify-items   : center;
+  justify-content : center;
+
+  width           : calc((var(--sides-size) * 7.6) * var(--horizontal));
+  height          : calc((var(--sides-size) * 7.6) * var(--vertical));
+
+  display         : flex;
+  flex-wrap       : wrap;
+  flex-direction  : row;
+}
+
+#CUSTOMIZATION_SAVING_CHOOSERS > *:not(:nth-child(1)) {
+  width           : calc((var(--sides-size) * 3.4) * 2);
+  height          : calc((var(--sides-size) * 3.4) * 2);
+
+  background-color: rgb(var(--solid));
+  box-shadow:  
+    2px 2px 5px rgb(var(--light-shadow)) inset,
+    2px 2px 5px rgb(var(--dark-shadow), 0.3);
+
+  border-radius   : 15px;
+
+  font-size: 0.75em;
+
+  display         : flex;
+  text-align      : center;
+  align-items     : center;
+}
+
+/* ANIMATION CHOOSING    */
+
+#ANIMATION_TOGGLE_CHOOSERS {
+  gap             : 5px;
+  
+  padding         : 7.5px;
+
+  position        : relative;
+
+  align-content   : center;
+  align-items     : center;
+  justify-items   : center;
+  justify-content : center;
+
+  width           : calc((var(--sides-size) * 7.6) * var(--horizontal));
+  height          : calc((var(--sides-size) * 7.6) * var(--vertical));
+
+  display         : flex;
+  flex-wrap       : wrap;
+  flex-direction  : row;
+}
+
+#ANIMATION_TOGGLE_CHOOSERS > *:not(:nth-child(1)) {
+  width           : calc((var(--sides-size) * 3.4) * 2);
+  height          : calc((var(--sides-size) * 3.4) * 2);
+
+  background-color: rgb(var(--solid));
+  box-shadow:  
+    2px 2px 5px rgb(var(--light-shadow)) inset,
+    2px 2px 5px rgb(var(--dark-shadow), 0.3);
+
+  border-radius   : 15px;
+
+  font-size       : 0.75em;
+
+  display         : flex;
+  text-align      : center;
+  align-items     : center;
+}
+
+/* LAYOUT CHOOSING       */
+
+#LAYOUT_CHOOSERS {
+  gap             : 5px;
+  
+  padding         : 7.5px;
+
+  position        : relative;
+
+  align-content   : center;
+  align-items     : center;
+  justify-items   : center;
+  justify-content : center;
+
+  width           : calc((var(--sides-size) * 7.6) * var(--horizontal));
+  height          : calc((var(--sides-size) * 7.6) * var(--vertical));
+
+  display         : flex;
+  flex-wrap       : wrap;
+  flex-direction  : row;
+}
+
+#LAYOUT_CHOOSERS > *:not(:nth-child(1)) {
+  width           : calc((var(--sides-size) * 3.4) * 2);
+  height          : calc((var(--sides-size) * 3.4) * 2);
+
+  background-color: rgb(var(--solid));
+  box-shadow:  
+    2px 2px 5px rgb(var(--light-shadow)) inset,
+    2px 2px 5px rgb(var(--dark-shadow), 0.3);
+
+  border-radius   : 15px;
+
+  font-size: 0.75em;
+
+  display         : flex;
+  text-align      : center;
+  align-items     : center;
+}
+
+/* SETTINGS and ELEMENTS */
+
+/* ===================== */
+
+/* AUTHOR and ELEMENTS   */
+
+#AUTHOR {
+  grid-area       : C;
+
+  position        : relative;
+
+  margin          : 5px;
+  gap             : 7.5px;
+
+  text-align      : justify;
+
+  overflow-y      : auto;
+  overflow-x      : hidden;
+
+  max-width       : 100%;
+
+  display         : flex;
+  align-items     : start;
+  justify-content : start;
+  align-content   : flex-start;
+
+  flex-direction  : row;
+  flex-wrap       : wrap;
+}
+
+/* AUTHOR and ELEMENTS   */
+
+/* ===================== */
+
+/* CONTENT and ELEMENTS  */
+
+#CONTENT {
+  grid-area       : C;
+
+  position        : relative;
+
+  margin          : 5px;
+  gap             : 7.5px;
+
+  text-align      : justify;
+
+  overflow-y      : auto;
+  overflow-x      : hidden;
+
+  max-width       : 100%;
+
+  display         : flex;
+  align-items     : start;
+  justify-content : start;
+  align-content   : flex-start;
+
+  flex-direction  : row;
+  flex-wrap       : wrap;
+}
+
+/* STORY BLOCK        */
+
+#STORY_BLOCK {
+  display         : flex;
+  flex-direction  : column;
+}
+#STORY_BLOCK > :nth-child(1) {
+  margin          : 0px 0px 15px 0px;
+}
+
+/* CHARACTER INFORMATION */
+
+#CHARACTER_INFORMATION {
+  display         : grid;
+
+  gap             : 15px;
+
+  grid-template-columns: 1fr 1fr 1fr 1.5fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 
+  "T T T T"
+  "C C C S";
+}
+
+#CHARACTER_INFORMATION_TITLE {
+  grid-area       : T;
+}
+
+/* CHARACTER SPECIAL   */
+
+#CHARACTER_SPECIAL {
+  grid-area       : S;
+
+  display         : flex;
+  flex-direction  : column;
+
+  gap             : 15px;
+
+  position        : relative;
+  
+  margin          : 5px 0px 5px 0px;
+}
+
+#CHARACTER_SPECIAL_NAME {
+  display         : flex;
+  justify-content : center;
+}
+
+/* CHARACTER CARD      */
+
+#CHARACTER_CARD {
+  grid-area       : C;
+
+  display         : grid;
+
+  position        : relative;
+
+  margin          : 5px 0px 5px 0px;
+
+  gap             : 15px;
+
+  transition      : 
+  height var(--transition-fast),
+  width var(--transition-fast);
+
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas:
+  "N N"
+  "I I"
+  "I I"
+  "I I";
+}
+
+#CHARACTER_CARD_NAME {
+  grid-area       : N;
+  
+  display         : flex;
+
+  justify-content : center;
+}
+
+#CHARACTER_CARD_INFORMATION {
+  grid-area       : I;
+
+  position        : relative;
+
+  text-align      : justify;
+
+  justify-content : center;
+  align-content   : center;
+  align-items     : center;
+
+  display         : block;
+
+  flex-direction  : column;
+}
+
+#CHARACTER_CARD_IMAGE {
+  width           : calc(var(--images-size) * 8);
+  height          : calc(var(--images-size) * 8);
+
+  margin          : 0px 15px 15px 0px;
+
+  position        : relative;
+
+  float           : inline-start;
+
+  display         : block;
+
+  outline         : rgb(var(--main),0.5) solid 1px;
+}
+#CHARACTER_CARD_IMAGE img {
+  position        : absolute;
+
+  width           : 100%;
+  height          : auto;
+
+  top             : 0;
+  left            : 0;
+
+  z-index: 2;
+}
+#CHARACTER_CARD_IMAGE p {
+  position        : absolute; 
+
+  width           : 80%;
+  height          : 80%;
+
+  overflow-y      : auto;
+
+  text-align      : left;
+
+  top             : 15px;
+  left            : 15px;
+}
+#CHARACTER_CARD_IMAGE:hover {
+  cursor          : help;
+}
+#CHARACTER_CARD_IMAGE:hover > img {
+  opacity         : 0;
+
+  pointer-events  : none;
+}
+ 
+/* CONTENT and ELEMENTS */
+
+/* ==================== */
+
+/* FOOTER and ELEMENTS  */
+
+#FOOTER {
+  grid-area       : F;
+
+  margin          : 5px;
+  gap             : 7.5px;
+
+  height          : var(--sides-size);
+  max-height      : var(--sides-size);
+
+  z-index         : 2;
+}
+
+/* FOOTER and ELEMENTS  */
+
+/* ==================== */
+
+/* SCROLL BAR           */
+
+::-webkit-scrollbar {
+  width           : 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow      : inset 0 0 5px rgb(var(--main));
+  border-radius   : 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background      : rgb(var(--main));
+  border-radius   : 15px;
+} 
+
+/* SCROLL BAR           */
+
+/* ==================== */
+
+/* MEDIA QUERIES        */
+
+@media (max-width: 14000px) {
+
+}
+
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 1000px) {
+
+  #CHARACTER_INFORMATION {
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+    "T T T T"
+    "C C C C"
+    "S S S S";
+
+    gap           : 5px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  #CHARACTER_INFORMATION {
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+    "T T T T"
+    "C C C C"
+    "S S S S";
+
+    gap           : 5px;
+  }
+
+} 
+
+@media (max-width: 600px) {
+  
+  #CHARACTER_INFORMATION {
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+    "T T T T"
+    "C C C C"
+    "S S S S";
+
+    gap           : 5px;
+  }
+
+} 
+
+@media (max-width: 480px) {
+
+  #CHARACTER_INFORMATION {
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+    "T T T T"
+    "C C C C"
+    "S S S S";
+
+    gap           : 5px;
+  }
+
+  #CHARACTER_CARD_INFORMATION {
+    display       : flex;
+  }
+
+  #CHARACTER_CARD_IMAGE{
+    margin        : 0px 0px 15px 0px;
+  }
+
+}
+
+@media (max-width: 360px) {
+
+  #CHARACTER_INFORMATION {
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+    "T T T T"
+    "C C C C"
+    "S S S S";
+    
+    gap           : 5px;
+  }
+
+  #CHARACTER_CARD_INFORMATION {
+    display       : flex;
+  }
+
+  #CHARACTER_CARD_IMAGE{
+    margin        : 0px 0px 15px 0px;
+  }
+
+}
