@@ -171,11 +171,11 @@ function _F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(_C_INTERFACE_MODIFIER) {
 // Включение/Отключение сохранения кастомизации
 function _F_SETTINGS_CHANGE_CUSTOMIZATION_SAVING(_C_MODE) {
   if (_C_MODE == "true") {
-    _F_LOCAL_STORAGE_SET("customization-saving", "true");
+    _F_LOCAL_STORAGE_SET("customization-saved", "true");
     _F_INTERACT_WITH_HTML_ENABLE_BUTTON_BY_ID("CUSTOMIZATION_SAVING_CHOOSER_ON");
     _F_INTERACT_WITH_HTML_DISABLE_BUTTON_BY_ID("CUSTOMIZATION_SAVING_CHOOSER_OFF");
   } else {
-    _F_LOCAL_STORAGE_SET("customization-saving", "false");
+    _F_LOCAL_STORAGE_SET("customization-saved", "false");
     _F_INTERACT_WITH_HTML_ENABLE_BUTTON_BY_ID("CUSTOMIZATION_SAVING_CHOOSER_OFF");
     _F_INTERACT_WITH_HTML_DISABLE_BUTTON_BY_ID("CUSTOMIZATION_SAVING_CHOOSER_ON");
   }
@@ -347,14 +347,16 @@ function _F_ON_EVENT_CHANGE_LAYOUT(_C_FORCE = null) {
 
 // Починка несовместимых размеру экрана модификаторов
 function _F_ON_EVENT_FIX_MODIFIERS() {
-  if (window.innerWidth >= 768) {
-    _F_INTERACT_WITH_HTML_ENABLE_ELEMENT_BY_ID("FONT_SIZE_CHOOSER_HUGE");
+
+  const _C_WINDOW_WIDTH = window.innerWidth;
+
+  if (_C_WINDOW_WIDTH >= 768) {
     _F_INTERACT_WITH_HTML_ENABLE_ELEMENT_BY_ID("INTERFACE_SIZE_CHOOSER_SMALL");
     _F_INTERACT_WITH_HTML_ENABLE_ELEMENT_BY_ID("INTERFACE_SIZE_CHOOSER_MEDIUM");
     return;
   }
 
-  if (window.innerWidth < 768 && window.innerWidth >= 600) { // 768
+  if (_C_WINDOW_WIDTH < 768 && _C_WINDOW_WIDTH >= 600) { // 768
     if (_F_LOCAL_STORAGE_GET("interface-modifier") == 0) {
       _F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(1);    
     }
@@ -363,15 +365,11 @@ function _F_ON_EVENT_FIX_MODIFIERS() {
 
     _F_INTERACT_WITH_HTML_ENABLE_ELEMENT_BY_ID("FONT_SIZE_CHOOSER_SMALL");
     _F_INTERACT_WITH_HTML_ENABLE_ELEMENT_BY_ID("INTERFACE_SIZE_CHOOSER_MEDIUM");
-  } else if (window.innerWidth < 600 && window.innerWidth >= 0) { // 600
+  } else if (_C_WINDOW_WIDTH < 600 && _C_WINDOW_WIDTH >= 0) { // 600
     if (_F_LOCAL_STORAGE_GET("interface-modifier") == 1) {
       _F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(2);    
     }
-    if (_F_LOCAL_STORAGE_GET("font-modifier") == 3) {
-      _F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(2);
-    }
 
-    _F_INTERACT_WITH_HTML_DISABLE_ELEMENT_BY_ID("FONT_SIZE_CHOOSER_HUGE");
     _F_INTERACT_WITH_HTML_DISABLE_ELEMENT_BY_ID("INTERFACE_SIZE_CHOOSER_SMALL");
     _F_INTERACT_WITH_HTML_DISABLE_ELEMENT_BY_ID("INTERFACE_SIZE_CHOOSER_MEDIUM");
   }
@@ -454,13 +452,15 @@ document.addEventListener('DOMContentLoaded', function () {
   _F_LOGO_UPDATE()
   window.addEventListener("resize", _F_ON_EVENT_CHANGE_LAYOUT);
   window.addEventListener("resize", _F_ON_EVENT_FIX_MODIFIERS);
+  window.addEventListener("orientationchange", _F_ON_EVENT_CHANGE_LAYOUT);
+  window.addEventListener("orientationchange", _F_ON_EVENT_FIX_MODIFIERS);
   window.addEventListener("DOMContentLoaded", _F_ON_EVENT_FIX_MODIFIERS);
   window.addEventListener("DOMContentLoaded", _F_ON_EVENT_CHANGE_LAYOUT);
   window.addEventListener("DOMContentLoaded", _F_ON_LOAD_SETUP_HINTS);
   
   // Ставим при загрузке страницы значения в еще несуществующие переменные в памяти браузера
-  if (_F_LOCAL_STORAGE_GET("customization-saving") == null) {
-    _F_LOCAL_STORAGE_SET("customization-saving", "true");
+  if (_F_LOCAL_STORAGE_GET("customization-saved") == null) {
+    _F_LOCAL_STORAGE_SET("customization-saved", "true");
   }
   if (_F_LOCAL_STORAGE_GET("animations") == null) {
     _F_LOCAL_STORAGE_SET("animations", "true");
@@ -476,7 +476,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Если сохранение тем есть, то загружаем, если нет - удаляем сохранения
-  if (_F_LOCAL_STORAGE_GET("customization-saving") == "true") {
+  if (_F_LOCAL_STORAGE_GET("customization-saved") == "true") {
     // Загрузка темы, если есть.
     if (_F_LOCAL_STORAGE_GET("theme") != null) {
       _F_CUSTOMIZATION_CHANGE_THEME(null, JSON.parse(_F_LOCAL_STORAGE_GET("theme")));
@@ -499,8 +499,8 @@ document.addEventListener('DOMContentLoaded', function () {
     _F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(_F_LOCAL_STORAGE_GET("interface-modifier"));
   }
   // Загрузка сохранения кастомизации, если есть.
-  if (_F_LOCAL_STORAGE_GET("customization-saving") != null) {
-    _F_SETTINGS_CHANGE_CUSTOMIZATION_SAVING(_F_LOCAL_STORAGE_GET("customization-saving"));
+  if (_F_LOCAL_STORAGE_GET("customization-saved") != null) {
+    _F_SETTINGS_CHANGE_CUSTOMIZATION_SAVING(_F_LOCAL_STORAGE_GET("customization-saved"));
   }
   // Загрузка сохранения анимации, если есть.
   if (_F_LOCAL_STORAGE_GET("animations") != null) {

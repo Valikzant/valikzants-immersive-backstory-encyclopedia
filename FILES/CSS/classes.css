@@ -319,19 +319,6 @@ p {
   z-index: -1;
 }
 
-.BLOCK.SPECIAL::before {
-  content: "";
-  margin: 0;
-  padding: 0;
-  top: 0;
-  left: 0;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
-  z-index: -1;
-}
-
 .BLOCK.HIDDEN {
   opacity: 0;
   transform: rotateY(180deg);
