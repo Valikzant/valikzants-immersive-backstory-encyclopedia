@@ -123,6 +123,7 @@
   align-content: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
+  content-visibility: auto;
 }
 
 #HUE_CHOOSERS,
@@ -132,6 +133,7 @@
 #CUSTOMIZATION_SAVING_CHOOSERS,
 #ANIMATION_TOGGLE_CHOOSERS,
 #HINT_TOGGLE_CHOOSERS,
+#LAZY_LOAD_TOGGLE_CHOOSERS,
 #LAYOUT_CHOOSERS {
   gap: 4px;
   width: calc(var(--sides-size) * 7.6);
@@ -151,6 +153,7 @@
   box-shadow: 2px 2px 5px rgb(var(--hue), 0.75) inset,
     2px 2px 5px rgb(var(--dark-shadow), 0.3);
 }
+#LAZY_LOAD_TOGGLE_CHOOSERS > *:not(:nth-child(1)),
 #CUSTOMIZATION_SAVING_CHOOSERS > *:not(:nth-child(1)),
 #ANIMATION_TOGGLE_CHOOSERS > *:not(:nth-child(1)),
 #HINT_TOGGLE_CHOOSERS > *:not(:nth-child(1)),

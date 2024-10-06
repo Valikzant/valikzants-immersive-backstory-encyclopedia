@@ -8,6 +8,14 @@
   margin: 10px 0px;
 
   z-index: 2;
+  content-visibility: auto;
+  text-rendering:optimizeSpeed;
+}
+.TEXT_BLOCK.UNLOADED{
+  visibility: hidden;
+}
+.TEXT_BLOCK.UNLOADED p {
+  display: none !important;
 }
 .TEXT_BLOCK p {
   z-index: 3;
@@ -23,16 +31,19 @@
   font-family: "geologica";
   font-size: 0.75rem;
   z-index: 2;
+  content-visibility: auto;
 }
 .TEXT_BLOCK::before {
   content: "";
   z-index: -1;
+  content-visibility: auto;
 }
 
 /* TEXT DEFAULT       */
 
 .TEXT_BLOCK.DEFAULT {
   padding: 0px;
+  content-visibility: visible;
 }
 
 /* TEXT PAPER         */
@@ -339,10 +350,8 @@ p.TEXT_ON_SCREEN {
   align-self: center;
 
   color: rgb(var(--hue));
-  text-shadow: 0 0 5px rgb(var(--solid)), 0 0 10px rgb(var(--solid)),
-    0 0 15px rgb(var(--solid)), 0 0 20px rgb(var(--solid)),
-    0 0 35px rgb(var(--hue)), 0 0 40px rgb(var(--hue)), 0 0 50px rgb(var(--hue)),
-    0 0 75px rgb(var(--hue));
+  text-shadow: 0 0 5px rgb(var(--solid)), 0 0 7.5px rgb(var(--solid)),
+    0 0 10px rgb(var(--solid)), 0 0 20px rgb(var(--hue));
 
   padding: 15px 15px 10px;
 }

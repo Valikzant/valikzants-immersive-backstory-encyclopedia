@@ -82,6 +82,7 @@ function _F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(_C_ID) {
       _C_CONTENT.scrollBy(0, -15);
     }, 100);
   }, 100);
+  _C_ELEMENT.scrollIntoView({ behavior: "auto", block: "start", inline: "nearest" });
 }
 
 // [ LOCAL STORAGE ]
@@ -213,6 +214,19 @@ function _F_SETTINGS_CHANGE_HINTS(_C_MODE) {
     _F_INTERACT_WITH_HTML_DISABLE_BUTTON_BY_ID("HINT_TOGGLE_CHOOSER_ON");
   }
 }
+
+// Включение/Отключение lazy load
+function _F_SETTINGS_CHANGE_LAZY_LOAD(_C_MODE) {
+  if (_C_MODE == "true") {
+    _F_LOCAL_STORAGE_SET("lazy-load", "true");
+    _F_INTERACT_WITH_HTML_ENABLE_BUTTON_BY_ID("LAZY_LOAD_TOGGLE_CHOOSER_ON");
+    _F_INTERACT_WITH_HTML_DISABLE_BUTTON_BY_ID("LAZY_LOAD_TOGGLE_CHOOSER_OFF");
+  } else {
+    _F_LOCAL_STORAGE_SET("lazy-load", "false");
+    _F_INTERACT_WITH_HTML_ENABLE_BUTTON_BY_ID("LAZY_LOAD_TOGGLE_CHOOSER_OFF");
+    _F_INTERACT_WITH_HTML_DISABLE_BUTTON_BY_ID("LAZY_LOAD_TOGGLE_CHOOSER_ON");
+  }
+}
   
 // [ TOGGLE WINDOWS ]
 
@@ -311,8 +325,8 @@ function _F_ON_EVENT_SHOW_TOOLTIP(event) {
   const { clientX: _C_MOUSE_X, clientY: _C_MOUSE_Y } = event;
   const { innerWidth: _C_VIEWPORT_WIDTH, innerHeight: _C_VIEWPORT_HEIGHT } = window;
   
-  const _C_TOOLTIP_X = (_C_MOUSE_X + 150 > _C_VIEWPORT_WIDTH) ? _C_MOUSE_X - 150 : _C_MOUSE_X;
-  const _C_TOOLTIP_Y = (_C_MOUSE_Y + 100 > _C_VIEWPORT_HEIGHT) ? _C_MOUSE_Y - 100 : _C_MOUSE_Y;
+  const _C_TOOLTIP_X = (_C_MOUSE_X + 300 > _C_VIEWPORT_WIDTH) ? _C_MOUSE_X - 200 : _C_MOUSE_X;
+  const _C_TOOLTIP_Y = (_C_MOUSE_Y + 200 > _C_VIEWPORT_HEIGHT) ? _C_MOUSE_Y - 100 : _C_MOUSE_Y;
 
   _C_TOOLTIP.style.top = _C_TOOLTIP_Y + "px";
   _C_TOOLTIP.style.left = _C_TOOLTIP_X + "px";
@@ -474,6 +488,9 @@ document.addEventListener('DOMContentLoaded', function () {
   if (_F_LOCAL_STORAGE_GET("interface-modifier") == null) {
     _F_LOCAL_STORAGE_SET("interface-modifier", 1);
   }
+  if (_F_LOCAL_STORAGE_GET("lazy-load") == null) {
+    _F_LOCAL_STORAGE_SET("lazy-load", "false");
+  }
 
   // Если сохранение тем есть, то загружаем, если нет - удаляем сохранения
   if (_F_LOCAL_STORAGE_GET("customization-saved") == "true") {
@@ -490,25 +507,23 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.removeItem("hue");
   }
 
-  // Загрузка размера шрифта, если есть.
   if (_F_LOCAL_STORAGE_GET("font-modifier") != null) {
     _F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(_F_LOCAL_STORAGE_GET("font-modifier"));
   }
-  // Загрузка размера интерфейса, если есть.
   if (_F_LOCAL_STORAGE_GET("interface-modifier") != null) {
     _F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(_F_LOCAL_STORAGE_GET("interface-modifier"));
   }
-  // Загрузка сохранения кастомизации, если есть.
   if (_F_LOCAL_STORAGE_GET("customization-saved") != null) {
     _F_SETTINGS_CHANGE_CUSTOMIZATION_SAVING(_F_LOCAL_STORAGE_GET("customization-saved"));
   }
-  // Загрузка сохранения анимации, если есть.
   if (_F_LOCAL_STORAGE_GET("animations") != null) {
     _F_SETTINGS_CHANGE_ANIMATIONS(_F_LOCAL_STORAGE_GET("animations"));
   }
-  // Загрузка сохранения подсказок, если есть.
   if (_F_LOCAL_STORAGE_GET("hints") != null) {
     _F_SETTINGS_CHANGE_HINTS(_F_LOCAL_STORAGE_GET("hints"));
+  }
+  if (_F_LOCAL_STORAGE_GET("lazy-load") != null) {
+    _F_SETTINGS_CHANGE_LAZY_LOAD(_F_LOCAL_STORAGE_GET("lazy-load"));
   }
 
   // Завершение загрузки
@@ -523,3 +538,39 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }, 1500);
 });
+
+// ========================== [ END ] ==========================
+
+// ========================== [ lazy load by chat gpt ] ==========================
+
+function lazyLoad() {
+
+  if (_F_LOCAL_STORAGE_GET("lazy-load") == "false") {
+    return;
+  }
+
+  const storyBlock = document.getElementById('STORY_BLOCK');
+  const blocks = storyBlock.querySelectorAll('.INVISIBLE');
+  console.debug(blocks);
+
+  blocks.forEach((element) => {
+    const textBlocks = element.querySelectorAll('.TEXT_BLOCK');
+    textBlocks.forEach((element) => {
+      element.classList.add('UNLOADED');
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          // загружаем контент
+          element.classList.remove('UNLOADED');
+        } else {
+          element.classList.add('UNLOADED');
+        }
+      }, {
+        rootMargin: '50px',
+      });
+  
+      observer.observe(element);
+    });
+  })
+}
+
+document.addEventListener('DOMContentLoaded', lazyLoad);
