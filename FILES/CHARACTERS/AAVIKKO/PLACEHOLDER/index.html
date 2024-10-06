@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html lang="ru" id="root">
+  <!--Секции, что требуют изменений будут отмечены соответственно.
+      Чтобы вы не пропустили разделы, где нужно что-то редактировать,
+      я расставил комментарии с текстом "ДЛЯ РЕДАКТИРОВАНИЯ"        -->
 
+  <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. \/ -->
+<html lang="ru" id="root">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Test Site</title>
-  <link rel="stylesheet" href="../../CSS/classes.css?v=update2.3">
-  <link rel="stylesheet" href="../../CSS/customs.css?v=update2.3">
+  <link rel="stylesheet" href="../../../CSS/classes.css?v=update3.1">
+  <link rel="stylesheet" href="../../../CSS/customs.css?v=update3.1">
+  <link rel="stylesheet" href="../../../CSS/textblocks.css?v=update3.1">
 </head>
-<script src="../../JS/code.js?v=update2.2"></script>
+<script src="../../../JS/code.js?v=update3.1"></script>
+  <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. /\ -->
+
+  <!-- СЕКЦИЯ РАЗРЕШЕНА ДЛЯ ЧАСТИЧНОГО РЕДАКТИРОВАНИЯ. \/ -->
 <script>
+  // ДЛЯ РЕДАКТИРОВАНИЯ
+  // Здесь можно указать свои оттенки/темы для страницы в формате R G B.
   const _C_HUES = [
     // Максимум 8 оттенков
     {"main": [248, 56, 56]},          // Яркий красный
@@ -44,7 +54,7 @@
     // Более светлая тема
     {"solid": [221, 225, 231],        // Цвет фона
     "light-shadow": [255, 255, 255],  // Цвет светлой тени
-    "dark-shadow": [94,104,121],   // Цвет тёмной тени
+    "dark-shadow": [94,104,121],      // Цвет тёмной тени
     "text": [0, 0, 0]}                // Цвет текста
   ];
 
@@ -54,17 +64,36 @@
     _F_GENERATE_THEME_BUTTONS(_C_THEMES);
   }
 </script>
+
+  <!-- СЕКЦИЯ РАЗРЕШЕНА ДЛЯ ЧАСТИЧНОГО РЕДАКТИРОВАНИЯ. /\ -->
+
+  <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. \/ -->
+
 <body id="body">
+  <div id="LOADING_SCREEN" class="BLOCK">
+    <div class="ICON">⏳</div>
+    <div id="HEADER_BUTTON_VIBE" class="BUTTON">
+      <h1 id="HEADER_LOGO" class="FANCY">
+        <div id="LOGO_CONSTANT_PART">V</div>
+        <div id="LOGO_CHANGING_PART"></div>
+        <div id="LOGO_CONSTANT_PART">I</div>
+        <div id="LOGO_CHANGING_PART"></div>
+        <div id="LOGO_CONSTANT_PART">B</div>
+        <div id="LOGO_CHANGING_PART"></div>
+        <div id="LOGO_CONSTANT_PART">E</div>
+      </h1>
+    </div>
+  </div>
 
   <div id="WARNING" class="BLOCK SPECIAL HIDDEN"  style="display: inline;">
     <div class="ICON" style="display: inline;">❗</div> 
-    Некоторые элементы сайта могут отображаться некорректно.
+    Что-то пошло не так.
   </div>
 
-  <div id="TOOLTIP_HELP" class="BLOCK SPECIAL">Проверка</div>
+  <div id="TOOLTIP_HELP" class="BLOCK SPECIAL">Если вы видите это, то что-то пошло не так.</div>
 
   <div id="HEADER" class="BLOCK">
-    <div id="HEADER_BUTTON_VIBE" class="BUTTON">
+    <div id="HEADER_BUTTON_VIBE" onclick="window.location.href='../index.html'" class="BUTTON">
       <h1 id="HEADER_LOGO" class="FANCY">
         <div id="LOGO_CONSTANT_PART">V</div>
         <div id="LOGO_CHANGING_PART"></div>
@@ -92,32 +121,44 @@
     </div>
   </div>
 
+  <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. /\ -->
+
+  <!-- СЕКЦИЯ РАЗРЕШЕНА ДЛЯ ЧАСТИЧНОГО РЕДАКТИРОВАНИЯ. \/ -->
+
   <div id="SIDEBAR" class="BLOCK">
+    
     <div class="BUTTON SIDEBAR" onclick="_F_SCROLL_TO_ELEMENT(
       'CHARACTER_INFORMATION')"
       data-tooltip="Карточка персонажа">
       <div class="ICON">⇧</div>
     </div>
+    <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
     <div class="BUTTON SIDEBAR" onclick="_F_SCROLL_TO_ELEMENT(
-      'CONTENT_1')"
-      data-tooltip="Какой то текст">
-      <div class="ICON">1</div>
+      'story1')"
+      data-tooltip="Блоки">
+      <div class="ICON"> 1 </div>
     </div>
+
     <div class="BUTTON SIDEBAR" onclick="_F_SCROLL_TO_ELEMENT(
-      'CONTENT_2')"
-      data-tooltip="Какой то текст">
-      <div class="ICON">2</div>
+      'story2')"
+      data-tooltip="2">
+      <div class="ICON"> 2 </div>
     </div>
+
     <div class="BUTTON SIDEBAR" onclick="_F_SCROLL_TO_ELEMENT(
-      'CONTENT_3')"
-      data-tooltip="Какой то текст">
-      <div class="ICON">3</div>
+      'story3')"
+      data-tooltip="3">
+      <div class="ICON"> 3 </div>
     </div>
+
+    <!--
     <div class="BUTTON SIDEBAR" onclick="_F_SCROLL_TO_ELEMENT(
-      'CONTENT_4')"
-      data-tooltip="Какой то текст">
-      <div class="ICON">4</div>
+      'АЙДИ ТОЙ ГЛАВЫ ДЛЯ ПРОКРУТКИ')"
+      data-tooltip="ТЕКСТ ГЛАВЫ">
+      <div class="ICON"> ЭМОДЗИ/БУКВА ДЛЯ ИКОНКИ </div>
     </div>
+    -->
+
   </div>
 
   <div id="CONTENT" class="BLOCK">
@@ -135,9 +176,9 @@
       <h2 id="CHARACTER_INFORMATION_TITLE" class="TITLE">Информация о персонаже</h2>
       
       <div id="CHARACTER_CARD" class="BLOCK INNER SPECIAL">
-
+        <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
         <h3 id="CHARACTER_CARD_NAME">
-          Айвен Уно
+          Имя вашего персонажа здесь
         </h3>
 
         <div id="CHARACTER_CARD_INFORMATION">
@@ -147,25 +188,23 @@
             <h3 class="HINT">Наведите<br>на меня</h3>
 
             <img class="BLOCK INNER IMAGE" src="pfp.png">
-            
+            <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
             <p>
-              Раса      : Вульпканин
+              Раса      : ???
               <br>
-              Рост      : 161 см
+              Рост      : ??? см
               <br>
-              Вес       : 57 кг
+              Вес       : ??? кг
               <br>
-              Статус    : Холост
+              Статус    : ???
               <br>
-              Осн. Роли : Уборщик
+              Осн. Роли : ???
             </p>
 
           </div>
-
+          <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error porro voluptatem eveniet, consequuntur praesentium non laboriosam quod commodi impedit vel ipsum ut officia minus est maiores debitis provident temporibus. Voluptate nisi qui accusantium corrupti, dolor natus fugit eaque. Ipsa ipsum, sapiente molestiae perferendis praesentium recusandae. Libero maiores reiciendis ullam rem!
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error porro voluptatem eveniet, consequuntur praesentium non laboriosam quod commodi impedit vel ipsum ut officia minus est maiores debitis provident temporibus. Voluptate nisi qui accusantium corrupti, dolor natus fugit eaque. Ipsa ipsum, sapiente molestiae perferendis praesentium recusandae. Libero maiores reiciendis ullam rem!
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error porro voluptatem eveniet, consequuntur praesentium non laboriosam quod commodi impedit vel ipsum ut officia minus est maiores debitis provident temporibus. Voluptate nisi qui accusantium corrupti, dolor natus fugit eaque. Ipsa ipsum, sapiente molestiae perferendis praesentium recusandae. Libero maiores reiciendis ullam rem!
+            Обширное описание вашего персонажа здесь из игры или собственное только для этой страницы, если вы так желаете. Вообще, тут будет много бессмысленного текста для примера и вы не обязаны его читать, однако продолжаете его читать. Я рад, что вам всё еще интересно продолжать смотреть на эти буквы, исследуя, видимо, каждую из них.
           </p>
 
         </div>
@@ -173,21 +212,23 @@
       </div>
 
       <div id="CHARACTER_SPECIAL" class="BLOCK INNER SPECIAL">
-
-        <h3 id="CHARACTER_SPECIAL_NAME">
+        <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
+        <h3 id="CHARACTER_SPECIAL_NAME"> 
           Особенности/Навыки
         </h3>
 
         <div id="CHARACTER_SPECIAL_INFORMATION">
-
+          <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
           <p>
-            Lorem ipsum dolor sit amet consectetur
+            + Я умею то!
             <br>
-            adipisicing elit. Dolore quasi sed asperiores,
+            + Я умею это!
             <br> 
-            nadipisicing elit. Dolore sed asperiores, 
+            - Я не умею то
             <br>
-            lor sit amet consectetur
+            - Я не умею это
+            <br><br>
+            Или просто особенности вашего персонажа, без навыков или вместе с ними
           </p>
 
         </div>
@@ -197,16 +238,18 @@
     </div>
 
     <div id="STORY_BLOCK" class="BLOCK INNER INVISIBLE">
-
+      
       <h2 class="TITLE">История персонажа</h2>
-
-      <div id="CONTENT_1" class="BLOCK INNER INVISIBLE">
+      <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
+      <div id="story1" class="BLOCK INNER INVISIBLE">
 
         <h2 class="TITLE">Блоки</h2>
 
         <div class="TEXT_BLOCK DEFAULT"> 
           <p>
             Не следует, однако, забывать, что убеждённость некоторых оппонентов требует анализа позиций, занимаемых участниками в отношении поставленных задач. Учитывая ключевые сценарии поведения, экономическая повестка сегодняшнего дня способствует повышению качества распределения внутренних резервов и ресурсов. Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта: существующая теория способствует подготовке и реализации вывода текущих активов.
+            <br><br> <!-- <br> - Перенос строки -->
+            <img src="test.png" class="BLOCK INNER IMAGE">
             <br><br>
             Каждый из нас понимает очевидную вещь: перспективное планирование способствует повышению качества укрепления моральных ценностей. Господа, понимание сути ресурсосберегающих технологий требует анализа дальнейших направлений развития. В рамках спецификации современных стандартов, независимые государства будут представлены в исключительно положительном свете.
           </p> 
@@ -304,7 +347,7 @@
 
       </div>
 
-      <div id="CONTENT_2" class="BLOCK INNER INVISIBLE">
+      <div id="story2" class="BLOCK INNER INVISIBLE">
 
         <h2 class="TITLE">Комбинированные блоки</h2>
 
@@ -346,19 +389,59 @@
 
       </div>
 
-      <div id="CONTENT_3" class="BLOCK INNER INVISIBLE">
+      <div id="story3" class="BLOCK INNER INVISIBLE">
 
         <h2 class="TITLE">Контент 3</h2>
 
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque doloribus amet assumenda suscipit nemo voluptates. Eligendi voluptate distinctio ullam dicta quo corporis delectus ad veniam nobis provident voluptatum vel facilis nesciunt doloribus maiores officia laudantium, saepe iste suscipit porro! Commodi ipsum asperiores, aperiam alias tempore ducimus, ut, tempora natus esse vero officia laudantium pariatur aut voluptatem blanditiis facere! Ab voluptatum facere perspiciatis saepe non magnam adipisci incidunt odit natus, reiciendis illo dolorem voluptates enim esse! Numquam aliquam ut quisquam, cupiditate hic saepe. Recusandae nemo sunt suscipit dolorum officiis reiciendis quam delectus distinctio similique commodi vero et blanditiis ex temporibus dolore rerum molestiae laborum dignissimos magni, aperiam nihil. Dolorem ipsam veritatis magni ut adipisci perferendis dignissimos dolore soluta beatae culpa corrupti sapiente, aliquam eaque dolor. Delectus neque laboriosam praesentium id. Aspernatur distinctio, expedita dolor assumenda sunt iusto eius sint esse, accusantium soluta tempora libero est provident minima, facere laudantium reiciendis cum? Autem error ad nemo cupiditate fugiat tempore nulla saepe magnam accusamus sapiente, illo velit atque sequi exercitationem sunt quibusdam facilis. Quos error veritatis magni! Ullam sapiente beatae doloribus labore explicabo! Obcaecati, ex, voluptas maiores est quaerat culpa, aliquam dignissimos provident natus quae accusamus excepturi vitae soluta perspiciatis eligendi! Illum fugit hic inventore repellat porro quae obcaecati sed? Quibusdam doloribus ad aperiam temporibus unde voluptates perspiciatis! Voluptates recusandae necessitatibus vero, iste voluptatem accusantium possimus sequi doloribus ea alias rem corrupti dolorum beatae, unde consequuntur neque repellat id natus, magnam cumque. Magni accusamus vero culpa ipsam autem consectetur fugiat voluptatem consequatur debitis molestias ullam sint ducimus natus, beatae aliquid! Quod fuga quidem eum vel earum itaque, iure beatae ab, sunt vero culpa! Dolorum ullam quod cupiditate ipsa doloribus, voluptatibus aut minus, nobis placeat illo voluptates quam repudiandae. Labore culpa ratione non dolores cupiditate incidunt commodi delectus, neque dicta nobis blanditiis facere totam inventore rem ullam amet. Magnam amet velit, fugit totam sequi similique, doloremque, rerum delectus reiciendis odit quisquam eos illum ipsam. Vero quas aliquam totam officiis quis recusandae autem hic iure repellat? Corrupti dicta aliquam nemo facere tempore delectus id aperiam vitae deserunt, eaque magni natus ut, culpa explicabo nulla illo accusamus. Modi dolores enim ipsa. Nobis, repellat quam quidem dolore sunt sapiente repellendus sint ab eum autem nihil iste asperiores deserunt magni nemo. Earum, esse sapiente quas deleniti voluptatum quis. Libero, in eos modi animi ullam ex harum natus architecto est quam quod dolor nulla, tempore deleniti maxime debitis. Expedita dolore et ea voluptatem voluptate error, tenetur voluptas vel quam. Ex voluptatibus vitae provident totam at harum! Unde perferendis mollitia amet officia illum! Optio quam deleniti accusantium quaerat ex ipsa, totam tempora laboriosam laborum placeat modi incidunt voluptas vel quo quod rem nemo molestiae? Ipsam vitae iure sint ad nostrum, iste voluptates aperiam maxime molestiae officiis esse aliquid earum at magnam beatae quas ullam praesentium 
-        </p>
+        <div class="TEXT_BLOCK DEFAULT">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque doloribus amet assumenda suscipit nemo voluptates. Eligendi voluptate distinctio ullam dicta quo corporis delectus ad veniam nobis provident voluptatum vel facilis nesciunt doloribus maiores officia laudantium, saepe iste suscipit porro! Commodi ipsum asperiores, aperiam alias tempore ducimus, ut, tempora natus esse vero officia laudantium pariatur aut voluptatem blanditiis facere! Ab voluptatum facere perspiciatis saepe non magnam adipisci incidunt odit natus, reiciendis illo dolorem voluptates enim esse! Numquam aliquam ut quisquam, cupiditate hic saepe. Recusandae nemo sunt suscipit dolorum officiis reiciendis quam delectus distinctio similique commodi vero et blanditiis ex temporibus dolore rerum molestiae laborum dignissimos magni, aperiam nihil. Dolorem ipsam veritatis magni ut adipisci perferendis dignissimos dolore soluta beatae culpa corrupti sapiente, aliquam eaque dolor. Delectus neque laboriosam praesentium id. Aspernatur distinctio, expedita dolor assumenda sunt iusto eius sint esse, accusantium soluta tempora libero est provident minima, facere laudantium reiciendis cum? Autem error ad nemo cupiditate fugiat tempore nulla saepe magnam accusamus sapiente, illo velit atque sequi exercitationem sunt quibusdam facilis. Quos error veritatis magni! Ullam sapiente beatae doloribus labore explicabo! Obcaecati, ex, voluptas maiores est quaerat culpa, aliquam dignissimos provident natus quae accusamus excepturi vitae soluta perspiciatis eligendi! Illum fugit hic inventore repellat porro quae obcaecati sed? Quibusdam doloribus ad aperiam temporibus unde voluptates perspiciatis! Voluptates recusandae necessitatibus vero, iste voluptatem accusantium possimus sequi doloribus ea alias rem corrupti dolorum beatae, unde consequuntur neque repellat id natus, magnam cumque. Magni accusamus vero culpa ipsam autem consectetur fugiat voluptatem consequatur debitis molestias ullam sint ducimus natus, beatae aliquid! Quod fuga quidem eum vel earum itaque, iure beatae ab, sunt vero culpa! Dolorum ullam quod cupiditate ipsa doloribus, voluptatibus aut minus, nobis placeat illo voluptates quam repudiandae. Labore culpa ratione non dolores cupiditate incidunt commodi delectus, neque dicta nobis blanditiis facere totam inventore rem ullam amet. Magnam amet velit, fugit totam sequi similique, doloremque, rerum delectus reiciendis odit quisquam eos illum ipsam. Vero quas aliquam totam officiis quis recusandae autem hic iure repellat? Corrupti dicta aliquam nemo facere tempore delectus id aperiam vitae deserunt, eaque magni natus ut, culpa explicabo nulla illo accusamus. Modi dolores enim ipsa. Nobis, repellat quam quidem dolore sunt sapiente repellendus sint ab eum autem nihil iste asperiores deserunt magni nemo. Earum, esse sapiente quas deleniti voluptatum quis. Libero, in eos modi animi ullam ex harum natus architecto est quam quod dolor nulla, tempore deleniti maxime debitis. Expedita dolore et ea voluptatem voluptate error, tenetur voluptas vel quam. Ex voluptatibus vitae provident totam at harum! Unde perferendis mollitia amet officia illum! Optio quam deleniti accusantium quaerat ex ipsa, totam tempora laboriosam laborum placeat modi incidunt voluptas vel quo quod rem nemo molestiae? Ipsam vitae iure sint ad nostrum, iste voluptates aperiam maxime molestiae officiis esse aliquid earum at magnam beatae quas ullam praesentium 
+          </p>
+        </div>
 
       </div>
+
+      <!--
+      <div id="АЙДИ ВАШЕЙ ГЛАВЫ ДЛЯ ПРОКРУТКИ" class="BLOCK INNER INVISIBLE">
+
+        <h2 class="TITLE">НАЗВАНИЕ ВАШЕЙ ГЛАВЫ</h2>
+
+        <div class="TEXT_BLOCK DEFAULT">
+          <p> И ТУТ ТЕКСТ ВАШЕЙ ГЛАВЫ
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque doloribus amet assumenda suscipit nemo voluptates. Eligendi voluptate distinctio ullam dicta quo corporis delectus ad veniam nobis provident voluptatum vel facilis nesciunt doloribus maiores officia laudantium, saepe iste suscipit porro! Commodi ipsum asperiores, aperiam alias tempore ducimus, ut, tempora natus esse vero officia laudantium pariatur aut voluptatem blanditiis facere! Ab voluptatum facere perspiciatis saepe non magnam adipisci incidunt odit natus, reiciendis illo dolorem voluptates enim esse! Numquam aliquam ut quisquam, cupiditate hic saepe. Recusandae nemo sunt suscipit dolorum officiis reiciendis quam delectus distinctio similique commodi vero et blanditiis ex temporibus dolore rerum molestiae laborum dignissimos magni, aperiam nihil. Dolorem ipsam veritatis magni ut adipisci perferendis dignissimos dolore soluta beatae culpa corrupti sapiente, aliquam eaque dolor. Delectus neque laboriosam praesentium id. Aspernatur distinctio, expedita dolor assumenda sunt iusto eius sint esse, accusantium soluta tempora libero est provident minima, facere laudantium reiciendis cum? Autem error ad nemo cupiditate fugiat tempore nulla saepe magnam accusamus sapiente, illo velit atque sequi exercitationem sunt quibusdam facilis. Quos error veritatis magni! Ullam sapiente beatae doloribus labore explicabo! Obcaecati, ex, voluptas maiores est quaerat culpa, aliquam dignissimos provident natus quae accusamus excepturi vitae soluta perspiciatis eligendi! Illum fugit hic inventore repellat porro quae obcaecati sed? Quibusdam doloribus ad aperiam temporibus unde voluptates perspiciatis! Voluptates recusandae necessitatibus vero, iste voluptatem accusantium possimus sequi doloribus ea alias rem corrupti dolorum beatae, unde consequuntur neque repellat id natus, magnam cumque. Magni accusamus vero culpa ipsam autem consectetur fugiat voluptatem consequatur debitis molestias ullam sint ducimus natus, beatae aliquid! Quod fuga quidem eum vel earum itaque, iure beatae ab, sunt vero culpa! Dolorum ullam quod cupiditate ipsa doloribus, voluptatibus aut minus, nobis placeat illo voluptates quam repudiandae. Labore culpa ratione non dolores cupiditate incidunt commodi delectus, neque dicta nobis blanditiis facere totam inventore rem ullam amet. Magnam amet velit, fugit totam sequi similique, doloremque, rerum delectus reiciendis odit quisquam eos illum ipsam. Vero quas aliquam totam officiis quis recusandae autem hic iure repellat? Corrupti dicta aliquam nemo facere tempore delectus id aperiam vitae deserunt, eaque magni natus ut, culpa explicabo nulla illo accusamus. Modi dolores enim ipsa. Nobis, repellat quam quidem dolore sunt sapiente repellendus sint ab eum autem nihil iste asperiores deserunt magni nemo. Earum, esse sapiente quas deleniti voluptatum quis. Libero, in eos modi animi ullam ex harum natus architecto est quam quod dolor nulla, tempore deleniti maxime debitis. Expedita dolore et ea voluptatem voluptate error, tenetur voluptas vel quam. Ex voluptatibus vitae provident totam at harum! Unde perferendis mollitia amet officia illum! Optio quam deleniti accusantium quaerat ex ipsa, totam tempora laboriosam laborum placeat modi incidunt voluptas vel quo quod rem nemo molestiae? Ipsam vitae iure sint ad nostrum, iste voluptates aperiam maxime molestiae officiis esse aliquid earum at magnam beatae quas ullam praesentium 
+          </p>
+        </div>
+
+      </div>
+      -->
 
     </div>
 
   </div>
+  
+  <div id="AUTHOR" class="BLOCK HIDDEN">
+
+    <div class="BUTTON_HELP" data-tooltip=
+    "
+    Вероятно, автор оставил здесь о себе какую-либо информацию.
+    <br><br>
+    Переход по ссылкам за пределы сайта не контролируется. Будьте осторожны!
+    " 
+      class="BUTTON">
+        <div class="ICON"> ❔ </div>
+    </div>
+
+    <h2 class="TITLE">Об авторе</h2>
+    <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
+    <p>
+      Информация об авторе???
+    </p>
+
+  </div>
+
+  <!-- СЕКЦИЯ РАЗРЕШЕНА ДЛЯ ЧАСТИЧНОГО РЕДАКТИРОВАНИЯ. /\ -->
+
+  <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. \/ -->
 
   <div id="THEMES" class="BLOCK HIDDEN">
     
@@ -481,116 +564,153 @@
   </div>
 
   <div id="SETTINGS" class="BLOCK HIDDEN">
-
-    <div class="BUTTON_HELP" data-tooltip=
-    "
-    Здесь Вы можете изменять основные настройки сайта.
-    <br><br>
-    Некоторые из опций могут увеличить производительность или поменять расположение элементов.
-    <br><br>
-    Эти настройки также сохраняются в памяти браузера (по возможности).
-    " 
-      class="BUTTON">
-        <div class="ICON"> ❔ </div>
+    <div
+      class="BUTTON_HELP"
+      data-tooltip="
+  Здесь Вы можете изменять основные настройки сайта.
+  <br><br>
+  Некоторые из опций могут увеличить производительность или поменять расположение элементов.
+  <br><br>
+  Эти настройки также сохраняются в памяти браузера (по возможности).
+  "
+      class="BUTTON"
+    >
+      <div class="ICON">❔</div>
     </div>
 
     <h2 class="TITLE">Настройки</h2>
 
     <div id="CUSTOMIZATION_SAVING_CHOOSERS" class="BLOCK INNER">
-
-      <div class="BUTTON_HELP" data-tooltip=
-      "
-      Включает или отключает сохранение цветов кастомизации страницы.
-      <br><br>
-      При включении ваши настройки игнорируют авторские.
-      <br><br>
-      Отключение удаляет сохранённые цвета и включает тему 'По умолчанию' от автора после перезагрузки.
-      <br><br>
-      Если снова включить сохранение, нестандартные настройки автора могут быть сохранены 
-      и использованы на других страницах.
-      " class="BUTTON">
-        <div class="ICON"> ❔ </div>
+      <div
+        class="BUTTON_HELP"
+        data-tooltip="
+    Включает или отключает сохранение цветов кастомизации страницы.
+    <br><br>
+    При включении ваши настройки игнорируют авторские.
+    <br><br>
+    Отключение удаляет сохранённые цвета и включает тему 'По умолчанию' от автора после перезагрузки.
+    <br><br>
+    Если снова включить сохранение, нестандартные настройки автора могут быть сохранены 
+    и использованы на других страницах.
+    "
+        class="BUTTON"
+      >
+        <div class="ICON">❔</div>
       </div>
 
-      <div onclick="_F_SWITCH_CUSTOMIZATION_SAVING('true')" id="CUSTOMIZATION_SAVING_CHOOSER_ON"class="BUTTON">
-        <div class="ICON"> ✔️🎨 </div>
+      <div
+        onclick="_F_SWITCH_CUSTOMIZATION_SAVING('true')"
+        id="CUSTOMIZATION_SAVING_CHOOSER_ON"
+        class="BUTTON"
+      >
+        <div class="ICON">✔️🎨</div>
       </div>
 
-      <div onclick="_F_SWITCH_CUSTOMIZATION_SAVING('false')" id="CUSTOMIZATION_SAVING_CHOOSER_OFF" class="BUTTON">
-        <div class="ICON"> ✖️🎨 </div>
+      <div
+        onclick="_F_SWITCH_CUSTOMIZATION_SAVING('false')"
+        id="CUSTOMIZATION_SAVING_CHOOSER_OFF"
+        class="BUTTON"
+      >
+        <div class="ICON">✖️🎨</div>
       </div>
-
     </div>
 
     <div id="ANIMATION_TOGGLE_CHOOSERS" class="BLOCK INNER">
-
-      <div class="BUTTON_HELP" data-tooltip=
-      "
-      Позволяет включить или выключить анимации на сайте.
-      <br><br>
-      Отключение может увеличить производительность на слабых устройствах.
-      " class="BUTTON">
-        <div class="ICON"> ❔ </div>
+      <div
+        class="BUTTON_HELP"
+        data-tooltip="
+    Позволяет включить или выключить анимации на сайте.
+    <br><br>
+    Отключение может увеличить производительность на слабых устройствах.
+    "
+        class="BUTTON"
+      >
+        <div class="ICON">❔</div>
       </div>
 
-      <div onclick="_F_SWITCH_ANIMATIONS('true')" id="ANIMATION_TOGGLE_CHOOSER_ON"class="BUTTON">
-        <div class="ICON"> ✔️🪄 </div>
+      <div
+        onclick="_F_SWITCH_ANIMATIONS('true')"
+        id="ANIMATION_TOGGLE_CHOOSER_ON"
+        class="BUTTON"
+      >
+        <div class="ICON">✔️🪄</div>
       </div>
 
-      <div onclick="_F_SWITCH_ANIMATIONS('false')" id="ANIMATION_TOGGLE_CHOOSER_OFF" class="BUTTON">
-        <div class="ICON"> ✖️🪄 </div>
+      <div
+        onclick="_F_SWITCH_ANIMATIONS('false')"
+        id="ANIMATION_TOGGLE_CHOOSER_OFF"
+        class="BUTTON"
+      >
+        <div class="ICON">✖️🪄</div>
       </div>
-    
+    </div>
+
+    <div id="HINT_TOGGLE_CHOOSERS" class="BLOCK INNER">
+      <div
+        class="BUTTON_HELP"
+        data-tooltip="
+    Позволяет включить или выключить подсказки на страницах, включая эти. 
+    (После перезагрузки страницы)
+    "
+        class="BUTTON"
+      >
+        <div class="ICON">❔</div>
+      </div>
+
+      <div
+        onclick="_F_SWITCH_HINTS('true')"
+        id="HINT_TOGGLE_CHOOSER_ON"
+        class="BUTTON"
+      >
+        <div class="ICON">✔️💡</div>
+      </div>
+
+      <div
+        onclick="_F_SWITCH_HINTS('false')"
+        id="HINT_TOGGLE_CHOOSER_OFF"
+        class="BUTTON"
+      >
+        <div class="ICON">✖️💡</div>
+      </div>
     </div>
 
     <div id="LAYOUT_CHOOSERS" class="BLOCK INNER">
-
-      <div class="BUTTON_HELP" data-tooltip=
-      "
-      Изменяет расположение элементов страницы.
-      <br><br>
-      По-умолчанию включен режим автоматической регулировки расположения.
-      <br><br>
-      Остальные позволяют выбрать расположение вручную между декстопом и мобильным.
-      <br><br>
-      При изменении размера/положения экрана расположение снова выбирается автоматически.
-      <br><br>
-      " class="BUTTON">
-        <div class="ICON"> ❔ </div>
-      </div>
-
-      <div onclick="_F_CHANGE_LAYOUT('desktop')" id="LAYOUT_CHOOSER_DESKTOP" class="BUTTON">
-        <div class="ICON">🖥️ </div>
-      </div>
-
-      <div onclick="_F_CHANGE_LAYOUT('mobile')" id="LAYOUT_CHOOSER_MOBILE" class="BUTTON">
-        <div class="ICON">📱 </div>
-      </div>
-    
-    </div>
-
-  </div>
-
-  <div id="AUTHOR" class="BLOCK HIDDEN">
-
-    <div class="BUTTON_HELP" data-tooltip=
-    "
-    Вероятно, автор оставил здесь о себе какую-либо информацию.
+      <div
+        class="BUTTON_HELP"
+        data-tooltip="
+    Изменяет расположение элементов страницы.
     <br><br>
-    Переход по ссылкам за пределы сайта не контролируется. Будьте осторожны!
-    " 
-      class="BUTTON">
-        <div class="ICON"> ❔ </div>
+    По-умолчанию включен режим автоматической регулировки расположения.
+    <br><br>
+    Остальные позволяют выбрать расположение вручную между декстопом и мобильным.
+    <br><br>
+    При изменении размера/положения экрана расположение снова выбирается автоматически.
+    <br><br>
+    "
+        class="BUTTON"
+      >
+        <div class="ICON">❔</div>
+      </div>
+
+      <div
+        onclick="_F_CHANGE_LAYOUT('desktop')"
+        id="LAYOUT_CHOOSER_DESKTOP"
+        class="BUTTON"
+      >
+        <div class="ICON">🖥️</div>
+      </div>
+
+      <div
+        onclick="_F_CHANGE_LAYOUT('mobile')"
+        id="LAYOUT_CHOOSER_MOBILE"
+        class="BUTTON"
+      >
+        <div class="ICON">📱</div>
+      </div>
     </div>
-
-    <h2 class="TITLE">Об авторе</h2>
-
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi consequatur alias ea aspernatur consequuntur, ad modi labore expedita voluptate soluta ex repellendus ab ratione repellat quo porro magnam illum omnis. Porro, magnam pariatur! Non, reprehenderit. Ipsum officia, assumenda facere nemo quasi voluptatibus ut, obcaecati odit reprehenderit, consectetur cum corrupti! Explicabo velit modi omnis doloribus impedit ullam eum saepe natus, nostrum qui alias, nesciunt accusantium! Laudantium dolore perferendis, culpa delectus voluptas, sunt accusamus dicta autem quibusdam omnis voluptatum deleniti? Reiciendis sequi dolore delectus ut adipisci ad qui, fuga quasi odit reprehenderit eligendi iure placeat eum consectetur, unde saepe! At, labore ipsam.
-    </p>
-
   </div>
+
+  <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. /\ -->
 
 </body>
-
 </html>

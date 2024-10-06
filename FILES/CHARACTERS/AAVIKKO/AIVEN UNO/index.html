@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru" id="root">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Test Site</title>
-  <link rel="stylesheet" href="../FILES/CSS/classes.css?v=update3.1">
-  <link rel="stylesheet" href="../FILES/CSS/customs.css?v=update3.1">
+  <link rel="stylesheet" href="../../../CSS/classes.css?v=update3.1">
+  <link rel="stylesheet" href="../../../CSS/customs.css?v=update3.1">
+  <link rel="stylesheet" href="../../../CSS/textblocks.css?v=update3.1">
 </head>
-<script src="../FILES/JS/code.js?v=update3.1"></script>
+<script src="../../../JS/code.js?v=update3.1"></script>
 <script>
   const _C_HUES = [
     // Максимум 8 оттенков
+    {"main": [138, 43, 226]},         // Фиолетовый
     {"main": [248, 56, 56]},          // Яркий красный
     {"main": [255, 101, 0]},          // Оранжевый
     {"main": [234, 143, 0]},          // Темный оранжевый
     {"main": [255, 200, 0]},          // Желтый
     {"main": [100, 184, 0]},          // Зеленый
     {"main": [0, 198, 198]},          // Голубой
-    {"main": [0, 117, 255]},          // Синий
-    {"main": [138, 43, 226]}          // Фиолетовый
+    {"main": [0, 117, 255]}           // Синий
   ];
 
   const _C_THEMES = [
@@ -55,16 +55,30 @@
   }
 </script>
 <body id="body">
+  <div id="LOADING_SCREEN" class="BLOCK">
+    <div class="ICON">⏳</div>
+    <div id="HEADER_BUTTON_VIBE" class="BUTTON">
+      <h1 id="HEADER_LOGO" class="FANCY">
+        <div id="LOGO_CONSTANT_PART">V</div>
+        <div id="LOGO_CHANGING_PART"></div>
+        <div id="LOGO_CONSTANT_PART">I</div>
+        <div id="LOGO_CHANGING_PART"></div>
+        <div id="LOGO_CONSTANT_PART">B</div>
+        <div id="LOGO_CHANGING_PART"></div>
+        <div id="LOGO_CONSTANT_PART">E</div>
+      </h1>
+    </div>
+  </div>
 
   <div id="WARNING" class="BLOCK SPECIAL HIDDEN"  style="display: inline;">
     <div class="ICON" style="display: inline;">❗</div> 
-    Некоторые элементы сайта могут отображаться некорректно.
+    Что-то пошло не так.
   </div>
 
-  <div id="TOOLTIP_HELP" class="BLOCK SPECIAL">Проверка</div>
+  <div id="TOOLTIP_HELP" class="BLOCK SPECIAL">Если вы видите это, то что-то пошло не так.</div>
 
   <div id="HEADER" class="BLOCK">
-    <div id="HEADER_BUTTON_VIBE" class="BUTTON">
+    <div id="HEADER_BUTTON_VIBE" onclick="window.location.href='../index.html'" class="BUTTON">
       <h1 id="HEADER_LOGO" class="FANCY">
         <div id="LOGO_CONSTANT_PART">V</div>
         <div id="LOGO_CHANGING_PART"></div>
@@ -181,7 +195,7 @@
 
             <h3 class="HINT">Наведите<br>на меня</h3>
 
-            <img class="BLOCK INNER IMAGE" src="/FILES/CHARACTERS/AIVEN UNO/pfp.png">
+            <img class="BLOCK INNER IMAGE" src="pfp.png">
             
             <p>
               Раса      : Вульпканин
@@ -367,7 +381,7 @@
           <p>
             Наличие родителей: 
           </p>
-          <p class="TEXT_HANDWRITING"> мама Сарома Цурэ, папа Шихто Цурэ </p>
+          <p class="TEXT_HANDWRITING"> мама Сарома Уно, папа Шихто Уно </p>
           <br>
           <p>
             Ваши навыки и умения: 
@@ -422,7 +436,7 @@
           <p>
             Наличие родителей: 
           </p>
-          <p class="TEXT_HANDWRITING"> мама Сарома Цурэ, папа Шихто Цурэ </p>
+          <p class="TEXT_HANDWRITING"> мама Сарома Уно, папа Шихто Уно </p>
           <br>
           <p>
             Ваши навыки и умения: 
@@ -1310,6 +1324,26 @@
     
     </div>
 
+    <div id="HINT_TOGGLE_CHOOSERS" class="BLOCK INNER">
+
+      <div class="BUTTON_HELP" data-tooltip=
+      "
+      Позволяет включить или выключить подсказки на страницах, включая эти. 
+      (После перезагрузки страницы)
+      " class="BUTTON">
+        <div class="ICON"> ❔ </div>
+      </div>
+
+      <div onclick="_F_SWITCH_HINTS('true')" id="HINT_TOGGLE_CHOOSER_ON"class="BUTTON">
+        <div class="ICON"> ✔️💡 </div>
+      </div>
+
+      <div onclick="_F_SWITCH_HINTS('false')" id="HINT_TOGGLE_CHOOSER_OFF" class="BUTTON">
+        <div class="ICON"> ✖️💡 </div>
+      </div>
+    
+    </div>
+
     <div id="LAYOUT_CHOOSERS" class="BLOCK INNER">
 
       <div class="BUTTON_HELP" data-tooltip=
@@ -1353,7 +1387,7 @@
     <h2 class="TITLE">Об авторе</h2>
 
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi consequatur alias ea aspernatur consequuntur, ad modi labore expedita voluptate soluta ex repellendus ab ratione repellat quo porro magnam illum omnis. Porro, magnam pariatur! Non, reprehenderit. Ipsum officia, assumenda facere nemo quasi voluptatibus ut, obcaecati odit reprehenderit, consectetur cum corrupti! Explicabo velit modi omnis doloribus impedit ullam eum saepe natus, nostrum qui alias, nesciunt accusantium! Laudantium dolore perferendis, culpa delectus voluptas, sunt accusamus dicta autem quibusdam omnis voluptatum deleniti? Reiciendis sequi dolore delectus ut adipisci ad qui, fuga quasi odit reprehenderit eligendi iure placeat eum consectetur, unde saepe! At, labore ipsam.
+      Valikzant - главный автор сайта, как и писатель этой квенты.
     </p>
 
   </div>

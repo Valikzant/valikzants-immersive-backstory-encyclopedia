@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded', function () {
   if (localStorage.getItem("animations") == null) {
     localStorage.setItem("animations", "true");
   }
+  if (localStorage.getItem("hints") == null) {
+    localStorage.setItem("hints", "true");
+  }
   if (localStorage.getItem("font-modifier") == null) {
     localStorage.setItem("font-modifier", 1);
   }
@@ -74,31 +77,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Загрузка размера шрифта, если есть.
   if (localStorage.getItem("font-modifier") != null) {
-
     _F_CHANGE_FONT_MODIFIER(localStorage.getItem("font-modifier"));
-
   }
 
   // Загрузка размера интерфейса, если есть.
   if (localStorage.getItem("interface-modifier") != null) {
-
     _F_CHANGE_INTERFACE_MODIFIER(localStorage.getItem("interface-modifier"));
-
   }
 
   // Загрузка сохранения кастомизации, если есть.
   if (localStorage.getItem("customization-saved") != null) {
-
     _F_LOAD_CUSTOMIZATION_SAVING(localStorage.getItem("customization-saved"));
-
   }
 
   // Загрузка сохранения анимации, если есть.
   if (localStorage.getItem("animations") != null) {
-    
     _F_LOAD_ANIMATIONS(localStorage.getItem("animations"));
-
   }
+
+  // Загрузка сохранения подсказок, если есть.
+  if (localStorage.getItem("hints") != null) {
+    _F_LOAD_HINTS(localStorage.getItem("hints"));
+  }
+
+  // Завершение загрузки
+  setTimeout(function () {
+    const _C_LOADING_SCREEN = document.getElementById("LOADING_SCREEN");
+    _C_LOADING_SCREEN.style.setProperty("opacity", "0");
+  }, 150);
+  setTimeout(function () {
+    const _C_HINTS = document.querySelectorAll(".HINT");
+    _C_HINTS.forEach(_I_HINT => {
+      _I_HINT.style.setProperty("opacity", "0");
+    });
+  }, 1700);
 
 
 });
@@ -186,16 +198,34 @@ function _F_LOAD_ANIMATIONS(_C_MODE) {
   _F_SWITCH_ANIMATIONS(_C_MODE);
 }
 
+// Загрузка сохранения подсказок
+function _F_LOAD_HINTS(_C_MODE) {
+  _F_SWITCH_HINTS(_C_MODE);
+}
+
 // ON EVENTS FUNCTIONS
 
 // Подсказки
 document.addEventListener("DOMContentLoaded", function() {
+
   const _C_HELP_BUTTONS = document.querySelectorAll(".BUTTON_HELP , .BUTTON.SIDEBAR");
+  const _C_HELP_HINTS = document.querySelectorAll(".HINT");
   const _C_TOOLTIP = document.getElementById("TOOLTIP_HELP");
+
+  if (localStorage.getItem("hints") == "false") {
+    _C_HELP_BUTTONS.forEach(_I_BUTTON => {
+      _I_BUTTON.style.display = "none";
+    });
+    _C_HELP_HINTS.forEach(_I_HINT => {
+      _I_HINT.style.display = "none";
+    });
+    return;
+  }
 
   _C_HELP_BUTTONS.forEach(_I_BUTTON => {
     _I_BUTTON.addEventListener("mouseenter", function(event) {
-      const _V_VIEWPORT_WIDTH = window.innerWidth;
+      const _C_VIEWPORT_WIDTH = window.innerWidth;
+      const _C_VIEWPORT_HEIGHT = window.innerHeight;
       const _C_MOUSE_X = event.clientX;
       const _C_MOUSE_Y = event.clientY;
 
@@ -204,22 +234,29 @@ document.addEventListener("DOMContentLoaded", function() {
       _C_TOOLTIP.innerHTML = "<p>" + _C_HELP_TEXT + "</p>";
 
       // Определяем расстояние от курсора до правого края экрана
-      const _C_SPACE_ON_RIGHT = _V_VIEWPORT_WIDTH - _C_MOUSE_X;
+      const _C_SPACE_ON_RIGHT = _C_VIEWPORT_WIDTH - _C_MOUSE_X;
       const _C_SPACE_ON_LEFT = _C_MOUSE_X;
-      let _C_TOOLTIP_X = _C_MOUSE_X;
+      const _C_SPACE_ON_BOTTOM = _C_VIEWPORT_HEIGHT - _C_MOUSE_Y;
+      const _C_SPACE_ON_TOP = _C_MOUSE_Y;
+      let _V_TOOLTIP_X = _C_MOUSE_X;
+      let _V_TOOLTIP_Y = _C_MOUSE_Y;
       
-      // Определяем позицию подсказки
-      if (_C_SPACE_ON_RIGHT < _C_SPACE_ON_LEFT) {
-
-          _C_TOOLTIP_X = _C_MOUSE_X - _C_SPACE_ON_RIGHT;
+      // Определяем позицию подсказки по X и Y
+      if (_C_SPACE_ON_BOTTOM < _C_SPACE_ON_TOP) {
+        _V_TOOLTIP_Y = _C_MOUSE_Y - 100;
       } else {
-          _C_TOOLTIP_X = _C_MOUSE_X + 10;
+        _V_TOOLTIP_Y = _C_MOUSE_Y;
+      }
 
+      if (_C_SPACE_ON_RIGHT < _C_SPACE_ON_LEFT) {
+        _V_TOOLTIP_X = _C_MOUSE_X - 150;
+      } else {
+        _V_TOOLTIP_X = _C_MOUSE_X;
       }
 
       // Показываем подсказку в позиции курсора
-      _C_TOOLTIP.style.left = `${_C_TOOLTIP_X}px`;
-      _C_TOOLTIP.style.top = `${_C_MOUSE_Y + 10}px`;
+      _C_TOOLTIP.style.left = `${_V_TOOLTIP_X}px`;
+      _C_TOOLTIP.style.top = `${_V_TOOLTIP_Y}px`;
       _C_TOOLTIP.style.display = "block";
     });
 
@@ -306,7 +343,7 @@ function _F_CHANGE_LAYOUT(_C_FORCE = null) {
     _C_SIDEBAR.style.setProperty("flex-direction", "column");
   } else if (_C_FORCE == "mobile") {
     _C_BODY.style.setProperty("grid-template-rows", "auto auto 1fr auto");
-    _C_BODY.style.setProperty("grid-template-areas", '"H H" "S S" "C C" "С С"');
+    _C_BODY.style.setProperty("grid-template-areas", '"H H" "С С" "C C" "S S"');
     _F_ENABLE_BUTTON("LAYOUT_CHOOSER_MOBILE");
     _F_DISABLE_BUTTON("LAYOUT_CHOOSER_DESKTOP");
     _C_SIDEBAR.style.setProperty("flex-direction", "row");
@@ -319,7 +356,7 @@ function _F_CHANGE_LAYOUT(_C_FORCE = null) {
       _C_SIDEBAR.style.setProperty("flex-direction", "column");
     } else {
       _C_BODY.style.setProperty("grid-template-rows", "auto auto 1fr auto");
-      _C_BODY.style.setProperty("grid-template-areas", '"H H" "S S" "C C" "С С"');
+      _C_BODY.style.setProperty("grid-template-areas", '"H H" "С С" "C C" "S S"');
       _C_SIDEBAR.style.setProperty("flex-direction", "row");
     }
   }
@@ -481,6 +518,21 @@ function _F_SWITCH_ANIMATIONS(_C_MODE) {
     localStorage.setItem("animations", "true");
     _F_ENABLE_BUTTON("ANIMATION_TOGGLE_CHOOSER_ON")
     _F_DISABLE_BUTTON("ANIMATION_TOGGLE_CHOOSER_OFF")
+  }
+}
+
+// Включение/Отключение подсказок
+function _F_SWITCH_HINTS(_C_MODE) {
+  
+  // Сохраняем подсказки и показываем активированную кнопку.
+  if (_C_MODE == "false") {
+    localStorage.setItem("hints", "false");
+    _F_ENABLE_BUTTON("HINT_TOGGLE_CHOOSER_OFF")
+    _F_DISABLE_BUTTON("HINT_TOGGLE_CHOOSER_ON")
+  } else if (_C_MODE == "true") {
+    localStorage.setItem("hints", "true");
+    _F_ENABLE_BUTTON("HINT_TOGGLE_CHOOSER_ON")
+    _F_DISABLE_BUTTON("HINT_TOGGLE_CHOOSER_OFF")
   }
 }
 
