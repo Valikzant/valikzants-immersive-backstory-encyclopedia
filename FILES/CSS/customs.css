@@ -1,984 +1,400 @@
 /* ===================== */
 
-/* LOADING SCREEN        */
-
+/* LOADING SCREEN */
 #LOADING_SCREEN {
-  position        : absolute;
-
-  margin          : 0;
-  padding         : 0;
-
-  top             : 0;
-  left            : 0;
-
-  width           : 100%;
-  height          : 100%;
-
-  display         : flex;
-  flex-direction  : column;
-  align-items     : center;
-  justify-content : center;
-
-  font-size       : 2em;
-
-  z-index         : 10;
-
-  opacity         : 1;
-
-  transition      : 
-  opacity var(--transition-fast);
-
-  pointer-events  : none;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 2em;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity var(--transition-fast);
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-
-/* LOADING SCREEN        */
 
 /* ===================== */
 
 /* WARNINGS and ELEMENTS */
-
 #WARNING {
-  position        : absolute;
-
-  bottom          : 0;
-  left            : 0;
-
-  margin          : 10px;
-  padding         : 5px;
-
-  display         : flex;
-  flex-direction  : column;
-  align-items     : center;
-  justify-content : center;
-
-  translate       : 0% ;
-
-  z-index         : 3;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 10px;
+  padding: 5px;
+  translate: 0%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-
-/* WARNINGS and ELEMENTS */
 
 /* ===================== */
-
-/* TOOLTIP and ELEMENTS  */
-
-#TOOLTIP_HELP {
-  position        : fixed;
-
-  margin          : 10px;
-
-  min-width       : 100px;
-  max-width       : 350px;
-
-  pointer-events  : none;
-
-  display         : none;
-
-  box-shadow      : 
-    15px 15px 5px rgb(var(--dark-shadow), 0.5);
-
-  text-align      : justify;
-
-  z-index         : 6;
-}
 
 /* TOOLTIP and ELEMENTS */
-
-/* ==================== */
-
-/* HEADER and ELEMENTS  */
-
-#HEADER {
-  grid-area       : H;
-
-  margin          : 5px;
-  gap             : 7.5px;
-
-  min-height      : var(--sides-size);
-  max-height      : var(--sides-size);
-
-  white-space     : nowrap;
-
-  display         : flex;
-  flex-direction  : row;
-  align-items     : center;
-  justify-content : space-between;
-
-  z-index         : 2;
+#TOOLTIP_HELP {
+  position: fixed;
+  margin: 10px;
+  min-width: 100px;
+  max-width: 350px;
+  pointer-events: none;
+  display: none;
+  box-shadow: 15px 15px 5px rgb(var(--dark-shadow), 0.5);
+  text-align: justify;
+  z-index: 6;
 }
 
-#LOGO_CONSTANT_PART {
-  display         : inline;
+/* ===================== */
 
-  letter-spacing  : -8px;
+/* HEADER and ELEMENTS */
+#HEADER {
+  grid-area: H;
+  margin: 5px;
+  gap: 7.5px;
+  min-height: var(--sides-size);
+  max-height: var(--sides-size);
+  white-space: nowrap;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  margin          : 0px;
-  padding         : 0px;
+#LOGO_CONSTANT_PART,
+#LOGO_CHANGING_PART {
+  display: inline;
+  letter-spacing: -8px;
+  margin: 0;
+  padding: 0;
 }
 
 #LOGO_CHANGING_PART {
-  display         : inline;
-
-  opacity         : 0.35;
-
-  letter-spacing  : -8px;
-
-  margin          : 0px;
-  padding         : 0px;
-
-  z-index         : -1;
+  opacity: 0.35;
+  z-index: -1;
 }
 
-/* HEADER and ELEMENTS  */
-
-/* ==================== */
+/* ===================== */
 
 /* SIDEBAR and ELEMENTS */
-
 #SIDEBAR {
-  grid-area       : S;
-
-  margin          : 5px;
-  gap             : 7.5px;
-
-  flex-direction  : column;
-  
-  align-items     : center;
-
-  display         : flex;
-  flex-direction  : column;
-
-  text-overflow   : "";
-
-  max-width       : 100%;
-
-  overflow         : auto;
-
-  z-index         : 2;
+  grid-area: S;
+  margin: 5px;
+  gap: 7.5px;
+  max-width: 100%;
+  overflow: auto;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #SIDEBAR > * {
-  min-width       : calc(var(--sides-size) * 2);
-  width           : 100%;
+  min-width: calc(var(--sides-size) * 2);
+  width: 100%;
 }
 
-/* SIDEBAR and ELEMENTS */
+/* ===================== */
 
-/* ==================== */
-
-/* THEMES and ELEMENTS  */
-
-#THEMES {
-  grid-area       : C;
-
-  position        : relative;
-
-  margin          : 5px;
-  gap             : 7.5px;
-
-  text-align      : justify;
-
-  overflow-y      : auto;
-  overflow-x      : hidden;
-
-  max-width       : 100%;
-
-  display         : flex;
-  align-items     : start;
-  justify-content : start;
-  align-content   : flex-start;
-
-  flex-direction  : row;
-  flex-wrap       : wrap;
+/* WINDOWS and ELEMENTS  */
+#THEMES,
+#SETTINGS,
+#AUTHOR,
+#CONTENT {
+  grid-area: C;
+  margin: 5px;
+  gap: 7.5px;
+  position: relative;
+  text-align: justify;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  align-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-/* HUE SHIFTING          */
-
-#HUE_CHOOSERS {
-  gap             : 4px;
-
-  padding         : 7.5px;
-
-  position        : relative;
-
-  align-content   : center;
-  align-items     : center;
-  justify-items   : center;
-  justify-content : center;
-
-  width           : calc((var(--sides-size) * 7.6) * var(--horizontal));
-  height          : calc((var(--sides-size) * 7.6) * var(--vertical));
-
-  display         : flex;
-  flex-wrap       : wrap;
-  flex-direction  : row;
+#HUE_CHOOSERS,
+#THEME_CHOOSERS,
+#FONT_SIZE_CHOOSERS,
+#INTERFACE_SIZE_CHOOSERS,
+#CUSTOMIZATION_SAVING_CHOOSERS,
+#ANIMATION_TOGGLE_CHOOSERS,
+#HINT_TOGGLE_CHOOSERS,
+#LAYOUT_CHOOSERS {
+  gap: 4px;
+  width: calc(var(--sides-size) * 7.6);
+  height: calc(var(--sides-size) * 7.6 * 2);
+  position: relative;
+  padding: 7.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 #HUE_CHOOSERS > *:not(:nth-child(1)) {
-  width           : calc(var(--sides-size) * 3.4);
-  height          : calc(var(--sides-size) * 3.4);
-
-  box-shadow      :  
-    2px 2px 5px rgb(var(--main), 0.75) inset,
+  width: calc(var(--sides-size) * 3.4);
+  height: calc(var(--sides-size) * 3.4);
+  box-shadow: 2px 2px 5px rgb(var(--hue), 0.75) inset,
     2px 2px 5px rgb(var(--dark-shadow), 0.3);
 }
-
-/* THEME CHOOSING        */
-
-#THEME_CHOOSERS {
-  gap             : 4px;
-  
-  padding         : 7.5px;
-
-  position        : relative;
-
-  align-content   : center;
-  align-items     : center;
-  justify-items   : center;
-  justify-content : center;
-
-  width           : calc((var(--sides-size) * 7.6) * var(--horizontal));
-  height          : calc((var(--sides-size) * 7.6) * var(--vertical));
-
-  display         : flex;
-  flex-wrap       : wrap;
-  flex-direction  : row;
-}
-
-#THEME_CHOOSERS > *:not(:nth-child(1)) {
-  width           : calc((var(--sides-size) * 3.4) * 2);
-  height          : calc((var(--sides-size) * 3.4) * 1);
-
-  box-shadow:  
-    2px 2px 5px rgb(var(--light-shadow)) inset,
-    2px 2px 5px rgb(var(--dark-shadow), 0.3);
-}
-
-/* FONT CHOOSING         */
-
-#FONT_SIZE_CHOOSERS {
-  gap             : 4px;
-  
-  padding         : 7.5px;
-
-  position        : relative;
-
-  align-content   : center;
-  align-items     : center;
-  justify-items   : center;
-  justify-content : center;
-
-  width           : calc((var(--sides-size) * 7.6) * var(--horizontal));
-  height          : calc((var(--sides-size) * 7.6) * var(--vertical));
-
-  display         : flex;
-  flex-wrap       : wrap;
-  flex-direction  : row;
-}
-
-#FONT_SIZE_CHOOSERS > *:not(:nth-child(1)) {
-  width           : calc((var(--sides-size) * 3.4) * 2);
-  height          : calc((var(--sides-size) * 3.4) * 1);
-
-  background-color: rgb(var(--solid));
-  box-shadow      :  
-    2px 2px 5px rgb(var(--light-shadow)) inset,
-    2px 2px 5px rgb(var(--dark-shadow), 0.3);
-
-  border-radius   : 15px;
-
-  display         : flex;
-  text-align      : center;
-  align-items     : center;
-}
-
-/* INTERFACE CHOOSING         */
-
-#INTERFACE_SIZE_CHOOSERS {
-  gap             : 4px;
-  
-  padding         : 7.5px;
-
-  position        : relative;
-
-  align-content   : center;
-  align-items     : center;
-  justify-items   : center;
-  justify-content : center;
-
-  width           : calc((var(--sides-size) * 7.6) * var(--horizontal));
-  height          : calc((var(--sides-size) * 7.6) * var(--vertical));
-
-  display         : flex;
-  flex-wrap       : wrap;
-  flex-direction  : row;
-}
-
-#INTERFACE_SIZE_CHOOSERS > *:not(:nth-child(1)) {
-  width           : calc((var(--sides-size) * 3.4) * 2);
-  height          : calc((var(--sides-size) * 3.4) * 1);
-
-  background-color: rgb(var(--solid));
-  box-shadow      :  
-    2px 2px 5px rgb(var(--light-shadow)) inset,
-    2px 2px 5px rgb(var(--dark-shadow), 0.3);
-
-  border-radius   : 15px;
-
-  display         : flex;
-  text-align      : center;
-  align-items     : center;
-}
-
-/* THEMES and ELEMENTS   */
-
-/* ===================== */
-
-/* SETTINGS and ELEMENTS */
-
-#SETTINGS {
-  grid-area       : C;
-
-  position        : relative;
-
-  margin          : 5px;
-  gap             : 7.5px;
-
-  text-align      : justify;
-
-  overflow-y      : auto;
-  overflow-x      : hidden;
-
-  max-width       : 100%;
-
-  display         : flex;
-  align-items     : start;
-  justify-content : start;
-  align-content   : flex-start;
-
-  flex-direction  : row;
-  flex-wrap       : wrap;
-}
-
-/* SAVING CHOOSING       */
-
-#CUSTOMIZATION_SAVING_CHOOSERS {
-  gap             : 5px;
-  
-  padding         : 7.5px;
-
-  position        : relative;
-
-  align-content   : center;
-  align-items     : center;
-  justify-items   : center;
-  justify-content : center;
-
-  width           : calc((var(--sides-size) * 7.6) * var(--horizontal));
-  height          : calc((var(--sides-size) * 7.6) * var(--vertical));
-
-  display         : flex;
-  flex-wrap       : wrap;
-  flex-direction  : row;
-}
-
-#CUSTOMIZATION_SAVING_CHOOSERS > *:not(:nth-child(1)) {
-  width           : calc((var(--sides-size) * 3.4) * 2);
-  height          : calc((var(--sides-size) * 3.4) * 2);
-
-  background-color: rgb(var(--solid));
-  box-shadow      :  
-    2px 2px 5px rgb(var(--light-shadow)) inset,
-    2px 2px 5px rgb(var(--dark-shadow), 0.3);
-
-  border-radius   : 15px;
-
-  font-size: 0.75em;
-
-  display         : flex;
-  text-align      : center;
-  align-items     : center;
-}
-
-/* ANIMATION CHOOSING    */
-
-#ANIMATION_TOGGLE_CHOOSERS {
-  gap             : 5px;
-  
-  padding         : 7.5px;
-
-  position        : relative;
-
-  align-content   : center;
-  align-items     : center;
-  justify-items   : center;
-  justify-content : center;
-
-  width           : calc((var(--sides-size) * 7.6) * var(--horizontal));
-  height          : calc((var(--sides-size) * 7.6) * var(--vertical));
-
-  display         : flex;
-  flex-wrap       : wrap;
-  flex-direction  : row;
-}
-
-#ANIMATION_TOGGLE_CHOOSERS > *:not(:nth-child(1)) {
-  width           : calc((var(--sides-size) * 3.4) * 2);
-  height          : calc((var(--sides-size) * 3.4) * 2);
-
-  background-color: rgb(var(--solid));
-  box-shadow      :  
-    2px 2px 5px rgb(var(--light-shadow)) inset,
-    2px 2px 5px rgb(var(--dark-shadow), 0.3);
-
-  border-radius   : 15px;
-
-  font-size       : 0.75em;
-
-  display         : flex;
-  text-align      : center;
-  align-items     : center;
-}
-
-/* HINTS CHOOSING        */
-
-#HINT_TOGGLE_CHOOSERS {
-  gap             : 5px;
-  
-  padding         : 7.5px;
-
-  position        : relative;
-
-  align-content   : center;
-  align-items     : center;
-  justify-items   : center;
-  justify-content : center;
-
-  width           : calc((var(--sides-size) * 7.6) * var(--horizontal));
-  height          : calc((var(--sides-size) * 7.6) * var(--vertical));
-
-  display         : flex;
-  flex-wrap       : wrap;
-  flex-direction  : row;
-}
-
-#HINT_TOGGLE_CHOOSERS > *:not(:nth-child(1)) {
-  width           : calc((var(--sides-size) * 3.4) * 2);
-  height          : calc((var(--sides-size) * 3.4) * 2);
-
-  background-color: rgb(var(--solid));
-  box-shadow      :
-    2px 2px 5px rgb(var(--light-shadow)) inset,
-    2px 2px 5px rgb(var(--dark-shadow), 0.3);
-
-  border-radius   : 15px;
-
-  font-size       : 0.75em;
-
-  display         : flex;
-  text-align      : center;
-  align-items     : center;
-}
-
-/* LAYOUT CHOOSING       */
-
-#LAYOUT_CHOOSERS {
-  gap             : 5px;
-  
-  padding         : 7.5px;
-
-  position        : relative;
-
-  align-content   : center;
-  align-items     : center;
-  justify-items   : center;
-  justify-content : center;
-
-  width           : calc((var(--sides-size) * 7.6) * var(--horizontal));
-  height          : calc((var(--sides-size) * 7.6) * var(--vertical));
-
-  display         : flex;
-  flex-wrap       : wrap;
-  flex-direction  : row;
-}
-
+#CUSTOMIZATION_SAVING_CHOOSERS > *:not(:nth-child(1)),
+#ANIMATION_TOGGLE_CHOOSERS > *:not(:nth-child(1)),
+#HINT_TOGGLE_CHOOSERS > *:not(:nth-child(1)),
 #LAYOUT_CHOOSERS > *:not(:nth-child(1)) {
-  width           : calc((var(--sides-size) * 3.4) * 2);
-  height          : calc((var(--sides-size) * 3.4) * 2);
-
+  width: calc(var(--sides-size) * 3.4 * 2);
+  height: calc(var(--sides-size) * 3.4 * 2);
   background-color: rgb(var(--solid));
-  box-shadow:  
-    2px 2px 5px rgb(var(--light-shadow)) inset,
+  box-shadow: 2px 2px 5px rgb(var(--light-shadow)) inset,
     2px 2px 5px rgb(var(--dark-shadow), 0.3);
-
-  border-radius   : 15px;
-
+  border-radius: 15px;
   font-size: 0.75em;
-
-  display         : flex;
-  text-align      : center;
-  align-items     : center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-/* SETTINGS and ELEMENTS */
+#THEME_CHOOSERS > *:not(:nth-child(1)),
+#FONT_SIZE_CHOOSERS > *:not(:nth-child(1)),
+#INTERFACE_SIZE_CHOOSERS > *:not(:nth-child(1)) {
+  width: calc(var(--sides-size) * 3.4 * 2);
+  height: calc(var(--sides-size) * 3.4 * 1);
+  background-color: rgb(var(--solid));
+  box-shadow: 2px 2px 5px rgb(var(--light-shadow)) inset,
+    2px 2px 5px rgb(var(--dark-shadow), 0.3);
+  border-radius: 15px;
+  font-size: 0.75em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
 /* ===================== */
 
-/* AUTHOR and ELEMENTS   */
-
-#AUTHOR {
-  grid-area       : C;
-
-  position        : relative;
-
-  margin          : 5px;
-  gap             : 7.5px;
-
-  text-align      : justify;
-
-  overflow-y      : auto;
-  overflow-x      : hidden;
-
-  max-width       : 100%;
-
-  display         : flex;
-  align-items     : start;
-  justify-content : start;
-  align-content   : flex-start;
-
-  flex-direction  : row;
-  flex-wrap       : wrap;
-}
-
-/* AUTHOR and ELEMENTS   */
-
-/* ===================== */
-
-/* CONTENT and ELEMENTS  */
-
-#CONTENT {
-  grid-area       : C;
-
-  position        : relative;
-
-  margin          : 5px;
-  gap             : 7.5px;
-
-  text-align      : justify;
-
-  overflow-y      : auto;
-  overflow-x      : hidden;
-
-  max-width       : 100%;
-
-  display         : flex;
-  align-items     : start;
-  justify-content : start;
-  align-content   : flex-start;
-
-  flex-direction  : row;
-  flex-wrap       : wrap;
-}
-
-/* STORY BLOCK        */
-
+/* STORY BLOCK */
 #STORY_BLOCK {
-  display         : flex;
-  flex-direction  : column;
+  display: flex;
+  flex-direction: column;
 }
+
 #STORY_BLOCK > :nth-child(1) {
-  margin          : 0px 0px 15px 0px;
+  margin: 0 0 15px 0;
 }
+
+/* ===================== */
 
 /* CHARACTER INFORMATION */
-
 #CHARACTER_INFORMATION {
-  display         : grid;
-
-  gap             : 15px;
-
+  display: grid;
+  gap: 15px;
   grid-template-columns: 1fr 1fr 1fr 1.5fr;
   grid-template-rows: auto 1fr;
-  grid-template-areas: 
-  "T T T T"
-  "C C C S";
+  grid-template-areas:
+    "T T T T"
+    "C C C S";
 }
 
 #CHARACTER_INFORMATION_TITLE {
-  grid-area       : T;
+  grid-area: T;
 }
 
-/* CHARACTER SPECIAL   */
-
+/* CHARACTER SPECIAL */
 #CHARACTER_SPECIAL {
-  grid-area       : S;
-
-  display         : flex;
-  flex-direction  : column;
-
-  gap             : 15px;
-
-  position        : relative;
-  
-  margin          : 5px 0px 5px 0px;
+  grid-area: S;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  margin: 5px 0;
 }
 
 #CHARACTER_SPECIAL_NAME {
-  display         : flex;
-  justify-content : center;
+  display: flex;
+  justify-content: center;
 }
 
-/* CHARACTER CARD      */
-
+/* CHARACTER CARD */
 #CHARACTER_CARD {
-  grid-area       : C;
-
-  display         : grid;
-
-  position        : relative;
-
-  margin          : 5px 0px 5px 0px;
-
-  gap             : 15px;
-
-  transition      : 
-  height var(--transition-fast),
-  width var(--transition-fast);
-
+  grid-area: C;
+  display: grid;
+  position: relative;
+  margin: 5px 0;
+  gap: 15px;
+  transition: height var(--transition-fast), width var(--transition-fast);
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto auto;
   grid-template-areas:
-  "N N"
-  "I I"
-  "I I"
-  "I I";
+    "N N"
+    "I I"
+    "I I"
+    "I I";
 }
 
 #CHARACTER_CARD_NAME {
-  grid-area       : N;
-  
-  display         : flex;
-
-  justify-content : center;
+  grid-area: N;
+  display: flex;
+  justify-content: center;
 }
 
 #CHARACTER_CARD_INFORMATION {
-  grid-area       : I;
-
-  position        : relative;
-
-  text-align      : justify;
-
-  justify-content : center;
-  align-content   : center;
-  align-items     : center;
-
-  display         : block;
-
-  flex-direction  : column;
+  grid-area: I;
+  position: relative;
+  text-align: justify;
+  display:inline;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 
 #CHARACTER_CARD_IMAGE {
-  width           : calc(var(--images-size) * 8);
-  height          : calc(var(--images-size) * 8);
-
-  margin          : 0px 15px 15px 0px;
-
-  position        : relative;
-
-  float           : inline-start;
-
-  display         : block;
-
-  outline         : rgb(var(--main),0.5) solid 1px;
+  width: calc(var(--images-size) * 8);
+  height: calc(var(--images-size) * 8);
+  margin: 0 15px 15px 0;
+  position: relative;
+  float: left;
+  display: block;
+  outline: rgb(var(--hue), 0.5) solid 1px;
 }
+
 #CHARACTER_CARD_IMAGE img {
-  position        : absolute;
-
-  width           : 100%;
-  height          : auto;
-
-  top             : 0;
-  left            : 0;
-
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
   z-index: 2;
 }
+
 #CHARACTER_CARD_IMAGE p {
-  position        : absolute; 
-
-  width           : 80%;
-  height          : 80%;
-
-  overflow-y      : auto;
-
-  text-align      : left;
-
-  top             : 15px;
-  left            : 15px;
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  overflow-y: auto;
+  text-align: left;
+  top: 15px;
+  left: 15px;
 }
+
 #CHARACTER_CARD_IMAGE:hover {
-  cursor          : help;
+  cursor: help;
 }
+
 #CHARACTER_CARD_IMAGE:hover > img {
-  opacity         : 0;
-
-  transform       : scale(0.5);
-
-  pointer-events  : none;
+  opacity: 0;
+  transform: scale(0.5);
+  pointer-events: none;
 }
 
-/* CHARACTERS SLIDERS   */
+/* ===================== */
 
+/* CHARACTERS SLIDERS */
 #CHARACTERS_SLIDERS {
-  display         : flex;
-  flex-direction  : column;
+  display: flex;
+  flex-direction: column;
 }
+
 #CHARACTERS_SLIDERS > * {
-  overflow-x      : auto;
-  overflow-y      : hidden;
-
-  display         : flex;
-  flex-direction  : row;
-
-  margin          : 5px 0px 15px 0px;
-
-  gap             : 15px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  margin: 5px 0 15px 0;
+  gap: 15px;
 }
-#CHARACTERS_SLIDERS > * > *:nth-child(1) {
-  position        : relative;
 
-  margin          : 0;
-  padding         : 10px;
-
-  box-shadow      : none;
-  background      : 
-  radial-gradient(
-    ellipse at bottom left, 
-    rgb(var(--main), 0.25) 0%, 
-    rgb(var(--main), 0.15) 25%, 
-    rgb(var(--main), 0.1) 50%, 
-    rgba(var(--main), 0.1) 75%, 
-    rgba(var(--main), 0.05) 100%
-  );
-
-  isolation       : isolate;
-
-  outline         : 1px solid rgba(var(--main), 0.5);
-}
-#CHARACTERS_SLIDERS > * > *:nth-child(1)::after {
-  content         : "";
-
-  margin          : 0;
-  padding         : 0;
-
-  top             : 0;
-  left            : 0;
-
-  transform: scale(0.98);
-
-  position        : absolute;
-
-  background      : 
-  radial-gradient(
-    ellipse at bottom left, 
-    rgb(var(--main), 0.20) 0%, 
-    rgb(var(--main), 0.15) 25%, 
-    rgb(var(--main), 0.05) 50%, 
-    rgba(var(--main), 0.1) 75%, 
-    rgba(var(--main), 0.20) 100%
-  );
-
-  filter          : blur(25px);
-
-  width           : 100%;
-  height          : 100%;
-
-  z-index: -1;
-}
-#CHARACTERS_SLIDERS > * > *:nth-child(1)::before {
-  content         : "";
-
-  margin          : 0;
-  padding         : 0;
-
-  top             : 0;
-  left            : 0;
-
-  position        : absolute;
-
-  width           : 100%;
-  height          : 100%;
-
-  box-shadow      : 
-    5px 5px 5px rgb(var(--dark-shadow), 0.5);
-
-  border-radius  : 15px;
-
-  backdrop-filter : blur(35px);
-  -webkit-backdrop-filter: blur(35px);
-
-  z-index: -1;
-}
 #CHARACTERS_SLIDERS > * > * {
-  min-width           : calc(var(--sides-size) * 13);
-  max-width           : calc(var(--sides-size) * 13);
-  min-height          : calc(var(--sides-size) * 14);
-  max-height          : 100%;
+  min-width: calc(var(--sides-size) * 13);
+  max-width: calc(var(--sides-size) * 13);
+  min-height: calc(var(--sides-size) * 14);
+  max-height: 100%;
 }
+
 #CHARACTERS_SLIDERS > * > *:hover {
-  transform       : scale(1.01);
-
-  outline         : rgb(var(--main),1) solid 1px;
+  transform: scale(1.01);
+  outline: rgb(var(--hue), 1) solid 1px;
 }
+
 #CHARACTERS_SLIDERS > * > * img {
-  margin          : 0px 0px 10px 0px;
-  padding         : 0;
+  margin: 0 0 10px 0;
+  padding: 0;
 }
+
 #CHARACTERS_SLIDERS > * > * img:hover {
-  transform       : scale(1.03);
-
-  cursor          : pointer;
+  transform: scale(1.03);
+  cursor: pointer;
 }
+
 #CHARACTERS_SLIDERS > * > * p {
-  margin          : 0px 15px 0px 0px;
-  padding         : 0;
+  margin: 0 15px 0 0;
+  padding: 0;
 }
- 
-/* CONTENT and ELEMENTS */
 
 /* ==================== */
 
-/* FOOTER and ELEMENTS  */
-
+/* FOOTER and ELEMENTS */
 #FOOTER {
-  grid-area       : F;
-
-  margin          : 5px;
-  gap             : 7.5px;
-
-  height          : var(--sides-size);
-  max-height      : var(--sides-size);
-
-  z-index         : 2;
+  grid-area: F;
+  margin: 5px;
+  gap: 7.5px;
+  height: var(--sides-size);
+  max-height: var(--sides-size);
+  z-index: 2;
 }
-
-/* FOOTER and ELEMENTS  */
 
 /* ==================== */
 
-/* SCROLL BAR           */
-
+/* SCROLL BAR */
 ::-webkit-scrollbar {
-  width           : 5px;
-  height          : 5px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow      : inset 0 0 5px rgb(var(--main));
-  border-radius   : 15px;
+  box-shadow: inset 0 0 5px rgb(var(--hue));
+  border-radius: 15px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background      : rgb(var(--main));
-  border-radius   : 15px;
-} 
-
-/* SCROLL BAR           */
+  background: rgb(var(--hue));
+  border-radius: 15px;
+}
 
 /* ==================== */
 
-/* MEDIA QUERIES        */
-
-@media (max-width: 14000px) {
-
-}
-
-@media (max-width: 1200px) {
-
-}
-
+/* MEDIA QUERIES */
 @media (max-width: 1000px) {
-
   #CHARACTER_INFORMATION {
     grid-template-rows: auto auto auto;
-    grid-template-areas: 
-    "T T T T"
-    "C C C C"
-    "S S S S";
-
-    gap           : 5px;
+    grid-template-areas:
+      "T T T T"
+      "C C C C"
+      "S S S S";
+    gap: 5px;
   }
-
 }
-
-@media (max-width: 768px) {
-
-  #CHARACTER_INFORMATION {
-    grid-template-rows: auto auto auto;
-    grid-template-areas: 
-    "T T T T"
-    "C C C C"
-    "S S S S";
-
-    gap           : 5px;
-  }
-
-} 
-
-@media (max-width: 600px) {
-  
-  #CHARACTER_INFORMATION {
-    grid-template-rows: auto auto auto;
-    grid-template-areas: 
-    "T T T T"
-    "C C C C"
-    "S S S S";
-
-    gap           : 5px;
-  }
-
-} 
 
 @media (max-width: 480px) {
-
-  #CHARACTER_INFORMATION {
-    grid-template-rows: auto auto auto;
-    grid-template-areas: 
-    "T T T T"
-    "C C C C"
-    "S S S S";
-
-    gap           : 5px;
-  }
-
   #CHARACTER_CARD_INFORMATION {
-    display       : flex;
+    display: flex;
   }
 
-  #CHARACTER_CARD_IMAGE{
-    margin        : 0px 0px 15px 0px;
+  #CHARACTER_CARD_IMAGE {
+    margin: 0 0 15px 0;
   }
-
-}
-
-@media (max-width: 360px) {
-
-  #CHARACTER_INFORMATION {
-    grid-template-rows: auto auto auto;
-    grid-template-areas: 
-    "T T T T"
-    "C C C C"
-    "S S S S";
-    
-    gap           : 5px;
-  }
-
-  #CHARACTER_CARD_INFORMATION {
-    display       : flex;
-  }
-
-  #CHARACTER_CARD_IMAGE{
-    margin        : 0px 0px 15px 0px;
-  }
-
 }
