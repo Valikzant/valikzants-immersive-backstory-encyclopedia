@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Test Site</title>
+  <style>
+    @media (screenorientation: portrait) { body { grid-template-rows: auto auto 1fr auto; grid-template-areas: "H H" "С С" "C C" "S S";} #SIDEBAR {flex-direction: row;}}
+    .BLOCK.HIDDEN * {display: none !important;}
+    .BLOCK.UNLOADED {display: none !important;}
+    #FOOTER {grid-area: F;} #HEADER {grid-area: H;} #SIDEBAR {grid-area: S;} #THEMES, #SETTINGS, #AUTHOR, #CONTENT {grid-area: C;}
+  </style>
   <link rel="stylesheet" href="../../../CSS/classes.css?v=update3.4">
   <link rel="stylesheet" href="../../../CSS/customs.css?v=update3.4">
   <link rel="stylesheet" href="../../../CSS/textblocks.css?v=update3.4">
@@ -55,7 +61,7 @@
   }
 </script>
 <body id="body">
-  <div id="LOADING_SCREEN" class="">
+  <div id="LOADING_SCREEN" class="BLOCK">
     <div class="ICON">⏳</div>
     <div id="HEADER_BUTTON_VIBE" class="BUTTON">
       <h1 id="HEADER_LOGO" class="FANCY">
@@ -106,7 +112,7 @@
     </div>
   </div>
 
-  <div id="SIDEBAR" class="BLOCK">
+  <div id="SIDEBAR" class="BLOCK UNLOADED">
     <div class="BUTTON SIDEBAR" onclick="_F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(
       'CHARACTER_INFORMATION')" data-tooltip=
       "Карточка Персонажа"> <div class="ICON">
@@ -195,7 +201,7 @@
 
             <h3 class="HINT">Наведите<br>на меня</h3>
 
-            <img class="BLOCK INNER IMAGE" src="pfp.png" loading="lazy">
+            <img class="BLOCK INNER IMAGE" src="pfp.webp" loading="lazy">
             
             <p>
               Раса      : Вульпканин
@@ -248,7 +254,7 @@
         
     </div>
 
-    <div id="STORY_BLOCK" class="BLOCK INNER INVISIBLE">
+    <div id="STORY_BLOCK" class="BLOCK INNER INVISIBLE UNLOADED">
 
       <h2 class="TITLE">История персонажа</h2>
 
@@ -1142,7 +1148,7 @@
   </div>
 
   
-  <div id="AUTHOR" class="BLOCK HIDDEN">
+  <div id="AUTHOR" class="BLOCK HIDDEN UNLOADED">
 
     <div class="BUTTON_HELP" data-tooltip=
     "
@@ -1162,7 +1168,7 @@
 
   </div>
 
-  <div id="THEMES" class="BLOCK HIDDEN">
+  <div id="THEMES" class="BLOCK HIDDEN UNLOADED">
     
     <div class="BUTTON_HELP" data-tooltip=
     "
@@ -1280,7 +1286,7 @@
 
   </div>
 
-  <div id="SETTINGS" class="BLOCK HIDDEN">
+  <div id="SETTINGS" class="BLOCK HIDDEN UNLOADED">
 
     <div class="BUTTON_HELP" data-tooltip=
     "

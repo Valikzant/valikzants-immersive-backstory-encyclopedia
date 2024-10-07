@@ -9,6 +9,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Test Site</title>
+  <style>
+    @media (screenorientation: portrait) { body { grid-template-rows: auto auto 1fr auto; grid-template-areas: "H H" "С С" "C C" "S S";} #SIDEBAR {flex-direction: row;}}
+    .BLOCK.HIDDEN * {display: none !important;}
+    .BLOCK.UNLOADED {display: none !important;}
+    #FOOTER {grid-area: F;} #HEADER {grid-area: H;} #SIDEBAR {grid-area: S;} #THEMES, #SETTINGS, #AUTHOR, #CONTENT {grid-area: C;}
+  </style>
   <link rel="stylesheet" href="../../../FILES/CSS/classes.css?v=update3.4" />
   <link rel="stylesheet" href="../../../FILES/CSS/customs.css?v=update3.4" />
   <link rel="stylesheet" href="../../../FILES/CSS/textblocks.css?v=update3.4" />
@@ -141,7 +147,7 @@
 
   <!-- СЕКЦИЯ РАЗРЕШЕНА ДЛЯ ЧАСТИЧНОГО РЕДАКТИРОВАНИЯ. \/ -->
 
-  <div id="SIDEBAR" class="BLOCK">
+  <div id="SIDEBAR" class="BLOCK UNLOADED">
 
     <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
 
@@ -194,7 +200,7 @@
           <img
             onclick="window.location.href='./PLACEHOLDER/index.html'"
             class="BLOCK INNER IMAGE"
-            src="./PLACEHOLDER/pfp.png"
+            src="./PLACEHOLDER/pfp.webp"
             loading="lazy"
           />
           <p>Неизвестный персонаж</p>
@@ -205,7 +211,7 @@
           <img
             onclick="window.location.href='./ПАПКА ПЕРСОНАЖА/index.html'"
             class="BLOCK INNER IMAGE"
-            src="./ПАПКА ПЕРСОНАЖА/pfp.png" (Аватарка должна быть квадратной)
+            src="./ПАПКА ПЕРСОНАЖА/pfp.webp" (Аватарка должна быть квадратной)
             loading="lazy"
           />
           <p>КРАТКОЕ ИМЯ ПЕРСОНАЖА</p>
@@ -216,7 +222,7 @@
     </div>
   </div>
 
-  <div id="AUTHOR" class="BLOCK HIDDEN">
+  <div id="AUTHOR" class="BLOCK HIDDEN UNLOADED">
     <div
       class="BUTTON_HELP"
       data-tooltip="
@@ -240,7 +246,7 @@
 
   <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. \/ -->
   
-  <div id="THEMES" class="BLOCK HIDDEN">
+  <div id="THEMES" class="BLOCK HIDDEN UNLOADED">
     <div
       class="BUTTON_HELP"
       data-tooltip="
@@ -463,7 +469,7 @@
     </div>
   </div>
 
-  <div id="SETTINGS" class="BLOCK HIDDEN">
+  <div id="SETTINGS" class="BLOCK HIDDEN UNLOADED">
 
     <div class="BUTTON_HELP" data-tooltip=
     "
