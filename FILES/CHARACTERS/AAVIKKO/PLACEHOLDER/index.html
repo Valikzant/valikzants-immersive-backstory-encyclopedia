@@ -12,10 +12,10 @@
   <style>
     @media (screenorientation: portrait) { body { grid-template-rows: auto auto 1fr auto; grid-template-areas: "H H" "С С" "C C" "S S";} #SIDEBAR {flex-direction: row;}}
     .BLOCK.HIDDEN * {display: none !important;}
-    .BLOCK.UNLOADED {display: none !important;}
+    .UNLOADED {display: none !important;} .UNLOADED * {display: none !important;}
     #FOOTER {grid-area: F;} #HEADER {grid-area: H;} #SIDEBAR {grid-area: S;} #THEMES, #SETTINGS, #AUTHOR, #CONTENT {grid-area: C;}
   </style>
-  <link id="CLASSES_CSS_FILE" rel="stylesheet" href="../../../CSS/classes_modern.css?v=update3.6">
+  <link id="CLASSES_CSS_FILE" rel="stylesheet" href="../../../CSS/classes_simple.css?v=update3.6">
   <link rel="stylesheet" href="../../../CSS/customs.css?v=update3.6">
   <link id="TEXT_BLOCKS_CSS_FILE" rel="stylesheet" href="../../../CSS/textblocks.css?v=update3.6">
 </head>
@@ -75,7 +75,7 @@
 
   <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. \/ -->
 
-<body id="body">
+<body id="body" class="UNLOADED">
   <div id="LOADING_SCREEN" class="BLOCK">
     <div class="ICON">⏳</div>
     <h1 id="HEADER_LOGO" class="FANCY">
@@ -435,7 +435,7 @@
         <div class="ICON"> ❔ </div>
     </div>
 
-    <h2 class="TITLE">Об авторе</h2>
+    <h2 class="TITLE STATIONARY">Об авторе</h2>
     <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
     <p>
       Информация об авторе???
@@ -606,7 +606,7 @@
         <div class="ICON"> ❔ </div>
     </div>
 
-    <h2 class="TITLE">Настройки</h2>
+    <h2 class="TITLE STATIONARY">Настройки</h2>
 
     <div id="CUSTOMIZATION_SAVING_CHOOSERS" class="BLOCK INNER">
 
@@ -675,31 +675,6 @@
     
     </div>
     
-    <div id="LAZY_LOAD_TOGGLE_CHOOSERS" class="BLOCK INNER">
-
-      <div class="BUTTON_HELP" data-tooltip=
-      "
-      Крайняя мера оптимизации для рендеринга текста. (Lazy Load)
-      <br><br>
-      Расположение блоков может случайно прыгать при загрузке нового текста.
-      <br><br>
-      Значительно увеличивает производительность взамен на стабильность.
-      <br><br>
-      Относительно стабилен при перемещении кнопками глав. (Опция работает после перезагрузки)
-      " class="BUTTON">
-        <div class="ICON"> ❔ </div>
-      </div>
-
-      <div onclick="_F_SETTINGS_CHANGE_LAZY_LOAD('true')" id="LAZY_LOAD_TOGGLE_CHOOSER_ON"class="BUTTON">
-        <div class="ICON"> ✔️🐌 </div>
-      </div>
-
-      <div onclick="_F_SETTINGS_CHANGE_LAZY_LOAD('false')" id="LAZY_LOAD_TOGGLE_CHOOSER_OFF" class="BUTTON">
-        <div class="ICON"> ✖️🐌 </div>
-      </div>
-    
-    </div>
-
     <div id="LAYOUT_CHOOSERS" class="BLOCK INNER">
 
       <div class="BUTTON_HELP" data-tooltip=

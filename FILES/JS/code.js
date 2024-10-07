@@ -80,9 +80,14 @@ async function _F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(_C_ID) {
     _C_ELEMENT.scrollIntoView({ behavior: "auto", block: "start", inline: "nearest" });
     setTimeout(() => {
       _C_CONTENT.scrollBy(0, -15);
-    }, 100);
-  }, 100);
-  _C_ELEMENT.scrollIntoView({ behavior: "auto", block: "start", inline: "nearest" });
+    }, 10);
+    setTimeout(() => {
+      _C_ELEMENT.scrollIntoView({ behavior: "auto", block: "start", inline: "nearest" });
+    }, 10);
+    setTimeout(() => {
+      _C_CONTENT.scrollBy(0, -15);
+    }, 10);
+  }, 10);
 }
 
 // [ LOCAL STORAGE ]
@@ -261,19 +266,6 @@ async function _F_SETTINGS_CHANGE_HINTS(_C_MODE) {
   }
 }
 
-// Включение/Отключение lazy load
-async function _F_SETTINGS_CHANGE_LAZY_LOAD(_C_MODE) {
-  if (_C_MODE == "true") {
-    await _F_LOCAL_STORAGE_SET("lazy-load", "true");
-    await _F_INTERACT_WITH_HTML_ENABLE_BUTTON_BY_ID("LAZY_LOAD_TOGGLE_CHOOSER_ON");
-    await _F_INTERACT_WITH_HTML_DISABLE_BUTTON_BY_ID("LAZY_LOAD_TOGGLE_CHOOSER_OFF");
-  } else {
-    await _F_LOCAL_STORAGE_SET("lazy-load", "false");
-    await _F_INTERACT_WITH_HTML_ENABLE_BUTTON_BY_ID("LAZY_LOAD_TOGGLE_CHOOSER_OFF");
-    await _F_INTERACT_WITH_HTML_DISABLE_BUTTON_BY_ID("LAZY_LOAD_TOGGLE_CHOOSER_ON");
-  }
-}
-  
 // [ TOGGLE WINDOWS ]
 
 // CONTENT
@@ -525,7 +517,6 @@ document.addEventListener('DOMContentLoaded', async function () {
   if (await _F_LOCAL_STORAGE_GET("font-modifier") == null) { await _F_LOCAL_STORAGE_SET("font-modifier", 1);}
   if (await _F_LOCAL_STORAGE_GET("interface-modifier") == null) { await _F_LOCAL_STORAGE_SET("interface-modifier", 1);}
   if (await _F_LOCAL_STORAGE_GET("classes-parameter") == null) { await _F_LOCAL_STORAGE_SET("classes-parameter", "modern");}
-  if (await _F_LOCAL_STORAGE_GET("lazy-load") == null) { await _F_LOCAL_STORAGE_SET("lazy-load", "false");}
 
   // Если сохранение тем есть, то загружаем, если нет - удаляем сохранения
   if (await _F_LOCAL_STORAGE_GET("customization-saved") == "true") {
@@ -542,13 +533,16 @@ document.addEventListener('DOMContentLoaded', async function () {
     localStorage.removeItem("hue");
   }
 
-  const _C_UNLOADED_BLOCKS = await _F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".BLOCK.UNLOADED");
+  const _C_UNLOADED_BLOCKS = await _F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".UNLOADED");
   _C_UNLOADED_BLOCKS.forEach(_I_UNLOADED_BLOCK => {
     setTimeout(function () {
       _I_UNLOADED_BLOCK.classList.remove("UNLOADED");
-    }, 150 )
+    }, 10)
   });
 
+  if (await _F_LOCAL_STORAGE_GET("classes-parameter") != null) {
+    await _F_CUSTOMIZATION_CHANGE_CLASSES_FILE(await _F_LOCAL_STORAGE_GET("classes-parameter"));
+  }
   if (await _F_LOCAL_STORAGE_GET("font-modifier") != null) {
     await _F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(await _F_LOCAL_STORAGE_GET("font-modifier"));
   }
@@ -564,18 +558,12 @@ document.addEventListener('DOMContentLoaded', async function () {
   if (await _F_LOCAL_STORAGE_GET("hints") != null) {
     await _F_SETTINGS_CHANGE_HINTS(await _F_LOCAL_STORAGE_GET("hints"));
   }
-  if (await _F_LOCAL_STORAGE_GET("classes-parameter") != null) {
-    await _F_CUSTOMIZATION_CHANGE_CLASSES_FILE(await _F_LOCAL_STORAGE_GET("classes-parameter"));
-  }
-  if (await _F_LOCAL_STORAGE_GET("lazy-load") != null) {
-    await _F_SETTINGS_CHANGE_LAZY_LOAD(await _F_LOCAL_STORAGE_GET("lazy-load"));
-  }
 
   // Завершение загрузки
   setTimeout(function () {
     const _C_LOADING_SCREEN = document.getElementById("LOADING_SCREEN");
     _C_LOADING_SCREEN.style.setProperty("opacity", "0");
-  }, 1);
+  }, 100);
   setTimeout(function () {
     const _C_HINTS = document.querySelectorAll(".HINT");
     _C_HINTS.forEach(_I_HINT => {
@@ -587,36 +575,3 @@ document.addEventListener('DOMContentLoaded', async function () {
 // ========================== [ END ] ==========================
 
 // ========================== [ TESTS ] ==========================
-
-
-// ========================== [ lazy load by chat gpt ] ==========================
-
-async function lazyLoad() {
-
-  if (await _F_LOCAL_STORAGE_GET("lazy-load") == "false") {
-    return;
-  }
-
-  const storyBlock = document.getElementById('STORY_BLOCK');
-  const blocks = storyBlock.querySelectorAll('.INVISIBLE');
-
-  blocks.forEach((element) => {
-    const textBlocks = element.querySelectorAll('.TEXT_BLOCK');
-    textBlocks.forEach((element) => {
-      element.classList.add('UNLOADED');
-      const observer = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-          element.classList.remove('UNLOADED');
-        } else {
-          element.classList.add('UNLOADED');
-        }
-      }, {
-        rootMargin: '50px',
-      });
-  
-      observer.observe(element);
-    });
-  })
-}
-
-document.addEventListener('DOMContentLoaded', lazyLoad);

@@ -108,6 +108,12 @@ h3.TITLE.INVISIBLE {
   box-shadow: none;
 }
 
+h1.TITLE.STATIONARY,
+h2.TITLE.STATIONARY,
+h3.TITLE.STATIONARY {
+  position: relative;
+}
+
 h1.HINT,
 h2.HINT,
 h3.HINT {
@@ -258,6 +264,7 @@ img {
 
 .BUTTON.INVISIBLE {
   box-shadow: none;
+  background: none;
 }
 
 .BUTTON.ACTIVE {

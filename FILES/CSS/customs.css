@@ -132,7 +132,6 @@
 #CUSTOMIZATION_SAVING_CHOOSERS,
 #ANIMATION_TOGGLE_CHOOSERS,
 #HINT_TOGGLE_CHOOSERS,
-#LAZY_LOAD_TOGGLE_CHOOSERS,
 #LAYOUT_CHOOSERS {
   gap: 4px;
   width: calc(var(--sides-size) * 7.6);
@@ -162,7 +161,6 @@
   width: calc(var(--sides-size) * 3.4);
   height: calc(var(--sides-size) * 3.4);
 }
-#LAZY_LOAD_TOGGLE_CHOOSERS > *:not(:nth-child(1)),
 #CUSTOMIZATION_SAVING_CHOOSERS > *:not(:nth-child(1)),
 #ANIMATION_TOGGLE_CHOOSERS > *:not(:nth-child(1)),
 #HINT_TOGGLE_CHOOSERS > *:not(:nth-child(1)),

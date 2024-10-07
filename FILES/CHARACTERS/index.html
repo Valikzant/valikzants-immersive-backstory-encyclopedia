@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+  <!--Секции, что требуют изменений будут отмечены соответственно.
+      Чтобы вы не пропустили разделы, где нужно что-то редактировать,
+      я расставил комментарии с текстом "ДЛЯ РЕДАКТИРОВАНИЯ"        -->
+
+  <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. \/ -->
 <html lang="ru" id="root">
 <head>
   <meta charset="UTF-8" />
@@ -15,8 +20,11 @@
   <link id="TEXT_BLOCKS_CSS_FILE" rel="stylesheet" href="../../../FILES/CSS/textblocks.css?v=update3.6">
 </head>
 <script src="../../../FILES/JS/code.js?v=update3.6"></script>
-<script>
+  <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. /\ -->
 
+  <!-- СЕКЦИЯ РАЗРЕШЕНА ДЛЯ ЧАСТИЧНОГО РЕДАКТИРОВАНИЯ. \/ -->
+<script>
+  // ДЛЯ РЕДАКТИРОВАНИЯ
   // Здесь можно указать свои оттенки/темы для страницы в формате R G B.
   const _C_HUES = [
     // Максимум 8 оттенков
@@ -62,6 +70,11 @@
     _F_ON_LOAD_GENERATE_AND_SAVE_THEMES(_C_THEMES);
   };
 </script>
+
+  <!-- СЕКЦИЯ РАЗРЕШЕНА ДЛЯ ЧАСТИЧНОГО РЕДАКТИРОВАНИЯ. /\ -->
+
+  <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. \/ -->
+
 <body id="body" class="UNLOADED">
   <div id="LOADING_SCREEN" class="BLOCK">
     <div class="ICON">⏳</div>
@@ -112,160 +125,81 @@
     </div>
   </div>
 
+  <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. /\ -->
+
+  <!-- СЕКЦИЯ РАЗРЕШЕНА ДЛЯ ЧАСТИЧНОГО РЕДАКТИРОВАНИЯ. \/ -->
+
   <div id="SIDEBAR" class="BLOCK UNLOADED">
+
+    <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
+
     <div
       class="BUTTON SIDEBAR"
       onclick="_F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(
-    'bigwork')"
-      data-tooltip="Объёмные Работы"
+    'categoryname')"
+      data-tooltip="Сервера SS14"
     >
-      <div class="ICON">💎</div>
+      <div class="ICON">SS14</div>
     </div>
+
+    <!--
     <div
       class="BUTTON SIDEBAR"
       onclick="_F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(
-    'new')"
-      data-tooltip="Недавно Добавленные"
+    'АЙДИ ТОЙ КАТЕГОРИИ ДЛЯ ПРОКРУТКИ')"
+      data-tooltip="НАЗВАНИЕ КАТЕГОРИИ"
     >
-      <div class="ICON">⌛</div>
+      <div class="ICON"> ЭМОДЗИ/БУКВА ДЛЯ ИКОНКИ </div>
     </div>
-    <div
-      class="BUTTON SIDEBAR"
-      onclick="_F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(
-    'nice')"
-      data-tooltip="Красиво Оформлены"
-    >
-      <div class="ICON">🪄</div>
-    </div>
-    <div
-      class="BUTTON SIDEBAR"
-      onclick="_F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(
-    'nanotrasen')"
-      data-tooltip="НаноТрейзен"
-    >
-      <div class="ICON">N</div>
-    </div>
-    <div
-      class="BUTTON SIDEBAR"
-      onclick="_F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(
-    'sindycate')"
-      data-tooltip="Синдикат"
-    >
-      <div class="ICON">S</div>
-    </div>
+    -->
+
   </div>
 
   <div id="CONTENT" class="BLOCK">
     <div
       class="BUTTON_HELP"
       data-tooltip="
-  Основной раздел с различными персонажами сервера SS14 Aavikko Avaruus.
+  Основной раздел вселенных/серверов.
   "
       class="BUTTON"
     >
       <div class="ICON">❔</div>
     </div>
 
-    <h2 class="TITLE STATIONARY">Персонажи Аавикко</h2>
+    <h2 class="TITLE STATIONARY">Добро пожаловать!</h2>
 
     <div id="CHARACTERS_SLIDERS" class="BLOCK INNER INVISIBLE">
-      <h2 id="bigwork" class="TITLE STATIONARY">Объёмные Работы</h2>
+      <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
+      <h2 id="ss14" class="TITLE STATIONARY">Сервера SS14</h2>
+
+      <!--
+      <h2 id="АЙДИ КАТЕГОРИИ ДЛЯ ПРОКРУТКИ" class="TITLE STATIONARY">НАЗВАНИЕ КАТЕГОРИИ</h2>
+      -->
 
       <div class="BLOCK INNER">
+        <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
         <div class="BLOCK">
           <img
-          onclick="window.location.href='./AIVEN UNO/index.html'"
+            onclick="window.location.href='./AAVIKKO/index.html'"
             class="BLOCK INNER IMAGE"
-            src="./AIVEN UNO/pfp.webp"
+            src="./AAVIKKO/icon.webp"
             loading="lazy"
           />
-          <p>Айвен Уно</p>
+          <p>Аавикко Аваруус</p>
         </div>
 
         <!-- 
         <div class="BLOCK">
           <img
-            onclick="window.location.href='./ПАПКА ПЕРСОНАЖА/index.html'"
+            onclick="window.location.href='./ПАПКА ВСЕЛЕННОЙ/index.html'"
             class="BLOCK INNER IMAGE"
-            src="./ПАПКА ПЕРСОНАЖА/pfp.webp" (Аватарка должна быть квадратной)
+            src="./ПАПКА ВСЕЛЕННОЙ/pfp.webp" (Иконка должна быть квадратной)
             loading="lazy"
           />
-          <p>КРАТКОЕ ИМЯ ПЕРСОНАЖА</p>
-        </div>
-        -->
-        
-      </div>
-
-      <h2 id="new" class="TITLE STATIONARY">Недавно Добавленные</h2>
-
-      <div class="BLOCK INNER">
-
-        <!-- 
-        <div class="BLOCK">
-          <img
-            onclick="window.location.href='./ПАПКА ПЕРСОНАЖА/index.html'"
-            class="BLOCK INNER IMAGE"
-            src="./ПАПКА ПЕРСОНАЖА/pfp.webp" (Аватарка должна быть квадратной)
-            loading="lazy"
-          />
-          <p>КРАТКОЕ ИМЯ ПЕРСОНАЖА</p>
+          <p>ИМЯ ВСЕЛЕННОЙ</p>
         </div>
         -->
 
-      </div>
-
-      <h2 id="nice" class="TITLE STATIONARY">Красиво Оформлены</h2>
-
-      <div class="BLOCK INNER">
-
-        <!-- 
-        <div class="BLOCK">
-          <img
-            onclick="window.location.href='./ПАПКА ПЕРСОНАЖА/index.html'"
-            class="BLOCK INNER IMAGE"
-            src="./ПАПКА ПЕРСОНАЖА/pfp.webp" (Аватарка должна быть квадратной)
-            loading="lazy"
-          />
-          <p>КРАТКОЕ ИМЯ ПЕРСОНАЖА</p>
-        </div>
-        -->
-        
-      </div>
-
-      <h2 id="nanotrasen" class="TITLE STATIONARY">НаноТрейзен</h2>
-
-      <div class="BLOCK INNER">
-
-        <!-- 
-        <div class="BLOCK">
-          <img
-            onclick="window.location.href='./ПАПКА ПЕРСОНАЖА/index.html'"
-            class="BLOCK INNER IMAGE"
-            src="./ПАПКА ПЕРСОНАЖА/pfp.webp" (Аватарка должна быть квадратной)
-            loading="lazy"
-          />
-          <p>КРАТКОЕ ИМЯ ПЕРСОНАЖА</p>
-        </div>
-        -->
-        
-      </div>
-
-      <h2 id="sindycate" class="TITLE STATIONARY">Синдикат</h2>
-
-      <div class="BLOCK INNER">
-
-        <!-- 
-        <div class="BLOCK">
-          <img
-            onclick="window.location.href='./ПАПКА ПЕРСОНАЖА/index.html'"
-            class="BLOCK INNER IMAGE"
-            src="./ПАПКА ПЕРСОНАЖА/pfp.webp" (Аватарка должна быть квадратной)
-            loading="lazy"
-          />
-          <p>КРАТКОЕ ИМЯ ПЕРСОНАЖА</p>
-        </div>
-        -->
-        
       </div>
     </div>
   </div>
@@ -284,180 +218,99 @@
     </div>
 
     <h2 class="TITLE STATIONARY">Об авторе</h2>
-
-    <p>
-      Вселенная Аавикко Аваруус. Сервер игры SS14.
+    <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
+    <p> <!-- Информация об авторе/мире/разработчике-->
+      На данный момент информация здесь отсутствует.
     </p>
   </div>
 
+  <!-- СЕКЦИЯ РАЗРЕШЕНА ДЛЯ ЧАСТИЧНОГО РЕДАКТИРОВАНИЯ. /\ -->
+
+  <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. \/ -->
+  
   <div id="THEMES" class="BLOCK HIDDEN UNLOADED">
-    <div
-      class="BUTTON_HELP"
-      data-tooltip="
-  Здесь Вы можете настраивать внешний вид страницы, который сохраняется в локальном
-  хранилище вашего браузера (если не запрещено браузером).
-  <br><br>
-  Настройки хранятся и позже восстанавливаются при загрузке страницы.
-  <br><br>
-  При отключенной функции сохранения кастомизации (в настройках) будет загружена
-  кастомизация по умолчанию от автора страницы.
-  "
-      class="BUTTON"
-    >
-      <div class="ICON">❔</div>
+    
+    <div class="BUTTON_HELP" data-tooltip=
+    "
+    Здесь Вы можете настраивать внешний вид страницы, который сохраняется в локальном
+    хранилище вашего браузера (если не запрещено браузером).
+    <br><br>
+    Настройки хранятся и позже восстанавливаются при загрузке страницы.
+    <br><br>
+    При отключенной функции сохранения кастомизации (в настройках) будет загружена
+    кастомизация по умолчанию от автора страницы.
+    " 
+      class="BUTTON">
+        <div class="ICON"> ❔ </div>
     </div>
 
     <h2 class="TITLE INVISIBLE">Кастомизация</h2>
 
     <div id="HUE_CHOOSERS" class="BLOCK INNER SPECIAL">
-      <div
-        class="BUTTON_HELP"
-        data-tooltip="
-    Изменяет цвет специальных элементов, такие как: Кнопки, Выделенные блоки, Активные элементы, и другие.
-    <br><br>
-    Эти настройки могут быть изменены автором и отличаться от стандартных.
-    <br><br>
-    Стандартные настройки всегда доступны на главной странице сайта.
-    "
-        class="BUTTON"
-      >
-        <div class="ICON">❔</div>
+
+      <div class="BUTTON_HELP" data-tooltip=
+      "
+      Изменяет цвет специальных элементов, такие как: Кнопки, Выделенные блоки, Активные элементы, и другие.
+      <br><br>
+      Эти настройки могут быть изменены автором и отличаться от стандартных.
+      <br><br>
+      Стандартные настройки всегда доступны на главной странице сайта.
+      " class="BUTTON">
+        <div class="ICON"> ❔ </div>
       </div>
 
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_HUE(0)"
-        style="background-color: rgb(248, 56, 56)"
-        id="HUE_CHOOSER_RED"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_HUE(1)"
-        style="background-color: rgb(255, 101, 0)"
-        id="HUE_CHOOSER_ORANGE"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_HUE(2)"
-        style="background-color: rgb(234, 143, 0)"
-        id="HUE_CHOOSER_DARK_ORANGE"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_HUE(3)"
-        style="background-color: rgb(255, 255, 0)"
-        id="HUE_CHOOSER_YELLOW"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_HUE(4)"
-        style="background-color: rgb(100, 184, 0)"
-        id="HUE_CHOOSER_GREEN"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_HUE(5)"
-        style="background-color: rgb(0, 235, 235)"
-        id="HUE_CHOOSER_CYAN"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_HUE(6)"
-        style="background-color: rgb(0, 145, 255)"
-        id="HUE_CHOOSER_BLUE"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_HUE(7)"
-        style="background-color: rgb(135, 94, 255)"
-        id="HUE_CHOOSER_PURPLE"
-        class="BUTTON"
-      ></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(0)" style="background-color: rgb(248, 56, 56);" id="HUE_CHOOSER_RED" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(1)" style="background-color: rgb(255, 101, 0);" id="HUE_CHOOSER_ORANGE" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(2)" style="background-color: rgb(234, 143, 0);" id="HUE_CHOOSER_DARK_ORANGE" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(3)" style="background-color: rgb(255, 255, 0);" id="HUE_CHOOSER_YELLOW" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(4)" style="background-color: rgb(100, 184, 0);" id="HUE_CHOOSER_GREEN" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(5)" style="background-color: rgb(0, 235, 235);" id="HUE_CHOOSER_CYAN" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(6)" style="background-color: rgb(0, 145, 255);" id="HUE_CHOOSER_BLUE" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(7)" style="background-color: rgb(135, 94, 255);" id="HUE_CHOOSER_PURPLE" class="BUTTON"></div>
     </div>
 
     <div id="THEME_CHOOSERS" class="BLOCK INNER">
-      <div
-        class="BUTTON_HELP"
-        data-tooltip="
-    Изменяет цвет заднего фона основных элементов.
-    <br><br>
-    Эти настройки могут быть изменены автором и отличаться от стандартных.
-    <br><br>
-    Стандартные настройки всегда доступны на главной странице сайта.
-    "
-        class="BUTTON"
-      >
-        <div class="ICON">❔</div>
+
+      <div class="BUTTON_HELP" data-tooltip=
+      "
+      Изменяет цвет заднего фона основных элементов.
+      <br><br>
+      Эти настройки могут быть изменены автором и отличаться от стандартных.
+      <br><br>
+      Стандартные настройки всегда доступны на главной странице сайта.
+      " class="BUTTON">
+        <div class="ICON"> ❔ </div>
       </div>
 
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_THEME(0)"
-        style="background-color: rgb(50, 50, 50)"
-        id="THEME_CHOOSER_DARK"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_THEME(1)"
-        style="background-color: rgb(180, 180, 180)"
-        id="THEME_CHOOSER_LIGHT"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_THEME(2)"
-        style="background-color: rgb(0, 0, 0)"
-        id="THEME_CHOOSER_VOID"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_THEME(3)"
-        style="background-color: rgb(255, 255, 255)"
-        id="THEME_CHOOSER_HEAVEN"
-        class="BUTTON"
-      ></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_THEME(0)" style="background-color: rgb(50, 50, 50);" id="THEME_CHOOSER_DARK" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_THEME(1)" style="background-color: rgb(180, 180, 180);" id="THEME_CHOOSER_LIGHT" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_THEME(2)" style="background-color: rgb(0, 0, 0);" id="THEME_CHOOSER_VOID" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_THEME(3)" style="background-color: rgb(255, 255, 255);" id="THEME_CHOOSER_HEAVEN" class="BUTTON"></div>
+
     </div>
 
     <div id="FONT_SIZE_CHOOSERS" class="BLOCK INNER">
-      <div
-        class="BUTTON_HELP"
-        data-tooltip=
-        "
-        Изменяет размер шрифта. (Не касается текста в этих кнопках)
-        " class="BUTTON">
-        <div class="ICON">❔</div>
+
+      <div class="BUTTON_HELP" data-tooltip=
+      "
+      Изменяет размер шрифта. (Не касается текста в этих кнопках)
+      " class="BUTTON">
+        <div class="ICON"> ❔ </div>
       </div>
 
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(0)"
-        style="font-size: 9px"
-        id="FONT_SIZE_CHOOSER_SMALL"
-        class="BUTTON"
-      >
+      <div onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(0)" style="font-size: 9px;" id="FONT_SIZE_CHOOSER_SMALL" class="BUTTON">
         <p>Т</p>
       </div>
 
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(1)"
-        style="font-size: 11px"
-        id="FONT_SIZE_CHOOSER_MEDIUM"
-        class="BUTTON"
-      >
+      <div onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(1)" style="font-size: 11px;" id="FONT_SIZE_CHOOSER_MEDIUM" class="BUTTON">
         <p>Т</p>
       </div>
 
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(2)"
-        style="font-size: 13px"
-        id="FONT_SIZE_CHOOSER_LARGE"
-        class="BUTTON"
-      >
+      <div onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(2)" style="font-size: 13px;" id="FONT_SIZE_CHOOSER_LARGE" class="BUTTON">
         <p>Т</p>
       </div>
 
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(3)"
-        style="font-size: 15px"
-        id="FONT_SIZE_CHOOSER_HUGE"
-        class="BUTTON"
-      >
+      <div onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(3)" style="font-size: 15px;" id="FONT_SIZE_CHOOSER_HUGE" class="BUTTON">
         <p>Т</p>
       </div>
     </div>
@@ -517,6 +370,7 @@
       </div>
 
     </div>
+
   </div>
 
 
@@ -630,6 +484,8 @@
     </div>
 
   </div>
+
+  <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. /\ -->
 
 </body>
 </html>
