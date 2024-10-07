@@ -5,104 +5,6 @@
   src: url("../FONTS/geologica/Geologica-Light.ttf");
 }
 
-@font-face {
-  font-family: "caveat";
-  src: url("../FONTS/caveat/Caveat-Regular.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "great_vibes";
-  src: url("../FONTS/great_vibes/GreatVibes-Regular.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "play";
-  src: url("../FONTS/play/Play-Regular.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "train_one";
-  src: url("../FONTS/train_one/TrainOne-Regular.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "rubik";
-  src: url("../FONTS/rubik/RubikMonoOne-Regular.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "mister_brush";
-  src: url("../FONTS/mister_brush/MisterBrush.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "rubik_dirt";
-  src: url("../FONTS/rubik/RubikDirt-Regular.ttf");
-  font-display: swap;
-}
-/* FONTS        */
-/* ============ */
-
-/* ANIMATIONS   */
-@keyframes BLINKING {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-@keyframes SCREEN_LINES {
-  0%,
-  100% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 5% 5%;
-  }
-}
-
-@keyframes NEON_SHINING {
-  0%,
-  15%,
-  60%,
-  70%,
-  90%,
-  100% {
-    opacity: 1;
-  }
-  7% {
-    opacity: 0.9;
-  }
-  9%,
-  11% {
-    opacity: 0.25;
-  }
-  10% {
-    opacity: 0.3;
-  }
-  30% {
-    opacity: 0.7;
-  }
-  40% {
-    opacity: 0.8;
-  }
-  50% {
-    opacity: 0.9;
-  }
-  80% {
-    opacity: 0.8;
-  }
-}
-/* ANIMATIONS   */
 /* ============ */
 
 /* DEFAULT html */
@@ -261,7 +163,7 @@ img {
   background-color: rgb(var(--solid));
   box-shadow: 4px 4px 5px rgba(var(--dark-shadow), 0.3),
     -4px -4px 5px rgba(var(--light-shadow), 0.45);
-  padding: 15px;
+  padding: 10px;
   border-radius: 15px;
   transition: opacity var(--transition-fast), transform var(--transition-fast),
     box-shadow var(--transition-fast), background-color var(--transition-fast),
@@ -269,7 +171,7 @@ img {
 }
 
 .BLOCK.INNER {
-  margin: 5px 0;
+  margin: 0px 0px;
   box-shadow: 4px 4px 5px rgba(var(--dark-shadow), 0.3) inset,
     -4px -4px 5px rgba(var(--light-shadow), 0.45) inset;
 }
@@ -343,12 +245,19 @@ img {
   cursor: pointer;
   justify-content: center;
   align-content: center;
+  background: rgb(var(--solid));
   text-align: center;
   border-radius: 15px;
   min-width: var(--sides-size);
   min-height: var(--sides-size);
   transition: opacity var(--transition-fast), transform var(--transition-fast),
     box-shadow var(--transition-fast);
+  box-shadow: 4px 4px 5px rgba(var(--dark-shadow), 0.3),
+  -4px -4px 5px rgba(var(--light-shadow), 0.45);
+}
+
+.BUTTON.INVISIBLE {
+  box-shadow: none;
 }
 
 .BUTTON.ACTIVE {
@@ -401,7 +310,7 @@ img {
 }
 
 .BUTTON[disabled] {
-  filter: grayscale(1) brightness(0.5);
+  filter: brightness(0.5);
   pointer-events: none;
   cursor: not-allowed;
 }
@@ -414,12 +323,11 @@ img {
   cursor: help;
   position: absolute;
   top: 0;
-  left: 0;
+  left: -2px;
   justify-content: center;
   align-content: center;
   text-align: center;
   font-size: clamp(10px, 1em, 14px);
-  border-radius: 15px;
   min-width: var(--sides-size);
   min-height: var(--sides-size);
   z-index: 4;
@@ -440,8 +348,25 @@ img {
   mix-blend-mode: normal;
 }
 /* BLOCKS and ELEMENTS */
-/* ==================== */
+/* =================== */
 
+/* SCROLL BAR */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(var(--hue));
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--hue));
+  border-radius: 15px;
+}
+
+/* =================== */
 /* MEDIA */
 @media (max-width: 120000px) {
   body {

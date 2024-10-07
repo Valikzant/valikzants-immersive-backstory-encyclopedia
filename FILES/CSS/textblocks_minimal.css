@@ -1,3 +1,97 @@
+/* FONTS */
+@font-face {
+  font-family: "geologica";
+  src: url("../FONTS/geologica/Geologica-Light.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "caveat";
+  src: url("../FONTS/caveat/Caveat-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "great_vibes";
+  src: url("../FONTS/great_vibes/GreatVibes-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "play";
+  src: url("../FONTS/play/Play-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "train_one";
+  src: url("../FONTS/train_one/TrainOne-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "rubik";
+  src: url("../FONTS/rubik/RubikMonoOne-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "mister_brush";
+  src: url("../FONTS/mister_brush/MisterBrush.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "rubik_dirt";
+  src: url("../FONTS/rubik/RubikDirt-Regular.ttf");
+  font-display: swap;
+}
+
+/* ANIMATIONS           */
+@keyframes BLINKING {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes NEON_SHINING {
+  0%,
+  15%,
+  60%,
+  70%,
+  90%,
+  100% {
+    opacity: 1;
+  }
+  7% {
+    opacity: 0.9;
+  }
+  9%,
+  11% {
+    opacity: 0.25;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 0.7;
+  }
+  40% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.8;
+  }
+}
+/* ANIMATIONS            */
+
 /* ===================== */
 
 /* TEXT BLOCKS and FONTS */
@@ -52,8 +146,6 @@
   padding: 15px 15px 10px 25px;
 
   position: relative;
-
-  outline: 1px solid rgb(var(--text), 0.25);
 }
 .TEXT_BLOCK.PAPER p {
   font-family: "Times New Roman", serif;
@@ -74,11 +166,7 @@
   width: 100%;
   height: 100%;
 
-  background: linear-gradient(
-    90deg,
-    rgb(var(--light-shadow)),
-    rgb(var(--solid))
-  );
+  background: rgb(var(--light-shadow));
 }
 p.TEXT_PAPER {
   font-family: "Times New Roman", serif !important;
@@ -106,9 +194,6 @@ p.TEXT_HANDWRITING {
 
 /* TEXT VINTAGE PAPER */
 
-.TEXT_BLOCK.PAPER.VINTAGE {
-  outline: 2px solid rgb(var(--text), 0.25);
-}
 .TEXT_BLOCK.PAPER.VINTAGE p {
   font-family: "great_vibes";
 
@@ -131,11 +216,7 @@ p.TEXT_HANDWRITING {
   width: 100%;
   height: 100%;
 
-  background: linear-gradient(
-    90deg,
-    rgb(var(--solid)),
-    rgb(var(--light-shadow))
-  );
+  background: rgb(var(--light-shadow));
 
   filter: sepia(100%);
 }
@@ -154,8 +235,6 @@ p.TEXT_VINTAGE {
   padding: 15px 15px 10px 25px;
 
   position: relative;
-
-  outline: 1px solid rgb(var(--text), 0.25);
 }
 .TEXT_BLOCK.NEWSPAPER p {
   font-family: "Times New Roman", serif;
@@ -183,19 +262,13 @@ p.TEXT_VINTAGE {
   width: 100%;
   height: 100%;
 
-  background: linear-gradient(
-    90deg,
-    rgb(var(--light-shadow)),
-    rgb(var(--solid))
-  );
+  background: rgb(var(--light-shadow));
 }
 
 /* TEXT HANDWRITING POEM */
 
 .TEXT_BLOCK.POEM {
   text-align: center;
-
-  outline: 1px solid rgb(var(--text), 0.25);
 }
 .TEXT_BLOCK.POEM p {
   font-family: "caveat";
@@ -205,59 +278,7 @@ p.TEXT_VINTAGE {
 .TEXT_BLOCK.POEM::after {
   content: "Стихотворный блок";
 }
-
-/* TEXT ON SCREEN     */
-
-.TEXT_BLOCK.ON_SCREEN {
-  text-shadow: 0 0 5px rgb(var(--light-shadow));
-
-  padding: 15px 15px 10px;
-
-  outline: 1px solid rgb(var(--hue), 0.75);
-
-  position: relative;
-
-  background-size: 50px 50px;
-  background-image: linear-gradient(
-      0deg,
-      transparent 24%,
-      rgb(var(--text), 0.1) 25%,
-      rgb(var(--text), 0.1) 26%,
-      transparent 27%,
-      transparent 74%,
-      rgb(var(--text), 0.1) 75%,
-      rgb(var(--text), 0.1) 76%,
-      transparent 77%,
-      transparent
-    ),
-    linear-gradient(
-      90deg,
-      transparent 24%,
-      rgb(var(--text), 0.1) 25%,
-      rgb(var(--text), 0.1) 26%,
-      transparent 27%,
-      transparent 74%,
-      rgb(var(--text), 0.1) 75%,
-      rgb(var(--text), 0.1) 76%,
-      transparent 77%,
-      transparent
-    );
-
-  animation: SCREEN_LINES var(--transition-long) infinite;
-}
-.TEXT_BLOCK.ON_SCREEN p {
-  font-family: "play";
-
-  text-shadow: 0 0 1px rgb(var(--hue)), 1px 1px 0px rgb(var(--hue));
-
-  filter: brightness(1.2);
-
-  color: rgb(var(--text));
-}
-.TEXT_BLOCK.ON_SCREEN::after {
-  content: "Текст на экране";
-}
-.TEXT_BLOCK.ON_SCREEN::before {
+.TEXT_BLOCK.POEM::before {
   content: "";
 
   position: absolute;
@@ -268,30 +289,29 @@ p.TEXT_VINTAGE {
   width: 100%;
   height: 100%;
 
-  background: radial-gradient(
-      at 0% 0%,
-      rgb(var(--text), 0.05) 0%,
-      transparent 50%,
-      transparent 100%
-    ),
-    radial-gradient(
-      at 100% 0%,
-      rgb(var(--text), 0.05) 0%,
-      transparent 50%,
-      transparent 100%
-    ),
-    radial-gradient(
-      at 100% 100%,
-      rgb(var(--text), 0.05) 0%,
-      transparent 50%,
-      transparent 100%
-    ),
-    radial-gradient(
-      at 0% 100%,
-      rgb(var(--text), 0.05) 0%,
-      transparent 50%,
-      transparent 100%
-    );
+  background: rgb(var(--light-shadow));
+}
+
+/* TEXT ON SCREEN     */
+
+.TEXT_BLOCK.ON_SCREEN {
+  text-shadow: 0 0 5px rgb(var(--light-shadow));
+
+  padding: 15px 15px 10px;
+
+  position: relative;
+
+  background: rgb(var(--light-shadow));
+}
+.TEXT_BLOCK.ON_SCREEN p {
+  font-family: "play";
+
+  filter: brightness(1.2);
+
+  color: rgb(var(--text));
+}
+.TEXT_BLOCK.ON_SCREEN::after {
+  content: "Текст на экране";
 }
 p.TEXT_ON_SCREEN {
   font-family: "play" !important;
@@ -307,42 +327,6 @@ p.TEXT_ON_SCREEN {
 .TEXT_BLOCK.ON_SCREEN.WRITING::after {
   content: "Введенный текст на экране";
 }
-.TEXT_BLOCK.ON_SCREEN.WRITING::before {
-  content: "";
-
-  position: absolute;
-
-  top: 0px;
-  left: 0px;
-
-  width: 100%;
-  height: 100%;
-
-  background: radial-gradient(
-      at 0% 0%,
-      rgb(var(--text), 0.05) 0%,
-      transparent 50%,
-      transparent 100%
-    ),
-    radial-gradient(
-      at 100% 0%,
-      rgb(var(--text), 0.05) 0%,
-      transparent 50%,
-      transparent 100%
-    ),
-    radial-gradient(
-      at 100% 100%,
-      rgb(var(--text), 0.05) 0%,
-      transparent 50%,
-      transparent 100%
-    ),
-    radial-gradient(
-      at 0% 100%,
-      rgb(var(--text), 0.05) 0%,
-      transparent 50%,
-      transparent 100%
-    );
-}
 
 /* NEON SIGN OLD      */
 
@@ -350,8 +334,6 @@ p.TEXT_ON_SCREEN {
   align-self: center;
 
   color: rgb(var(--hue));
-  text-shadow: 0 0 5px rgb(var(--solid)), 0 0 7.5px rgb(var(--solid)),
-    0 0 10px rgb(var(--solid)), 0 0 20px rgb(var(--hue));
 
   padding: 15px 15px 10px;
 }
@@ -382,10 +364,9 @@ p.TEXT_ON_SCREEN {
   align-self: center;
 
   color: rgb(var(--text));
-  text-shadow: 2px 2px 0 rgb(var(--hue), 0.5), 4px 4px 0 rgb(var(--hue), 0.25),
+  text-shadow: 2px 2px 0 rgb(var(--hue), 0.5),
     -1px -1px 0 rgb(var(--hue), 0.25), 0 0 4px rgb(var(--solid)),
-    0 0 8px rgb(var(--solid)), 0 0 10px rgb(var(--solid)),
-    0 0 35px rgb(var(--text));
+    0 0 8px rgb(var(--solid)), 0 0 25px rgb(var(--text));
 
   padding: 15px 15px 10px;
 }
@@ -455,7 +436,6 @@ p.TEXT_ON_SCREEN {
 .TEXT_BLOCK.AUTHOR_NOTE {
   padding: 15px 15px 10px;
 
-  outline: 1px solid rgb(var(--hue), 0.5);
   border-left: 5px solid rgb(var(--hue));
 }
 .TEXT_BLOCK.AUTHOR_NOTE::after {
@@ -467,7 +447,6 @@ p.TEXT_ON_SCREEN {
 .TEXT_BLOCK.IMPORTANT {
   padding: 15px 15px 10px;
 
-  outline: 1px solid rgb(var(--text), 0);
   border-left: 2.5px solid rgb(var(--hue));
 }
 .TEXT_BLOCK.IMPORTANT::after {

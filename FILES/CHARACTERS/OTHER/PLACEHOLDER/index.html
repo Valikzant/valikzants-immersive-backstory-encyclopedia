@@ -15,9 +15,9 @@
     .BLOCK.UNLOADED {display: none !important;}
     #FOOTER {grid-area: F;} #HEADER {grid-area: H;} #SIDEBAR {grid-area: S;} #THEMES, #SETTINGS, #AUTHOR, #CONTENT {grid-area: C;}
   </style>
-  <link rel="stylesheet" href="../../../CSS/classes.css?v=update3.4">
+  <link id="CLASSES_CSS_FILE" rel="stylesheet" href="../../../CSS/classes_modern.css?v=update3.4">
   <link rel="stylesheet" href="../../../CSS/customs.css?v=update3.4">
-  <link rel="stylesheet" href="../../../CSS/textblocks.css?v=update3.4">
+  <link id="TEXT_BLOCKS_CSS_FILE" rel="stylesheet" href="../../../CSS/textblocks.css?v=update3.4">
 </head>
 <script src="../../../JS/code.js?v=update3.4"></script>
   <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. /\ -->
@@ -41,8 +41,8 @@
   const _C_THEMES = [
     // Темная тема
     {"solid"      : [33, 33, 33],     // Цвет фона
-    "light-shadow": [40, 40, 40],     // Цвет светлой тени
-    "dark-shadow" : [25, 25, 25],     // Цвет тёмной тени
+    "light-shadow": [43, 43, 43],     // Цвет светлой тени
+    "dark-shadow" : [20, 20, 20],     // Цвет тёмной тени
     "text"        : [200, 200, 200]}, // Цвет текста
 
     // Более тёмная тема
@@ -60,7 +60,7 @@
     // Более светлая тема
     {"solid": [221, 225, 231],        // Цвет фона
     "light-shadow": [255, 255, 255],  // Цвет светлой тени
-    "dark-shadow": [94,104,121],      // Цвет тёмной тени
+    "dark-shadow": [154,154,154],     // Цвет тёмной тени
     "text": [0, 0, 0]}                // Цвет текста
   ];
 
@@ -78,17 +78,15 @@
 <body id="body">
   <div id="LOADING_SCREEN" class="BLOCK">
     <div class="ICON">⏳</div>
-    <div id="HEADER_BUTTON_VIBE" class="BUTTON">
-      <h1 id="HEADER_LOGO" class="FANCY">
-        <div id="LOGO_CONSTANT_PART">V</div>
-        <div id="LOGO_CHANGING_PART"></div>
-        <div id="LOGO_CONSTANT_PART">I</div>
-        <div id="LOGO_CHANGING_PART"></div>
-        <div id="LOGO_CONSTANT_PART">B</div>
-        <div id="LOGO_CHANGING_PART"></div>
-        <div id="LOGO_CONSTANT_PART">E</div>
-      </h1>
-    </div>
+    <h1 id="HEADER_LOGO" class="FANCY">
+      <div id="LOGO_CONSTANT_PART">V</div>
+      <div id="LOGO_CHANGING_PART"></div>
+      <div id="LOGO_CONSTANT_PART">I</div>
+      <div id="LOGO_CHANGING_PART"></div>
+      <div id="LOGO_CONSTANT_PART">B</div>
+      <div id="LOGO_CHANGING_PART"></div>
+      <div id="LOGO_CONSTANT_PART">E</div>
+    </h1>
   </div>
 
   <div id="WARNING" class="BLOCK SPECIAL HIDDEN"  style="display: inline;">
@@ -99,7 +97,7 @@
   <div id="TOOLTIP_HELP" class="BLOCK SPECIAL">Если вы видите это, то что-то пошло не так.</div>
 
   <div id="HEADER" class="BLOCK">
-    <div id="HEADER_BUTTON_VIBE" onclick="window.location.href='../index.html'" class="BUTTON">
+    <div id="HEADER_BUTTON_VIBE" onclick="window.location.href='../index.html'" class="BUTTON INVISIBLE">
       <h1 id="HEADER_LOGO" class="FANCY">
         <div id="LOGO_CONSTANT_PART">V</div>
         <div id="LOGO_CHANGING_PART"></div>
@@ -113,16 +111,16 @@
 
     <div class="SPACER"></div>
 
-    <div onclick="_F_TOGGLE_WINDOW_CONTENT()" id="HEADER_BUTTON_CONTENT" class="BUTTON">
+    <div onclick="_F_TOGGLE_WINDOW_CONTENT()" id="HEADER_BUTTON_CONTENT" class="BUTTON INVISIBLE">
       <div class="ICON">📄</div>
     </div>
-    <div onclick="_F_TOGGLE_WINDOW_THEMES()" id="HEADER_BUTTON_THEMES" class="BUTTON">
+    <div onclick="_F_TOGGLE_WINDOW_THEMES()" id="HEADER_BUTTON_THEMES" class="BUTTON INVISIBLE">
       <div class="ICON">🎨</div>
     </div>
-    <div onclick="_F_TOGGLE_WINDOW_SETTINGS()" id="HEADER_BUTTON_SETTINGS" class="BUTTON">
+    <div onclick="_F_TOGGLE_WINDOW_SETTINGS()" id="HEADER_BUTTON_SETTINGS" class="BUTTON INVISIBLE">
       <div class="ICON">⚙️</div>
     </div>
-    <div onclick="_F_TOGGLE_WINDOW_AUTHOR()" id="HEADER_BUTTON_AUTHOR" class="BUTTON">
+    <div onclick="_F_TOGGLE_WINDOW_AUTHOR()" id="HEADER_BUTTON_AUTHOR" class="BUTTON INVISIBLE">
       <div class="ICON">👤</div>
     </div>
   </div>
@@ -565,6 +563,33 @@
 
     </div>
 
+    <div id="CLASSES_STYLE_CHOOSERS" class="BLOCK INNER">
+
+      <div class="BUTTON_HELP" data-tooltip=
+      "
+      Позволяет выбрать тип стиля интерфейса. От модерн(современного) до легаси(производительного).
+      " class="BUTTON">
+        <div class="ICON"> ❔ </div>
+      </div>
+
+      <div onclick="_F_CUSTOMIZATION_CHANGE_CLASSES_FILE('modern')" style="font-size: 15px;" id="INTERFACE_SIZE_CHOOSER_SMALL" class="BUTTON">
+        <p>Модерн</p>
+      </div>
+
+      <div onclick="_F_CUSTOMIZATION_CHANGE_CLASSES_FILE('simple')" style="font-size: 15px;" id="INTERFACE_SIZE_CHOOSER_MEDIUM" class="BUTTON">
+        <p>Простой</p>
+      </div>
+
+      <div onclick="_F_CUSTOMIZATION_CHANGE_CLASSES_FILE('minimal')" style="font-size: 15px;" id="INTERFACE_SIZE_CHOOSER_LARGE" class="BUTTON">
+        <p>Минимал</p>
+      </div>
+
+      <div onclick="_F_CUSTOMIZATION_CHANGE_CLASSES_FILE('legacy')" style="font-size: 15px;" id="INTERFACE_SIZE_CHOOSER_HUGE" class="BUTTON">
+        <p>Легаси</p>
+      </div>
+
+    </div>
+
   </div>
 
   <div id="SETTINGS" class="BLOCK HIDDEN UNLOADED">
@@ -649,7 +674,6 @@
       </div>
     
     </div>
-
     
     <div id="LAZY_LOAD_TOGGLE_CHOOSERS" class="BLOCK INNER">
 

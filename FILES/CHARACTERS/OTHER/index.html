@@ -15,9 +15,9 @@
     .BLOCK.UNLOADED {display: none !important;}
     #FOOTER {grid-area: F;} #HEADER {grid-area: H;} #SIDEBAR {grid-area: S;} #THEMES, #SETTINGS, #AUTHOR, #CONTENT {grid-area: C;}
   </style>
-  <link rel="stylesheet" href="../../../FILES/CSS/classes.css?v=update3.4" />
+  <link id="CLASSES_CSS_FILE" rel="stylesheet" href="../../../FILES/CSS/classes_modern.css?v=update3.4">
   <link rel="stylesheet" href="../../../FILES/CSS/customs.css?v=update3.4" />
-  <link rel="stylesheet" href="../../../FILES/CSS/textblocks.css?v=update3.4" />
+  <link id="TEXT_BLOCKS_CSS_FILE" rel="stylesheet" href="../../../FILES/CSS/textblocks.css?v=update3.4">
 </head>
 <script src="../../../FILES/JS/code.js?v=update3.4"></script>
   <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. /\ -->
@@ -41,8 +41,8 @@
   const _C_THEMES = [
     // Темная тема
     {"solid"      : [33, 33, 33],     // Цвет фона
-    "light-shadow": [40, 40, 40],     // Цвет светлой тени
-    "dark-shadow" : [25, 25, 25],     // Цвет тёмной тени
+    "light-shadow": [43, 43, 43],     // Цвет светлой тени
+    "dark-shadow" : [20, 20, 20],     // Цвет тёмной тени
     "text"        : [200, 200, 200]}, // Цвет текста
 
     // Более тёмная тема
@@ -60,7 +60,7 @@
     // Более светлая тема
     {"solid": [221, 225, 231],        // Цвет фона
     "light-shadow": [255, 255, 255],  // Цвет светлой тени
-    "dark-shadow": [94,104,121],      // Цвет тёмной тени
+    "dark-shadow": [154,154,154],     // Цвет тёмной тени
     "text": [0, 0, 0]}                // Цвет текста
   ];
 
@@ -78,17 +78,15 @@
 <body id="body">
   <div id="LOADING_SCREEN" class="BLOCK">
     <div class="ICON">⏳</div>
-    <div id="HEADER_BUTTON_VIBE" class="BUTTON">
-      <h1 id="HEADER_LOGO" class="FANCY">
-        <div id="LOGO_CONSTANT_PART">V</div>
-        <div id="LOGO_CHANGING_PART"></div>
-        <div id="LOGO_CONSTANT_PART">I</div>
-        <div id="LOGO_CHANGING_PART"></div>
-        <div id="LOGO_CONSTANT_PART">B</div>
-        <div id="LOGO_CHANGING_PART"></div>
-        <div id="LOGO_CONSTANT_PART">E</div>
-      </h1>
-    </div>
+    <h1 id="HEADER_LOGO" class="FANCY">
+      <div id="LOGO_CONSTANT_PART">V</div>
+      <div id="LOGO_CHANGING_PART"></div>
+      <div id="LOGO_CONSTANT_PART">I</div>
+      <div id="LOGO_CHANGING_PART"></div>
+      <div id="LOGO_CONSTANT_PART">B</div>
+      <div id="LOGO_CHANGING_PART"></div>
+      <div id="LOGO_CONSTANT_PART">E</div>
+    </h1>
   </div>
 
   <div id="WARNING" class="BLOCK SPECIAL HIDDEN" style="display: inline">
@@ -99,7 +97,7 @@
   <div id="TOOLTIP_HELP" class="BLOCK SPECIAL">Если вы видите это, то что-то пошло не так.</div>
 
   <div id="HEADER" class="BLOCK">
-    <div id="HEADER_BUTTON_VIBE" onclick="window.location.href='../index.html'" class="BUTTON">
+    <div id="HEADER_BUTTON_VIBE" onclick="window.location.href='../index.html'" class="BUTTON INVISIBLE">
       <h1 id="HEADER_LOGO" class="FANCY">
         <div id="LOGO_CONSTANT_PART">V</div>
         <div id="LOGO_CHANGING_PART"></div>
@@ -113,32 +111,16 @@
 
     <div class="SPACER"></div>
 
-    <div
-      onclick="_F_TOGGLE_WINDOW_CONTENT()"
-      id="HEADER_BUTTON_CONTENT"
-      class="BUTTON"
-    >
+    <div onclick="_F_TOGGLE_WINDOW_CONTENT()" id="HEADER_BUTTON_CONTENT" class="BUTTON INVISIBLE">
       <div class="ICON">📄</div>
     </div>
-    <div
-      onclick="_F_TOGGLE_WINDOW_THEMES()"
-      id="HEADER_BUTTON_THEMES"
-      class="BUTTON"
-    >
+    <div onclick="_F_TOGGLE_WINDOW_THEMES()" id="HEADER_BUTTON_THEMES" class="BUTTON INVISIBLE">
       <div class="ICON">🎨</div>
     </div>
-    <div
-      onclick="_F_TOGGLE_WINDOW_SETTINGS()"
-      id="HEADER_BUTTON_SETTINGS"
-      class="BUTTON"
-    >
+    <div onclick="_F_TOGGLE_WINDOW_SETTINGS()" id="HEADER_BUTTON_SETTINGS" class="BUTTON INVISIBLE">
       <div class="ICON">⚙️</div>
     </div>
-    <div
-      onclick="_F_TOGGLE_WINDOW_AUTHOR()"
-      id="HEADER_BUTTON_AUTHOR"
-      class="BUTTON"
-    >
+    <div onclick="_F_TOGGLE_WINDOW_AUTHOR()" id="HEADER_BUTTON_AUTHOR" class="BUTTON INVISIBLE">
       <div class="ICON">👤</div>
     </div>
   </div>
@@ -247,226 +229,148 @@
   <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. \/ -->
   
   <div id="THEMES" class="BLOCK HIDDEN UNLOADED">
-    <div
-      class="BUTTON_HELP"
-      data-tooltip="
-  Здесь Вы можете настраивать внешний вид страницы, который сохраняется в локальном
-  хранилище вашего браузера (если не запрещено браузером).
-  <br><br>
-  Настройки хранятся и позже восстанавливаются при загрузке страницы.
-  <br><br>
-  При отключенной функции сохранения кастомизации (в настройках) будет загружена
-  кастомизация по умолчанию от автора страницы.
-  "
-      class="BUTTON"
-    >
-      <div class="ICON">❔</div>
+    
+    <div class="BUTTON_HELP" data-tooltip=
+    "
+    Здесь Вы можете настраивать внешний вид страницы, который сохраняется в локальном
+    хранилище вашего браузера (если не запрещено браузером).
+    <br><br>
+    Настройки хранятся и позже восстанавливаются при загрузке страницы.
+    <br><br>
+    При отключенной функции сохранения кастомизации (в настройках) будет загружена
+    кастомизация по умолчанию от автора страницы.
+    " 
+      class="BUTTON">
+        <div class="ICON"> ❔ </div>
     </div>
 
     <h2 class="TITLE INVISIBLE">Кастомизация</h2>
 
     <div id="HUE_CHOOSERS" class="BLOCK INNER SPECIAL">
-      <div
-        class="BUTTON_HELP"
-        data-tooltip="
-    Изменяет цвет специальных элементов, такие как: Кнопки, Выделенные блоки, Активные элементы, и другие.
-    <br><br>
-    Эти настройки могут быть изменены автором и отличаться от стандартных.
-    <br><br>
-    Стандартные настройки всегда доступны на главной странице сайта.
-    "
-        class="BUTTON"
-      >
-        <div class="ICON">❔</div>
+
+      <div class="BUTTON_HELP" data-tooltip=
+      "
+      Изменяет цвет специальных элементов, такие как: Кнопки, Выделенные блоки, Активные элементы, и другие.
+      <br><br>
+      Эти настройки могут быть изменены автором и отличаться от стандартных.
+      <br><br>
+      Стандартные настройки всегда доступны на главной странице сайта.
+      " class="BUTTON">
+        <div class="ICON"> ❔ </div>
       </div>
 
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_HUE(0)"
-        style="background-color: rgb(248, 56, 56)"
-        id="HUE_CHOOSER_RED"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_HUE(1)"
-        style="background-color: rgb(255, 101, 0)"
-        id="HUE_CHOOSER_ORANGE"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_HUE(2)"
-        style="background-color: rgb(234, 143, 0)"
-        id="HUE_CHOOSER_DARK_ORANGE"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_HUE(3)"
-        style="background-color: rgb(255, 255, 0)"
-        id="HUE_CHOOSER_YELLOW"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_HUE(4)"
-        style="background-color: rgb(100, 184, 0)"
-        id="HUE_CHOOSER_GREEN"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_HUE(5)"
-        style="background-color: rgb(0, 235, 235)"
-        id="HUE_CHOOSER_CYAN"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_HUE(6)"
-        style="background-color: rgb(0, 145, 255)"
-        id="HUE_CHOOSER_BLUE"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_HUE(7)"
-        style="background-color: rgb(135, 94, 255)"
-        id="HUE_CHOOSER_PURPLE"
-        class="BUTTON"
-      ></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(0)" style="background-color: rgb(248, 56, 56);" id="HUE_CHOOSER_RED" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(1)" style="background-color: rgb(255, 101, 0);" id="HUE_CHOOSER_ORANGE" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(2)" style="background-color: rgb(234, 143, 0);" id="HUE_CHOOSER_DARK_ORANGE" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(3)" style="background-color: rgb(255, 255, 0);" id="HUE_CHOOSER_YELLOW" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(4)" style="background-color: rgb(100, 184, 0);" id="HUE_CHOOSER_GREEN" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(5)" style="background-color: rgb(0, 235, 235);" id="HUE_CHOOSER_CYAN" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(6)" style="background-color: rgb(0, 145, 255);" id="HUE_CHOOSER_BLUE" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(7)" style="background-color: rgb(135, 94, 255);" id="HUE_CHOOSER_PURPLE" class="BUTTON"></div>
     </div>
 
     <div id="THEME_CHOOSERS" class="BLOCK INNER">
-      <div
-        class="BUTTON_HELP"
-        data-tooltip="
-    Изменяет цвет заднего фона основных элементов.
-    <br><br>
-    Эти настройки могут быть изменены автором и отличаться от стандартных.
-    <br><br>
-    Стандартные настройки всегда доступны на главной странице сайта.
-    "
-        class="BUTTON"
-      >
-        <div class="ICON">❔</div>
+
+      <div class="BUTTON_HELP" data-tooltip=
+      "
+      Изменяет цвет заднего фона основных элементов.
+      <br><br>
+      Эти настройки могут быть изменены автором и отличаться от стандартных.
+      <br><br>
+      Стандартные настройки всегда доступны на главной странице сайта.
+      " class="BUTTON">
+        <div class="ICON"> ❔ </div>
       </div>
 
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_THEME(0)"
-        style="background-color: rgb(50, 50, 50)"
-        id="THEME_CHOOSER_DARK"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_THEME(1)"
-        style="background-color: rgb(180, 180, 180)"
-        id="THEME_CHOOSER_LIGHT"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_THEME(2)"
-        style="background-color: rgb(0, 0, 0)"
-        id="THEME_CHOOSER_VOID"
-        class="BUTTON"
-      ></div>
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_THEME(3)"
-        style="background-color: rgb(255, 255, 255)"
-        id="THEME_CHOOSER_HEAVEN"
-        class="BUTTON"
-      ></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_THEME(0)" style="background-color: rgb(50, 50, 50);" id="THEME_CHOOSER_DARK" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_THEME(1)" style="background-color: rgb(180, 180, 180);" id="THEME_CHOOSER_LIGHT" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_THEME(2)" style="background-color: rgb(0, 0, 0);" id="THEME_CHOOSER_VOID" class="BUTTON"></div>
+      <div onclick="_F_CUSTOMIZATION_CHANGE_THEME(3)" style="background-color: rgb(255, 255, 255);" id="THEME_CHOOSER_HEAVEN" class="BUTTON"></div>
+
     </div>
 
     <div id="FONT_SIZE_CHOOSERS" class="BLOCK INNER">
-      <div
-        class="BUTTON_HELP"
-        data-tooltip=
-        "
-        Изменяет размер шрифта. (Не касается текста в этих кнопках)
-        " class="BUTTON">
-        <div class="ICON">❔</div>
+
+      <div class="BUTTON_HELP" data-tooltip=
+      "
+      Изменяет размер шрифта. (Не касается текста в этих кнопках)
+      " class="BUTTON">
+        <div class="ICON"> ❔ </div>
       </div>
 
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(0)"
-        style="font-size: 9px"
-        id="FONT_SIZE_CHOOSER_SMALL"
-        class="BUTTON"
-      >
+      <div onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(0)" style="font-size: 9px;" id="FONT_SIZE_CHOOSER_SMALL" class="BUTTON">
         <p>Т</p>
       </div>
 
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(1)"
-        style="font-size: 11px"
-        id="FONT_SIZE_CHOOSER_MEDIUM"
-        class="BUTTON"
-      >
+      <div onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(1)" style="font-size: 11px;" id="FONT_SIZE_CHOOSER_MEDIUM" class="BUTTON">
         <p>Т</p>
       </div>
 
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(2)"
-        style="font-size: 13px"
-        id="FONT_SIZE_CHOOSER_LARGE"
-        class="BUTTON"
-      >
+      <div onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(2)" style="font-size: 13px;" id="FONT_SIZE_CHOOSER_LARGE" class="BUTTON">
         <p>Т</p>
       </div>
 
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(3)"
-        style="font-size: 15px"
-        id="FONT_SIZE_CHOOSER_HUGE"
-        class="BUTTON"
-      >
+      <div onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(3)" style="font-size: 15px;" id="FONT_SIZE_CHOOSER_HUGE" class="BUTTON">
         <p>Т</p>
       </div>
     </div>
 
     <div id="INTERFACE_SIZE_CHOOSERS" class="BLOCK INNER">
-      <div
-        class="BUTTON_HELP"
-        data-tooltip="
-    Изменяет размер интерфейса по возможности размеров экрана.
-    <br><br>
-    Неподходящие размерам настройки автоматически недоступны.
-    "
-        class="BUTTON"
-      >
-        <div class="ICON">❔</div>
+
+      <div class="BUTTON_HELP" data-tooltip=
+      "
+      Изменяет размер интерфейса по возможности размеров экрана.
+      <br><br>
+      Неподходящие размерам настройки автоматически недоступны.
+      " class="BUTTON">
+        <div class="ICON"> ❔ </div>
       </div>
 
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(0)"
-        style="font-size: 9px"
-        id="INTERFACE_SIZE_CHOOSER_SMALL"
-        class="BUTTON"
-      >
+      <div onclick="_F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(0)" style="font-size: 9px;" id="INTERFACE_SIZE_CHOOSER_SMALL" class="BUTTON">
         <p>UI</p>
       </div>
 
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(1)"
-        style="font-size: 11px"
-        id="INTERFACE_SIZE_CHOOSER_MEDIUM"
-        class="BUTTON"
-      >
+      <div onclick="_F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(1)" style="font-size: 11px;" id="INTERFACE_SIZE_CHOOSER_MEDIUM" class="BUTTON">
         <p>UI</p>
       </div>
 
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(2)"
-        style="font-size: 13px"
-        id="INTERFACE_SIZE_CHOOSER_LARGE"
-        class="BUTTON"
-      >
+      <div onclick="_F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(2)" style="font-size: 13px;" id="INTERFACE_SIZE_CHOOSER_LARGE" class="BUTTON">
         <p>UI</p>
       </div>
 
-      <div
-        onclick="_F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(3)"
-        style="font-size: 15px"
-        id="INTERFACE_SIZE_CHOOSER_HUGE"
-        class="BUTTON"
-      >
+      <div onclick="_F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(3)" style="font-size: 15px;" id="INTERFACE_SIZE_CHOOSER_HUGE" class="BUTTON">
         <p>UI</p>
       </div>
+
     </div>
+
+    <div id="CLASSES_STYLE_CHOOSERS" class="BLOCK INNER">
+
+      <div class="BUTTON_HELP" data-tooltip=
+      "
+      Позволяет выбрать тип стиля интерфейса. От модерн(современного) до легаси(производительного).
+      " class="BUTTON">
+        <div class="ICON"> ❔ </div>
+      </div>
+
+      <div onclick="_F_CUSTOMIZATION_CHANGE_CLASSES_FILE('modern')" style="font-size: 15px;" id="INTERFACE_SIZE_CHOOSER_SMALL" class="BUTTON">
+        <p>Модерн</p>
+      </div>
+
+      <div onclick="_F_CUSTOMIZATION_CHANGE_CLASSES_FILE('simple')" style="font-size: 15px;" id="INTERFACE_SIZE_CHOOSER_MEDIUM" class="BUTTON">
+        <p>Простой</p>
+      </div>
+
+      <div onclick="_F_CUSTOMIZATION_CHANGE_CLASSES_FILE('minimal')" style="font-size: 15px;" id="INTERFACE_SIZE_CHOOSER_LARGE" class="BUTTON">
+        <p>Минимал</p>
+      </div>
+
+      <div onclick="_F_CUSTOMIZATION_CHANGE_CLASSES_FILE('legacy')" style="font-size: 15px;" id="INTERFACE_SIZE_CHOOSER_HUGE" class="BUTTON">
+        <p>Легаси</p>
+      </div>
+
+    </div>
+
   </div>
 
   <div id="SETTINGS" class="BLOCK HIDDEN UNLOADED">
@@ -551,7 +455,6 @@
       </div>
     
     </div>
-
     
     <div id="LAZY_LOAD_TOGGLE_CHOOSERS" class="BLOCK INNER">
 

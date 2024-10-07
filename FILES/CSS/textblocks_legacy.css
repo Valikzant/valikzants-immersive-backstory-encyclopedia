@@ -1,0 +1,331 @@
+/* ===================== */
+
+/* TEXT BLOCKS           */
+
+.TEXT_BLOCK {
+  display: inline-block;
+  padding: 15px;
+  margin: 10px 0px;
+
+  z-index: 2;
+  content-visibility: auto;
+  text-rendering:optimizeSpeed;
+}
+.TEXT_BLOCK.UNLOADED{
+  visibility: hidden;
+}
+.TEXT_BLOCK.UNLOADED p {
+  display: none !important;
+}
+.TEXT_BLOCK p {
+  z-index: 3;
+}
+.TEXT_BLOCK::after {
+  content: "";
+  opacity: 0.25;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-top: 5px;
+  font-weight: bold;
+  font-size: 0.75rem;
+  z-index: 2;
+  content-visibility: auto;
+}
+.TEXT_BLOCK::before {
+  content: "";
+  z-index: -1;
+  content-visibility: auto;
+}
+
+/* TEXT DEFAULT       */
+
+.TEXT_BLOCK.DEFAULT {
+  padding: 0px;
+  content-visibility: visible;
+}
+
+/* TEXT PAPER         */
+
+.TEXT_BLOCK.PAPER {
+  padding: 15px 15px 10px 25px;
+
+  position: relative;
+}
+.TEXT_BLOCK.PAPER p {
+  font-size: 1.25em;
+}
+.TEXT_BLOCK.PAPER::after {
+  content: "Текст на бумаге";
+}
+.TEXT_BLOCK.PAPER::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0px;
+  left: 0px;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgb(var(--light-shadow));
+}
+p.TEXT_PAPER {
+  font-size: 1.25em !important;
+}
+
+/* TEXT HANDWRITING   */
+
+.TEXT_BLOCK.PAPER.HANDWRITTEN p {
+  font-size: 1.5em;
+  line-height: 1;
+}
+.TEXT_BLOCK.PAPER.HANDWRITTEN::after {
+  content: "Рукописная записка";
+}
+p.TEXT_HANDWRITING {
+  font-size: 1.5em !important;
+  line-height: 1 !important;
+}
+
+/* TEXT VINTAGE PAPER */
+
+.TEXT_BLOCK.PAPER.VINTAGE p {
+  font-weight: 400;
+
+  font-size: 1.5em;
+  line-height: 1;
+}
+.TEXT_BLOCK.PAPER.VINTAGE::after {
+  content: "Текст на старой бумаге";
+}
+.TEXT_BLOCK.PAPER.VINTAGE::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0px;
+  left: 0px;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgb(var(--light-shadow));
+
+  filter: sepia(100%);
+}
+p.TEXT_VINTAGE {
+  font-weight: 400 !important;
+
+  font-size: 1.5em !important;
+  line-height: 1 !important;
+}
+
+/* TEXT NEWSPAPER     */
+
+.TEXT_BLOCK.NEWSPAPER {
+  padding: 15px 15px 10px 25px;
+
+  position: relative;
+}
+.TEXT_BLOCK.NEWSPAPER p {
+  font-size: 1.25em;
+}
+.TEXT_BLOCK.NEWSPAPER h2 {
+  margin: 0px 0px 10px 0px;
+
+  border-bottom: 1px solid rgb(var(--text), 0.25);
+}
+.TEXT_BLOCK.NEWSPAPER::after {
+  content: "Текст на газете";
+}
+.TEXT_BLOCK.NEWSPAPER::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0px;
+  left: 0px;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgb(var(--light-shadow));
+}
+
+/* TEXT HANDWRITING POEM */
+
+.TEXT_BLOCK.POEM {
+  text-align: center;
+}
+.TEXT_BLOCK.POEM p {
+  font-size: 1.5em;
+}
+.TEXT_BLOCK.POEM::after {
+  content: "Стихотворный блок";
+}
+.TEXT_BLOCK.POEM::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0px;
+  left: 0px;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgb(var(--light-shadow));
+}
+
+/* TEXT ON SCREEN     */
+
+.TEXT_BLOCK.ON_SCREEN {
+  text-shadow: 0 0 5px rgb(var(--light-shadow));
+
+  padding: 15px 15px 10px;
+
+  position: relative;
+
+  background: rgb(var(--light-shadow));
+}
+.TEXT_BLOCK.ON_SCREEN p {
+  filter: brightness(1.2);
+
+  color: rgb(var(--text));
+}
+.TEXT_BLOCK.ON_SCREEN::after {
+  content: "Текст на экране";
+}
+
+/* TEXT ON SCREEN WRITING */
+
+.TEXT_BLOCK.ON_SCREEN.WRITING > p::after {
+  content: "|";
+
+  animation: BLINKING var(--transition-fast) infinite;
+}
+.TEXT_BLOCK.ON_SCREEN.WRITING::after {
+  content: "Введенный текст на экране";
+}
+
+/* NEON SIGN OLD      */
+
+.TEXT_BLOCK.NEON_SIGN {
+  align-self: center;
+
+  color: rgb(var(--hue));
+
+  padding: 15px 15px 10px;
+}
+.TEXT_BLOCK.NEON_SIGN.OLD p {
+  font-size: 2.25em;
+
+  font-weight: bolder;
+
+  animation: NEON_SHINING var(--transition-long) infinite;
+}
+.TEXT_BLOCK.NEON_SIGN::after {
+  content: "";
+}
+
+/* NEON SIGN MODERN   */
+
+.TEXT_BLOCK.NEON_SIGN.MODERN p {
+  font-size: 2em;
+
+  animation: NEON_SHINING var(--transition-long) infinite;
+}
+
+/* GRAFFITI SIGN     */
+
+.TEXT_BLOCK.GRAFFITI {
+  align-self: center;
+
+  color: rgb(var(--hue));
+
+  padding: 15px 15px 10px;
+}
+.TEXT_BLOCK.GRAFFITI p {
+  font-style: italic;
+  font-size: 2.25em;
+
+  color: rgb(var(--hue));
+
+  font-weight: bolder;
+}
+.TEXT_BLOCK.GRAFFITI::after {
+  content: "";
+}
+
+/* FUTURE SIGN       */
+
+.TEXT_BLOCK.FUTURE_SIGN {
+  align-self: center;
+
+  color: rgb(var(--text));
+
+  padding: 15px 15px 10px;
+}
+.TEXT_BLOCK.FUTURE_SIGN p {
+  font-size: 2.25em;
+
+  font-weight: bolder;
+}
+.TEXT_BLOCK.FUTURE_SIGN p::before,
+.TEXT_BLOCK.FUTURE_SIGN p::after {
+  content: "—";
+
+  display: inline;
+
+  height: 10px;
+  width: 100%;
+}
+.TEXT_BLOCK.FUTURE_SIGN::after {
+  content: "";
+}
+
+/* ANCIENT STONE SIGN */
+
+.TEXT_BLOCK.ANCIENT_STONE_SIGN {
+  align-self: center;
+
+  color: rgb(var(--text));
+
+  padding: 15px 15px 10px;
+}
+.TEXT_BLOCK.ANCIENT_STONE_SIGN p {
+  font-weight: bolder;
+  
+  font-size: 2.5em;
+}
+.TEXT_BLOCK.ANCIENT_STONE_SIGN::after {
+  content: "";
+}
+
+/* TEXT AUTHOR NOTE   */
+
+.TEXT_BLOCK.AUTHOR_NOTE {
+  padding: 15px 15px 10px;
+
+  background: rgb(var(--light-shadow));
+}
+.TEXT_BLOCK.AUTHOR_NOTE::after {
+  content: "Записка от автора";
+}
+
+/* TEXT IMPORTANT     */
+
+.TEXT_BLOCK.IMPORTANT {
+  padding: 15px 15px 10px;
+
+  background: rgb(var(--light-shadow));
+}
+.TEXT_BLOCK.IMPORTANT::after {
+  content: "Важное";
+}
+
+/* TEXT BLOCKS and FONTS */
+
+/* ===================== */

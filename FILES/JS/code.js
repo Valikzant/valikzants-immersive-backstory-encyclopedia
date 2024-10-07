@@ -167,6 +167,37 @@ async function _F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(_C_INTERFACE_MODIFIER)
   _C_INTERFACE_SIZE_CHOOSERS[_C_INTERFACE_MODIFIER].classList.add("ACTIVE");
 }
 
+// Изменения css
+async function _F_CUSTOMIZATION_CHANGE_CLASSES_FILE(_C_CLASSES_FILE_PARAMETER) {
+  const _C_CLASSES_FILE_LINK = await _F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("CLASSES_CSS_FILE");
+  const _C_TEXT_BLOCKS_FILE_LINK = await _F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("TEXT_BLOCKS_CSS_FILE");
+  
+  if (_C_CLASSES_FILE_LINK != null) {
+    const _C_CLASSES_FILE_LINK_HREF = _C_CLASSES_FILE_LINK.getAttribute("href");
+    const _C_CLASSES_FILE_LINK_HREF_PARTS = _C_CLASSES_FILE_LINK_HREF.split('/');
+    const _C_CLASSES_FILE_NAME_WITH_PARAMS = _C_CLASSES_FILE_LINK_HREF_PARTS[_C_CLASSES_FILE_LINK_HREF_PARTS.length - 1];
+    const [_C_CLASSES_FILE_NAME, _C_CLASSES_FILE_PARAMS] = _C_CLASSES_FILE_NAME_WITH_PARAMS.split('?');
+    const _C_CLASSES_NEW_FILE_NAME = `classes_${_C_CLASSES_FILE_PARAMETER}.css`;
+    _C_CLASSES_FILE_LINK_HREF_PARTS[_C_CLASSES_FILE_LINK_HREF_PARTS.length - 1] = _C_CLASSES_FILE_PARAMS ? `${_C_CLASSES_NEW_FILE_NAME}?${_C_CLASSES_FILE_PARAMS}` : _C_CLASSES_NEW_FILE_NAME;
+    const _C_CLASSES_FILE_LINK_HREF_NEW = _C_CLASSES_FILE_LINK_HREF_PARTS.join('/');
+    _C_CLASSES_FILE_LINK.setAttribute('href', _C_CLASSES_FILE_LINK_HREF_NEW);
+  }
+
+  if (_C_TEXT_BLOCKS_FILE_LINK != null) {
+    const _C_TEXT_BLOCKS_FILE_LINK_HREF = _C_TEXT_BLOCKS_FILE_LINK.getAttribute("href");
+    const _C_TEXT_BLOCKS_FILE_LINK_HREF_PARTS = _C_TEXT_BLOCKS_FILE_LINK_HREF.split('/');
+    const _C_TEXT_BLOCKS_FILE_NAME_WITH_PARAMS = _C_TEXT_BLOCKS_FILE_LINK_HREF_PARTS[_C_TEXT_BLOCKS_FILE_LINK_HREF_PARTS.length - 1];
+    const [_C_TEXT_BLOCKS_FILE_NAME, _C_TEXT_BLOCKS_FILE_PARAMS] = _C_TEXT_BLOCKS_FILE_NAME_WITH_PARAMS.split('?');
+    const _C_TEXT_BLOCKS_NEW_FILE_NAME = `textblocks_${_C_CLASSES_FILE_PARAMETER}.css`;
+    _C_TEXT_BLOCKS_FILE_LINK_HREF_PARTS[_C_TEXT_BLOCKS_FILE_LINK_HREF_PARTS.length - 1] = _C_TEXT_BLOCKS_FILE_PARAMS ? `${_C_TEXT_BLOCKS_NEW_FILE_NAME}?${_C_TEXT_BLOCKS_FILE_PARAMS}` : _C_TEXT_BLOCKS_NEW_FILE_NAME;
+    const _C_TEXT_BLOCKS_FILE_LINK_HREF_NEW = _C_TEXT_BLOCKS_FILE_LINK_HREF_PARTS.join('/');
+    _C_TEXT_BLOCKS_FILE_LINK.setAttribute('href', _C_TEXT_BLOCKS_FILE_LINK_HREF_NEW);
+  }
+
+  _F_LOCAL_STORAGE_SET("classes-parameter", _C_CLASSES_FILE_PARAMETER);
+}
+
+
 // [ SETTINGS CHANGE ]
 
 // Включение/Отключение сохранения кастомизации
@@ -473,24 +504,13 @@ document.addEventListener('DOMContentLoaded', async function () {
   window.addEventListener("DOMContentLoaded", _F_ON_LOAD_SETUP_HINTS);
   
   // Ставим при загрузке страницы значения в еще несуществующие переменные в памяти браузера
-  if (await _F_LOCAL_STORAGE_GET("customization-saved") == null) {
-    await _F_LOCAL_STORAGE_SET("customization-saved", "true");
-  }
-  if (await _F_LOCAL_STORAGE_GET("animations") == null) {
-    await _F_LOCAL_STORAGE_SET("animations", "true");
-  }
-  if (await _F_LOCAL_STORAGE_GET("hints") == null) {
-    await _F_LOCAL_STORAGE_SET("hints", "true");
-  }
-  if (await _F_LOCAL_STORAGE_GET("font-modifier") == null) {
-    await _F_LOCAL_STORAGE_SET("font-modifier", 1);
-  }
-  if (await _F_LOCAL_STORAGE_GET("interface-modifier") == null) {
-    await _F_LOCAL_STORAGE_SET("interface-modifier", 1);
-  }
-  if (await _F_LOCAL_STORAGE_GET("lazy-load") == null) {
-    await _F_LOCAL_STORAGE_SET("lazy-load", "false");
-  }
+  if (await _F_LOCAL_STORAGE_GET("customization-saved") == null) { await _F_LOCAL_STORAGE_SET("customization-saved", "true");}
+  if (await _F_LOCAL_STORAGE_GET("animations") == null) { await _F_LOCAL_STORAGE_SET("animations", "true");}
+  if (await _F_LOCAL_STORAGE_GET("hints") == null) { await _F_LOCAL_STORAGE_SET("hints", "true");}
+  if (await _F_LOCAL_STORAGE_GET("font-modifier") == null) { await _F_LOCAL_STORAGE_SET("font-modifier", 1);}
+  if (await _F_LOCAL_STORAGE_GET("interface-modifier") == null) { await _F_LOCAL_STORAGE_SET("interface-modifier", 1);}
+  if (await _F_LOCAL_STORAGE_GET("classes-parameter") == null) { await _F_LOCAL_STORAGE_SET("classes-parameter", "modern");}
+  if (await _F_LOCAL_STORAGE_GET("lazy-load") == null) { await _F_LOCAL_STORAGE_SET("lazy-load", "false");}
 
   // Если сохранение тем есть, то загружаем, если нет - удаляем сохранения
   if (await _F_LOCAL_STORAGE_GET("customization-saved") == "true") {
@@ -529,6 +549,9 @@ document.addEventListener('DOMContentLoaded', async function () {
   if (await _F_LOCAL_STORAGE_GET("hints") != null) {
     await _F_SETTINGS_CHANGE_HINTS(await _F_LOCAL_STORAGE_GET("hints"));
   }
+  if (await _F_LOCAL_STORAGE_GET("classes-parameter") != null) {
+    await _F_CUSTOMIZATION_CHANGE_CLASSES_FILE(await _F_LOCAL_STORAGE_GET("classes-parameter"));
+  }
   if (await _F_LOCAL_STORAGE_GET("lazy-load") != null) {
     await _F_SETTINGS_CHANGE_LAZY_LOAD(await _F_LOCAL_STORAGE_GET("lazy-load"));
   }
@@ -547,6 +570,9 @@ document.addEventListener('DOMContentLoaded', async function () {
 });
 
 // ========================== [ END ] ==========================
+
+// ========================== [ TESTS ] ==========================
+
 
 // ========================== [ lazy load by chat gpt ] ==========================
 
