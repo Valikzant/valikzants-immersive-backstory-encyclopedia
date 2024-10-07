@@ -181,6 +181,7 @@ img {
   position: relative;
   background: rgb(var(--light-shadow));
   isolation: isolate;
+  outline: 1px solid rgba(var(--hue), 0.5);
 }
 
 .BLOCK.HIDDEN {
