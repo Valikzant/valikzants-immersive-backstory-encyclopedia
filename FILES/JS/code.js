@@ -91,7 +91,19 @@ async function _F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(_C_ID) {
 }
 
 // Открытие и закрытие страниц по списку текущих страниц
-async function _F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(_C_PAGE_ID = null) {
+async function _F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(_C_PAGE_ID = null, _C_SIDEBAR_BUTTON = null) {
+  const _C_SIDEBAR_BUTTONS = await _F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".SIDEBAR.BUTTON");
+  if (_C_SIDEBAR_BUTTON != null) {
+    _C_SIDEBAR_BUTTONS.forEach(_I_BUTTON => {
+      if (_I_BUTTON == _C_SIDEBAR_BUTTON) {
+        _I_BUTTON.classList.add("ACTIVE");
+      } else {
+        _I_BUTTON.classList.remove("ACTIVE");
+      }
+    })
+  } else {
+    _C_SIDEBAR_BUTTONS[1].classList.add("ACTIVE");
+  }
   const _C_STORY_PAGES = await _F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".PAGE");
   if (_C_PAGE_ID == null) {
     _C_STORY_PAGES.forEach(_I_PAGE => {
