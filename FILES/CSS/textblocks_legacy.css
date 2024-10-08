@@ -8,7 +8,7 @@
   margin: 10px 0px;
 
   z-index: 2;
-  content-visibility: auto;
+
   text-rendering:optimizeSpeed;
 }
 .TEXT_BLOCK.UNLOADED{
@@ -30,12 +30,12 @@
   font-weight: bold;
   font-size: 0.75rem;
   z-index: 2;
-  content-visibility: auto;
+
 }
 .TEXT_BLOCK::before {
   content: "";
   z-index: -1;
-  content-visibility: auto;
+
 }
 
 /* TEXT DEFAULT       */

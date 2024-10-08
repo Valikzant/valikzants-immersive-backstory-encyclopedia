@@ -199,6 +199,14 @@ img {
   outline: none !important;
 }
 
+.BLOCK.INNER.PAGE {
+  width: 100%;
+}
+
+.BLOCK.INNER.PAGE.CLOSED {
+  display: none;
+}
+
 .BLOCK.SPECIAL {
   position: relative;
   box-shadow: 5px 5px 5px rgba(var(--dark-shadow), 0.5);

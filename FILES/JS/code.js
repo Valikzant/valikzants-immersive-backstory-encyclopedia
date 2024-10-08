@@ -90,6 +90,26 @@ async function _F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(_C_ID) {
   }, 10);
 }
 
+// Открытие и закрытие страниц по списку текущих страниц
+async function _F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(_C_PAGE_ID = null) {
+  const _C_STORY_PAGES = await _F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".PAGE");
+  if (_C_PAGE_ID == null) {
+    _C_STORY_PAGES.forEach(_I_PAGE => {
+      if (_I_PAGE.id == "start") {return;}
+      _I_PAGE.classList.add("CLOSED");
+    });
+  } else {
+    _C_STORY_PAGES.forEach(_I_PAGE => {
+      if (_I_PAGE.id == _C_PAGE_ID) {
+        _I_PAGE.classList.remove("CLOSED");
+        _F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(_I_PAGE.id)
+      } else {
+        _I_PAGE.classList.add("CLOSED");
+      }
+    });
+  }
+}
+
 // [ LOCAL STORAGE ]
 
 async function _F_LOCAL_STORAGE_GET(_C_KEY) {
@@ -532,6 +552,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     localStorage.removeItem("theme");
     localStorage.removeItem("hue");
   }
+
+  _F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES();
 
   const _C_UNLOADED_BLOCKS = await _F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".UNLOADED");
   _C_UNLOADED_BLOCKS.forEach(_I_UNLOADED_BLOCK => {

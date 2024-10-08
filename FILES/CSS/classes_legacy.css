@@ -173,6 +173,14 @@ img {
   outline: none !important;
 }
 
+.BLOCK.INNER.PAGE {
+  width: 100%;
+}
+
+.BLOCK.INNER.PAGE.CLOSED {
+  display: none;
+}
+
 .BLOCK.SPECIAL {
   position: relative;
   background: rgb(var(--light-shadow));
