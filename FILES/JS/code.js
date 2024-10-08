@@ -101,13 +101,14 @@ async function _F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(_C_PAGE_ID = null, _C_SIDE
         _I_BUTTON.classList.remove("ACTIVE");
       }
     })
-  } else {
-    _C_SIDEBAR_BUTTONS[1].classList.add("ACTIVE");
   }
   const _C_STORY_PAGES = await _F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".PAGE");
   if (_C_PAGE_ID == null) {
     _C_STORY_PAGES.forEach(_I_PAGE => {
-      if (_I_PAGE.id == "start") {return;}
+      if (_I_PAGE.id == "start") {
+        _C_SIDEBAR_BUTTONS[1].classList.add("ACTIVE");
+        return;
+      }
       _I_PAGE.classList.add("CLOSED");
     });
   } else {
