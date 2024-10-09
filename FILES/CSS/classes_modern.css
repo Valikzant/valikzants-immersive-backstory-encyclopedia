@@ -123,20 +123,7 @@ h3.HINT {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  outline: 1px solid rgba(var(--hue), 0.5);
-  padding: 5px;
   pointer-events: none;
-  background: radial-gradient(
-    ellipse at bottom left,
-    rgb(var(--hue), 0.2) 0%,
-    rgb(var(--hue), 0.15) 25%,
-    rgb(var(--hue), 0.05) 50%,
-    rgba(var(--hue), 0.1) 75%,
-    rgba(var(--hue), 0.2) 100%
-  );
-  border-radius: 15px;
-  transition: opacity var(--transition-slow);
-  opacity: 1;
   z-index: 3;
 }
 /* DEFAULT h */
