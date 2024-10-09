@@ -423,7 +423,7 @@ async function _F_ON_EVENT_CHANGE_LAYOUT(_C_FORCE = null) {
     _C_SIDEBAR.style.setProperty("flex-direction", "column");
   } else {
     _C_BODY.style.setProperty("grid-template-rows", "auto auto 1fr auto");
-    _C_BODY.style.setProperty("grid-template-areas", '"H H" "С С" "C C" "S S"');
+    _C_BODY.style.setProperty("grid-template-areas", '"H H" "S S" "C C" "C C"');
     await _F_INTERACT_WITH_HTML_ENABLE_BUTTON_BY_ID("LAYOUT_CHOOSER_MOBILE");
     await _F_INTERACT_WITH_HTML_DISABLE_BUTTON_BY_ID("LAYOUT_CHOOSER_DESKTOP");
     _C_SIDEBAR.style.setProperty("flex-direction", "row");
