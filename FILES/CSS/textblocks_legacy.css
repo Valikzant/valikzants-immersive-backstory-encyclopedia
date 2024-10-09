@@ -78,6 +78,7 @@ p.TEXT_PAPER {
 /* TEXT HANDWRITING   */
 
 .TEXT_BLOCK.PAPER.HANDWRITTEN p {
+  font-style: italic;
   font-size: 1.5em;
   line-height: 1;
 }
@@ -85,6 +86,7 @@ p.TEXT_PAPER {
   content: "Рукописная записка";
 }
 p.TEXT_HANDWRITING {
+  font-style: italic !important;
   font-size: 1.5em !important;
   line-height: 1 !important;
 }
@@ -92,6 +94,7 @@ p.TEXT_HANDWRITING {
 /* TEXT VINTAGE PAPER */
 
 .TEXT_BLOCK.PAPER.VINTAGE p {
+  font-style: italic;
   font-weight: 400;
 
   font-size: 1.5em;
@@ -116,6 +119,7 @@ p.TEXT_HANDWRITING {
   filter: sepia(100%);
 }
 p.TEXT_VINTAGE {
+  font-style: italic !important;
   font-weight: 400 !important;
 
   font-size: 1.5em !important;
@@ -160,6 +164,7 @@ p.TEXT_VINTAGE {
   text-align: center;
 }
 .TEXT_BLOCK.POEM p {
+  font-style: italic;
   font-size: 1.5em;
 }
 .TEXT_BLOCK.POEM::after {

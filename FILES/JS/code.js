@@ -475,12 +475,12 @@ async function _F_ON_LOAD_SETUP_HINTS() {
 
   if (await _F_LOCAL_STORAGE_GET("hints") == "false") {
     _C_HELP_BUTTONS.forEach(_I_BUTTON => {
+      if (_I_BUTTON.classList.contains("SIDEBAR")) { return; }
       _I_BUTTON.style.display = "none";
     });
     _C_HELP_HINTS.forEach(_I_HINT => {
       _I_HINT.style.display = "none";
     });
-    return;
   }
 
   _C_HELP_BUTTONS.forEach(_I_BUTTON => {
