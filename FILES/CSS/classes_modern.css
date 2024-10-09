@@ -158,7 +158,7 @@ img {
     -4px -4px 5px rgba(var(--light-shadow), 0.45);
   padding: 10px;
   border-radius: 15px;
-  transition: opacity var(--transition-fast), transform var(--transition-fast),
+  transition: transform var(--transition-fast),
     box-shadow var(--transition-fast), background-color var(--transition-fast),
     color var(--transition-fast);
 }
@@ -234,7 +234,7 @@ img {
 
 .BLOCK.HIDDEN {
   opacity: 0;
-  transform: rotateY(180deg);
+  transform:rotateX(25deg);
   pointer-events: none;
 }
 

@@ -157,7 +157,7 @@ img {
   padding: 10px;
   border-radius: 15px;
   outline: 1px solid rgba(var(--dark-shadow), 0.5);
-  transition: opacity var(--transition-fast), transform var(--transition-fast),
+  transition: transform var(--transition-fast),
     box-shadow var(--transition-fast), background-color var(--transition-fast),
     color var(--transition-fast);
 }
@@ -213,7 +213,7 @@ img {
 
 .BLOCK.HIDDEN {
   opacity: 0;
-  transform: scale(0);
+  transform: scale(0.975);
   pointer-events: none;
 }
 
