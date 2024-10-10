@@ -123,6 +123,7 @@ h3.HINT {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: opacity var(--transition-fast);
   pointer-events: none;
   z-index: 3;
 }
@@ -137,6 +138,23 @@ p {
   font-size: 1.15em;
 }
 /* DEFAULT p */
+/* ===================== */
+
+/* DEFAULT a */
+a {
+  color: rgb(var(--hue));
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:visited {
+  color: rgb(var(--hue));
+}
+
+a:hover {
+  color: rgb(var(--text));
+}
+/* DEFAULT a */
 /* ===================== */
 
 /* DEFAULT img */
@@ -232,6 +250,10 @@ img {
   min-height: var(--sides-size);
   transition: opacity var(--transition-fast), transform var(--transition-fast);
   outline: 1px solid rgba(var(--dark-shadow), 0.5);
+}
+
+.BUTTON.WIDE {
+  width: 100%;
 }
 
 .BUTTON.INVISIBLE {

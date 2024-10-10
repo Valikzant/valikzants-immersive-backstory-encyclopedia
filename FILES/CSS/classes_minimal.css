@@ -123,6 +123,7 @@ h3.HINT {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: opacity var(--transition-fast);
   pointer-events: none;
   z-index: 3;
 }
@@ -137,6 +138,22 @@ p {
   font-size: 1.15em;
 }
 /* DEFAULT p */
+/* ===================== */
+
+/* DEFAULT a */
+a {
+  color: rgb(var(--hue));
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(var(--hue));
+}
+
+a:hover {
+  color: rgb(var(--text));
+}
+/* DEFAULT a */
 /* ===================== */
 
 /* DEFAULT img */
@@ -212,6 +229,10 @@ img {
   min-width: var(--sides-size);
   min-height: var(--sides-size);
   transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.BUTTON.WIDE {
+  width: 100%;
 }
 
 .BUTTON.INVISIBLE {

@@ -55,7 +55,7 @@ body {
 h1.FANCY,
 h2.FANCY,
 h3.FANCY {
-  mix-blend-mode: normal;
+  color: rgb(var(--hue));
 }
 
 h1,
@@ -113,6 +113,7 @@ h3.HINT {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: opacity var(--transition-fast);
   pointer-events: none;
   z-index: 3;
 }
@@ -127,6 +128,21 @@ p {
   font-size: 1.15em;
 }
 /* DEFAULT p */
+/* ===================== */
+
+/* DEFAULT a */
+a {
+  color: rgb(var(--hue));
+}
+
+a:visited {
+  color: rgb(var(--hue));
+}
+
+a:hover {
+  color: rgb(var(--text));
+}
+/* DEFAULT a */
 /* ===================== */
 
 /* DEFAULT img */
@@ -201,6 +217,10 @@ img {
   min-width: var(--sides-size);
   min-height: var(--sides-size);
   transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.BUTTON.WIDE {
+  width: 100%;
 }
 
 .BUTTON.INVISIBLE {

@@ -414,6 +414,7 @@ async function _F_ON_EVENT_HIDE_TOOLTIP() {
 // Изменение Layout
 async function _F_ON_EVENT_CHANGE_LAYOUT(_C_FORCE = null) {
   const _C_SIDEBAR = document.getElementById("SIDEBAR");
+  if (_C_SIDEBAR == null) { return; }
   const _C_BODY = document.getElementById("body");
   if (_C_FORCE == "desktop" || window.innerWidth > 768) {
     _C_BODY.style.setProperty("grid-template-rows", "auto 1fr auto");
