@@ -1,11 +1,112 @@
-/* ===================== */
+/*.............................................................................
+.                                   ШРИФТЫ                                    .
+.............................................................................*/
+/* ! НАЧАЛО БЛОКА */
+@font-face {
+  font-family: "geologica";
+  src: url("../FONTS/geologica/Geologica-Light.ttf");
+  font-display: swap;
+}
 
-/* TEXT BLOCKS           */
+@font-face {
+  font-family: "caveat";
+  src: url("../FONTS/caveat/Caveat-Regular.ttf");
+  font-display: swap;
+}
 
+@font-face {
+  font-family: "great_vibes";
+  src: url("../FONTS/great_vibes/GreatVibes-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "play";
+  src: url("../FONTS/play/Play-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "train_one";
+  src: url("../FONTS/train_one/TrainOne-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "rubik";
+  src: url("../FONTS/rubik/RubikMonoOne-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "mister_brush";
+  src: url("../FONTS/mister_brush/MisterBrush.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "rubik_dirt";
+  src: url("../FONTS/rubik/RubikDirt-Regular.ttf");
+  font-display: swap;
+}
+/* ! КОНЕЦ БЛОКА */
+/*.............................................................................
+.                                  АНИМАЦИИ                                   .
+.............................................................................*/
+/* ! НАЧАЛО БЛОКА */
+@keyframes BLINKING {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes NEON_SHINING {
+  0%,
+  15%,
+  60%,
+  70%,
+  90%,
+  100% {
+    opacity: 1;
+  }
+  7% {
+    opacity: 0.9;
+  }
+  9%,
+  11% {
+    opacity: 0.25;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 0.7;
+  }
+  40% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.8;
+  }
+}
+/* ! КОНЕЦ БЛОКА */
+/*.............................................................................
+.                                   БЛОКИ                                     .
+.............................................................................*/
+/* ! НАЧАЛО БЛОКА */
 .TEXT_BLOCK {
   display: inline-block;
   padding: 15px;
   margin: 10px 0px;
+  border-radius: 15px;
+  position: relative;
 
   z-index: 2;
 
@@ -28,14 +129,15 @@
   text-align: left;
   padding-top: 5px;
   font-weight: bold;
+  font-family: "geologica";
   font-size: 0.75rem;
   z-index: 2;
 
 }
 .TEXT_BLOCK::before {
   content: "";
+  border-radius: 15px;
   z-index: -1;
-
 }
 
 /* TEXT DEFAULT       */
@@ -50,9 +152,13 @@
 .TEXT_BLOCK.PAPER {
   padding: 15px 15px 10px 25px;
 
-  position: relative;
+  ;
+
+  outline: 1px solid rgb(var(--text), 0.25);
 }
 .TEXT_BLOCK.PAPER p {
+  font-family: "Times New Roman", serif;
+
   font-size: 1.25em;
 }
 .TEXT_BLOCK.PAPER::after {
@@ -72,32 +178,40 @@
   background: rgb(var(--light-shadow));
 }
 p.TEXT_PAPER {
+  font-family: "Times New Roman", serif !important;
+
   font-size: 1.25em !important;
 }
 
 /* TEXT HANDWRITING   */
 
 .TEXT_BLOCK.PAPER.HANDWRITTEN p {
-  font-style: italic;
-  font-size: 1.5em;
+  font-family: "caveat";
+
+  font-size: 2em;
   line-height: 1;
 }
 .TEXT_BLOCK.PAPER.HANDWRITTEN::after {
   content: "Рукописная записка";
 }
 p.TEXT_HANDWRITING {
-  font-style: italic !important;
-  font-size: 1.5em !important;
+  font-family: "caveat" !important;
+
+  font-size: 2em !important;
   line-height: 1 !important;
 }
 
 /* TEXT VINTAGE PAPER */
 
+.TEXT_BLOCK.PAPER.VINTAGE {
+  outline: 2px solid rgb(var(--text), 0.25);
+}
 .TEXT_BLOCK.PAPER.VINTAGE p {
-  font-style: italic;
+  font-family: "great_vibes";
+
   font-weight: 400;
 
-  font-size: 1.5em;
+  font-size: 2em;
   line-height: 1;
 }
 .TEXT_BLOCK.PAPER.VINTAGE::after {
@@ -119,10 +233,11 @@ p.TEXT_HANDWRITING {
   filter: sepia(100%);
 }
 p.TEXT_VINTAGE {
-  font-style: italic !important;
+  font-family: "great_vibes" !important;
+
   font-weight: 400 !important;
 
-  font-size: 1.5em !important;
+  font-size: 2em !important;
   line-height: 1 !important;
 }
 
@@ -131,12 +246,18 @@ p.TEXT_VINTAGE {
 .TEXT_BLOCK.NEWSPAPER {
   padding: 15px 15px 10px 25px;
 
-  position: relative;
+  ;
+
+  outline: 1px solid rgb(var(--text), 0.25);
 }
 .TEXT_BLOCK.NEWSPAPER p {
+  font-family: "Times New Roman", serif;
+
   font-size: 1.25em;
 }
 .TEXT_BLOCK.NEWSPAPER h2 {
+  font-family: "Times New Roman", serif;
+
   margin: 0px 0px 10px 0px;
 
   border-bottom: 1px solid rgb(var(--text), 0.25);
@@ -162,10 +283,13 @@ p.TEXT_VINTAGE {
 
 .TEXT_BLOCK.POEM {
   text-align: center;
+
+  outline: 1px solid rgb(var(--text), 0.25);
 }
 .TEXT_BLOCK.POEM p {
-  font-style: italic;
-  font-size: 1.5em;
+  font-family: "caveat";
+
+  font-size: 2.25em;
 }
 .TEXT_BLOCK.POEM::after {
   content: "Стихотворный блок";
@@ -191,17 +315,32 @@ p.TEXT_VINTAGE {
 
   padding: 15px 15px 10px;
 
-  position: relative;
+  outline: 1px solid rgb(var(--hue), 0.75);
 
-  background: rgb(var(--light-shadow));
+  ;
+
+  background: rgb(var(--solid));
 }
 .TEXT_BLOCK.ON_SCREEN p {
+  font-family: "play";
+
+  text-shadow: 0 0 1px rgb(var(--hue)), 1px 1px 0px rgb(var(--hue));
+
   filter: brightness(1.2);
 
   color: rgb(var(--text));
 }
 .TEXT_BLOCK.ON_SCREEN::after {
   content: "Текст на экране";
+}
+p.TEXT_ON_SCREEN {
+  font-family: "play" !important;
+
+  text-shadow: 0 0 1px rgb(var(--hue)), 1px 1px 0px rgb(var(--hue)) !important;
+
+  filter: brightness(1.2) !important;
+
+  color: rgb(var(--text)) !important;
 }
 
 /* TEXT ON SCREEN WRITING */
@@ -221,10 +360,13 @@ p.TEXT_VINTAGE {
   align-self: center;
 
   color: rgb(var(--hue));
+  text-shadow: 0 0 5px rgb(var(--solid)), 0 0 7.5px rgb(var(--solid)),
+    0 0 10px rgb(var(--solid)), 0 0 20px rgb(var(--hue));
 
   padding: 15px 15px 10px;
 }
 .TEXT_BLOCK.NEON_SIGN.OLD p {
+  font-family: "train_one";
   font-size: 2.25em;
 
   font-weight: bolder;
@@ -238,6 +380,7 @@ p.TEXT_VINTAGE {
 /* NEON SIGN MODERN   */
 
 .TEXT_BLOCK.NEON_SIGN.MODERN p {
+  font-family: "rubik";
   font-size: 2em;
 
   animation: NEON_SHINING var(--transition-long) infinite;
@@ -248,11 +391,16 @@ p.TEXT_VINTAGE {
 .TEXT_BLOCK.GRAFFITI {
   align-self: center;
 
-  color: rgb(var(--hue));
+  color: rgb(var(--text));
+  text-shadow: 2px 2px 0 rgb(var(--hue), 0.5), 4px 4px 0 rgb(var(--hue), 0.25),
+    -1px -1px 0 rgb(var(--hue), 0.25), 0 0 4px rgb(var(--solid)),
+    0 0 8px rgb(var(--solid)), 0 0 10px rgb(var(--solid)),
+    0 0 35px rgb(var(--text));
 
   padding: 15px 15px 10px;
 }
 .TEXT_BLOCK.GRAFFITI p {
+  font-family: "mister_brush";
   font-style: italic;
   font-size: 2.25em;
 
@@ -270,10 +418,12 @@ p.TEXT_VINTAGE {
   align-self: center;
 
   color: rgb(var(--text));
+  text-shadow: 1px 1px 0 rgb(var(--hue));
 
   padding: 15px 15px 10px;
 }
 .TEXT_BLOCK.FUTURE_SIGN p {
+  font-family: "play";
   font-size: 2.25em;
 
   font-weight: bolder;
@@ -297,13 +447,14 @@ p.TEXT_VINTAGE {
   align-self: center;
 
   color: rgb(var(--text));
+  text-shadow: 1px 1px 0 rgb(var(--text), 0.7),
+    2px 2px 0 rgb(var(--dark-shadow));
 
   padding: 15px 15px 10px;
 }
 .TEXT_BLOCK.ANCIENT_STONE_SIGN p {
-  font-weight: bolder;
-  
-  font-size: 2.5em;
+  font-family: "rubik_dirt";
+  font-size: 2em;
 }
 .TEXT_BLOCK.ANCIENT_STONE_SIGN::after {
   content: "";
@@ -314,7 +465,8 @@ p.TEXT_VINTAGE {
 .TEXT_BLOCK.AUTHOR_NOTE {
   padding: 15px 15px 10px;
 
-  background: rgb(var(--light-shadow));
+  outline: 1px solid rgb(var(--hue), 0.5);
+  border-left: 5px solid rgb(var(--hue));
 }
 .TEXT_BLOCK.AUTHOR_NOTE::after {
   content: "Записка от автора";
@@ -325,12 +477,10 @@ p.TEXT_VINTAGE {
 .TEXT_BLOCK.IMPORTANT {
   padding: 15px 15px 10px;
 
-  background: rgb(var(--light-shadow));
+  outline: 1px solid rgb(var(--text), 0);
+  border-left: 2.5px solid rgb(var(--hue));
 }
 .TEXT_BLOCK.IMPORTANT::after {
   content: "Важное";
 }
-
-/* TEXT BLOCKS and FONTS */
-
-/* ===================== */
+/* ! КОНЕЦ БЛОКА */

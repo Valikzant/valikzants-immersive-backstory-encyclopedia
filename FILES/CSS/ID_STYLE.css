@@ -58,8 +58,8 @@
   grid-area: H;
   margin: 5px;
   gap: 7.5px;
-  min-height: var(--sides-size);
-  max-height: var(--sides-size);
+  min-height: calc(var(--sides-size) * 2);
+  max-height: calc(var(--sides-size) * 2);
   white-space: nowrap;
   z-index: 2;
   display: flex;
@@ -98,7 +98,7 @@
 
 #SIDEBAR > * {
   min-width: calc(var(--sides-size) * 2);
-  width: 100%;
+  min-width: calc(var(--sides-size) * 3);
 }
 
 /* ===================== */
@@ -232,7 +232,7 @@
   flex-direction: column;
   gap: 15px;
   position: relative;
-  margin: 5px 0;
+  margin: 5px 0px 15px 0px;
 }
 
 #CHARACTER_SPECIAL_NAME {

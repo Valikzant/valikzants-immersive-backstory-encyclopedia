@@ -15,18 +15,19 @@
     .UNLOADED {display: none !important;} .UNLOADED * {display: none !important;}
     #FOOTER {grid-area: F;} #HEADER {grid-area: H;} #SIDEBAR {grid-area: S;} #THEMES, #SETTINGS, #AUTHOR, #CONTENT {grid-area: C;}
   </style>
-  <link id="CLASSES_CSS_FILE" rel="stylesheet" href="../FILES/CSS/classes_simple.css?v=update4.1">
-  <link rel="stylesheet" href="../FILES/CSS/customs.css?v=update4.1" />
-  <link id="TEXT_BLOCKS_CSS_FILE" rel="stylesheet" href="../FILES/CSS/textblocks.css?v=update4.1">
+  <link rel="stylesheet" href="../FILES/CSS/ELEMENTS.css?v=update4.2">
+  <link id="ELEMENTS_STYLE_CSS_FILE" rel="stylesheet" href="../FILES/CSS/ELEMENTS_STYLE_simple.css?v=update4.2">
+  <link rel="stylesheet" href="../FILES/CSS/ID_STYLE.css?v=update4.2" />
+  <link id="TEXT_BLOCKS_CSS_FILE" rel="stylesheet" href="../FILES/CSS/TEXT_SECTIONS.css?v=update4.2">
 </head>
-<script src="../FILES/JS/code.js?v=update4.1"></script>
+<script src="../FILES/JS/CORE.js?v=update4.2"></script>
   <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. /\ -->
 
   <!-- СЕКЦИЯ РАЗРЕШЕНА ДЛЯ ЧАСТИЧНОГО РЕДАКТИРОВАНИЯ. \/ -->
 <script>
   // ДЛЯ РЕДАКТИРОВАНИЯ
   // Здесь можно указать свои оттенки/темы для страницы в формате R G B.
-  const _C_HUES = [
+  const C_HUES = [
     // Максимум 8 оттенков
     {"hue": [0, 117, 255]},          // Синий
     {"hue": [248, 56, 56]},          // Яркий красный
@@ -38,7 +39,7 @@
     {"hue": [138, 43, 226]}          // Фиолетовый
   ];
 
-  const _C_THEMES = [
+  const C_THEMES = [
     // Темная тема
     {"solid"      : [33, 33, 33],     // Цвет фона
     "light-shadow": [43, 43, 43],     // Цвет светлой тени
@@ -65,9 +66,9 @@
   ];
 
   window.onload = function () {
-    _F_ON_LOAD_GENERATE_AND_SAVE_HUES(_C_HUES);
+    F_ON_LOAD_GENERATE_AND_SAVE_HUES(C_HUES);
 
-    _F_ON_LOAD_GENERATE_AND_SAVE_THEMES(_C_THEMES);
+    F_ON_LOAD_GENERATE_AND_SAVE_THEMES(C_THEMES);
   };
 </script>
 
@@ -111,16 +112,16 @@
 
     <div class="SPACER"></div>
 
-    <div onclick="_F_TOGGLE_WINDOW_CONTENT()" id="HEADER_BUTTON_CONTENT" class="BUTTON INVISIBLE">
+    <div onclick="F_TOGGLE_WINDOW_CONTENT()" id="HEADER_BUTTON_CONTENT" class="BUTTON INVISIBLE">
       <div class="ICON">📄</div>
     </div>
-    <div onclick="_F_TOGGLE_WINDOW_THEMES()" id="HEADER_BUTTON_THEMES" class="BUTTON INVISIBLE">
+    <div onclick="F_TOGGLE_WINDOW_THEMES()" id="HEADER_BUTTON_THEMES" class="BUTTON INVISIBLE">
       <div class="ICON">🎨</div>
     </div>
-    <div onclick="_F_TOGGLE_WINDOW_SETTINGS()" id="HEADER_BUTTON_SETTINGS" class="BUTTON INVISIBLE">
+    <div onclick="F_TOGGLE_WINDOW_SETTINGS()" id="HEADER_BUTTON_SETTINGS" class="BUTTON INVISIBLE">
       <div class="ICON">⚙️</div>
     </div>
-    <div onclick="_F_TOGGLE_WINDOW_AUTHOR()" id="HEADER_BUTTON_AUTHOR" class="BUTTON INVISIBLE">
+    <div onclick="F_TOGGLE_WINDOW_AUTHOR()" id="HEADER_BUTTON_AUTHOR" class="BUTTON INVISIBLE">
       <div class="ICON">👤</div>
     </div>
   </div>
@@ -133,7 +134,7 @@
     <div
       class="BUTTON_HELP"
       data-tooltip="
-  Главная страница сайта.
+  Главная страница сайта. Пока что очень пустая.
   "
     >
       <div class="ICON">❔</div>
@@ -150,7 +151,7 @@
       <a href="https://github.com/Valikzant/valikzants-immersive-backstory-encyclopedia">Github</a> 
       и добавляйте своих персонажей!
       <br><br>
-      <h3 class="BUTTON WIDE INVISIBLE" onclick="window.location.href='/FILES/CHARACTERS'">Перейти к обозревателю <span class="ICON">🔍</span> </h3>
+      <h3 class="BUTTON WIDE INVISIBLE" onclick="window.location.href='./CHARACTERS/index.html'">Перейти к обозревателю <span class="ICON">🔍</span> </h3>
     </p>
 
 
@@ -209,14 +210,14 @@
         <div class="ICON"> ❔ </div>
       </div>
 
-      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(0)" style="background-color: rgb(248, 56, 56);" id="HUE_CHOOSER_RED" class="BUTTON"></div>
-      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(1)" style="background-color: rgb(255, 101, 0);" id="HUE_CHOOSER_ORANGE" class="BUTTON"></div>
-      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(2)" style="background-color: rgb(234, 143, 0);" id="HUE_CHOOSER_DARK_ORANGE" class="BUTTON"></div>
-      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(3)" style="background-color: rgb(255, 255, 0);" id="HUE_CHOOSER_YELLOW" class="BUTTON"></div>
-      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(4)" style="background-color: rgb(100, 184, 0);" id="HUE_CHOOSER_GREEN" class="BUTTON"></div>
-      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(5)" style="background-color: rgb(0, 235, 235);" id="HUE_CHOOSER_CYAN" class="BUTTON"></div>
-      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(6)" style="background-color: rgb(0, 145, 255);" id="HUE_CHOOSER_BLUE" class="BUTTON"></div>
-      <div onclick="_F_CUSTOMIZATION_CHANGE_HUE(7)" style="background-color: rgb(135, 94, 255);" id="HUE_CHOOSER_PURPLE" class="BUTTON"></div>
+      <div onclick="F_CUSTOMIZATION_CHANGE_HUE(0)" style="background-color: rgb(248, 56, 56);" id="HUE_CHOOSER_RED" class="BUTTON"></div>
+      <div onclick="F_CUSTOMIZATION_CHANGE_HUE(1)" style="background-color: rgb(255, 101, 0);" id="HUE_CHOOSER_ORANGE" class="BUTTON"></div>
+      <div onclick="F_CUSTOMIZATION_CHANGE_HUE(2)" style="background-color: rgb(234, 143, 0);" id="HUE_CHOOSER_DARK_ORANGE" class="BUTTON"></div>
+      <div onclick="F_CUSTOMIZATION_CHANGE_HUE(3)" style="background-color: rgb(255, 255, 0);" id="HUE_CHOOSER_YELLOW" class="BUTTON"></div>
+      <div onclick="F_CUSTOMIZATION_CHANGE_HUE(4)" style="background-color: rgb(100, 184, 0);" id="HUE_CHOOSER_GREEN" class="BUTTON"></div>
+      <div onclick="F_CUSTOMIZATION_CHANGE_HUE(5)" style="background-color: rgb(0, 235, 235);" id="HUE_CHOOSER_CYAN" class="BUTTON"></div>
+      <div onclick="F_CUSTOMIZATION_CHANGE_HUE(6)" style="background-color: rgb(0, 145, 255);" id="HUE_CHOOSER_BLUE" class="BUTTON"></div>
+      <div onclick="F_CUSTOMIZATION_CHANGE_HUE(7)" style="background-color: rgb(135, 94, 255);" id="HUE_CHOOSER_PURPLE" class="BUTTON"></div>
     </div>
 
     <div id="THEME_CHOOSERS" class="BLOCK INNER">
@@ -232,10 +233,10 @@
         <div class="ICON"> ❔ </div>
       </div>
 
-      <div onclick="_F_CUSTOMIZATION_CHANGE_THEME(0)" style="background-color: rgb(50, 50, 50);" id="THEME_CHOOSER_DARK" class="BUTTON"></div>
-      <div onclick="_F_CUSTOMIZATION_CHANGE_THEME(1)" style="background-color: rgb(180, 180, 180);" id="THEME_CHOOSER_LIGHT" class="BUTTON"></div>
-      <div onclick="_F_CUSTOMIZATION_CHANGE_THEME(2)" style="background-color: rgb(0, 0, 0);" id="THEME_CHOOSER_VOID" class="BUTTON"></div>
-      <div onclick="_F_CUSTOMIZATION_CHANGE_THEME(3)" style="background-color: rgb(255, 255, 255);" id="THEME_CHOOSER_HEAVEN" class="BUTTON"></div>
+      <div onclick="F_CUSTOMIZATION_CHANGE_THEME(0)" style="background-color: rgb(50, 50, 50);" id="THEME_CHOOSER_DARK" class="BUTTON"></div>
+      <div onclick="F_CUSTOMIZATION_CHANGE_THEME(1)" style="background-color: rgb(180, 180, 180);" id="THEME_CHOOSER_LIGHT" class="BUTTON"></div>
+      <div onclick="F_CUSTOMIZATION_CHANGE_THEME(2)" style="background-color: rgb(0, 0, 0);" id="THEME_CHOOSER_VOID" class="BUTTON"></div>
+      <div onclick="F_CUSTOMIZATION_CHANGE_THEME(3)" style="background-color: rgb(255, 255, 255);" id="THEME_CHOOSER_HEAVEN" class="BUTTON"></div>
 
     </div>
 
@@ -248,19 +249,19 @@
         <div class="ICON"> ❔ </div>
       </div>
 
-      <div onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(0)" style="font-size: 9px;" id="FONT_SIZE_CHOOSER_SMALL" class="BUTTON">
+      <div onclick="F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(0)" style="font-size: 9px;" id="FONT_SIZE_CHOOSER_SMALL" class="BUTTON">
         <p>Т</p>
       </div>
 
-      <div onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(1)" style="font-size: 11px;" id="FONT_SIZE_CHOOSER_MEDIUM" class="BUTTON">
+      <div onclick="F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(1)" style="font-size: 11px;" id="FONT_SIZE_CHOOSER_MEDIUM" class="BUTTON">
         <p>Т</p>
       </div>
 
-      <div onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(2)" style="font-size: 13px;" id="FONT_SIZE_CHOOSER_LARGE" class="BUTTON">
+      <div onclick="F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(2)" style="font-size: 13px;" id="FONT_SIZE_CHOOSER_LARGE" class="BUTTON">
         <p>Т</p>
       </div>
 
-      <div onclick="_F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(3)" style="font-size: 15px;" id="FONT_SIZE_CHOOSER_HUGE" class="BUTTON">
+      <div onclick="F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(3)" style="font-size: 15px;" id="FONT_SIZE_CHOOSER_HUGE" class="BUTTON">
         <p>Т</p>
       </div>
     </div>
@@ -276,19 +277,19 @@
         <div class="ICON"> ❔ </div>
       </div>
 
-      <div onclick="_F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(0)" style="font-size: 9px;" id="INTERFACE_SIZE_CHOOSER_SMALL" class="BUTTON">
+      <div onclick="F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(0)" style="font-size: 9px;" id="INTERFACE_SIZE_CHOOSER_SMALL" class="BUTTON">
         <p>UI</p>
       </div>
 
-      <div onclick="_F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(1)" style="font-size: 11px;" id="INTERFACE_SIZE_CHOOSER_MEDIUM" class="BUTTON">
+      <div onclick="F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(1)" style="font-size: 11px;" id="INTERFACE_SIZE_CHOOSER_MEDIUM" class="BUTTON">
         <p>UI</p>
       </div>
 
-      <div onclick="_F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(2)" style="font-size: 13px;" id="INTERFACE_SIZE_CHOOSER_LARGE" class="BUTTON">
+      <div onclick="F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(2)" style="font-size: 13px;" id="INTERFACE_SIZE_CHOOSER_LARGE" class="BUTTON">
         <p>UI</p>
       </div>
 
-      <div onclick="_F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(3)" style="font-size: 15px;" id="INTERFACE_SIZE_CHOOSER_HUGE" class="BUTTON">
+      <div onclick="F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(3)" style="font-size: 15px;" id="INTERFACE_SIZE_CHOOSER_HUGE" class="BUTTON">
         <p>UI</p>
       </div>
 
@@ -303,19 +304,19 @@
         <div class="ICON"> ❔ </div>
       </div>
 
-      <div onclick="_F_CUSTOMIZATION_CHANGE_CLASSES_FILE('modern')" style="font-size: 15px;" id="CLASSES_STYLE_CHOOSER_MODERN" class="BUTTON">
+      <div onclick="F_CUSTOMIZATION_CHANGE_CLASSES_FILE('modern')" style="font-size: 15px;" id="CLASSES_STYLE_CHOOSER_MODERN" class="BUTTON">
         <p>Модерн</p>
       </div>
 
-      <div onclick="_F_CUSTOMIZATION_CHANGE_CLASSES_FILE('simple')" style="font-size: 15px;" id="CLASSES_STYLE_CHOOSER_SIMPLE" class="BUTTON">
+      <div onclick="F_CUSTOMIZATION_CHANGE_CLASSES_FILE('simple')" style="font-size: 15px;" id="CLASSES_STYLE_CHOOSER_SIMPLE" class="BUTTON">
         <p>Простой</p>
       </div>
 
-      <div onclick="_F_CUSTOMIZATION_CHANGE_CLASSES_FILE('minimal')" style="font-size: 15px;" id="CLASSES_STYLE_CHOOSER_MINIMAL" class="BUTTON">
+      <div onclick="F_CUSTOMIZATION_CHANGE_CLASSES_FILE('minimal')" style="font-size: 15px;" id="CLASSES_STYLE_CHOOSER_MINIMAL" class="BUTTON">
         <p>Минимал</p>
       </div>
 
-      <div onclick="_F_CUSTOMIZATION_CHANGE_CLASSES_FILE('legacy')" style="font-size: 15px;" id="CLASSES_STYLE_CHOOSER_LEGACY" class="BUTTON">
+      <div onclick="F_CUSTOMIZATION_CHANGE_CLASSES_FILE('legacy')" style="font-size: 15px;" id="CLASSES_STYLE_CHOOSER_LEGACY" class="BUTTON">
         <p>Легаси</p>
       </div>
 
@@ -355,11 +356,11 @@
         <div class="ICON"> ❔ </div>
       </div>
 
-      <div onclick="_F_SETTINGS_CHANGE_CUSTOMIZATION_SAVING('true')" id="CUSTOMIZATION_SAVING_CHOOSER_ON"class="BUTTON">
+      <div onclick="F_SETTINGS_CHANGE_CUSTOMIZATION_SAVING('true')" id="CUSTOMIZATION_SAVING_CHOOSER_ON"class="BUTTON">
         <div class="ICON"> ✔️🎨 </div>
       </div>
 
-      <div onclick="_F_SETTINGS_CHANGE_CUSTOMIZATION_SAVING('false')" id="CUSTOMIZATION_SAVING_CHOOSER_OFF" class="BUTTON">
+      <div onclick="F_SETTINGS_CHANGE_CUSTOMIZATION_SAVING('false')" id="CUSTOMIZATION_SAVING_CHOOSER_OFF" class="BUTTON">
         <div class="ICON"> ✖️🎨 </div>
       </div>
 
@@ -376,11 +377,11 @@
         <div class="ICON"> ❔ </div>
       </div>
 
-      <div onclick="_F_SETTINGS_CHANGE_ANIMATIONS('true')" id="ANIMATION_TOGGLE_CHOOSER_ON"class="BUTTON">
+      <div onclick="F_SETTINGS_CHANGE_ANIMATIONS('true')" id="ANIMATION_TOGGLE_CHOOSER_ON"class="BUTTON">
         <div class="ICON"> ✔️🪄 </div>
       </div>
 
-      <div onclick="_F_SETTINGS_CHANGE_ANIMATIONS('false')" id="ANIMATION_TOGGLE_CHOOSER_OFF" class="BUTTON">
+      <div onclick="F_SETTINGS_CHANGE_ANIMATIONS('false')" id="ANIMATION_TOGGLE_CHOOSER_OFF" class="BUTTON">
         <div class="ICON"> ✖️🪄 </div>
       </div>
     
@@ -396,12 +397,12 @@
         <div class="ICON"> ❔ </div>
       </div>
 
-      <div onclick="_F_SETTINGS_CHANGE_HINTS('true')" id="HINT_TOGGLE_CHOOSER_ON"class="BUTTON">
-        <div class="ICON"> ✔️💡 </div>
+      <div onclick="F_SETTINGS_CHANGE_HINTS('true')" id="HINT_TOGGLE_CHOOSER_ON"class="BUTTON">
+        <div class="ICON"> ✔️❔ </div>
       </div>
 
-      <div onclick="_F_SETTINGS_CHANGE_HINTS('false')" id="HINT_TOGGLE_CHOOSER_OFF" class="BUTTON">
-        <div class="ICON"> ✖️💡 </div>
+      <div onclick="F_SETTINGS_CHANGE_HINTS('false')" id="HINT_TOGGLE_CHOOSER_OFF" class="BUTTON">
+        <div class="ICON"> ✖️❔ </div>
       </div>
     
     </div>
@@ -422,11 +423,11 @@
         <div class="ICON"> ❔ </div>
       </div>
 
-      <div onclick="_F_ON_EVENT_CHANGE_LAYOUT('desktop')" id="LAYOUT_CHOOSER_DESKTOP" class="BUTTON">
+      <div onclick="F_ON_EVENT_CHANGE_LAYOUT('desktop')" id="LAYOUT_CHOOSER_DESKTOP" class="BUTTON">
         <div class="ICON">🖥️ </div>
       </div>
 
-      <div onclick="_F_ON_EVENT_CHANGE_LAYOUT('mobile')" id="LAYOUT_CHOOSER_MOBILE" class="BUTTON">
+      <div onclick="F_ON_EVENT_CHANGE_LAYOUT('mobile')" id="LAYOUT_CHOOSER_MOBILE" class="BUTTON">
         <div class="ICON">📱 </div>
       </div>
     
