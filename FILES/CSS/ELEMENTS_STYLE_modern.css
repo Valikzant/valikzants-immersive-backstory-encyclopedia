@@ -25,8 +25,10 @@ h1.FANCY,
 h2.FANCY,
 h3.FANCY {
   color: transparent;
-  text-shadow: 1px 1px 1px rgb(var(--hue)), -1px 1px 1px rgb(var(--hue)),
-    -1px -1px 1px rgb(var(--text)), 1px -1px 1px rgb(var(--hue));
+  text-shadow: 
+  0.5px 0.5px 0px rgb(var(--hue)),
+  -0.55px -0.95px 0px rgb(var(--text)),
+  0.9px 0.9px 0px rgb(var(--dark-shadow));
 }
 
 h1.TITLE,
@@ -169,7 +171,9 @@ img {
 
 .ICON {
   color: transparent;
-  text-shadow: 1px 1px 0px rgb(var(--hue)), -1px 1px 0px rgb(var(--hue)),
-    -1px -1px 0px rgb(var(--text)), 1px -1px 0px rgb(var(--hue));
+  text-shadow: 
+  0.5px 0.5px 0px rgb(var(--hue)),
+  -0.55px -0.95px 0px rgb(var(--text)),
+  0.9px 0.9px 0px rgb(var(--dark-shadow));
 }
 /* ! КОНЕЦ БЛОКА

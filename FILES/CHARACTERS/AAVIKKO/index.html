@@ -9,6 +9,7 @@
     .BLOCK.HIDDEN * {display: none !important;}
     .UNLOADED {display: none !important;} .UNLOADED * {display: none !important;}
     #FOOTER {grid-area: F;} #HEADER {grid-area: H;} #SIDEBAR {grid-area: S;} #THEMES, #SETTINGS, #AUTHOR, #CONTENT {grid-area: C;}
+    body {background-color: black;}
   </style>
   <link rel="stylesheet" href="../../../FILES/CSS/ELEMENTS.css?v=update4.2">
   <link id="ELEMENTS_STYLE_CSS_FILE" rel="stylesheet" href="../../../FILES/CSS/ELEMENTS_STYLE_simple.css?v=update4.2">
@@ -63,7 +64,7 @@
     F_ON_LOAD_GENERATE_AND_SAVE_THEMES(C_THEMES);
   };
 </script>
-<body id="body" class="UNLOADED">
+<body id="body">
   <div id="LOADING_SCREEN" class="BLOCK">
     <div class="ICON">⏳</div>
     <h1 id="HEADER_LOGO" class="FANCY">
@@ -85,6 +86,10 @@
   <div id="TOOLTIP_HELP" class="BLOCK SPECIAL">Если вы видите это, то что-то пошло не так.</div>
 
   <div id="HEADER" class="BLOCK">
+    <div id="HEADER_BUTTON_GO_BACK" onclick="window.location.href='../index.html'" class="BUTTON INVISIBLE">
+      <div class="ICON">🔙</div>
+    </div>
+    
     <div id="HEADER_BUTTON_VIBE" onclick="window.location.href='../../index.html'" class="BUTTON INVISIBLE">
       <h1 id="HEADER_LOGO" class="FANCY">
         <div id="LOGO_CONSTANT_PART">V</div>

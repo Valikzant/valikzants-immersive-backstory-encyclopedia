@@ -627,11 +627,6 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES();
 
-  const c_UnloadedBlocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".UNLOADED");
-  c_UnloadedBlocks.forEach(i_UnloadedBlock => {
-    i_UnloadedBlock.classList.remove("UNLOADED");
-  });
-
   if (await F_LOCAL_STORAGE_GET("classes-parameter") != null) {
     await F_CUSTOMIZATION_CHANGE_CLASSES_FILE(await F_LOCAL_STORAGE_GET("classes-parameter"));
   }
@@ -662,6 +657,14 @@ document.addEventListener('DOMContentLoaded', async function () {
       i_Hint.style.setProperty("opacity", "0");
     });
   }, 1500);
+
+  const c_UnloadedBlocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".UNLOADED");
+  c_UnloadedBlocks.forEach(i_UnloadedBlock => {
+    setTimeout(function () {
+      i_UnloadedBlock.classList.remove("UNLOADED");
+    }, 100)
+  });
+
 });
 
 // ! КОНЕЦ БЛОКА
