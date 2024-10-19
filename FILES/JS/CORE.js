@@ -208,7 +208,7 @@ async function F_LOADING_UPDATE() {
   for (let i = 0; i < C_LOADING_SYMBOLS.length; i++) {
     setTimeout(function () {
       c_LoadingScreen.innerHTML = '<h1>' + C_LOADING_SYMBOLS[i] + '</h1>';
-    }, 150 * i);
+    }, 80 * i);
   }
 }
 
@@ -609,7 +609,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   // Добавление ивентов и интервалов функциям 
   setInterval(F_LOGO_UPDATE, 2000); 
   F_LOGO_UPDATE()
-  F_LOADING_UPDATE()
+
   window.addEventListener("resize", F_ON_EVENT_CHANGE_LAYOUT);
   window.addEventListener("resize", F_ON_EVENT_FIX_MODIFIERS);
   window.addEventListener("orientationchange", F_ON_EVENT_CHANGE_LAYOUT);
@@ -662,24 +662,29 @@ document.addEventListener('DOMContentLoaded', async function () {
     await F_SETTINGS_CHANGE_HINTS(await F_LOCAL_STORAGE_GET("hints"));
   }
 
-  // Завершение загрузки
-  setTimeout(function () {
-    const c_LoadingScreen = document.getElementById("LOADING_SCREEN");
-    c_LoadingScreen.style.setProperty("opacity", "0");
-  }, 700);
-  setTimeout(function () {
-    const c_Hints = document.querySelectorAll(".HINT");
-    c_Hints.forEach(i_Hint => {
-      i_Hint.style.setProperty("opacity", "0");
-    });
-  }, 1500);
+  window.onload = async function () {
 
-  const c_UnloadedBlocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".UNLOADED");
-  c_UnloadedBlocks.forEach(i_UnloadedBlock => {
+    // Завершение загрузки
     setTimeout(function () {
-      i_UnloadedBlock.classList.remove("UNLOADED");
-    }, 100)
-  });
+      const c_LoadingScreen = document.getElementById("LOADING_SCREEN");
+      c_LoadingScreen.style.setProperty("opacity", "0");
+    }, 500);
+    setTimeout(function () {
+      const c_Hints = document.querySelectorAll(".HINT");
+      c_Hints.forEach(i_Hint => {
+        i_Hint.style.setProperty("opacity", "0");
+      });
+    }, 1500);
+
+    const c_UnloadedBlocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".UNLOADED");
+    c_UnloadedBlocks.forEach(i_UnloadedBlock => {
+      setTimeout(function () {
+        i_UnloadedBlock.classList.remove("UNLOADED");
+      }, 100)
+    });
+  
+    F_LOADING_UPDATE();
+  }
 
 });
 
