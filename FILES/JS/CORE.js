@@ -76,6 +76,9 @@ const C_INTERFACE_MODIFIERS = [
 // Символы Лого
 const C_SYMBOLS = "☰ ☱ ☲ ☳ ☴ ☵ ☶ ☷".split(' ');
 
+// Символы экрана загрузки
+const C_LOADING_SYMBOLS = "- = ≡ ☰ ✓".split(' ');
+
 // ! КОНЕЦ БЛОКА
 /*.............................................................................
 .                                    ФУНКЦИИ                                  .
@@ -195,6 +198,20 @@ async function F_LOGO_UPDATE() {
   c_ChangingSymbols.forEach((element) => {
     element.innerHTML = C_SYMBOLS[Math.floor(Math.random() * C_SYMBOLS.length)];
   });
+}
+
+// [ LOADING ]
+
+// Последовательное отображение символов загрузки внутри окна #LOADING_SCREEN
+async function F_LOADING_UPDATE() {
+  const c_LoadingScreen = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("LOADING_SCREEN");
+  console.debug(c_LoadingScreen);
+  console.debug('loading symbols: ', C_LOADING_SYMBOLS);
+  for (let i = 0; i < C_LOADING_SYMBOLS.length; i++) {
+    setTimeout(function () {
+      c_LoadingScreen.innerHTML = '<h1>' + C_LOADING_SYMBOLS[i] + '</h1>';
+    }, 150 * i);
+  }
 }
 
 // [ CUSTOMIZATION CHANGE ]
@@ -594,6 +611,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   // Добавление ивентов и интервалов функциям 
   setInterval(F_LOGO_UPDATE, 2000); 
   F_LOGO_UPDATE()
+  F_LOADING_UPDATE()
   window.addEventListener("resize", F_ON_EVENT_CHANGE_LAYOUT);
   window.addEventListener("resize", F_ON_EVENT_FIX_MODIFIERS);
   window.addEventListener("orientationchange", F_ON_EVENT_CHANGE_LAYOUT);
