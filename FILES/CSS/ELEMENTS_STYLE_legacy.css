@@ -35,7 +35,6 @@ h3.HINT {
 
 a {
   color: rgb(var(--hue));
-  transition: color var(--transition-fast);
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
@@ -45,8 +44,7 @@ a {
 .BLOCK {
   background-color: rgb(var(--solid));
   transition: transform var(--transition-fast),
-    background-color var(--transition-fast),
-    color var(--transition-fast);
+    background-color var(--transition-fast);
   outline: 1px solid rgba(var(--dark-shadow));
 }
 

@@ -47,7 +47,6 @@ h3.HINT {
 
 a {
   color: rgb(var(--hue));
-  transition: color var(--transition-fast);
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
@@ -68,8 +67,7 @@ img {
     -4px -4px 5px rgba(var(--light-shadow), 0.45);
   border-radius: 15px;
   transition: transform var(--transition-fast),
-    box-shadow var(--transition-fast), background-color var(--transition-fast),
-    color var(--transition-fast);
+    box-shadow var(--transition-fast), background-color var(--transition-fast);
 }
 
 .BLOCK.INNER {

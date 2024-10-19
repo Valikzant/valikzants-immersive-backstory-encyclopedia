@@ -77,10 +77,10 @@ const C_INTERFACE_MODIFIERS = [
 const C_SYMBOLS = "☰ ☱ ☲ ☳ ☴ ☵ ☶ ☷".split(' ');
 
 // Символы экрана загрузки
-const C_LOADING_SYMBOLS = "\
-⠁ ⠁ ⠁ ⠂ ⠂ ⠂ ⠄ ⠄ ⡀ ⡀ ⡀ ⠄ ⠂ ⠂ ⠁ \
-⠁ ⠁ ⠁ ⠂ ⠂ ⠂ ⠄ ⠄ ⡀ ⡀ ⠄ ⠂ ⠂ ⠁ ⠁ \
-⠁ ⠁ ⠁ ⠂ ⠂ ⠂ ⠄ ⠄ ⡀ ⡀ ⠄ ⠂ ⠂ ⠁ ⠁".split(' ');
+const C_LOADING_SYMBOLS = 
+"\
+⠍⠁ ⢋⠁ ⡋⠁ ⠍⠉ ⠋⠉ ⠋⠉ ⠉⠙ ⠉⠙ ⠉⠩ ⠈⢙ ⠈⡙ ⢈⠩ ⡀⢙ ⠄⡙ ⢂⠩ ⡂⢘ ⠅⡘ ⢃⠨ ⡃⢐ ⠍⡐ ⢋⠠ ⡋⢀ ⠍⡁ \
+⠍⠁ ⢋⠁ ⡋⠁ ⠍⠉ ⠋⠉ ⠋⠉ ⠉⠙ ⠉⠙ ⠉⠩ ⠈⢙ ⠈⡙ ⢈⠩ ⡀⢙ ⠄⡙ ⢂⠩ ⡂⢘ ⠅⡘ ⢃⠨ ⡃⢐ ⠍⡐ ⢋⠠ ⡋⢀ ⠍⡁".split(' ');
 
 // ! КОНЕЦ БЛОКА
 /*.............................................................................
@@ -210,8 +210,8 @@ async function F_LOADING_UPDATE() {
   const c_LoadingScreen = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("LOADING_SCREEN");
   for (let i = 0; i < C_LOADING_SYMBOLS.length; i++) {
     setTimeout(function () {
-      c_LoadingScreen.innerHTML = '<h1>' + C_LOADING_SYMBOLS[i] + '</h1>';
-    }, 30 * i);
+      c_LoadingScreen.innerHTML = '<h1>' + C_LOADING_SYMBOLS[i] + '</h1> Загрузка';
+    }, 20 * i);
   }
 }
 
@@ -671,7 +671,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     setTimeout(function () {
       const c_LoadingScreen = document.getElementById("LOADING_SCREEN");
       c_LoadingScreen.style.setProperty("opacity", "0");
-    }, 500);
+    }, 100);
     setTimeout(function () {
       const c_Hints = document.querySelectorAll(".HINT");
       c_Hints.forEach(i_Hint => {
