@@ -543,7 +543,7 @@ p.TEXT_ON_SCREEN {
 }
 
 .PAGE::before {
-  content: 'ф';
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
