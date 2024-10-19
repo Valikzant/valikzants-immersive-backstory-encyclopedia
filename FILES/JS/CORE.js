@@ -606,7 +606,6 @@ async function F_ON_LOAD_GENERATE_AND_SAVE_HUES(c_HuesFromHtml) {
 // Генерация цветов кнопок выбора темы
 async function F_ON_LOAD_GENERATE_AND_SAVE_THEMES(c_ThemesFromHtml) {
 
-  console.log('C_THEMES_FROM_HTML', c_ThemesFromHtml);
   L_THEMES = c_ThemesFromHtml;
 
   const c_ThemeChoosers = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(
