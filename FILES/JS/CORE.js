@@ -205,8 +205,6 @@ async function F_LOGO_UPDATE() {
 // Последовательное отображение символов загрузки внутри окна #LOADING_SCREEN
 async function F_LOADING_UPDATE() {
   const c_LoadingScreen = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("LOADING_SCREEN");
-  console.debug(c_LoadingScreen);
-  console.debug('loading symbols: ', C_LOADING_SYMBOLS);
   for (let i = 0; i < C_LOADING_SYMBOLS.length; i++) {
     setTimeout(function () {
       c_LoadingScreen.innerHTML = '<h1>' + C_LOADING_SYMBOLS[i] + '</h1>';
