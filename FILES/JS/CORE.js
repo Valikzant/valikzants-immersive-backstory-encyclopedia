@@ -77,7 +77,10 @@ const C_INTERFACE_MODIFIERS = [
 const C_SYMBOLS = "☰ ☱ ☲ ☳ ☴ ☵ ☶ ☷".split(' ');
 
 // Символы экрана загрузки
-const C_LOADING_SYMBOLS = "- = ≡ ☰ ✓".split(' ');
+const C_LOADING_SYMBOLS = "\
+⠁ ⠁ ⠁ ⠂ ⠂ ⠂ ⠄ ⠄ ⡀ ⡀ ⡀ ⠄ ⠂ ⠂ ⠁ \
+⠁ ⠁ ⠁ ⠂ ⠂ ⠂ ⠄ ⠄ ⡀ ⡀ ⠄ ⠂ ⠂ ⠁ ⠁ \
+⠁ ⠁ ⠁ ⠂ ⠂ ⠂ ⠄ ⠄ ⡀ ⡀ ⠄ ⠂ ⠂ ⠁ ⠁".split(' ');
 
 // ! КОНЕЦ БЛОКА
 /*.............................................................................
@@ -208,7 +211,7 @@ async function F_LOADING_UPDATE() {
   for (let i = 0; i < C_LOADING_SYMBOLS.length; i++) {
     setTimeout(function () {
       c_LoadingScreen.innerHTML = '<h1>' + C_LOADING_SYMBOLS[i] + '</h1>';
-    }, 80 * i);
+    }, 30 * i);
   }
 }
 
