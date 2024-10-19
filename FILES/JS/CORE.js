@@ -76,11 +76,33 @@ const C_INTERFACE_MODIFIERS = [
 // Символы Лого
 const C_SYMBOLS = "☰ ☱ ☲ ☳ ☴ ☵ ☶ ☷".split(' ');
 
+/*
+
+*/
+
 // Символы экрана загрузки
 const C_LOADING_SYMBOLS = 
 "\
-⠍⠁ ⢋⠁ ⡋⠁ ⠍⠉ ⠋⠉ ⠋⠉ ⠉⠙ ⠉⠙ ⠉⠩ ⠈⢙ ⠈⡙ ⢈⠩ ⡀⢙ ⠄⡙ ⢂⠩ ⡂⢘ ⠅⡘ ⢃⠨ ⡃⢐ ⠍⡐ ⢋⠠ ⡋⢀ ⠍⡁ \
-⠍⠁ ⢋⠁ ⡋⠁ ⠍⠉ ⠋⠉ ⠋⠉ ⠉⠙ ⠉⠙ ⠉⠩ ⠈⢙ ⠈⡙ ⢈⠩ ⡀⢙ ⠄⡙ ⢂⠩ ⡂⢘ ⠅⡘ ⢃⠨ ⡃⢐ ⠍⡐ ⢋⠠ ⡋⢀ ⠍⡁".split(' ');
+▰▱▱▱▱▱▱ \
+▰▰▱▱▱▱▱ \
+▱▰▰▱▱▱▱ \
+▱▱▰▰▱▱▱ \
+▱▱▱▰▰▱▱ \
+▱▱▱▱▰▰▱ \
+▱▱▱▱▱▰▰ \
+▱▱▱▱▱▱▰ \
+▱▱▱▱▱▱▱ \
+▱▱▱▱▱▱▱ \
+▰▱▱▱▱▱▱ \
+▰▰▱▱▱▱▱ \
+▱▰▰▱▱▱▱ \
+▱▱▰▰▱▱▱ \
+▱▱▱▰▰▱▱ \
+▱▱▱▱▰▰▱ \
+▱▱▱▱▱▰▰ \
+▱▱▱▱▱▱▰ \
+▱▱▱▱▱▱▱ \
+".split(' ');
 
 // ! КОНЕЦ БЛОКА
 /*.............................................................................
@@ -210,8 +232,8 @@ async function F_LOADING_UPDATE() {
   const c_LoadingScreen = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("LOADING_SCREEN");
   for (let i = 0; i < C_LOADING_SYMBOLS.length; i++) {
     setTimeout(function () {
-      c_LoadingScreen.innerHTML = '<h1>' + C_LOADING_SYMBOLS[i] + '</h1> Загрузка';
-    }, 20 * i);
+      c_LoadingScreen.innerHTML = '<h1 class="FANCY">' + C_LOADING_SYMBOLS[i] + '</h1>';
+    }, 50 * i);
   }
 }
 
