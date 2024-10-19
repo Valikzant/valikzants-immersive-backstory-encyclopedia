@@ -650,7 +650,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   setTimeout(function () {
     const c_LoadingScreen = document.getElementById("LOADING_SCREEN");
     c_LoadingScreen.style.setProperty("opacity", "0");
-  }, 100);
+  }, 700);
   setTimeout(function () {
     const c_Hints = document.querySelectorAll(".HINT");
     c_Hints.forEach(i_Hint => {
