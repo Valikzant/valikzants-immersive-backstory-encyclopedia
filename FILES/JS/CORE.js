@@ -572,7 +572,7 @@ async function F_ON_LOAD_GENERATE_AND_SAVE_HUES(c_HuesFromHtml) {
   );
 
   c_HueChoosers.forEach(function(i_HueChooser, I_) {
-    i_HueChooser.style.setProperty("background-color", 'rgb(' + C_HUES[I_]["hue"] + ')');
+    i_HueChooser.style.setProperty("background-color", 'rgb(' + L_HUES[I_]["hue"] + ')');
     I_ += 1;
   });
 
@@ -582,8 +582,10 @@ async function F_ON_LOAD_GENERATE_AND_SAVE_HUES(c_HuesFromHtml) {
 }
 
 // Генерация цветов кнопок выбора темы
-async function F_ON_LOAD_GENERATE_AND_SAVE_THEMES(C_THEMES_FROM_HTML) {
-  L_THEMES = C_THEMES_FROM_HTML;
+async function F_ON_LOAD_GENERATE_AND_SAVE_THEMES(c_ThemesFromHtml) {
+
+  console.log('C_THEMES_FROM_HTML', c_ThemesFromHtml);
+  L_THEMES = c_ThemesFromHtml;
 
   const c_ThemeChoosers = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(
     await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("THEME_CHOOSERS"), 
@@ -591,7 +593,7 @@ async function F_ON_LOAD_GENERATE_AND_SAVE_THEMES(C_THEMES_FROM_HTML) {
   );
 
   c_ThemeChoosers.forEach(function(i_ThemeChooser, I_) {
-    i_ThemeChooser.style.setProperty("background-color", 'rgb(' + C_THEMES[I_]["solid"] + ')');
+    i_ThemeChooser.style.setProperty("background-color", 'rgb(' + L_THEMES[I_]["solid"] + ')');
     I_ += 1;
   });
 
@@ -665,29 +667,26 @@ document.addEventListener('DOMContentLoaded', async function () {
     await F_SETTINGS_CHANGE_HINTS(await F_LOCAL_STORAGE_GET("hints"));
   }
 
-  window.onload = async function () {
-
-    // Завершение загрузки
-    setTimeout(function () {
-      const c_LoadingScreen = document.getElementById("LOADING_SCREEN");
-      c_LoadingScreen.style.setProperty("opacity", "0");
-    }, 100);
-    setTimeout(function () {
-      const c_Hints = document.querySelectorAll(".HINT");
-      c_Hints.forEach(i_Hint => {
-        i_Hint.style.setProperty("opacity", "0");
-      });
-    }, 1500);
-
-    const c_UnloadedBlocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".UNLOADED");
-    c_UnloadedBlocks.forEach(i_UnloadedBlock => {
-      setTimeout(function () {
-        i_UnloadedBlock.classList.remove("UNLOADED");
-      }, 100)
+  // Завершение загрузки
+  setTimeout(function () {
+    const c_LoadingScreen = document.getElementById("LOADING_SCREEN");
+    c_LoadingScreen.style.setProperty("opacity", "0");
+  }, 100);
+  setTimeout(function () {
+    const c_Hints = document.querySelectorAll(".HINT");
+    c_Hints.forEach(i_Hint => {
+      i_Hint.style.setProperty("opacity", "0");
     });
-  
-    F_LOADING_UPDATE();
-  }
+  }, 1500);
+
+  const c_UnloadedBlocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".UNLOADED");
+  c_UnloadedBlocks.forEach(i_UnloadedBlock => {
+    setTimeout(function () {
+      i_UnloadedBlock.classList.remove("UNLOADED");
+    }, 100)
+  });
+
+  F_LOADING_UPDATE();
 
 });
 
