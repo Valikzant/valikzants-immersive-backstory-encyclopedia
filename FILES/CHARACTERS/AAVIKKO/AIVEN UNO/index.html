@@ -6,7 +6,7 @@
   <title>V=I=B=E</title>
     <style>
     #LOADING_SCREEN {font-family: 'geologica'; position: fixed; margin: 0; padding: 0; top: 0; left: 0; width: 100%; height: 100%; font-size: 2em; z-index: 10; opacity: 1; transition: opacity var(--transition-fast); pointer-events: none; display: flex; flex-direction: column; align-items: center; justify-content: center;}
-    @media (screenorientation: portrait) { body { grid-template-rows: auto auto 1fr auto; grid-template-areas: "H H" "S S" "C C" "C C";} #SIDEBAR {flex-direction: row;}}
+    @media (screenorientation: portrait) { body { grid-template-rows: auto auto 1fr auto; grid-template-areas: "H H" "S S" "C C" "C C";}}
     .BLOCK.HIDDEN * {display: none !important;}
     .UNLOADED {display: none !important;}
     #FOOTER {grid-area: F;} #HEADER {grid-area: H;} #SIDEBAR {grid-area: S;} #THEMES, #SETTINGS, #AUTHOR, #CONTENT {grid-area: C;}
@@ -78,11 +78,13 @@
   <div id="TOOLTIP_HELP" class="BLOCK SPECIAL">Если вы видите это, то что-то пошло не так.</div>
 
   <div id="HEADER" class="BLOCK UNLOADED">
-    <div id="HEADER_BUTTON_GO_BACK" onclick="window.location.href='../index.html'" class="BUTTON INVISIBLE">
+    <div id="HEADER_BUTTON_GO_BACK" onclick="window.location.href='../index.html'" data-tooltip=
+    "Назад" class="BUTTON HEADER INVISIBLE">
       <div class="ICON">◀</div>
     </div>
     
-    <div id="HEADER_BUTTON_VIBE" onclick="window.location.href='../../../index.html'" class="BUTTON INVISIBLE">
+    <div id="HEADER_BUTTON_VIBE" onclick="window.location.href='../../../index.html'" data-tooltip=
+    "Главная страница" class="BUTTON HEADER INVISIBLE">
       <h1 id="HEADER_LOGO" class="FANCY">
         <div id="LOGO_CONSTANT_PART">V</div>
         <div id="LOGO_CHANGING_PART"></div>
@@ -96,16 +98,20 @@
 
     <div class="SPACER"></div>
 
-    <div onclick="F_TOGGLE_WINDOW_CONTENT()" id="HEADER_BUTTON_CONTENT" class="BUTTON INVISIBLE">
+    <div onclick="F_TOGGLE_WINDOW_CONTENT()" data-tooltip=
+    "Основной блок" class="BUTTON HEADER INVISIBLE">
       <div class="ICON">📄</div>
     </div>
-    <div onclick="F_TOGGLE_WINDOW_THEMES()" id="HEADER_BUTTON_THEMES" class="BUTTON INVISIBLE">
+    <div onclick="F_TOGGLE_WINDOW_THEMES()" data-tooltip=
+    "Кастомизация" class="BUTTON HEADER INVISIBLE">
       <div class="ICON">🎨</div>
     </div>
-    <div onclick="F_TOGGLE_WINDOW_SETTINGS()" id="HEADER_BUTTON_SETTINGS" class="BUTTON INVISIBLE">
+    <div onclick="F_TOGGLE_WINDOW_SETTINGS()" data-tooltip=
+    "Настройки" class="BUTTON HEADER INVISIBLE">
       <div class="ICON">⚙️</div>
     </div>
-    <div onclick="F_TOGGLE_WINDOW_AUTHOR()" id="HEADER_BUTTON_AUTHOR" class="BUTTON INVISIBLE">
+    <div onclick="F_TOGGLE_WINDOW_AUTHOR()" data-tooltip=
+    "Информация об авторе/странице" class="BUTTON HEADER INVISIBLE">
       <div class="ICON">👤</div>
     </div>
   </div>
@@ -1396,31 +1402,7 @@
     
     </div>
     
-    <div id="LAYOUT_CHOOSERS" class="BLOCK INNER">
 
-      <div class="BUTTON_HELP" data-tooltip=
-      "
-      Изменяет расположение элементов страницы.
-      <br><br>
-      По-умолчанию включен режим автоматической регулировки расположения.
-      <br><br>
-      Остальные позволяют выбрать расположение вручную между декстопом и мобильным.
-      <br><br>
-      При изменении размера/положения экрана расположение снова выбирается автоматически.
-      <br><br>
-      ">
-        <div class="ICON"> ❔ </div>
-      </div>
-
-      <div onclick="F_ON_EVENT_CHANGE_LAYOUT('desktop')" id="LAYOUT_CHOOSER_DESKTOP" class="BUTTON">
-        <div class="ICON">🖥️ </div>
-      </div>
-
-      <div onclick="F_ON_EVENT_CHANGE_LAYOUT('mobile')" id="LAYOUT_CHOOSER_MOBILE" class="BUTTON">
-        <div class="ICON">📱 </div>
-      </div>
-    
-    </div>
 
   </div>
 

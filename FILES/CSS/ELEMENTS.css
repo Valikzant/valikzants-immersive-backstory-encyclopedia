@@ -149,6 +149,7 @@ img {
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
 .BLOCK {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 10px;

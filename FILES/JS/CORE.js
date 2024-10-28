@@ -156,6 +156,7 @@ async function F_INTERACT_WITH_HTML_ENABLE_BUTTON_BY_ID(c_ElementId) {
 
 // Скролл к элементу по ID
 async function F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(c_ElementId) {
+  if (c_ElementId == null) {return;}
   const c_Content = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("CONTENT");
   const c_Element = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID(c_ElementId);
   setTimeout(() => {
@@ -233,7 +234,7 @@ async function F_LOADING_UPDATE() {
   for (let i = 0; i < C_LOADING_SYMBOLS.length; i++) {
     setTimeout(function () {
       c_LoadingScreen.innerHTML = '<h1 class="FANCY">' + C_LOADING_SYMBOLS[i] + '</h1>';
-    }, 50 * i);
+    }, 25 * i);
   }
 }
 
@@ -506,21 +507,17 @@ async function F_ON_EVENT_HIDE_TOOLTIP() {
 }
 
 // Изменение Layout
-async function F_ON_EVENT_CHANGE_LAYOUT(C_FORCE = null) {
+async function F_ON_EVENT_CHANGE_LAYOUT() {
   const c_SideBar = document.getElementById("SIDEBAR");
   if (c_SideBar == null) { return; }
   const c_Body = document.getElementById("body");
-  if (C_FORCE == "desktop" || window.innerWidth > 768) {
+  if (window.innerWidth > 768) {
     c_Body.style.setProperty("grid-template-rows", "auto 1fr auto");
     c_Body.style.setProperty("grid-template-areas", '"H H" "S C" "S С"');
-    await F_INTERACT_WITH_HTML_ENABLE_BUTTON_BY_ID("LAYOUT_CHOOSER_DESKTOP");
-    await F_INTERACT_WITH_HTML_DISABLE_BUTTON_BY_ID("LAYOUT_CHOOSER_MOBILE");
     c_SideBar.style.setProperty("flex-direction", "column");
   } else {
     c_Body.style.setProperty("grid-template-rows", "auto auto 1fr auto");
     c_Body.style.setProperty("grid-template-areas", '"H H" "S S" "C C" "C C"');
-    await F_INTERACT_WITH_HTML_ENABLE_BUTTON_BY_ID("LAYOUT_CHOOSER_MOBILE");
-    await F_INTERACT_WITH_HTML_DISABLE_BUTTON_BY_ID("LAYOUT_CHOOSER_DESKTOP");
     c_SideBar.style.setProperty("flex-direction", "row");
   }
 }
@@ -561,7 +558,7 @@ async function F_ON_EVENT_FIX_MODIFIERS() {
 async function F_ON_LOAD_SETUP_HINTS() {
   const c_HelpButtons = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(
     document, 
-    ".BUTTON_HELP , .BUTTON.SIDEBAR"
+    ".BUTTON_HELP , .BUTTON.SIDEBAR , .BUTTON.HEADER"
   )
   const c_HelpHints = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(
     document, 
