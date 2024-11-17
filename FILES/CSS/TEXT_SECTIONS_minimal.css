@@ -130,7 +130,7 @@
   font-family: "geologica";
   font-size: 0.75rem;
   z-index: 2;
-
+  color: rgb(var(--text));
 }
 .TEXT_BLOCK::before {
   content: "";
@@ -145,12 +145,91 @@
   content-visibility: visible;
 }
 
+* TEXT ENGRAVED      */
+
+.TEXT_BLOCK.ENGRAVED {
+  padding: 15px 15px 10px;
+
+  color: rgb(var(--text));
+}
+.TEXT_BLOCK.ENGRAVED p {
+  text-shadow: -1px -1px 0px rgb(var(--text), 0.5), -1px -1px 0px rgb(var(--dark-shadow)), -1px 1px 3px rgb(var(--dark-shadow));
+
+  font-size: 1.25em;
+}
+.TEXT_BLOCK.ENGRAVED::after {
+  content: "Гравировка на поверхности";
+}
+.TEXT_BLOCK.ENGRAVED::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0px;
+  left: 0px;
+
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    rgb(var(--light-shadow)),
+    rgb(var(--solid))
+  );
+}
+p.TEXT_ENGRAVED {
+  text-shadow: -1px -1px 0px rgb(var(--text), 0.5), -1px -1px 0px rgb(var(--dark-shadow)), -1px 1px 3px rgb(var(--dark-shadow));
+
+  font-size: 1.25em !important;
+}
+
+/* TEXT ENGRAVED LUXURY */
+
+.TEXT_BLOCK.ENGRAVED.LUXURY p {
+  font-family: "great_vibes";
+
+  text-shadow: -1px -1px 0px rgb(var(--text), 0.5), -1px -1px 0px rgb(var(--dark-shadow)), -1px 1px 3px rgb(var(--dark-shadow));
+
+  filter: sepia(100%);
+
+  font-weight: 400;
+
+  font-size: 2em;
+  line-height: 1;
+}
+.TEXT_BLOCK.ENGRAVED.LUXURY::after {
+  content: "Роскошная гравировка на поверхности";
+}
+.TEXT_BLOCK.ENGRAVED.LUXURY::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0px;
+  left: 0px;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgb(var(--light-shadow));
+
+  filter: sepia(100%);
+}
+p.TEXT_ENGRAVED_LUXURY {
+  font-family: "great_vibes" !important;
+
+  text-shadow: -1px -1px 0px rgb(var(--text), 0.5), -1px -1px 0px rgb(var(--dark-shadow)), -1px 1px 3px rgb(var(--dark-shadow));
+
+  font-weight: 400 !important;
+
+  font-size: 2em !important;
+  line-height: 1 !important;
+}
+
 /* TEXT PAPER         */
 
 .TEXT_BLOCK.PAPER {
   padding: 15px 15px 10px 25px;
-
-  ;
 }
 .TEXT_BLOCK.PAPER p {
   font-family: "Times New Roman", serif;
@@ -238,8 +317,6 @@ p.TEXT_VINTAGE {
 
 .TEXT_BLOCK.NEWSPAPER {
   padding: 15px 15px 10px 25px;
-
-  ;
 }
 .TEXT_BLOCK.NEWSPAPER p {
   font-family: "Times New Roman", serif;
@@ -303,8 +380,6 @@ p.TEXT_VINTAGE {
   text-shadow: 0 0 5px rgb(var(--light-shadow));
 
   padding: 15px 15px 10px;
-
-  ;
 
   background: rgb(var(--light-shadow));
 }

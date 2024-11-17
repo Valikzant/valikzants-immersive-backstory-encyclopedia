@@ -31,7 +31,7 @@
   font-weight: bold;
   font-size: 0.75rem;
   z-index: 2;
-
+  color: rgb(var(--text));
 }
 .TEXT_BLOCK::before {
   content: "";
@@ -44,6 +44,82 @@
 .TEXT_BLOCK.DEFAULT {
   padding: 0px;
   content-visibility: visible;
+}
+
+* TEXT ENGRAVED      */
+
+.TEXT_BLOCK.ENGRAVED {
+  padding: 15px 15px 10px;
+
+  color: rgb(var(--text));
+}
+.TEXT_BLOCK.ENGRAVED p {
+  font-size: 1.25em;
+}
+.TEXT_BLOCK.ENGRAVED::after {
+  content: "Гравировка на поверхности";
+}
+.TEXT_BLOCK.ENGRAVED::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0px;
+  left: 0px;
+
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    rgb(var(--light-shadow)),
+    rgb(var(--solid))
+  );
+}
+p.TEXT_ENGRAVED {
+  font-size: 1.25em !important;
+}
+
+/* TEXT ENGRAVED LUXURY */
+
+.TEXT_BLOCK.ENGRAVED.LUXURY {
+  outline: 2px solid rgb(var(--text), 0.25);
+}
+.TEXT_BLOCK.ENGRAVED.LUXURY p {
+  font-style: italic;
+
+  filter: sepia(100%);
+
+  font-weight: 400;
+
+  font-size: 1.5em;
+  line-height: 1;
+}
+.TEXT_BLOCK.ENGRAVED.LUXURY::after {
+  content: "Роскошная гравировка на поверхности";
+}
+.TEXT_BLOCK.ENGRAVED.LUXURY::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0px;
+  left: 0px;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgb(var(--light-shadow));
+
+  filter: sepia(100%);
+}
+p.TEXT_ENGRAVED_LUXURY {
+  font-style: italic;
+
+  font-weight: 400 !important;
+
+  font-size: 1.5em !important;
+  line-height: 1 !important;
 }
 
 /* TEXT PAPER         */

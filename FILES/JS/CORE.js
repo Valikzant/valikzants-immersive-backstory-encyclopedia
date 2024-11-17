@@ -194,6 +194,33 @@ async function F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(c_PageId = null, c_SidebarB
       }
       i_Page.classList.add("CLOSED");
     });
+  } else if (c_PageId == '-1' || c_PageId == '+1') {
+    // Проверяем какая по счёту незакрытая страница
+    let v_CurrentPageIndex = -1;
+    for (let i = 0; i < c_StoryPages.length; i++) {
+      if (!c_StoryPages[i].classList.contains("CLOSED")) {
+        v_CurrentPageIndex = i;
+        break;
+      }
+    }
+
+    // Определяем индекс следующей или предыдущей страницы
+    let v_NewPageIndex = c_PageId === '+1' ? v_CurrentPageIndex + 1 : v_CurrentPageIndex - 1;
+
+    // Проверяем, не вышли ли за границы массива
+    if (v_NewPageIndex >= 0 && v_NewPageIndex < c_StoryPages.length) {
+      c_StoryPages[v_CurrentPageIndex].classList.add("CLOSED");
+      c_StoryPages[v_NewPageIndex].classList.remove("CLOSED");
+      F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(c_StoryPages[v_NewPageIndex].id);
+      // Также смотрим сколько у нас кнопок сайдбара и по айди страницы делаем активным ту кнопку, которая по счету совпадает со страницой
+      c_SidebarButtons.forEach(i_Button => {
+        i_Button.classList.remove("ACTIVE");
+      });
+      c_SidebarButtons[v_NewPageIndex + 1].classList.add("ACTIVE");
+    }
+
+
+
   } else {
     c_StoryPages.forEach(i_Page => {
       if (i_Page.id == c_PageId) {
@@ -491,8 +518,8 @@ async function F_ON_EVENT_SHOW_TOOLTIP(event) {
   const { clientX: c_MouseX, clientY: c_MouseY } = event;
   const { innerWidth: c_ViewPortWidth, innerHeight: c_ViewPortHeight } = window;
   
-  const c_ToolTipX = (c_MouseX + 200 > c_ViewPortWidth) ? c_MouseX - 100 : c_MouseX;
-  const c_ToolTipY = (c_MouseY + 200 > c_ViewPortHeight) ? c_MouseY - 100 : c_MouseY;
+  const c_ToolTipX = (c_MouseX + 200 > c_ViewPortWidth) ? c_MouseX - 200 : c_MouseX;
+  const c_ToolTipY = (c_MouseY + 200 > c_ViewPortHeight) ? c_MouseY - 200 : c_MouseY;
 
   c_ToolTip.style.top = c_ToolTipY + "px";
   c_ToolTip.style.left = c_ToolTipX + "px";

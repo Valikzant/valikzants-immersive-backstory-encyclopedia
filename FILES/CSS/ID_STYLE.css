@@ -75,8 +75,9 @@
 }
 
 #SIDEBAR > * {
-  min-width: calc(var(--sides-size) * 3);
-  min-height: calc(var(--sides-size) * 3);
+  min-width: clamp(40px, calc(var(--sides-size) * 3), 180px);
+  
+  min-height: clamp(35px, calc(var(--sides-size) * 3), 180px);
 }
 
 /* ===================== */

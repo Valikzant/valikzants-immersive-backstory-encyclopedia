@@ -9,11 +9,11 @@ html {
 }
 
 * {
-  user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
+  user-select: none;
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
@@ -252,8 +252,31 @@ img {
   z-index: 4;
 }
 
+.BUTTON.PAGING {
+  position: absolute;
+  width: calc(var(--sides-size) * 4);
+  opacity: 0;
+  height: 100%;
+  z-index: 4;
+}
+.BUTTON.PAGING.NEXT {
+  right: 0;
+}
+.BUTTON.PAGING:hover {
+  opacity: 0.5;
+}
+
 .SPACER {
   flex-grow: 1;
+}
+
+.FILLER {
+  width: 50%;
+  height: 50%;
+}
+.FILLER.HALF {
+  width: 25%;
+  height: 25%;
 }
 
 .ICON {
