@@ -255,8 +255,8 @@
 }
 
 #CHARACTER_CARD_IMAGE {
-  width: clamp(0%, calc(var(--images-size) * 10), 400px);
-  height: clamp(0%, calc(var(--images-size) * 10), 400px);
+  width: calc(var(--images-size) * 10);
+  height: calc(var(--images-size) * 10);
   margin: 0 15px 15px 0;
   position: relative;
   float: left;

@@ -14,6 +14,8 @@ html {
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
+  scrollbar-color: rgb(var(--hue)) transparent;
+  scrollbar-width: thin;
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
