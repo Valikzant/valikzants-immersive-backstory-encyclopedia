@@ -652,7 +652,11 @@ async function F_ON_LOAD_GENERATE_AND_SAVE_THEMES(c_ThemesFromHtml) {
   });
 
   if (await F_LOCAL_STORAGE_GET("customization-saved") == 'false' || await F_LOCAL_STORAGE_GET("theme") == null) {
-    await F_CUSTOMIZATION_CHANGE_THEME(0);
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      await F_CUSTOMIZATION_CHANGE_THEME(0);
+    } else {
+      await F_CUSTOMIZATION_CHANGE_THEME(3);
+    }
   }
 }
 
@@ -702,7 +706,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   window.addEventListener("DOMContentLoaded", F_ON_LOAD_SETUP_HINTS);
   
   // Ставим при загрузке страницы значения в еще несуществующие переменные в памяти браузера
-  if (await F_LOCAL_STORAGE_GET("customization-saved") == null) { await F_LOCAL_STORAGE_SET("customization-saved", "true");}
+  if (await F_LOCAL_STORAGE_GET("customization-saved") == null) { await F_LOCAL_STORAGE_SET("customization-saved", "false");}
   if (await F_LOCAL_STORAGE_GET("animations") == null) { await F_LOCAL_STORAGE_SET("animations", "true");}
   if (await F_LOCAL_STORAGE_GET("hints") == null) { await F_LOCAL_STORAGE_SET("hints", "true");}
   if (await F_LOCAL_STORAGE_GET("font-modifier") == null) { await F_LOCAL_STORAGE_SET("font-modifier", 1);}
