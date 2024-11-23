@@ -46,6 +46,10 @@
   justify-content: space-between;
 }
 
+#HEADER_BUTTON_GO_BACK {
+  margin: 0px 10px 0px 0px;
+}
+
 #LOGO_CONSTANT_PART,
 #LOGO_CHANGING_PART {
   display: inline;

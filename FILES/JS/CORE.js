@@ -460,7 +460,7 @@ async function F_TOGGLE_WINDOW_THEMES() {
 
   const c_Blocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".BLOCK");
   c_Blocks.forEach(i_Block => {
-    if (i_Block.id == "CONTENT" || i_Block.id == "SETTINGS" || i_Block.id == "AUTHOR") {
+    if (i_Block.id == "CONTENT" || i_Block.id == "SETTINGS" || i_Block.id == "AUTHOR" || i_Block.id == "HELP") {
       if (!i_Block.classList.contains('HIDDEN')) {
         i_Block.classList.toggle('HIDDEN');
       }
@@ -481,7 +481,7 @@ async function F_TOGGLE_WINDOW_SETTINGS() {
 
   const c_Blocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".BLOCK");
   c_Blocks.forEach(i_Block => {
-    if (i_Block.id == "CONTENT" || i_Block.id == "THEMES" || i_Block.id == "AUTHOR") {
+    if (i_Block.id == "CONTENT" || i_Block.id == "THEMES" || i_Block.id == "AUTHOR" || i_Block.id == "HELP") {
       if (!i_Block.classList.contains('HIDDEN')) {
         i_Block.classList.toggle('HIDDEN');
       }
@@ -502,13 +502,34 @@ async function F_TOGGLE_WINDOW_AUTHOR() {
 
   const c_Blocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".BLOCK");
   c_Blocks.forEach(i_Block => {
-    if (i_Block.id == "CONTENT" || i_Block.id == "THEMES" || i_Block.id == "SETTINGS") {
+    if (i_Block.id == "CONTENT" || i_Block.id == "THEMES" || i_Block.id == "SETTINGS" || i_Block.id == "HELP") {
       if (!i_Block.classList.contains('HIDDEN')) {
         i_Block.classList.toggle('HIDDEN');
       }
     }
 
     if (i_Block.id == "AUTHOR") {
+      if (i_Block.classList.contains('HIDDEN')) {
+        i_Block.classList.toggle('HIDDEN');
+      }
+    }
+  });
+}
+
+// HELP
+async function F_TOGGLE_WINDOW_HELP() {
+  const c_Help = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("HELP");
+  c_Help.classList.toggle('HIDDEN');
+
+  const c_Blocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".BLOCK");
+  c_Blocks.forEach(i_Block => {
+    if (i_Block.id == "CONTENT" || i_Block.id == "THEMES" || i_Block.id == "SETTINGS" || i_Block.id == "AUTHOR") {
+      if (!i_Block.classList.contains('HIDDEN')) {
+        i_Block.classList.toggle('HIDDEN');
+      }
+    }
+
+    if (i_Block.id == "HELP") {
       if (i_Block.classList.contains('HIDDEN')) {
         i_Block.classList.toggle('HIDDEN');
       }
