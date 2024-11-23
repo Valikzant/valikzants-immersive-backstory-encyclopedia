@@ -197,7 +197,8 @@
   grid-template-rows: auto 1fr;
   grid-template-areas:
     "T T T T"
-    "C C C S";
+    "C C C C"
+    "S S S S";
 }
 
 #CHARACTER_INFORMATION_TITLE {
@@ -249,7 +250,7 @@
   display:inline;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-content:flex-start;
   align-items: center;
 }
 
@@ -273,12 +274,14 @@
 
 #CHARACTER_CARD_IMAGE p {
   position: absolute;
-  width: 80%;
-  height: 80%;
+  border-radius: 15px;
+  width: 90%;
+  height: 90%;
+  padding: 5px;
   overflow-y: auto;
   text-align: left;
-  top: 15px;
-  left: 15px;
+  top: 5px;
+  left: 5px;
 }
 
 #CHARACTER_CARD_IMAGE:hover {
@@ -347,25 +350,3 @@
 }
 
 /* ==================== */
-
-/* MEDIA QUERIES */
-@media (max-width: 1000px) {
-  #CHARACTER_INFORMATION {
-    grid-template-rows: auto auto auto;
-    grid-template-areas:
-      "T T T T"
-      "C C C C"
-      "S S S S";
-    gap: 5px;
-  }
-}
-
-@media (max-width: 480px) {
-  #CHARACTER_CARD_INFORMATION {
-    display: flex;
-  }
-
-  #CHARACTER_CARD_IMAGE {
-    margin: 0 0 15px 0;
-  }
-}
