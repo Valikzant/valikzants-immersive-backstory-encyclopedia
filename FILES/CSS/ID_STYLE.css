@@ -90,7 +90,8 @@
 #THEMES,
 #SETTINGS,
 #AUTHOR,
-#CONTENT {
+#CONTENT,
+#HELP {
   grid-area: C;
   margin: 5px;
   gap: 7.5px;
