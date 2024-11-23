@@ -255,8 +255,8 @@
 }
 
 #CHARACTER_CARD_IMAGE {
-  width: calc(var(--images-size) * 8);
-  height: calc(var(--images-size) * 8);
+  width: clamp(0%, calc(var(--images-size) * 10), 400px);
+  height: clamp(0%, calc(var(--images-size) * 10), 400px);
   margin: 0 15px 15px 0;
   position: relative;
   float: left;
@@ -311,9 +311,9 @@
 }
 
 #CHARACTERS_SLIDERS > * > * {
-  min-width: calc(var(--sides-size) * 13);
-  max-width: calc(var(--sides-size) * 13);
-  min-height: calc(var(--sides-size) * 14);
+  min-width: calc(var(--sides-size) * 15);
+  max-width: calc(var(--sides-size) * 15);
+  min-height: calc(var(--sides-size) * 17);
   max-height: 100%;
 }
 
@@ -350,3 +350,17 @@
 }
 
 /* ==================== */
+
+
+/* MEDIA QUERIES */
+
+
+@media (max-width: 480px) {
+  #CHARACTER_CARD_INFORMATION {
+    display: flex;
+  }
+
+  #CHARACTER_CARD_IMAGE {
+    margin: 0 0 15px 0;
+  }
+}
