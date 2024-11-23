@@ -219,8 +219,6 @@ async function F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(c_PageId = null, c_SidebarB
       c_SidebarButtons[v_NewPageIndex + 1].classList.add("ACTIVE");
     }
 
-
-
   } else {
     c_StoryPages.forEach(i_Page => {
       if (i_Page.id == c_PageId) {
@@ -230,6 +228,17 @@ async function F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(c_PageId = null, c_SidebarB
         i_Page.classList.add("CLOSED");
       }
     });
+  }
+}
+
+// Открытие и закрытие карточки персонажа
+async function F_INTERACT_WITH_HTML_OPEN_CLOSE_CHARACTER_CARD() {
+  const c_CharacterCard = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("CHARACTER_INFORMATION");
+  if (c_CharacterCard.classList.contains("HIDDEN")) {
+    c_CharacterCard.classList.remove("HIDDEN");
+    F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(c_CharacterCard.id);
+  } else {
+    c_CharacterCard.classList.add("HIDDEN");
   }
 }
 

@@ -190,9 +190,6 @@ img {
 .BLOCK.HIDDEN {
   opacity: 0;
   pointer-events: none;
-}
-
-.BLOCK.HIDDEN * {
   display: none !important;
 }
 

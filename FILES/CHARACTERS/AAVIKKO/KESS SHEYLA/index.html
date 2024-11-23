@@ -17,11 +17,11 @@
     #FOOTER {grid-area: F;} #HEADER {grid-area: H;} #SIDEBAR {grid-area: S;} #THEMES, #SETTINGS, #AUTHOR, #CONTENT {grid-area: C;}
     body {background-color: black;}
   </style>
-  <script src="../../../JS/CORE.js?v=update4.6"></script>
-  <link rel="stylesheet" href="../../../CSS/ELEMENTS.css?v=update4.6">
-  <link rel="stylesheet" id="ELEMENTS_STYLE_CSS_FILE" href="../../../CSS/ELEMENTS_STYLE_legacy.css?v=update4.6">
-  <link rel="preload" as="style" onload="this.rel='stylesheet'" href="../../../CSS/ID_STYLE.css?v=update4.6">
-  <link id="TEXT_BLOCKS_CSS_FILE" rel="stylesheet" href="../../../CSS/TEXT_SECTIONS_modern.css?v=update4.6">
+  <script src="../../../JS/CORE.js?v=update4.7"></script>
+  <link rel="stylesheet" href="../../../CSS/ELEMENTS.css?v=update4.7">
+  <link rel="stylesheet" id="ELEMENTS_STYLE_CSS_FILE" href="../../../CSS/ELEMENTS_STYLE_legacy.css?v=update4.7">
+  <link rel="preload" as="style" onload="this.rel='stylesheet'" href="../../../CSS/ID_STYLE.css?v=update4.7">
+  <link id="TEXT_BLOCKS_CSS_FILE" rel="stylesheet" href="../../../CSS/TEXT_SECTIONS_modern.css?v=update4.7">
 </head>
   <!-- СЕКЦИЯ НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ. /\ -->
 
@@ -137,10 +137,9 @@
 
   <div id="SIDEBAR" class="BLOCK UNLOADED">
     
-    <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(
-      'CHARACTER_INFORMATION')"
-      data-tooltip="Карточка персонажа">
-      <div class="ICON">▲</div>
+    <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_CHARACTER_CARD()" 
+      data-tooltip="Карточка персонажа (Скрыть/Раскрыть)"> 
+      <div class="ICON"> 👤 </div>
     </div>
     <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
     <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(
