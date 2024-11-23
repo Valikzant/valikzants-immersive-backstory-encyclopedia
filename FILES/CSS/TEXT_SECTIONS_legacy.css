@@ -46,7 +46,59 @@
   content-visibility: visible;
 }
 
-* TEXT ENGRAVED      */
+/* TEXT MESSAGE       */
+
+.TEXT_BLOCK.MESSAGE {
+  padding: 5px 10px 0px 10px;
+  margin: 20px 0px 15px 0px;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.TEXT_BLOCK.MESSAGE.MAIN span {
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.TEXT_BLOCK.MESSAGE.MAIN p:nth-child(1) {
+  top: -20px;
+  white-space: nowrap;
+  left: 0px;
+  position: absolute;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.TEXT_BLOCK.MESSAGE.SIDE span {
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.TEXT_BLOCK.MESSAGE.SIDE p:nth-child(1) {
+  top: -20px;
+  white-space: nowrap;
+  left: 0px;
+  position: absolute;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.TEXT_BLOCK.MESSAGE.SIDE {
+  border-left: 5px solid rgb(var(--text));
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  background: rgb(var(--light-shadow));
+}
+
+.TEXT_BLOCK.MESSAGE.MAIN {
+  border-left: 5px solid rgb(var(--hue));
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  background: rgb(var(--light-shadow));
+}
+
+/* TEXT ENGRAVED      */
 
 .TEXT_BLOCK.ENGRAVED {
   padding: 15px 15px 10px;
@@ -265,7 +317,7 @@ p.TEXT_VINTAGE {
 
 .TEXT_BLOCK.ON_SCREEN {
   text-shadow: 0 0 5px rgb(var(--light-shadow));
-
+  outline: 1px solid rgb(var(--hue));
   padding: 15px 15px 10px;
 
   background: rgb(var(--light-shadow));
@@ -388,7 +440,7 @@ p.TEXT_VINTAGE {
 
 .TEXT_BLOCK.AUTHOR_NOTE {
   padding: 15px 15px 10px;
-
+  outline: 1px solid rgb(var(--hue));
   background: rgb(var(--light-shadow));
 }
 .TEXT_BLOCK.AUTHOR_NOTE::after {
