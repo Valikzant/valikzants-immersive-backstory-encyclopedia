@@ -439,7 +439,7 @@ async function F_TOGGLE_WINDOW_CONTENT() {
 
   const c_Blocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".BLOCK");
   c_Blocks.forEach(i_Block => {
-    if (i_Block.id == "THEMES" || i_Block.id == "SETTINGS" || i_Block.id == "AUTHOR") {
+    if (i_Block.id == "THEMES" || i_Block.id == "SETTINGS" || i_Block.id == "AUTHOR" || i_Block.id == "HELP") {
       if (!i_Block.classList.contains('HIDDEN')) {
         i_Block.classList.toggle('HIDDEN');
       }

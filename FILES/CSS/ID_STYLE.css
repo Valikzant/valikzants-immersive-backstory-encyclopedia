@@ -76,11 +76,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+#SIDEBAR::-webkit-scrollbar {
+  display: none;
 }
 
 #SIDEBAR > * {
   min-width: clamp(40px, calc(var(--sides-size) * 3), 180px);
-  
   min-height: clamp(35px, calc(var(--sides-size) * 3), 180px);
 }
 
@@ -309,6 +314,7 @@
 #CHARACTERS_SLIDERS > * {
   overflow-x: auto;
   overflow-y: hidden;
+  scroll-snap-type: x mandatory;
   display: flex;
   flex-direction: row;
   margin: 5px 0 15px 0;
@@ -320,6 +326,7 @@
   max-width: calc(var(--sides-size) * 15);
   min-height: calc(var(--sides-size) * 17);
   max-height: 100%;
+  scroll-snap-align: start;
 }
 
 #CHARACTERS_SLIDERS > * > *:hover {
