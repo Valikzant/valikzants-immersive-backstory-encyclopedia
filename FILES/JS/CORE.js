@@ -584,7 +584,11 @@ async function F_ON_EVENT_FIX_MODIFIERS() {
 async function F_ON_LOAD_SETUP_HINTS() {
   const c_HelpButtons = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(
     document, 
-    ".BUTTON_HELP , .BUTTON.SIDEBAR , .BUTTON.HEADER"
+    ".BUTTON_HELP"
+  )
+  const c_HelpElements = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(
+    document,
+    ".BUTTON.SIDEBAR , .BUTTON.HEADER"
   )
   const c_HelpHints = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(
     document, 
@@ -599,12 +603,16 @@ async function F_ON_LOAD_SETUP_HINTS() {
     c_HelpHints.forEach(i_Hint => {
       i_Hint.style.display = "none";
     });
+  } else {
+    c_HelpElements.forEach(i_Button => {
+      i_Button.addEventListener("mouseenter", F_ON_EVENT_SHOW_TOOLTIP);
+      i_Button.addEventListener("mouseleave", F_ON_EVENT_HIDE_TOOLTIP);
+    });
+    c_HelpButtons.forEach(i_Button => {
+      i_Button.addEventListener("mouseenter", F_ON_EVENT_SHOW_TOOLTIP);
+      i_Button.addEventListener("mouseleave", F_ON_EVENT_HIDE_TOOLTIP);
+    });
   }
-
-  c_HelpButtons.forEach(i_Button => {
-    i_Button.addEventListener("mouseenter", F_ON_EVENT_SHOW_TOOLTIP);
-    i_Button.addEventListener("mouseleave", F_ON_EVENT_HIDE_TOOLTIP);
-  });
 }
 
 // Генерация цветов кнопок смены оттенков
@@ -686,15 +694,12 @@ document.addEventListener('DOMContentLoaded', async function () {
   // Добавление ивентов и интервалов функциям 
   setInterval(F_LOGO_UPDATE, 2000); 
   F_LOGO_UPDATE()
-
+  
   window.addEventListener("resize", F_ON_EVENT_CHANGE_LAYOUT);
   window.addEventListener("resize", F_ON_EVENT_FIX_MODIFIERS);
   window.addEventListener("orientationchange", F_ON_EVENT_CHANGE_LAYOUT);
   window.addEventListener("orientationchange", F_ON_EVENT_FIX_MODIFIERS);
-  window.addEventListener("DOMContentLoaded", F_ON_EVENT_FIX_MODIFIERS);
-  window.addEventListener("DOMContentLoaded", F_ON_EVENT_CHANGE_LAYOUT);
-  window.addEventListener("DOMContentLoaded", F_ON_LOAD_SETUP_HINTS);
-  
+
   // Ставим при загрузке страницы значения в еще несуществующие переменные в памяти браузера
   if (await F_LOCAL_STORAGE_GET("customization-saved") == null) { await F_LOCAL_STORAGE_SET("customization-saved", "false");}
   if (await F_LOCAL_STORAGE_GET("animations") == null) { await F_LOCAL_STORAGE_SET("animations", "true");}
@@ -720,27 +725,31 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES();
 
+  // При загрузки окон ...
   F_LOAD_WINDOW('THEMES').then(async () => {
-    if (await F_LOCAL_STORAGE_GET("classes-parameter") != null) {
-      await F_CUSTOMIZATION_CHANGE_CLASSES_FILE(await F_LOCAL_STORAGE_GET("classes-parameter"));
-    }
-    if (await F_LOCAL_STORAGE_GET("font-modifier") != null) {
-      await F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(await F_LOCAL_STORAGE_GET("font-modifier"));
-    }
-    if (await F_LOCAL_STORAGE_GET("interface-modifier") != null) {
-      await F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(await F_LOCAL_STORAGE_GET("interface-modifier"));
-    }
-  })
-  F_LOAD_WINDOW('SETTINGS').then(async () => {
-    if (await F_LOCAL_STORAGE_GET("customization-saved") != null) {
-      await F_SETTINGS_CHANGE_CUSTOMIZATION_SAVING(await F_LOCAL_STORAGE_GET("customization-saved"));
-    }
-    if (await F_LOCAL_STORAGE_GET("animations") != null) {
-      await F_SETTINGS_CHANGE_ANIMATIONS(await F_LOCAL_STORAGE_GET("animations"));
-    }
-    if (await F_LOCAL_STORAGE_GET("hints") != null) {
-      await F_SETTINGS_CHANGE_HINTS(await F_LOCAL_STORAGE_GET("hints"));
-    }
+    F_LOAD_WINDOW('SETTINGS').then(async () => {
+      if (await F_LOCAL_STORAGE_GET("classes-parameter") != null) {
+        await F_CUSTOMIZATION_CHANGE_CLASSES_FILE(await F_LOCAL_STORAGE_GET("classes-parameter"));
+      }
+      if (await F_LOCAL_STORAGE_GET("font-modifier") != null) {
+        await F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(await F_LOCAL_STORAGE_GET("font-modifier"));
+      }
+      if (await F_LOCAL_STORAGE_GET("interface-modifier") != null) {
+        await F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(await F_LOCAL_STORAGE_GET("interface-modifier"));
+      }
+      if (await F_LOCAL_STORAGE_GET("customization-saved") != null) {
+        await F_SETTINGS_CHANGE_CUSTOMIZATION_SAVING(await F_LOCAL_STORAGE_GET("customization-saved"));
+      }
+      if (await F_LOCAL_STORAGE_GET("animations") != null) {
+        await F_SETTINGS_CHANGE_ANIMATIONS(await F_LOCAL_STORAGE_GET("animations"));
+      }
+      if (await F_LOCAL_STORAGE_GET("hints") != null) {
+        await F_SETTINGS_CHANGE_HINTS(await F_LOCAL_STORAGE_GET("hints"));
+      }
+      F_ON_EVENT_FIX_MODIFIERS();
+      F_ON_LOAD_SETUP_HINTS();
+      F_ON_EVENT_CHANGE_LAYOUT();
+    })
   })
 
 });
