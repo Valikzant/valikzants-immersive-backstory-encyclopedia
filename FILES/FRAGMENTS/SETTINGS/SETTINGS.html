@@ -1,0 +1,83 @@
+<div id="SETTINGS" class="BLOCK HIDDEN">
+
+  <div class="BUTTON_HELP" data-tooltip=
+  "
+  Здесь Вы можете изменять основные настройки сайта.
+  <br><br>
+  Некоторые из опций могут увеличить производительность или поменять расположение элементов.
+  <br><br>
+  Эти настройки также сохраняются в памяти браузера (по возможности).
+  " >
+      <div class="ICON"> ❔ </div>
+  </div>
+
+  <h2 class="TITLE STATIONARY">Настройки</h2>
+
+  <div id="CUSTOMIZATION_SAVING_CHOOSERS" class="BLOCK INNER">
+
+    <div class="BUTTON_HELP" data-tooltip=
+    "
+    Включает или отключает сохранение цветов кастомизации страницы.
+    <br><br>
+    При включении ваши настройки игнорируют авторские.
+    <br><br>
+    Отключение удаляет сохранённые цвета и включает тему 'По умолчанию' от автора после перезагрузки.
+    <br><br>
+    Если снова включить сохранение, нестандартные настройки автора могут быть сохранены 
+    и использованы на других страницах.
+    ">
+      <div class="ICON"> ❔ </div>
+    </div>
+
+    <div onclick="F_SETTINGS_CHANGE_CUSTOMIZATION_SAVING('true')" id="CUSTOMIZATION_SAVING_CHOOSER_ON"class="BUTTON">
+      <div class="ICON"> ✔️🎨 </div>
+    </div>
+
+    <div onclick="F_SETTINGS_CHANGE_CUSTOMIZATION_SAVING('false')" id="CUSTOMIZATION_SAVING_CHOOSER_OFF" class="BUTTON">
+      <div class="ICON"> ✖️🎨 </div>
+    </div>
+
+  </div>
+
+  <div id="ANIMATION_TOGGLE_CHOOSERS" class="BLOCK INNER">
+
+    <div class="BUTTON_HELP" data-tooltip=
+    "
+    Позволяет включить или выключить анимации на сайте.
+    <br><br>
+    Отключение может увеличить производительность на слабых устройствах.
+    ">
+      <div class="ICON"> ❔ </div>
+    </div>
+
+    <div onclick="F_SETTINGS_CHANGE_ANIMATIONS('true')" id="ANIMATION_TOGGLE_CHOOSER_ON"class="BUTTON">
+      <div class="ICON"> ✔️🪄 </div>
+    </div>
+
+    <div onclick="F_SETTINGS_CHANGE_ANIMATIONS('false')" id="ANIMATION_TOGGLE_CHOOSER_OFF" class="BUTTON">
+      <div class="ICON"> ✖️🪄 </div>
+    </div>
+  
+  </div>
+
+  <div id="HINT_TOGGLE_CHOOSERS" class="BLOCK INNER">
+
+    <div class="BUTTON_HELP" data-tooltip=
+    "
+    Позволяет включить или выключить подсказки на страницах, включая эти. 
+    (После перезагрузки страницы)
+    ">
+      <div class="ICON"> ❔ </div>
+    </div>
+
+    <div onclick="F_SETTINGS_CHANGE_HINTS('true')" id="HINT_TOGGLE_CHOOSER_ON"class="BUTTON">
+      <div class="ICON"> ✔️❔ </div>
+    </div>
+
+    <div onclick="F_SETTINGS_CHANGE_HINTS('false')" id="HINT_TOGGLE_CHOOSER_OFF" class="BUTTON">
+      <div class="ICON"> ✖️❔ </div>
+    </div>
+  
+  </div>
+
+</div>

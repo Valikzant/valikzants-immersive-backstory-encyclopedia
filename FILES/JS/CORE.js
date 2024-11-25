@@ -57,6 +57,9 @@ var L_HUES = []
 // Темые получат цвета при подключении скрипта
 var L_THEMES = []
 
+// Корневой каталог
+const C_ROOT = '/valikzants-immersive-backstory-encyclopedia'
+
 // Модификаторы шрифта
 const C_FONT_MODIFIERS = [
   {"font-modifier": 0.8}, 
@@ -430,111 +433,77 @@ async function F_SETTINGS_CHANGE_HINTS(c_Mode) {
   }
 }
 
-// [ TOGGLE WINDOWS ]
+// [ WINDOWS MANIPULATION ]
 
-// CONTENT
-async function F_TOGGLE_WINDOW_CONTENT() {
-  const c_Content = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("CONTENT");
-  c_Content.classList.toggle('HIDDEN');
+// Показать окно
+async function F_TOGGLE_WINDOW(c_WindowId) {
+  const c_Window = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID(c_WindowId);
+  c_Window.classList.toggle('HIDDEN');
+
+  // Список блоков, которые нужно обрабатывать
+  const c_ValidIds = ["CONTENT", "THEMES", "SETTINGS", "AUTHOR", "HELP"];
 
   const c_Blocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".BLOCK");
   c_Blocks.forEach(i_Block => {
-    if (i_Block.id == "THEMES" || i_Block.id == "SETTINGS" || i_Block.id == "AUTHOR" || i_Block.id == "HELP") {
-      if (!i_Block.classList.contains('HIDDEN')) {
-        i_Block.classList.toggle('HIDDEN');
-      }
-    }
-
-    if (i_Block.id == "CONTENT") {
-      if (i_Block.classList.contains('HIDDEN')) {
-        i_Block.classList.toggle('HIDDEN');
+    // Проверяем, есть ли id блока в списке c_ValidIds
+    if (c_ValidIds.includes(i_Block.id)) {
+      if (i_Block.id !== c_WindowId) {
+        // Скрываем блоки, которые не являются целевыми
+        if (!i_Block.classList.contains('HIDDEN')) {
+          i_Block.classList.toggle('HIDDEN');
+        }
+      } else {
+        // Показываем целевой блок, если он скрыт
+        if (i_Block.classList.contains('HIDDEN')) {
+          i_Block.classList.toggle('HIDDEN');
+        }
       }
     }
   });
 }
 
-// THEMES 
-async function F_TOGGLE_WINDOW_THEMES() {
-  const c_Themes = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("THEMES");
-  c_Themes.classList.toggle('HIDDEN');
+// Загрузить окно
+async function F_LOAD_WINDOW(c_WindowId) {
+  const c_PreloaderId = `${c_WindowId}_PRELOADER`;
+  const c_Preloader = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID(c_PreloaderId);
 
-  const c_Blocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".BLOCK");
-  c_Blocks.forEach(i_Block => {
-    if (i_Block.id == "CONTENT" || i_Block.id == "SETTINGS" || i_Block.id == "AUTHOR" || i_Block.id == "HELP") {
-      if (!i_Block.classList.contains('HIDDEN')) {
-        i_Block.classList.toggle('HIDDEN');
-      }
-    }
+  if (c_Preloader) {
+    
+    const c_FilePath = `${C_ROOT}/FILES/FRAGMENTS/${c_WindowId}/${c_WindowId}.html`;
 
-    if (i_Block.id == "THEMES") {
-      if (i_Block.classList.contains('HIDDEN')) {
-        i_Block.classList.toggle('HIDDEN');
+    try {
+      const r_Response = await fetch(c_FilePath);
+      if (!r_Response.ok) {
+        throw new Error(`Ошибка загрузки файла: ${r_Response.statusText}`);
       }
+      const c_Data = await r_Response.text();
+      const c_TempDiv = document.createElement('div');
+      c_TempDiv.innerHTML = c_Data;
+      c_Preloader.replaceWith(...c_TempDiv.childNodes);
+    } catch (e_Error) {
+      e_Error = `Ошибка загрузки блока ${c_WindowId}: ${e_Error}`
+      console.error(e_Error);
+      F_SHOW_WARNING(e_Error)
     }
-  });
+  }
 }
 
-// SETTINGS
-async function F_TOGGLE_WINDOW_SETTINGS() {
-  const c_Settings = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("SETTINGS");
-  c_Settings.classList.toggle('HIDDEN');
+// Показать предупреждение
+async function F_SHOW_WARNING(c_Text) {
+  const c_WarningWindow = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("WARNING");
 
-  const c_Blocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".BLOCK");
-  c_Blocks.forEach(i_Block => {
-    if (i_Block.id == "CONTENT" || i_Block.id == "THEMES" || i_Block.id == "AUTHOR" || i_Block.id == "HELP") {
-      if (!i_Block.classList.contains('HIDDEN')) {
-        i_Block.classList.toggle('HIDDEN');
-      }
-    }
+  if (c_WarningWindow.classList.contains('HIDDEN')) {
+    c_WarningWindow.classList.toggle('HIDDEN');
+  }
 
-    if (i_Block.id == "SETTINGS") {
-      if (i_Block.classList.contains('HIDDEN')) {
-        i_Block.classList.toggle('HIDDEN');
-      }
-    } 
-  });
-}
+  const c_WarningText = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(c_WarningWindow, "p")
+  c_WarningText[0].innerHTML = c_Text
 
-// AUTHOR
-async function F_TOGGLE_WINDOW_AUTHOR() {
-  const c_Author = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("AUTHOR");
-  c_Author.classList.toggle('HIDDEN');
-
-  const c_Blocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".BLOCK");
-  c_Blocks.forEach(i_Block => {
-    if (i_Block.id == "CONTENT" || i_Block.id == "THEMES" || i_Block.id == "SETTINGS" || i_Block.id == "HELP") {
-      if (!i_Block.classList.contains('HIDDEN')) {
-        i_Block.classList.toggle('HIDDEN');
-      }
-    }
-
-    if (i_Block.id == "AUTHOR") {
-      if (i_Block.classList.contains('HIDDEN')) {
-        i_Block.classList.toggle('HIDDEN');
-      }
-    }
-  });
-}
-
-// HELP
-async function F_TOGGLE_WINDOW_HELP() {
-  const c_Help = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("HELP");
-  c_Help.classList.toggle('HIDDEN');
-
-  const c_Blocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".BLOCK");
-  c_Blocks.forEach(i_Block => {
-    if (i_Block.id == "CONTENT" || i_Block.id == "THEMES" || i_Block.id == "SETTINGS" || i_Block.id == "AUTHOR") {
-      if (!i_Block.classList.contains('HIDDEN')) {
-        i_Block.classList.toggle('HIDDEN');
-      }
-    }
-
-    if (i_Block.id == "HELP") {
-      if (i_Block.classList.contains('HIDDEN')) {
-        i_Block.classList.toggle('HIDDEN');
-      }
-    }
-  });
+  if (!c_WarningWindow.classList.contains('HIDDEN')) {
+    setTimeout(async () => {
+      c_WarningWindow.classList.toggle('HIDDEN')
+    }, 10000);
+  }
 }
 
 // [ ON EVENT ]
@@ -751,24 +720,28 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES();
 
-  if (await F_LOCAL_STORAGE_GET("classes-parameter") != null) {
-    await F_CUSTOMIZATION_CHANGE_CLASSES_FILE(await F_LOCAL_STORAGE_GET("classes-parameter"));
-  }
-  if (await F_LOCAL_STORAGE_GET("font-modifier") != null) {
-    await F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(await F_LOCAL_STORAGE_GET("font-modifier"));
-  }
-  if (await F_LOCAL_STORAGE_GET("interface-modifier") != null) {
-    await F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(await F_LOCAL_STORAGE_GET("interface-modifier"));
-  }
-  if (await F_LOCAL_STORAGE_GET("customization-saved") != null) {
-    await F_SETTINGS_CHANGE_CUSTOMIZATION_SAVING(await F_LOCAL_STORAGE_GET("customization-saved"));
-  }
-  if (await F_LOCAL_STORAGE_GET("animations") != null) {
-    await F_SETTINGS_CHANGE_ANIMATIONS(await F_LOCAL_STORAGE_GET("animations"));
-  }
-  if (await F_LOCAL_STORAGE_GET("hints") != null) {
-    await F_SETTINGS_CHANGE_HINTS(await F_LOCAL_STORAGE_GET("hints"));
-  }
+  F_LOAD_WINDOW('THEMES').then(async () => {
+    if (await F_LOCAL_STORAGE_GET("classes-parameter") != null) {
+      await F_CUSTOMIZATION_CHANGE_CLASSES_FILE(await F_LOCAL_STORAGE_GET("classes-parameter"));
+    }
+    if (await F_LOCAL_STORAGE_GET("font-modifier") != null) {
+      await F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(await F_LOCAL_STORAGE_GET("font-modifier"));
+    }
+    if (await F_LOCAL_STORAGE_GET("interface-modifier") != null) {
+      await F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(await F_LOCAL_STORAGE_GET("interface-modifier"));
+    }
+  })
+  F_LOAD_WINDOW('SETTINGS').then(async () => {
+    if (await F_LOCAL_STORAGE_GET("customization-saved") != null) {
+      await F_SETTINGS_CHANGE_CUSTOMIZATION_SAVING(await F_LOCAL_STORAGE_GET("customization-saved"));
+    }
+    if (await F_LOCAL_STORAGE_GET("animations") != null) {
+      await F_SETTINGS_CHANGE_ANIMATIONS(await F_LOCAL_STORAGE_GET("animations"));
+    }
+    if (await F_LOCAL_STORAGE_GET("hints") != null) {
+      await F_SETTINGS_CHANGE_HINTS(await F_LOCAL_STORAGE_GET("hints"));
+    }
+  })
 
 });
 

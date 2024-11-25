@@ -1,0 +1,143 @@
+<div id="THEMES" class="BLOCK HIDDEN">
+    
+  <div class="BUTTON_HELP" data-tooltip=
+  "
+  Здесь Вы можете настраивать внешний вид страницы, который сохраняется в локальном
+  хранилище вашего браузера (если не запрещено браузером).
+  <br><br>
+  Настройки хранятся и позже восстанавливаются при загрузке страницы.
+  <br><br>
+  При отключенной функции сохранения кастомизации (в настройках) будет загружена
+  кастомизация по умолчанию от автора страницы.
+  " >
+      <div class="ICON"> ❔ </div>
+  </div>
+
+  <h2 class="TITLE INVISIBLE">Кастомизация</h2>
+
+  <div id="HUE_CHOOSERS" class="BLOCK INNER SPECIAL">
+
+    <div class="BUTTON_HELP" data-tooltip=
+    "
+    Изменяет цвет специальных элементов, такие как: Кнопки, Выделенные блоки, Активные элементы, и другие.
+    <br><br>
+    Эти настройки могут быть изменены автором и отличаться от стандартных.
+    <br><br>
+    Стандартные настройки всегда доступны на главной странице сайта.
+    ">
+      <div class="ICON"> ❔ </div>
+    </div>
+
+    <div onclick="F_CUSTOMIZATION_CHANGE_HUE(0)" style="background-color: rgb(248, 56, 56);" id="HUE_CHOOSER_RED" class="BUTTON"></div>
+    <div onclick="F_CUSTOMIZATION_CHANGE_HUE(1)" style="background-color: rgb(255, 101, 0);" id="HUE_CHOOSER_ORANGE" class="BUTTON"></div>
+    <div onclick="F_CUSTOMIZATION_CHANGE_HUE(2)" style="background-color: rgb(234, 143, 0);" id="HUE_CHOOSER_DARK_ORANGE" class="BUTTON"></div>
+    <div onclick="F_CUSTOMIZATION_CHANGE_HUE(3)" style="background-color: rgb(255, 255, 0);" id="HUE_CHOOSER_YELLOW" class="BUTTON"></div>
+    <div onclick="F_CUSTOMIZATION_CHANGE_HUE(4)" style="background-color: rgb(100, 184, 0);" id="HUE_CHOOSER_GREEN" class="BUTTON"></div>
+    <div onclick="F_CUSTOMIZATION_CHANGE_HUE(5)" style="background-color: rgb(0, 235, 235);" id="HUE_CHOOSER_CYAN" class="BUTTON"></div>
+    <div onclick="F_CUSTOMIZATION_CHANGE_HUE(6)" style="background-color: rgb(0, 145, 255);" id="HUE_CHOOSER_BLUE" class="BUTTON"></div>
+    <div onclick="F_CUSTOMIZATION_CHANGE_HUE(7)" style="background-color: rgb(135, 94, 255);" id="HUE_CHOOSER_PURPLE" class="BUTTON"></div>
+  </div>
+
+  <div id="THEME_CHOOSERS" class="BLOCK INNER">
+
+    <div class="BUTTON_HELP" data-tooltip=
+    "
+    Изменяет цвет заднего фона основных элементов.
+    <br><br>
+    Эти настройки могут быть изменены автором и отличаться от стандартных.
+    <br><br>
+    Стандартные настройки всегда доступны на главной странице сайта.
+    ">
+      <div class="ICON"> ❔ </div>
+    </div>
+
+    <div onclick="F_CUSTOMIZATION_CHANGE_THEME(0)" style="background-color: rgb(50, 50, 50);" id="THEME_CHOOSER_DARK" class="BUTTON"></div>
+    <div onclick="F_CUSTOMIZATION_CHANGE_THEME(1)" style="background-color: rgb(180, 180, 180);" id="THEME_CHOOSER_LIGHT" class="BUTTON"></div>
+    <div onclick="F_CUSTOMIZATION_CHANGE_THEME(2)" style="background-color: rgb(0, 0, 0);" id="THEME_CHOOSER_VOID" class="BUTTON"></div>
+    <div onclick="F_CUSTOMIZATION_CHANGE_THEME(3)" style="background-color: rgb(255, 255, 255);" id="THEME_CHOOSER_HEAVEN" class="BUTTON"></div>
+
+  </div>
+
+  <div id="FONT_SIZE_CHOOSERS" class="BLOCK INNER">
+
+    <div class="BUTTON_HELP" data-tooltip=
+    "
+    Изменяет размер шрифта. (Не касается текста в этих кнопках)
+    ">
+      <div class="ICON"> ❔ </div>
+    </div>
+
+    <div onclick="F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(0)" style="font-size: 9px;" id="FONT_SIZE_CHOOSER_SMALL" class="BUTTON">
+      <p>Т</p>
+    </div>
+
+    <div onclick="F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(1)" style="font-size: 11px;" id="FONT_SIZE_CHOOSER_MEDIUM" class="BUTTON">
+      <p>Т</p>
+    </div>
+
+    <div onclick="F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(2)" style="font-size: 13px;" id="FONT_SIZE_CHOOSER_LARGE" class="BUTTON">
+      <p>Т</p>
+    </div>
+
+    <div onclick="F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(3)" style="font-size: 15px;" id="FONT_SIZE_CHOOSER_HUGE" class="BUTTON">
+      <p>Т</p>
+    </div>
+  </div>
+
+  <div id="INTERFACE_SIZE_CHOOSERS" class="BLOCK INNER">
+
+    <div class="BUTTON_HELP" data-tooltip=
+    "
+    Изменяет размер интерфейса по возможности размеров экрана.
+    <br><br>
+    Неподходящие размерам настройки автоматически недоступны.
+    ">
+      <div class="ICON"> ❔ </div>
+    </div>
+
+    <div onclick="F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(0)" style="font-size: 9px;" id="INTERFACE_SIZE_CHOOSER_SMALL" class="BUTTON">
+      <p>UI</p>
+    </div>
+
+    <div onclick="F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(1)" style="font-size: 11px;" id="INTERFACE_SIZE_CHOOSER_MEDIUM" class="BUTTON">
+      <p>UI</p>
+    </div>
+
+    <div onclick="F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(2)" style="font-size: 13px;" id="INTERFACE_SIZE_CHOOSER_LARGE" class="BUTTON">
+      <p>UI</p>
+    </div>
+
+    <div onclick="F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(3)" style="font-size: 15px;" id="INTERFACE_SIZE_CHOOSER_HUGE" class="BUTTON">
+      <p>UI</p>
+    </div>
+
+  </div>
+
+  <div id="CLASSES_STYLE_CHOOSERS" class="BLOCK INNER">
+
+    <div class="BUTTON_HELP" data-tooltip=
+    "
+    Позволяет выбрать тип стиля интерфейса. От модерн(современного) до легаси(производительного).
+    ">
+      <div class="ICON"> ❔ </div>
+    </div>
+
+    <div onclick="F_CUSTOMIZATION_CHANGE_CLASSES_FILE('modern')" style="font-size: 15px;" id="CLASSES_STYLE_CHOOSER_MODERN" class="BUTTON">
+      <p>Модерн</p>
+    </div>
+
+    <div onclick="F_CUSTOMIZATION_CHANGE_CLASSES_FILE('simple')" style="font-size: 15px;" id="CLASSES_STYLE_CHOOSER_SIMPLE" class="BUTTON">
+      <p>Простой</p>
+    </div>
+
+    <div onclick="F_CUSTOMIZATION_CHANGE_CLASSES_FILE('minimal')" style="font-size: 15px;" id="CLASSES_STYLE_CHOOSER_MINIMAL" class="BUTTON">
+      <p>Минимал</p>
+    </div>
+
+    <div onclick="F_CUSTOMIZATION_CHANGE_CLASSES_FILE('legacy')" style="font-size: 15px;" id="CLASSES_STYLE_CHOOSER_LEGACY" class="BUTTON">
+      <p>Легаси</p>
+    </div>
+
+  </div>
+
+</div>
