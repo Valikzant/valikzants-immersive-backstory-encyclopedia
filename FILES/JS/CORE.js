@@ -432,20 +432,65 @@ async function F_SETTINGS_CHANGE_HINTS(c_Mode) {
 
 // [ TOGGLE WINDOWS ]
 
-// CONTENT
-async function F_TOGGLE_WINDOW_CONTENT() {
-  const c_Content = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("CONTENT");
-  c_Content.classList.toggle('HIDDEN');
+// LOAD TO PRELOAD
+async function F_LOAD_WINDOW(c_WindowId) {
+  const c_PreloaderId = `${c_WindowId}_PRELOADER`;
+  const c_Preloader = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID(c_PreloaderId);
+
+  if (c_Preloader) {
+    // Формируем путь к файлу на основе c_WindowId
+    const c_FilePath = `/FILES/FRAGMENTS/${c_WindowId}/${c_WindowId}.html`;
+
+    try {
+      const r_Response = await fetch(c_FilePath);
+      if (!r_Response.ok) {
+        throw new Error(`Ошибка загрузки файла: ${r_Response.statusText}`);
+      }
+      const c_Data = await r_Response.text();
+      const c_TempDiv = document.createElement('div');
+      c_TempDiv.innerHTML = c_Data;
+      c_Preloader.replaceWith(...c_TempDiv.childNodes);
+    } catch (e_Error) {
+      e_Error = `Ошибка загрузки блока ${c_WindowId}: ${e_Error}`
+      console.error(e_Error);
+      F_SHOW_WARNING(e_Error)
+    }
+    // Настройка подсказок
+    const c_HelpButtons = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(
+      await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID(c_WindowId), 
+      ".BUTTON_HELP"
+    )
+
+    if (await F_LOCAL_STORAGE_GET("hints") == "false") {
+      c_HelpButtons.forEach(i_Button => {
+        i_Button.style.display = "none";
+      });
+    }
+
+    c_HelpButtons.forEach(i_Button => {
+      i_Button.addEventListener("mouseenter", F_ON_EVENT_SHOW_TOOLTIP);
+      i_Button.addEventListener("mouseleave", F_ON_EVENT_HIDE_TOOLTIP);
+    });
+  }
+}
+
+// TOGGLE
+async function F_TOGGLE_WINDOW(c_WindowId) {
+  await F_LOAD_WINDOW(c_WindowId)
 
   const c_Blocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".BLOCK");
-  c_Blocks.forEach(i_Block => {
-    if (i_Block.id == "THEMES" || i_Block.id == "SETTINGS" || i_Block.id == "AUTHOR" || i_Block.id == "HELP") {
+  const c_AllWindowIds = ["CONTENT", "THEMES", "SETTINGS", "AUTHOR", "HELP"];
+  
+  c_Blocks.forEach(async (i_Block) => {
+    // Скрываем все окна, кроме целевого
+    if (c_AllWindowIds.includes(i_Block.id) && i_Block.id !== c_WindowId) {
       if (!i_Block.classList.contains('HIDDEN')) {
         i_Block.classList.toggle('HIDDEN');
       }
     }
 
-    if (i_Block.id == "CONTENT") {
+    // Показываем целевое окно, если оно скрыто
+    if (i_Block.id === c_WindowId) {
       if (i_Block.classList.contains('HIDDEN')) {
         i_Block.classList.toggle('HIDDEN');
       }
@@ -453,88 +498,22 @@ async function F_TOGGLE_WINDOW_CONTENT() {
   });
 }
 
-// THEMES 
-async function F_TOGGLE_WINDOW_THEMES() {
-  const c_Themes = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("THEMES");
-  c_Themes.classList.toggle('HIDDEN');
+// SHOW WARNING
+async function F_SHOW_WARNING(c_Text) {
+  const c_WarningWindow = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("WARNING");
 
-  const c_Blocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".BLOCK");
-  c_Blocks.forEach(i_Block => {
-    if (i_Block.id == "CONTENT" || i_Block.id == "SETTINGS" || i_Block.id == "AUTHOR" || i_Block.id == "HELP") {
-      if (!i_Block.classList.contains('HIDDEN')) {
-        i_Block.classList.toggle('HIDDEN');
-      }
-    }
+  if (c_WarningWindow.classList.contains('HIDDEN')) {
+    c_WarningWindow.classList.toggle('HIDDEN');
+  }
 
-    if (i_Block.id == "THEMES") {
-      if (i_Block.classList.contains('HIDDEN')) {
-        i_Block.classList.toggle('HIDDEN');
-      }
-    }
-  });
-}
+  const c_WarningText = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(c_WarningWindow, "p")
+  c_WarningText[0].innerHTML = c_Text
 
-// SETTINGS
-async function F_TOGGLE_WINDOW_SETTINGS() {
-  const c_Settings = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("SETTINGS");
-  c_Settings.classList.toggle('HIDDEN');
-
-  const c_Blocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".BLOCK");
-  c_Blocks.forEach(i_Block => {
-    if (i_Block.id == "CONTENT" || i_Block.id == "THEMES" || i_Block.id == "AUTHOR" || i_Block.id == "HELP") {
-      if (!i_Block.classList.contains('HIDDEN')) {
-        i_Block.classList.toggle('HIDDEN');
-      }
-    }
-
-    if (i_Block.id == "SETTINGS") {
-      if (i_Block.classList.contains('HIDDEN')) {
-        i_Block.classList.toggle('HIDDEN');
-      }
-    } 
-  });
-}
-
-// AUTHOR
-async function F_TOGGLE_WINDOW_AUTHOR() {
-  const c_Author = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("AUTHOR");
-  c_Author.classList.toggle('HIDDEN');
-
-  const c_Blocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".BLOCK");
-  c_Blocks.forEach(i_Block => {
-    if (i_Block.id == "CONTENT" || i_Block.id == "THEMES" || i_Block.id == "SETTINGS" || i_Block.id == "HELP") {
-      if (!i_Block.classList.contains('HIDDEN')) {
-        i_Block.classList.toggle('HIDDEN');
-      }
-    }
-
-    if (i_Block.id == "AUTHOR") {
-      if (i_Block.classList.contains('HIDDEN')) {
-        i_Block.classList.toggle('HIDDEN');
-      }
-    }
-  });
-}
-
-// HELP
-async function F_TOGGLE_WINDOW_HELP() {
-  const c_Help = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("HELP");
-  c_Help.classList.toggle('HIDDEN');
-
-  const c_Blocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".BLOCK");
-  c_Blocks.forEach(i_Block => {
-    if (i_Block.id == "CONTENT" || i_Block.id == "THEMES" || i_Block.id == "SETTINGS" || i_Block.id == "AUTHOR") {
-      if (!i_Block.classList.contains('HIDDEN')) {
-        i_Block.classList.toggle('HIDDEN');
-      }
-    }
-
-    if (i_Block.id == "HELP") {
-      if (i_Block.classList.contains('HIDDEN')) {
-        i_Block.classList.toggle('HIDDEN');
-      }
-    }
-  });
+  if (!c_WarningWindow.classList.contains('HIDDEN')) {
+    setTimeout(async () => {
+      c_WarningWindow.classList.toggle('HIDDEN')
+    }, 10000);
+  }
 }
 
 // [ ON EVENT ]
