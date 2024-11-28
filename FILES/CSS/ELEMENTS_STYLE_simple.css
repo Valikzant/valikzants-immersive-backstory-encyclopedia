@@ -13,8 +13,8 @@
 /* ! НАЧАЛО БЛОКА */
 body {
   font-family: "geologica";
-  background-color: rgb(var(--solid));
-  color: rgb(var(--text));
+  background: rgb(var(--color-solid));
+  color: rgb(var(--color-text));
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
@@ -26,27 +26,24 @@ h2.FANCY,
 h3.FANCY {
   color: transparent;
   text-shadow: 
-  0.5px 0.5px 0px rgb(var(--hue)),
-  -0.55px -0.95px 0px rgb(var(--text)),
-  0.9px 0.9px 0px rgb(var(--dark-shadow));
+  0.5px 0.5px 0px rgb(var(--color-accent)),
+  -0.55px -0.95px 0px rgb(var(--color-text));
 }
 
 h1.TITLE,
 h2.TITLE,
 h3.TITLE {
-  transition: box-shadow var(--transition-fast),
-    background-color var(--transition-fast);
 
 }
 
 h1.HINT,
 h2.HINT,
 h3.HINT {
-  transition: opacity var(--transition-fast);
+  
 }
 
 a {
-  color: rgb(var(--hue));
+  color: rgb(var(--color-accent));
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
@@ -62,15 +59,13 @@ img {
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
 .BLOCK {
-  background-color: rgb(var(--solid));
   border-radius: 15px;
-  transition: transform var(--transition-fast),
-    background-color var(--transition-fast);
-  outline: 1px solid rgba(var(--text), 0.05);
+  outline: 1px solid rgba(var(--color-text), 0.05);
 }
 
 .BLOCK.INNER {
-  outline: 1px solid rgba(var(--text), 0.05);
+  background: rgb(var(--color-solid));
+  outline: 1px solid rgba(var(--color-text), 0.05);
 }
 
 .BLOCK.INNER.IMAGE {
@@ -79,9 +74,9 @@ img {
 
 .BLOCK.SPECIAL {
   background: 
-  linear-gradient(to right, rgb(var(--hue), 0.1) 0%, rgb(var(--hue), 0.1) 100%),
-  linear-gradient(to right, rgb(var(--solid)), rgb(var(--solid)));
-  outline: 1px solid rgba(var(--hue), 0.5);
+  linear-gradient(to right, rgb(var(--color-accent), 0.1) 0%, rgb(var(--color-accent), 0.1) 100%),
+  linear-gradient(to right, rgb(var(--color-solid)), rgb(var(--color-solid)));
+  outline: 1px solid rgba(var(--color-accent), 0.5);
 }
 
 .BLOCK.HIDDEN {
@@ -90,25 +85,24 @@ img {
 
 .BUTTON {
   background: 
-  rgb(var(--solid));
+  rgb(var(--color-solid));
   border-radius: 15px;
-  transition: opacity var(--transition-fast), transform var(--transition-fast);
-  outline: 1px solid rgba(var(--text), 0.075);
+  transition: transform var(--transition-fast);
+  outline: 1px solid rgba(var(--color-text), 0.075);
 }
 
 .BUTTON.ACTIVE {
-  background: rgba(var(--hue),0.15);
-  border-left: 1px solid rgba(var(--hue), 0.25);
-  border-bottom: 1px solid rgba(var(--hue), 0.35);
-  border-right: 1px solid rgba(var(--text), 0.1);
-  border-top: 1px solid rgba(var(--text), 0.1);
+  background: rgba(var(--color-accent),0.15);
+  border-left: 1px solid rgba(var(--color-accent), 0.25);
+  border-bottom: 1px solid rgba(var(--color-accent), 0.35);
+  border-right: 1px solid rgba(var(--color-text), 0.1);
+  border-top: 1px solid rgba(var(--color-text), 0.1);
 }
 
 .ICON {
   color: transparent;
   text-shadow: 
-  0.5px 0.5px 0px rgb(var(--hue)),
-  -0.55px -0.95px 0px rgb(var(--text)),
-  0.9px 0.9px 0px rgb(var(--dark-shadow));
+  0.5px 0.5px 0px rgb(var(--color-accent)),
+  -0.55px -0.95px 0px rgb(var(--color-text));
 }
 /* ! КОНЕЦ БЛОКА

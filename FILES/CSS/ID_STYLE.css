@@ -36,8 +36,8 @@
   grid-area: H;
   margin: 5px;
   gap: 7.5px;
-  min-height: calc(var(--sides-size) * 2);
-  max-height: calc(var(--sides-size) * 2);
+  min-height: calc(var(--size-ui) * 2);
+  max-height: calc(var(--size-ui) * 2);
   white-space: nowrap;
   z-index: 2;
   display: flex;
@@ -85,8 +85,8 @@
 }
 
 #SIDEBAR > * {
-  min-width: clamp(40px, calc(var(--sides-size) * 3), 180px);
-  min-height: clamp(35px, calc(var(--sides-size) * 3), 180px);
+  min-width: clamp(40px, calc(var(--size-ui) * 3), 180px);
+  min-height: clamp(35px, calc(var(--size-ui) * 3), 180px);
 }
 
 /* ===================== */
@@ -123,8 +123,8 @@
 #HINT_TOGGLE_CHOOSERS,
 #LAYOUT_CHOOSERS {
   gap: 4px;
-  width: calc(var(--sides-size) * 7.6);
-  height: calc(var(--sides-size) * 7.6 * 2);
+  width: calc(var(--size-ui) * 7.6);
+  height: calc(var(--size-ui) * 7.6 * 2);
   position: relative;
   padding: 7.5px;
   display: flex;
@@ -135,8 +135,8 @@
 }
 #CLASSES_STYLE_CHOOSERS {
   gap: 4px;
-  width: calc(var(--sides-size) * 7.6 * 2 + 22px);
-  height: calc(var(--sides-size) * 7.6 * 2);
+  width: calc(var(--size-ui) * 7.6 * 2 + 22px);
+  height: calc(var(--size-ui) * 7.6 * 2);
   position: relative;
   padding: 7.5px;
   display: flex;
@@ -147,15 +147,15 @@
 }
 
 #HUE_CHOOSERS > *:not(:nth-child(1)) {
-  width: calc(var(--sides-size) * 3.4);
-  height: calc(var(--sides-size) * 3.4);
+  width: calc(var(--size-ui) * 3.4);
+  height: calc(var(--size-ui) * 3.4);
 }
 #CUSTOMIZATION_SAVING_CHOOSERS > *:not(:nth-child(1)),
 #ANIMATION_TOGGLE_CHOOSERS > *:not(:nth-child(1)),
 #HINT_TOGGLE_CHOOSERS > *:not(:nth-child(1)),
 #LAYOUT_CHOOSERS > *:not(:nth-child(1)) {
-  width: calc(var(--sides-size) * 3.4 * 2);
-  height: calc(var(--sides-size) * 3.4 * 2);
+  width: calc(var(--size-ui) * 3.4 * 2);
+  height: calc(var(--size-ui) * 3.4 * 2);
   font-size: 0.75em;
   display: flex;
   align-items: center;
@@ -166,8 +166,8 @@
 #THEME_CHOOSERS > *:not(:nth-child(1)),
 #FONT_SIZE_CHOOSERS > *:not(:nth-child(1)),
 #INTERFACE_SIZE_CHOOSERS > *:not(:nth-child(1)) {
-  width: calc(var(--sides-size) * 3.4 * 2);
-  height: calc(var(--sides-size) * 3.4 * 1);  
+  width: calc(var(--size-ui) * 3.4 * 2);
+  height: calc(var(--size-ui) * 3.4 * 1);  
   font-size: 0.75em;
   display: flex;
   align-items: center;
@@ -176,8 +176,8 @@
 }
 
 #CLASSES_STYLE_CHOOSERS > *:not(:nth-child(1)) {
-  width: calc(var(--sides-size) * 3.4 * 4 + 22px);
-  height: calc(var(--sides-size) * 3.4 * 1);
+  width: calc(var(--size-ui) * 3.4 * 4 + 22px);
+  height: calc(var(--size-ui) * 3.4 * 1);
   font-size: 0.75em;
   display: flex;
   align-items: center;
@@ -237,7 +237,6 @@
   position: relative;
   margin: 5px 0;
   gap: 15px;
-  transition: height var(--transition-fast), width var(--transition-fast);
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto auto;
   grid-template-areas:
@@ -265,8 +264,8 @@
 }
 
 #CHARACTER_CARD_IMAGE {
-  width: calc(var(--images-size) * 10);
-  height: calc(var(--images-size) * 10);
+  width: calc(var(--size-images) * 10);
+  height: calc(var(--size-images) * 10);
   margin: 0 15px 15px 0;
   position: relative;
   float: left;
@@ -322,21 +321,23 @@
 }
 
 #CHARACTERS_SLIDERS > * > * {
-  min-width: calc(var(--sides-size) * 15);
-  max-width: calc(var(--sides-size) * 15);
-  min-height: calc(var(--sides-size) * 17);
+  min-width: calc(var(--size-ui) * 15);
+  max-width: calc(var(--size-ui) * 15);
+  min-height: calc(var(--size-ui) * 17);
   max-height: 100%;
   scroll-snap-align: start;
+  transition: transform var(--transition-fast);
 }
 
 #CHARACTERS_SLIDERS > * > *:hover {
   transform: scale(1.01);
-  outline: rgb(var(--hue), 1) solid 1px;
+  outline: rgb(var(--color-accent), 1) solid 1px;
 }
 
 #CHARACTERS_SLIDERS > * > * img {
   margin: 0 0 10px 0;
   padding: 0;
+  transition: transform var(--transition-fast);
 }
 
 #CHARACTERS_SLIDERS > * > * img:hover {
@@ -356,8 +357,8 @@
   grid-area: F;
   margin: 5px;
   gap: 7.5px;
-  height: var(--sides-size);
-  max-height: var(--sides-size);
+  height: var(--size-ui);
+  max-height: var(--size-ui);
   z-index: 2;
 }
 

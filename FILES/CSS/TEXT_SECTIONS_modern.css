@@ -141,7 +141,7 @@
   font-family: "geologica";
   font-size: 0.75rem;
   z-index: 2;
-  color: rgb(var(--text));
+  color: rgb(var(--color-text));
 }
 .TEXT_BLOCK::before {
   content: "";
@@ -196,29 +196,28 @@
 }
 
 .TEXT_BLOCK.MESSAGE.SIDE {
-  border-left: 5px solid rgb(var(--text), 0.4);
+  border-left: 5px solid rgb(var(--color-text), 0.4);
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
-  background: linear-gradient(90deg, rgb(var(--light-shadow)), transparent);
+  background: linear-gradient(90deg, rgb(var(--color-text), 0.1), transparent);
 }
 
 .TEXT_BLOCK.MESSAGE.MAIN {
-  border-left: 5px solid rgb(var(--hue), 0.4);
+  border-left: 5px solid rgb(var(--color-accent), 0.4);
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
-  background: linear-gradient(90deg, rgb(var(--hue), 0.2), transparent);
+  background: linear-gradient(90deg, rgb(var(--color-accent), 0.2), transparent);
 }
 
 /* TEXT ENGRAVED      */
 
 .TEXT_BLOCK.ENGRAVED {
   padding: 15px 15px 10px;
-
-  color: rgb(var(--text));
+  color: rgb(var(--color-text));
+  outline: 1px solid rgb(var(--color-text), 0.25);
 }
 .TEXT_BLOCK.ENGRAVED p {
-  text-shadow: -1px -1px 0px rgb(var(--text), 0.5), -1px -1px 0px rgb(var(--dark-shadow)), -1px 1px 3px rgb(var(--dark-shadow));
-
+  text-shadow: -1px -1px 0px rgb(var(--color-text), 0.5), -1px -1px 0px rgb(var(--color-solid)), -1px 1px 3px rgb(var(--color-solid));
   font-size: 1.25em;
 }
 .TEXT_BLOCK.ENGRAVED::after {
@@ -235,14 +234,10 @@
   width: 100%;
   height: 100%;
 
-  background: linear-gradient(
-    90deg,
-    rgb(var(--light-shadow)),
-    rgb(var(--solid))
-  );
+  background: rgb(var(--color-solid));
 }
 p.TEXT_ENGRAVED {
-  text-shadow: -1px -1px 0px rgb(var(--text), 0.5), -1px -1px 0px rgb(var(--dark-shadow)), -1px 1px 3px rgb(var(--dark-shadow));
+  text-shadow: -1px -1px 0px rgb(var(--color-text), 0.5), -1px -1px 0px rgb(var(--color-solid)), -1px 1px 3px rgb(var(--color-solid));
 
   font-size: 1.25em !important;
 }
@@ -250,12 +245,12 @@ p.TEXT_ENGRAVED {
 /* TEXT ENGRAVED LUXURY */
 
 .TEXT_BLOCK.ENGRAVED.LUXURY {
-  outline: 2px solid rgb(var(--text), 0.25);
+  outline: 2px solid rgb(var(--color-text), 0.25);
 }
 .TEXT_BLOCK.ENGRAVED.LUXURY p {
   font-family: "great_vibes";
 
-  text-shadow: -1px -1px 0px rgb(var(--text), 0.5), -1px -1px 0px rgb(var(--dark-shadow)), -1px 1px 3px rgb(var(--dark-shadow));
+  text-shadow: -1px -1px 0px rgb(var(--color-text), 0.5), -1px -1px 0px rgb(var(--color-solid)), -1px 1px 3px rgb(var(--color-solid));
 
   filter: sepia(100%);
 
@@ -278,18 +273,14 @@ p.TEXT_ENGRAVED {
   width: 100%;
   height: 100%;
 
-  background: linear-gradient(
-    90deg,
-    rgb(var(--solid)),
-    rgb(var(--light-shadow))
-  );
+  background: rgb(var(--color-solid));
 
   filter: sepia(100%);
 }
 p.TEXT_ENGRAVED_LUXURY {
   font-family: "great_vibes" !important;
 
-  text-shadow: -1px -1px 0px rgb(var(--text), 0.5), -1px -1px 0px rgb(var(--dark-shadow)), -1px 1px 3px rgb(var(--dark-shadow));
+  text-shadow: -1px -1px 0px rgb(var(--color-text), 0.5), -1px -1px 0px rgb(var(--color-solid)), -1px 1px 3px rgb(var(--color-solid));
 
   font-weight: 400 !important;
 
@@ -302,7 +293,7 @@ p.TEXT_ENGRAVED_LUXURY {
 .TEXT_BLOCK.PAPER {
   padding: 15px 15px 10px 25px;
 
-  outline: 1px solid rgb(var(--text), 0.25);
+  outline: 1px solid rgb(var(--color-text), 0.25);
 }
 .TEXT_BLOCK.PAPER p {
   font-family: "Times New Roman", serif;
@@ -325,8 +316,8 @@ p.TEXT_ENGRAVED_LUXURY {
 
   background: linear-gradient(
     90deg,
-    rgb(var(--light-shadow)),
-    rgb(var(--solid))
+    rgb(var(--color-text),0.05),
+    rgb(var(--color-solid))
   );
 }
 p.TEXT_PAPER {
@@ -356,7 +347,7 @@ p.TEXT_HANDWRITING {
 /* TEXT VINTAGE PAPER */
 
 .TEXT_BLOCK.PAPER.VINTAGE {
-  outline: 2px solid rgb(var(--text), 0.25);
+  outline: 2px solid rgb(var(--color-text), 0.25);
 }
 .TEXT_BLOCK.PAPER.VINTAGE p {
   font-family: "great_vibes";
@@ -382,11 +373,7 @@ p.TEXT_HANDWRITING {
   width: 100%;
   height: 100%;
 
-  background: linear-gradient(
-    90deg,
-    rgb(var(--solid)),
-    rgb(var(--light-shadow))
-  );
+  background: rgb(var(--color-solid));
 
   filter: sepia(100%);
 }
@@ -404,7 +391,7 @@ p.TEXT_VINTAGE {
 .TEXT_BLOCK.NEWSPAPER {
   padding: 15px 15px 10px 25px;
 
-  outline: 1px solid rgb(var(--text), 0.25);
+  outline: 1px solid rgb(var(--color-text), 0.25);
 }
 .TEXT_BLOCK.NEWSPAPER p {
   font-family: "Times New Roman", serif;
@@ -416,7 +403,7 @@ p.TEXT_VINTAGE {
 
   margin: 0px 0px 10px 0px;
 
-  border-bottom: 1px solid rgb(var(--text), 0.25);
+  border-bottom: 1px solid rgb(var(--color-text), 0.25);
 }
 .TEXT_BLOCK.NEWSPAPER::after {
   content: "Текст на газете";
@@ -434,8 +421,8 @@ p.TEXT_VINTAGE {
 
   background: linear-gradient(
     90deg,
-    rgb(var(--light-shadow)),
-    rgb(var(--solid))
+    rgb(var(--color-text),0.05),
+    rgb(var(--color-solid))
   );
 }
 
@@ -444,7 +431,7 @@ p.TEXT_VINTAGE {
 .TEXT_BLOCK.POEM {
   text-align: center;
 
-  outline: 1px solid rgb(var(--text), 0.25);
+  outline: 1px solid rgb(var(--color-text), 0.25);
 }
 .TEXT_BLOCK.POEM p {
   font-family: "caveat";
@@ -467,42 +454,42 @@ p.TEXT_VINTAGE {
 
   background: linear-gradient(
     90deg,
-    rgb(var(--light-shadow)),
-    rgb(var(--solid))
+    rgb(var(--color-text),0.05),
+    rgb(var(--color-solid))
   );
 }
 
 /* TEXT ON SCREEN     */
 
 .TEXT_BLOCK.ON_SCREEN {
-  text-shadow: 0 0 5px rgb(var(--light-shadow));
+  text-shadow: 0 0 5px rgb(var(--color-solid));
 
   padding: 15px 15px 10px;
 
-  outline: 1px solid rgb(var(--hue), 0.75);
+  outline: 1px solid rgb(var(--color-accent), 0.75);
 
   background-size: 50px 50px;
   background-image: linear-gradient(
       0deg,
       transparent 24%,
-      rgb(var(--text), 0.1) 25%,
-      rgb(var(--text), 0.1) 26%,
+      rgb(var(--color-text), 0.1) 25%,
+      rgb(var(--color-text), 0.1) 26%,
       transparent 27%,
       transparent 74%,
-      rgb(var(--text), 0.1) 75%,
-      rgb(var(--text), 0.1) 76%,
+      rgb(var(--color-text), 0.1) 75%,
+      rgb(var(--color-text), 0.1) 76%,
       transparent 77%,
       transparent
     ),
     linear-gradient(
       90deg,
       transparent 24%,
-      rgb(var(--text), 0.1) 25%,
-      rgb(var(--text), 0.1) 26%,
+      rgb(var(--color-text), 0.1) 25%,
+      rgb(var(--color-text), 0.1) 26%,
       transparent 27%,
       transparent 74%,
-      rgb(var(--text), 0.1) 75%,
-      rgb(var(--text), 0.1) 76%,
+      rgb(var(--color-text), 0.1) 75%,
+      rgb(var(--color-text), 0.1) 76%,
       transparent 77%,
       transparent
     );
@@ -512,11 +499,11 @@ p.TEXT_VINTAGE {
 .TEXT_BLOCK.ON_SCREEN p {
   font-family: "play";
 
-  text-shadow: 0 0 1px rgb(var(--hue)), 1px 1px 0px rgb(var(--hue));
+  text-shadow: 0 0 1px rgb(var(--color-accent)), 1px 1px 0px rgb(var(--color-accent));
 
   filter: brightness(1.2);
 
-  color: rgb(var(--text));
+  color: rgb(var(--color-text));
 }
 .TEXT_BLOCK.ON_SCREEN::after {
   content: "Текст на экране";
@@ -524,11 +511,11 @@ p.TEXT_VINTAGE {
 p.TEXT_ON_SCREEN {
   font-family: "play" !important;
 
-  text-shadow: 0 0 1px rgb(var(--hue)), 1px 1px 0px rgb(var(--hue)) !important;
+  text-shadow: 0 0 1px rgb(var(--color-accent)), 1px 1px 0px rgb(var(--color-accent)) !important;
 
   filter: brightness(1.2) !important;
 
-  color: rgb(var(--text)) !important;
+  color: rgb(var(--color-text)) !important;
 }
 
 /* TEXT ON SCREEN WRITING */
@@ -547,9 +534,9 @@ p.TEXT_ON_SCREEN {
 .TEXT_BLOCK.NEON_SIGN {
   align-self: center;
 
-  color: rgb(var(--hue));
-  text-shadow: 0 0 5px rgb(var(--solid)), 0 0 7.5px rgb(var(--solid)),
-    0 0 10px rgb(var(--solid)), 0 0 20px rgb(var(--hue));
+  color: rgb(var(--color-accent));
+  text-shadow: 0 0 5px rgb(var(--color-solid)), 0 0 7.5px rgb(var(--color-solid)),
+    0 0 10px rgb(var(--color-solid)), 0 0 20px rgb(var(--color-accent));
 
   padding: 15px 15px 10px;
 }
@@ -579,11 +566,11 @@ p.TEXT_ON_SCREEN {
 .TEXT_BLOCK.GRAFFITI {
   align-self: center;
 
-  color: rgb(var(--text));
-  text-shadow: 2px 2px 0 rgb(var(--hue), 0.5), 4px 4px 0 rgb(var(--hue), 0.25),
-    -1px -1px 0 rgb(var(--hue), 0.25), 0 0 4px rgb(var(--solid)),
-    0 0 8px rgb(var(--solid)), 0 0 10px rgb(var(--solid)),
-    0 0 35px rgb(var(--text));
+  color: rgb(var(--color-text));
+  text-shadow: 2px 2px 0 rgb(var(--color-accent), 0.5), 4px 4px 0 rgb(var(--color-accent), 0.25),
+    -1px -1px 0 rgb(var(--color-accent), 0.25), 0 0 4px rgb(var(--color-solid)),
+    0 0 8px rgb(var(--color-solid)), 0 0 10px rgb(var(--color-solid)),
+    0 0 35px rgb(var(--color-text));
 
   padding: 15px 15px 10px;
 }
@@ -592,7 +579,7 @@ p.TEXT_ON_SCREEN {
   font-style: italic;
   font-size: 2.25em;
 
-  color: rgb(var(--hue));
+  color: rgb(var(--color-accent));
 
   font-weight: bolder;
 }
@@ -605,8 +592,8 @@ p.TEXT_ON_SCREEN {
 .TEXT_BLOCK.FUTURE_SIGN {
   align-self: center;
 
-  color: rgb(var(--text));
-  text-shadow: 1px 1px 0 rgb(var(--hue));
+  color: rgb(var(--color-text));
+  text-shadow: 1px 1px 0 rgb(var(--color-accent));
 
   padding: 15px 15px 10px;
 }
@@ -634,9 +621,9 @@ p.TEXT_ON_SCREEN {
 .TEXT_BLOCK.ANCIENT_STONE_SIGN {
   align-self: center;
 
-  color: rgb(var(--text));
-  text-shadow: 1px 1px 0 rgb(var(--text), 0.7),
-    2px 2px 0 rgb(var(--dark-shadow));
+  color: rgb(var(--color-text));
+  text-shadow: 1px 1px 0 rgb(var(--color-text), 0.7),
+    2px 2px 0 rgb(var(--color-solid));
 
   padding: 15px 15px 10px;
 }
@@ -653,8 +640,8 @@ p.TEXT_ON_SCREEN {
 .TEXT_BLOCK.AUTHOR_NOTE {
   padding: 15px 15px 10px;
 
-  outline: 1px solid rgb(var(--hue), 0.5);
-  border-left: 5px solid rgb(var(--hue));
+  outline: 1px solid rgb(var(--color-accent), 0.5);
+  border-left: 5px solid rgb(var(--color-accent));
 }
 .TEXT_BLOCK.AUTHOR_NOTE::after {
   content: "Записка от автора";
@@ -665,8 +652,8 @@ p.TEXT_ON_SCREEN {
 .TEXT_BLOCK.IMPORTANT {
   padding: 15px 15px 10px;
 
-  outline: 1px solid rgb(var(--text), 0);
-  border-left: 2.5px solid rgb(var(--hue));
+  outline: 1px solid rgb(var(--color-text), 0);
+  border-left: 2.5px solid rgb(var(--color-accent));
 }
 .TEXT_BLOCK.IMPORTANT::after {
   content: "Важное";

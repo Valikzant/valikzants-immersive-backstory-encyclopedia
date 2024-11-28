@@ -14,7 +14,7 @@ html {
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
-  scrollbar-color: rgb(var(--hue)) transparent;
+  scrollbar-color: rgb(var(--color-accent)) transparent;
   scrollbar-width: thin;
 }
 /* ! КОНЕЦ БЛОКА */
@@ -23,15 +23,13 @@ html {
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
 body {
-  --text: unset;
-  --solid: unset;
-  --light-shadow: unset;
-  --dark-shadow: unset;
-  --hue: unset;
-  --sides-size: unset;
-  --images-size: unset;
-  --font-modifier: unset;
-  --interface-modifier: unset;
+  --color-text: unset;
+  --color-solid: unset;
+  --color-accent: unset;
+  --size-ui: unset;
+  --size-images: unset;
+  --modifier-font: unset;
+  --modifier-ui: unset;
   --transition-fast: unset;
   --transition-slow: unset;
   --transition-long: unset;
@@ -82,11 +80,6 @@ h3.TITLE {
   top: 0;
   margin: 5px 0;
   z-index: 3;
-  background-color: rgb(var(--solid));
-  box-shadow: 12px -17.5px 0 0 rgb(var(--solid)),
-    12px 5.1px 0 0 rgb(var(--solid)), 12px 0 0 0 rgb(var(--solid)),
-    -12px -17.5px 0 0 rgb(var(--solid)), -12px 5.1px 0 0 rgb(var(--solid)),
-    -12px 0 0 0 rgb(var(--solid));
 }
 
 h1.TITLE.INVISIBLE,
@@ -100,7 +93,7 @@ h1.TITLE.STATIONARY,
 h2.TITLE.STATIONARY,
 h3.TITLE.STATIONARY {
   position: relative;
-  background-color: none;
+  background: none;
   box-shadow: none;
 }
 
@@ -129,11 +122,11 @@ a {
 }
 
 a:visited {
-  color: rgb(var(--hue));
+  color: rgb(var(--color-accent));
 }
 
 a:hover {
-  color: rgb(var(--text));
+  color: rgb(var(--color-text));
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
@@ -198,8 +191,8 @@ img {
   justify-content: center;
   align-content: center;
   text-align: center;
-  min-width: var(--sides-size);
-  min-height: var(--sides-size);
+  min-width: var(--size-ui);
+  min-height: var(--size-ui);
 }
 
 .BUTTON.WIDE {
@@ -246,14 +239,14 @@ img {
   align-content: center;
   text-align: center;
   font-size: clamp(10px, 1em, 14px);
-  min-width: var(--sides-size);
-  min-height: var(--sides-size);
+  min-width: var(--size-ui);
+  min-height: var(--size-ui);
   z-index: 4;
 }
 
 .BUTTON.PAGING {
   position: absolute;
-  width: calc(var(--sides-size) * 4);
+  width: calc(var(--size-ui) * 4);
   opacity: 0;
   height: 100%;
   z-index: 4;
@@ -295,12 +288,12 @@ img {
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgb(var(--hue));
+  box-shadow: inset 0 0 5px rgb(var(--color-accent));
   border-radius: 15px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(var(--hue));
+  background: rgb(var(--color-accent));
   border-radius: 15px;
 }
 /* ! КОНЕЦ БЛОКА */
@@ -310,49 +303,49 @@ img {
 /* ! НАЧАЛО БЛОКА */
 @media (max-width: 120000px) {
   body {
-    font-size: calc(14px * var(--font-modifier));
-    --sides-size: calc(20px * var(--interface-modifier));
-    --images-size: calc(100px * (var(--interface-modifier) / 2));
+    font-size: calc(14px * var(--modifier-font));
+    --size-ui: calc(20px * var(--modifier-ui));
+    --size-images: calc(100px * (var(--modifier-ui) / 2));
   }
 }
 
 @media (max-width: 991px) {
   body {
-    font-size: calc(13px * var(--font-modifier));
-    --sides-size: calc(20px * var(--interface-modifier));
-    --images-size: calc(80px * (var(--interface-modifier) / 2));
+    font-size: calc(13px * var(--modifier-font));
+    --size-ui: calc(20px * var(--modifier-ui));
+    --size-images: calc(80px * (var(--modifier-ui) / 2));
   }
 }
 
 @media (max-width: 768px) {
   body {
-    font-size: calc(13px * var(--font-modifier));
-    --sides-size: calc(18px * var(--interface-modifier));
-    --images-size: calc(70px * (var(--interface-modifier) / 2));
+    font-size: calc(13px * var(--modifier-font));
+    --size-ui: calc(18px * var(--modifier-ui));
+    --size-images: calc(70px * (var(--modifier-ui) / 2));
   }
 }
 
 @media (max-width: 600px) {
   body {
-    font-size: calc(13px * var(--font-modifier));
-    --sides-size: calc(13px * var(--interface-modifier));
-    --images-size: calc(60px * (var(--interface-modifier) / 2));
+    font-size: calc(13px * var(--modifier-font));
+    --size-ui: calc(13px * var(--modifier-ui));
+    --size-images: calc(60px * (var(--modifier-ui) / 2));
   }
 }
 
 @media (max-width: 480px) {
   body {
-    font-size: calc(10px * var(--font-modifier));
-    --sides-size: calc(11px * var(--interface-modifier));
-    --images-size: calc(60px * (var(--interface-modifier) / 2));
+    font-size: calc(10px * var(--modifier-font));
+    --size-ui: calc(11px * var(--modifier-ui));
+    --size-images: calc(60px * (var(--modifier-ui) / 2));
   }
 }
 
 @media (max-width: 360px) {
   body {
-    font-size: calc(10px * var(--font-modifier));
-    --sides-size: calc(10px * var(--interface-modifier));
-    --images-size: calc(50px * (var(--interface-modifier) / 2));
+    font-size: calc(10px * var(--modifier-font));
+    --size-ui: calc(10px * var(--modifier-ui));
+    --size-images: calc(50px * (var(--modifier-ui) / 2));
   }
 }
 /* ! КОНЕЦ БЛОКА */

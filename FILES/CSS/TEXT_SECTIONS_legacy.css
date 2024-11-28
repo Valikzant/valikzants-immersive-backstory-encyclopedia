@@ -7,7 +7,7 @@
   padding: 15px;
   margin: 10px 0px;
   position: relative;
-
+  outline: 1px solid rgb(var(--color-text));
   z-index: 2;
 
   text-rendering:optimizeSpeed;
@@ -31,7 +31,7 @@
   font-weight: bold;
   font-size: 0.75rem;
   z-index: 2;
-  color: rgb(var(--text));
+  color: rgb(var(--color-text));
 }
 .TEXT_BLOCK::before {
   content: "";
@@ -43,6 +43,7 @@
 
 .TEXT_BLOCK.DEFAULT {
   padding: 0px;
+  outline: none;
   content-visibility: visible;
 }
 
@@ -85,17 +86,17 @@
 }
 
 .TEXT_BLOCK.MESSAGE.SIDE {
-  border-left: 5px solid rgb(var(--text));
+  border-left: 5px solid rgb(var(--color-text));
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
-  background: rgb(var(--light-shadow));
+  background: rgb(var(--color-solid));
 }
 
 .TEXT_BLOCK.MESSAGE.MAIN {
-  border-left: 5px solid rgb(var(--hue));
+  border-left: 5px solid rgb(var(--color-accent));
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
-  background: rgb(var(--light-shadow));
+  background: rgb(var(--color-solid));
 }
 
 /* TEXT ENGRAVED      */
@@ -103,7 +104,7 @@
 .TEXT_BLOCK.ENGRAVED {
   padding: 15px 15px 10px;
 
-  color: rgb(var(--text));
+  color: rgb(var(--color-text));
 }
 .TEXT_BLOCK.ENGRAVED p {
   font-size: 1.25em;
@@ -124,8 +125,8 @@
 
   background: linear-gradient(
     90deg,
-    rgb(var(--light-shadow)),
-    rgb(var(--solid))
+    rgb(var(--color-solid)),
+    rgb(var(--color-solid))
   );
 }
 p.TEXT_ENGRAVED {
@@ -134,9 +135,6 @@ p.TEXT_ENGRAVED {
 
 /* TEXT ENGRAVED LUXURY */
 
-.TEXT_BLOCK.ENGRAVED.LUXURY {
-  outline: 2px solid rgb(var(--text), 0.25);
-}
 .TEXT_BLOCK.ENGRAVED.LUXURY p {
   font-style: italic;
 
@@ -161,7 +159,7 @@ p.TEXT_ENGRAVED {
   width: 100%;
   height: 100%;
 
-  background: rgb(var(--light-shadow));
+  background: rgb(var(--color-solid));
 
   filter: sepia(100%);
 }
@@ -198,7 +196,7 @@ p.TEXT_ENGRAVED_LUXURY {
   width: 100%;
   height: 100%;
 
-  background: rgb(var(--light-shadow));
+  background: rgb(var(--color-solid));
 }
 p.TEXT_PAPER {
   font-size: 1.25em !important;
@@ -243,7 +241,7 @@ p.TEXT_HANDWRITING {
   width: 100%;
   height: 100%;
 
-  background: rgb(var(--light-shadow));
+  background: rgb(var(--color-solid));
 
   filter: sepia(100%);
 }
@@ -268,7 +266,7 @@ p.TEXT_VINTAGE {
 .TEXT_BLOCK.NEWSPAPER h2 {
   margin: 0px 0px 10px 0px;
 
-  border-bottom: 1px solid rgb(var(--text), 0.25);
+  border-bottom: 1px solid rgb(var(--color-text), 0.25);
 }
 .TEXT_BLOCK.NEWSPAPER::after {
   content: "Текст на газете";
@@ -284,7 +282,7 @@ p.TEXT_VINTAGE {
   width: 100%;
   height: 100%;
 
-  background: rgb(var(--light-shadow));
+  background: rgb(var(--color-solid));
 }
 
 /* TEXT HANDWRITING POEM */
@@ -310,22 +308,22 @@ p.TEXT_VINTAGE {
   width: 100%;
   height: 100%;
 
-  background: rgb(var(--light-shadow));
+  background: rgb(var(--color-solid));
 }
 
 /* TEXT ON SCREEN     */
 
 .TEXT_BLOCK.ON_SCREEN {
-  text-shadow: 0 0 5px rgb(var(--light-shadow));
-  outline: 1px solid rgb(var(--hue));
+  text-shadow: 0 0 5px rgb(var(--color-solid));
+  outline: 1px solid rgb(var(--color-accent));
   padding: 15px 15px 10px;
 
-  background: rgb(var(--light-shadow));
+  background: rgb(var(--color-solid));
 }
 .TEXT_BLOCK.ON_SCREEN p {
   filter: brightness(1.2);
 
-  color: rgb(var(--text));
+  color: rgb(var(--color-text));
 }
 .TEXT_BLOCK.ON_SCREEN::after {
   content: "Текст на экране";
@@ -347,7 +345,7 @@ p.TEXT_VINTAGE {
 .TEXT_BLOCK.NEON_SIGN {
   align-self: center;
 
-  color: rgb(var(--hue));
+  color: rgb(var(--color-accent));
 
   padding: 15px 15px 10px;
 }
@@ -375,7 +373,7 @@ p.TEXT_VINTAGE {
 .TEXT_BLOCK.GRAFFITI {
   align-self: center;
 
-  color: rgb(var(--hue));
+  color: rgb(var(--color-accent));
 
   padding: 15px 15px 10px;
 }
@@ -383,7 +381,7 @@ p.TEXT_VINTAGE {
   font-style: italic;
   font-size: 2.25em;
 
-  color: rgb(var(--hue));
+  color: rgb(var(--color-accent));
 
   font-weight: bolder;
 }
@@ -396,7 +394,7 @@ p.TEXT_VINTAGE {
 .TEXT_BLOCK.FUTURE_SIGN {
   align-self: center;
 
-  color: rgb(var(--text));
+  color: rgb(var(--color-text));
 
   padding: 15px 15px 10px;
 }
@@ -423,7 +421,7 @@ p.TEXT_VINTAGE {
 .TEXT_BLOCK.ANCIENT_STONE_SIGN {
   align-self: center;
 
-  color: rgb(var(--text));
+  color: rgb(var(--color-text));
 
   padding: 15px 15px 10px;
 }
@@ -440,8 +438,8 @@ p.TEXT_VINTAGE {
 
 .TEXT_BLOCK.AUTHOR_NOTE {
   padding: 15px 15px 10px;
-  outline: 1px solid rgb(var(--hue));
-  background: rgb(var(--light-shadow));
+  outline: 1px solid rgb(var(--color-accent));
+  background: rgb(var(--color-solid));
 }
 .TEXT_BLOCK.AUTHOR_NOTE::after {
   content: "Записка от автора";
@@ -452,7 +450,7 @@ p.TEXT_VINTAGE {
 .TEXT_BLOCK.IMPORTANT {
   padding: 15px 15px 10px;
 
-  background: rgb(var(--light-shadow));
+  background: rgb(var(--color-solid));
 }
 .TEXT_BLOCK.IMPORTANT::after {
   content: "Важное";

@@ -10,12 +10,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>V=I=B=E</title>
     <style>
-    #LOADING_SCREEN {font-family: 'geologica'; position: fixed; margin: 0; padding: 0; top: 0; left: 0; width: 100%; height: 100%; font-size: 2em; z-index: 10; opacity: 1; transition: opacity var(--transition-fast); pointer-events: none; display: flex; flex-direction: column; align-items: center; justify-content: center;}
-    @media (screenorientation: portrait) { body { grid-template-rows: auto auto 1fr auto; grid-template-areas: "H H" "S S" "C C" "C C";}}
+    #LOADING_SCREEN {font-family: 'geologica', Times, serif; position: fixed; margin: 0; padding: 0; top: 0; left: 0; width: 100%; height: 100%; font-size: 2em; z-index: 10; opacity: 1;  pointer-events: none; display: flex; flex-direction: column; align-items: center; justify-content: center;}
+    @media (screenorientation: portrait) { body { grid-template-rows: auto auto 1fr auto; grid-template-areas: "H H" "C C" "C C" "S S";}}
     .BLOCK.HIDDEN * {display: none !important;}
     .UNLOADED {display: none !important;} .UNLOADED * {display: none !important;}
     #FOOTER {grid-area: F;} #HEADER {grid-area: H;} #SIDEBAR {grid-area: S;} #THEMES, #SETTINGS, #AUTHOR, #CONTENT {grid-area: C;}
-    body {background-color: black;}
+    body {background: black;}
   </style>
   <script src="../../../JS/CORE.js?v=update5.1"></script>
   <link rel="stylesheet" href="../../../CSS/ELEMENTS.css?v=update5.1">
@@ -44,26 +44,18 @@
   const C_THEMES = [
     // Темная тема
     {"solid"      : [43, 51, 41],     // Цвет фона
-    "light-shadow": [53, 61, 51],     // Цвет светлой тени
-    "dark-shadow" : [26, 30, 23],     // Цвет тёмной тени
     "text"        : [217, 215, 180]}, // Цвет текста
 
     // Более тёмная тема
     {"solid"      : [13, 21, 11],     // Цвет фона
-    "light-shadow": [23, 31, 21],     // Цвет светлой тени
-    "dark-shadow" : [15, 10, 13],     // Цвет тёмной тени
     "text"        : [197, 195, 160]}, // Цвет текста
 
     // Светлая тема
     {"solid"      : [227, 225, 200],  // Цвет фона
-    "light-shadow": [181, 176, 161],  // Цвет светлой тени
-    "dark-shadow" : [78, 63, 56],     // Цвет тёмной тени
     "text"        : [40, 40, 30]},    // Цвет текста
 
     // Более светлая тема
     {"solid"      : [247, 245, 220],  // Цвет фона
-    "light-shadow": [201, 196, 181],  // Цвет светлой тени
-    "dark-shadow" : [78, 83, 56],     // Цвет тёмной тени
     "text"        : [40, 40, 30]},    // Цвет текста
   ];
 

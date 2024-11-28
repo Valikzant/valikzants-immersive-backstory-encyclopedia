@@ -283,9 +283,9 @@ async function F_LOADING_UPDATE() {
 async function F_CUSTOMIZATION_CHANGE_HUE(c_Hue = null, l_HuesLocal = null) {
   const c_Body = document.getElementById("body");
   if (c_Hue == null && l_HuesLocal != null) {
-    c_Body.style.setProperty("--hue", l_HuesLocal["hue"]);
+    c_Body.style.setProperty("--color-accent", l_HuesLocal["hue"]);
   } else if (c_Hue != null && l_HuesLocal == null) {
-    c_Body.style.setProperty("--hue", L_HUES[c_Hue]["hue"]);
+    c_Body.style.setProperty("--color-accent", L_HUES[c_Hue]["hue"]);
     await F_LOCAL_STORAGE_SET("hue", JSON.stringify(L_HUES[c_Hue]));
   }
 }
@@ -294,15 +294,11 @@ async function F_CUSTOMIZATION_CHANGE_HUE(c_Hue = null, l_HuesLocal = null) {
 async function F_CUSTOMIZATION_CHANGE_THEME(c_Theme = null, l_ThemesLocal = null) {
   const c_Body = document.getElementById("body");
   if (c_Theme == null && l_ThemesLocal != null) {
-    c_Body.style.setProperty("--solid", l_ThemesLocal["solid"]);
-    c_Body.style.setProperty("--light-shadow", l_ThemesLocal["light-shadow"]);
-    c_Body.style.setProperty("--dark-shadow", l_ThemesLocal["dark-shadow"]);
-    c_Body.style.setProperty("--text", l_ThemesLocal["text"]);
+    c_Body.style.setProperty("--color-solid", l_ThemesLocal["solid"]);
+    c_Body.style.setProperty("--color-text", l_ThemesLocal["text"]);
   } else if (c_Theme != null && l_ThemesLocal == null) {
-    c_Body.style.setProperty("--solid", L_THEMES[c_Theme]["solid"]);
-    c_Body.style.setProperty("--light-shadow", L_THEMES[c_Theme]["light-shadow"]);
-    c_Body.style.setProperty("--dark-shadow", L_THEMES[c_Theme]["dark-shadow"]);
-    c_Body.style.setProperty("--text", L_THEMES[c_Theme]["text"]);
+    c_Body.style.setProperty("--color-solid", L_THEMES[c_Theme]["solid"]);
+    c_Body.style.setProperty("--color-text", L_THEMES[c_Theme]["text"]);
     await F_LOCAL_STORAGE_SET("theme", JSON.stringify(L_THEMES[c_Theme]));
   }
 }
@@ -310,7 +306,7 @@ async function F_CUSTOMIZATION_CHANGE_THEME(c_Theme = null, l_ThemesLocal = null
 // Изменение модификатора шрифта
 async function F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(c_FontModifier) {
   const c_Body = document.getElementById("body");
-  c_Body.style.setProperty("--font-modifier", C_FONT_MODIFIERS[c_FontModifier]["font-modifier"]);
+  c_Body.style.setProperty("--modifier-font", C_FONT_MODIFIERS[c_FontModifier]["font-modifier"]);
   await F_LOCAL_STORAGE_SET("font-modifier", c_FontModifier);
 
   const c_FontSizeChoosers = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(
@@ -326,7 +322,7 @@ async function F_CUSTOMIZATION_CHANGE_FONT_MODIFIER(c_FontModifier) {
 // Изменение модификатора интерфейса
 async function F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(c_InterfaceModifier) {
   const c_Body = document.getElementById("body");
-  c_Body.style.setProperty("--interface-modifier", C_INTERFACE_MODIFIERS[c_InterfaceModifier]["interface-modifier"]);
+  c_Body.style.setProperty("--modifier-ui", C_INTERFACE_MODIFIERS[c_InterfaceModifier]["interface-modifier"]);
   await F_LOCAL_STORAGE_SET("interface-modifier", c_InterfaceModifier);
 
   const c_InterfaceSizeChoosers = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(
@@ -518,7 +514,7 @@ async function F_ON_EVENT_SHOW_TOOLTIP(event) {
   const { innerWidth: c_ViewPortWidth, innerHeight: c_ViewPortHeight } = window;
   
   const c_ToolTipX = (c_MouseX + 200 > c_ViewPortWidth) ? c_MouseX - 200 : c_MouseX;
-  const c_ToolTipY = (c_MouseY + 200 > c_ViewPortHeight) ? c_MouseY - 200 : c_MouseY;
+  const c_ToolTipY = (c_MouseY + 200 > c_ViewPortHeight) ? c_MouseY - 50 : c_MouseY;
 
   c_ToolTip.style.top = c_ToolTipY + "px";
   c_ToolTip.style.left = c_ToolTipX + "px";
@@ -543,7 +539,7 @@ async function F_ON_EVENT_CHANGE_LAYOUT() {
     c_SideBar.style.setProperty("flex-direction", "column");
   } else {
     c_Body.style.setProperty("grid-template-rows", "auto auto 1fr auto");
-    c_Body.style.setProperty("grid-template-areas", '"H H" "S S" "C C" "C C"');
+    c_Body.style.setProperty("grid-template-areas", '"H H" "C C" "C C" "S S"');
     c_SideBar.style.setProperty("flex-direction", "row");
   }
 }
@@ -625,7 +621,7 @@ async function F_ON_LOAD_GENERATE_AND_SAVE_HUES(c_HuesFromHtml) {
   );
 
   c_HueChoosers.forEach(function(i_HueChooser, I_) {
-    i_HueChooser.style.setProperty("background-color", 'rgb(' + L_HUES[I_]["hue"] + ')');
+    i_HueChooser.style.setProperty("background", 'rgb(' + L_HUES[I_]["hue"] + ')');
     I_ += 1;
   });
 
@@ -645,7 +641,7 @@ async function F_ON_LOAD_GENERATE_AND_SAVE_THEMES(c_ThemesFromHtml) {
   );
 
   c_ThemeChoosers.forEach(function(i_ThemeChooser, I_) {
-    i_ThemeChooser.style.setProperty("background-color", 'rgb(' + L_THEMES[I_]["solid"] + ')');
+    i_ThemeChooser.style.setProperty("background", 'rgb(' + L_THEMES[I_]["solid"] + ')');
     I_ += 1;
   });
 

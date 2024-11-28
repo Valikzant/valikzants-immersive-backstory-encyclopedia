@@ -10,12 +10,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Test Site</title>
     <style>
-    #LOADING_SCREEN {font-family: 'Times New Roman', Times, serif; position: fixed; margin: 0; padding: 0; top: 0; left: 0; width: 100%; height: 100%; font-size: 2em; z-index: 10; opacity: 1; transition: opacity var(--transition-fast); pointer-events: none; display: flex; flex-direction: column; align-items: center; justify-content: center;}
-    @media (screenorientation: portrait) { body { grid-template-rows: auto auto 1fr auto; grid-template-areas: "H H" "S S" "C C" "C C";}}
+    #LOADING_SCREEN {font-family: 'geologica', Times, serif; position: fixed; margin: 0; padding: 0; top: 0; left: 0; width: 100%; height: 100%; font-size: 2em; z-index: 10; opacity: 1;  pointer-events: none; display: flex; flex-direction: column; align-items: center; justify-content: center;}
+    @media (screenorientation: portrait) { body { grid-template-rows: auto auto 1fr auto; grid-template-areas: "H H" "C C" "C C" "S S";}}
     .BLOCK.HIDDEN * {display: none !important;}
     .UNLOADED {display: none !important;} .UNLOADED * {display: none !important;}
     #FOOTER {grid-area: F;} #HEADER {grid-area: H;} #SIDEBAR {grid-area: S;} #THEMES, #SETTINGS, #AUTHOR, #CONTENT {grid-area: C;}
-    body {background-color: black;}
+    body {background: black;}
   </style>
   <script src="../../FILES/JS/CORE.js?v=update5.1"></script>
   <link rel="stylesheet" href="../../FILES/CSS/ELEMENTS.css?v=update5.1">
@@ -33,37 +33,29 @@
     {"hue": [0, 117, 255]},          // Синий
     {"hue": [248, 56, 56]},          // Яркий красный
     {"hue": [255, 101, 0]},          // Оранжевый
-    {"hue": [234, 143, 0]},          // Темный оранжевый
-    {"hue": [255, 200, 0]},          // Желтый
-    {"hue": [100, 184, 0]},          // Зеленый
+    {"hue": [255, 105, 180]},          // Темный оранжевый
+    {"hue": [255, 127, 80]},          // Желтый
+    {"hue": [105, 155, 0]},          // Зеленый
     {"hue": [0, 198, 198]},          // Голубой
     {"hue": [138, 43, 226]}          // Фиолетовый
   ];
 
   const C_THEMES = [
     // Темная тема
-    {"solid"      : [33, 33, 33],     // Цвет фона
-    "light-shadow": [43, 43, 43],     // Цвет светлой тени
-    "dark-shadow" : [20, 20, 20],     // Цвет тёмной тени
+    {"solid"      : [13, 23, 53],     // Цвет фона
     "text"        : [200, 200, 200]}, // Цвет текста
 
     // Более тёмная тема
-    {"solid"      : [10, 10, 10],     // Цвет фона
-    "light-shadow": [20, 20, 20],     // Цвет светлой тени
-    "dark-shadow" : [5, 5, 5],        // Цвет тёмной тени
+    {"solid"      : [10, 20, 40],     // Цвет фона
     "text"        : [200, 200, 200]}, // Цвет текста
 
     // Светлая тема
-    {"solid"      : [204, 204, 204],  // Цвет фона
-    "light-shadow": [235, 235, 235],  // Цвет светлой тени
-    "dark-shadow" : [170, 170, 170],  // Цвет тёмной тени
-    "text"        : [30, 30, 30]},    // Цвет текста
+    {"solid"      : [224, 204, 254],        // Цвет фона
+    "text"        : [30, 30, 30]},            // Цвет текста
 
     // Более светлая тема
-    {"solid"      : [221, 225, 231],  // Цвет фона
-    "light-shadow": [255, 255, 255],  // Цвет светлой тени
-    "dark-shadow" : [154,154,154],    // Цвет тёмной тени
-    "text"        : [0, 0, 0]}        // Цвет текста
+    {"solid"      : [244, 224, 254],        // Цвет фона
+    "text"        : [0, 0, 0]}                // Цвет текста
   ];
 
   window.onload = async function () {
@@ -187,7 +179,7 @@
 
       <div class="BLOCK INNER">
         <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
-        <div class="BLOCK">
+        <div class="BLOCK INNER">
           <img
             onclick="window.location.href='./AAVIKKO/index.html'"
             class="BLOCK INNER IMAGE"
@@ -198,7 +190,7 @@
         </div>
 
         <!-- 
-        <div class="BLOCK">
+        <div class="BLOCK INNER">
           <img
             onclick="window.location.href='./ПАПКА ВСЕЛЕННОЙ/index.html'"
             class="BLOCK INNER IMAGE"
