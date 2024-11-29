@@ -6,16 +6,16 @@
   <title>V=I=B=E</title>
     <style>
     body {background: black;}
-    #LOADING_SCREEN {font-family: 'geologica', Times, serif; position: fixed; margin: 0; padding: 0; top: 0; left: 0; width: 100%; height: 100%; font-size: 2em; z-index: 10; opacity: 1;  pointer-events: none; display: flex; flex-direction: column; align-items: center; justify-content: center;}
+    #LOADING_SCREEN { background: black; opacity: 1; font-family: 'geologica', Times, serif; position: fixed; margin: 0; padding: 0; top: 0; left: 0; width: 100%; height: 100%; font-size: 2em; z-index: 10; opacity: 1;  pointer-events: none; display: flex; flex-direction: column; align-items: center; justify-content: center;}
     @media (screenorientation: portrait) { body { grid-template-rows: auto auto 1fr auto; grid-template-areas: "H H" "C C" "C C" "S S";}}
     .BLOCK.HIDDEN * {display: none !important;}
     .UNLOADED {display: none !important;} .UNLOADED * {display: none !important;}
     #HEADER {grid-area: H;} #SIDEBAR {grid-area: S;} #THEMES, #SETTINGS, #AUTHOR, #CONTENT {grid-area: C;}
   </style>
-  <script src="/valikzants-immersive-backstory-encyclopedia/FILES/JS/CORE.js?v=update5.3"></script>
-  <link rel="preload" as="style" onload="this.rel='stylesheet'" href="/valikzants-immersive-backstory-encyclopedia/FILES/CSS/ELEMENTS.css?v=update5.3">
-  <link id="ELEMENTS_STYLE_CSS_FILE" rel="stylesheet" href="/valikzants-immersive-backstory-encyclopedia/FILES/CSS/ELEMENTS_STYLE_legacy.css?v=update5.3">
-  <link rel="preload" as="style" onload="this.rel='stylesheet'" href="/valikzants-immersive-backstory-encyclopedia/FILES/CSS/ID_STYLE.css?v=update5.3" />
+  <script src="/valikzants-immersive-backstory-encyclopedia/FILES/JS/CORE.js?v=update5.4"></script>
+  <link rel="preload" as="style" onload="this.rel='stylesheet'" href="/valikzants-immersive-backstory-encyclopedia/FILES/CSS/ELEMENTS.css?v=update5.4">
+  <link id="ELEMENTS_STYLE_CSS_FILE" rel="stylesheet" href="/valikzants-immersive-backstory-encyclopedia/FILES/CSS/ELEMENTS_STYLE_legacy.css?v=update5.4">
+  <link rel="preload" as="style" onload="this.rel='stylesheet'" href="/valikzants-immersive-backstory-encyclopedia/FILES/CSS/ID_STYLE.css?v=update5.4" />
 </head>
 <script>
 
@@ -50,15 +50,18 @@
     "text"        : [0, 0, 0]}                // Цвет текста
   ];
 
-  window.onload = async function () {
-    F_LOAD_WINDOW('THEMES').then(async () => {
+  window.onload = function () {
+    F_LOAD_WINDOW('THEMES').then(() => {
       F_ON_LOAD_GENERATE_AND_SAVE_HUES(C_HUES);
 
       F_ON_LOAD_GENERATE_AND_SAVE_THEMES(C_THEMES);
-    })
 
-    F_ON_LOAD_FINISHED();
+      setTimeout(() => {
+        F_ON_LOAD_FINISHED();
+    }, 50);
+    })
   };
+  
 </script>
 <body id="body">
   <div id="LOADING_SCREEN" class="BLOCK">

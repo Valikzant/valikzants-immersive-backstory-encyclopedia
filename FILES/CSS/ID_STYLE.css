@@ -1,10 +1,10 @@
 /*.............................................................................
 .                                   LOADING                                   .
 .............................................................................*/
-#LOADING_SCREEN {
+#LOADING_SCREEN { background: black; opacity: 1; 
   background: black;
   background: rgb(var(--color-solid));
-  transition: opacity 0.5s;
+  transition: opacity 0.05s cubic-bezier(1,.15,.15,.58);
 }
 
 /*.............................................................................

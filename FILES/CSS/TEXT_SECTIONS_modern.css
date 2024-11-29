@@ -5,6 +5,7 @@
 @font-face {
   font-family: "geologica";
   src: url("../FONTS/geologica/Geologica-Light.ttf");
+  font-display: block;
 }
 
 @font-face {

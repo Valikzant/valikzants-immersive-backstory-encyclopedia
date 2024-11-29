@@ -660,7 +660,7 @@ async function F_ON_LOAD_FINISHED() {
   setTimeout(function () {
     const c_LoadingScreen = document.getElementById("LOADING_SCREEN");
     c_LoadingScreen.style.setProperty("opacity", "0");
-  }, 100);
+  }, 250);
   setTimeout(function () {
     const c_Hints = document.querySelectorAll(".HINT");
     c_Hints.forEach(i_Hint => {
