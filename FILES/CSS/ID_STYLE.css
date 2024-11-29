@@ -1,6 +1,15 @@
-/* ===================== */
+/*.............................................................................
+.                                   LOADING                                   .
+.............................................................................*/
+#LOADING_SCREEN {
+  background: black;
+  background: rgb(var(--color-solid));
+  transition: opacity 0.5s;
+}
 
-/* WARNINGS and ELEMENTS */
+/*.............................................................................
+.                                   WARNING                                   .
+.............................................................................*/
 #WARNING {
   position: absolute;
   bottom: 0;
@@ -15,9 +24,9 @@
   justify-content: center;
 }
 
-/* ===================== */
-
-/* TOOLTIP and ELEMENTS */
+/*.............................................................................
+.                                   TOOLTIP                                   .
+.............................................................................*/
 #TOOLTIP_HELP {
   position: fixed;
   margin: 10px;
@@ -29,9 +38,9 @@
   z-index: 6;
 }
 
-/* ===================== */
-
-/* HEADER and ELEMENTS */
+/*.............................................................................
+.                                   HEADER                                    .
+.............................................................................*/
 #HEADER {
   grid-area: H;
   margin: 5px;
@@ -63,9 +72,9 @@
   z-index: -1;
 }
 
-/* ===================== */
-
-/* SIDEBAR and ELEMENTS */
+/*.............................................................................
+.                                   SIDEBAR                                   .
+.............................................................................*/
 #SIDEBAR {
   grid-area: S;
   margin: 5px;
@@ -89,9 +98,9 @@
   min-height: clamp(35px, calc(var(--size-ui) * 3), 180px);
 }
 
-/* ===================== */
-
-/* WINDOWS and ELEMENTS  */
+/*.............................................................................
+.                                   WINDOWS                                   .
+.............................................................................*/
 #THEMES,
 #SETTINGS,
 #AUTHOR,
@@ -185,24 +194,23 @@
   text-align: center;
 }
 
-/* ===================== */
-
-/* STORY BLOCK */
+/*.............................................................................
+.                                    STORY                                    .
+.............................................................................*/
 #STORY_BLOCK {
   display: flex;
   flex-direction: column;
 }
 
 #STORY_BLOCK > :nth-child(1) {
-  margin: 0 0 15px 0;
+  margin: 0 0 0px 0;
 }
 
-/* ===================== */
-
-/* CHARACTER INFORMATION */
+/*.............................................................................
+.                                  CHARACTER                                  .
+.............................................................................*/
 #CHARACTER_INFORMATION {
   display: grid;
-  gap: 15px;
   grid-template-columns: 1fr 1fr 1fr 1.5fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
@@ -222,7 +230,7 @@
   flex-direction: column;
   gap: 15px;
   position: relative;
-  margin: 5px 0px 5px 0px;
+  margin: 15px 0px 15px 0px;
 }
 
 #CHARACTER_SPECIAL_NAME {
@@ -235,7 +243,6 @@
   grid-area: C;
   display: grid;
   position: relative;
-  margin: 5px 0;
   gap: 15px;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto auto;
@@ -302,21 +309,21 @@
   pointer-events: none;
 }
 
-/* ===================== */
-
-/* CHARACTERS SLIDERS */
+/*.............................................................................
+.                                   SLIDERS                                   .
+.............................................................................*/
 #CHARACTERS_SLIDERS {
   display: flex;
   flex-direction: column;
 }
 
-#CHARACTERS_SLIDERS > * {
+#CHARACTERS_SLIDERS > div {
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   display: flex;
   flex-direction: row;
-  margin: 5px 0 15px 0;
+  margin: 0px 0 25px 0;
   gap: 15px;
 }
 
@@ -350,23 +357,9 @@
   padding: 0;
 }
 
-/* ==================== */
-
-/* FOOTER and ELEMENTS */
-#FOOTER {
-  grid-area: F;
-  margin: 5px;
-  gap: 7.5px;
-  height: var(--size-ui);
-  max-height: var(--size-ui);
-  z-index: 2;
-}
-
-/* ==================== */
-
-
-/* MEDIA QUERIES */
-
+/*.............................................................................
+.                                    MEDIA                                    .
+.............................................................................*/
 
 @media (max-width: 480px) {
   #CHARACTER_CARD_INFORMATION {

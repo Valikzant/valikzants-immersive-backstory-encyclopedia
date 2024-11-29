@@ -31,13 +31,7 @@ h3.FANCY {
 h1.TITLE,
 h2.TITLE,
 h3.TITLE {
-
-}
-
-h1.HINT,
-h2.HINT,
-h3.HINT {
-  
+  background: rgb(var(--color-solid));
 }
 
 a {

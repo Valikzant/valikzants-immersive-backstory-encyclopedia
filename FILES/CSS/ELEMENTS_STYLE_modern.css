@@ -15,8 +15,8 @@ body {
   font-family: "geologica";
   color: rgb(var(--color-text));
   background: 
-  radial-gradient(circle at top left, rgb(var(--color-accent)) -250%, transparent 35%),
-  radial-gradient(circle at bottom right, rgb(var(--color-accent)) -250%, rgb(var(--color-solid)) 50%);
+  radial-gradient(circle at top left, rgb(var(--color-accent)) -450%, transparent 60%),
+  radial-gradient(circle at bottom right, rgb(var(--color-accent)) -450%, rgb(var(--color-solid)) 70%);
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
@@ -35,16 +35,8 @@ h3.FANCY {
 h1.TITLE,
 h2.TITLE,
 h3.TITLE {
-  border-radius: 15px;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-
-}
-
-h1.HINT,
-h2.HINT,
-h3.HINT {
-  
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 
 a {
@@ -101,6 +93,8 @@ img {
   background: rgb(var(--color-solid));
   border-radius: 15px;
   transition: transform var(--transition-fast);
+  box-shadow: -5px -5px 5px rgba(var(--color-accent), 0.05) inset;
+  outline: 1px solid rgb(var(--color-text), 0.05);
 }
 
 .BUTTON.ACTIVE {

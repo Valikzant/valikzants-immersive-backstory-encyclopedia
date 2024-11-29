@@ -13,6 +13,7 @@ html {
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
+  
   user-select: none;
   scrollbar-color: rgb(var(--color-accent)) transparent;
   scrollbar-width: thin;
@@ -36,8 +37,7 @@ body {
 
   box-sizing: border-box;
   font-size: 15px;
-  min-height: 100vh;
-  max-height: 100vh;
+  height: 100svh;
   margin: 0;
   padding: 0;
   display: grid;
@@ -78,8 +78,9 @@ h3.TITLE {
   text-align: left;
   position: sticky;
   top: 0;
-  margin: 5px 0;
   z-index: 3;
+  padding: 10px;
+  transform: translateX(-10px) translateY(-10px);
 }
 
 h1.TITLE.INVISIBLE,
