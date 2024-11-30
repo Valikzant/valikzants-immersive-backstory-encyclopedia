@@ -12,12 +12,7 @@
 
   text-rendering:optimizeSpeed;
 }
-.TEXT_BLOCK.UNLOADED{
-  visibility: hidden;
-}
-.TEXT_BLOCK.UNLOADED p {
-  display: none !important;
-}
+
 .TEXT_BLOCK p {
   z-index: 3;
 }

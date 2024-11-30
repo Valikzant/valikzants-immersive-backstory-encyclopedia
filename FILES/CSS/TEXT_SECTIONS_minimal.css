@@ -33,12 +33,6 @@
 }
 
 @font-face {
-  font-family: "rubik";
-  src: url("../FONTS/rubik/RubikMonoOne-Regular.ttf");
-  font-display: swap;
-}
-
-@font-face {
   font-family: "mister_brush";
   src: url("../FONTS/mister_brush/MisterBrush.ttf");
   font-display: swap;
@@ -111,12 +105,7 @@
 
   text-rendering:optimizeSpeed;
 }
-.TEXT_BLOCK.UNLOADED{
-  visibility: hidden;
-}
-.TEXT_BLOCK.UNLOADED p {
-  display: none !important;
-}
+
 .TEXT_BLOCK p {
   z-index: 3;
 }

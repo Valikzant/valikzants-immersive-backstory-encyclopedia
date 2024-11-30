@@ -83,30 +83,6 @@ const C_SYMBOLS = "☰ ☱ ☲ ☳ ☴ ☵ ☶ ☷".split(' ');
 
 */
 
-// Символы экрана загрузки
-const C_LOADING_SYMBOLS = 
-"\
-▰▱▱▱▱▱▱ \
-▰▰▱▱▱▱▱ \
-▱▰▰▱▱▱▱ \
-▱▱▰▰▱▱▱ \
-▱▱▱▰▰▱▱ \
-▱▱▱▱▰▰▱ \
-▱▱▱▱▱▰▰ \
-▱▱▱▱▱▱▰ \
-▱▱▱▱▱▱▱ \
-▱▱▱▱▱▱▱ \
-▰▱▱▱▱▱▱ \
-▰▰▱▱▱▱▱ \
-▱▰▰▱▱▱▱ \
-▱▱▰▰▱▱▱ \
-▱▱▱▰▰▱▱ \
-▱▱▱▱▰▰▱ \
-▱▱▱▱▱▰▰ \
-▱▱▱▱▱▱▰ \
-▱▱▱▱▱▱▱ \
-".split(' ');
-
 // ! КОНЕЦ БЛОКА
 /*.............................................................................
 .                                    ФУНКЦИИ                                  .
@@ -128,7 +104,7 @@ async function F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(c_Element, c_Class) {
 // Выключение элемента по ID
 async function F_INTERACT_WITH_HTML_DISABLE_ELEMENT_BY_ID(c_ElementId) {
   const c_Element = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID(c_ElementId);
-  if (!c_Element.hasAttribute("disabled")) {
+  if (!c_Element.hasAttribute("disabled") && c_Element) {
     c_Element.setAttribute("disabled", "");
   }
 }
@@ -136,7 +112,7 @@ async function F_INTERACT_WITH_HTML_DISABLE_ELEMENT_BY_ID(c_ElementId) {
 // Включение элемента по ID
 async function F_INTERACT_WITH_HTML_ENABLE_ELEMENT_BY_ID(c_ElementId) {
   const c_Element = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID(c_ElementId);
-  if (c_Element.hasAttribute("disabled")) {
+  if (c_Element.hasAttribute("disabled") && c_Element) {
     c_Element.removeAttribute("disabled");
   }
 }
@@ -144,7 +120,7 @@ async function F_INTERACT_WITH_HTML_ENABLE_ELEMENT_BY_ID(c_ElementId) {
 // Выключение кнопки по ID
 async function F_INTERACT_WITH_HTML_DISABLE_BUTTON_BY_ID(c_ElementId) {
   const c_Element = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID(c_ElementId);
-  if (c_Element.classList.contains("ACTIVE")) {
+  if (c_Element.classList.contains("ACTIVE") && c_Element) {
     c_Element.classList.remove("ACTIVE");
   }
 }
@@ -152,7 +128,7 @@ async function F_INTERACT_WITH_HTML_DISABLE_BUTTON_BY_ID(c_ElementId) {
 // Активация кнопки по ID
 async function F_INTERACT_WITH_HTML_ENABLE_BUTTON_BY_ID(c_ElementId) {
   const c_Element = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID(c_ElementId);
-  if (!c_Element.classList.contains("ACTIVE")) {
+  if (!c_Element.classList.contains("ACTIVE") && c_Element) {
     c_Element.classList.add("ACTIVE");
   }
 }
@@ -267,14 +243,16 @@ async function F_LOGO_UPDATE() {
 
 // [ LOADING ]
 
-// Последовательное отображение символов загрузки внутри окна #LOADING_SCREEN
-async function F_LOADING_UPDATE() {
-  const c_LoadingScreen = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("LOADING_SCREEN");
-  for (let i = 0; i < C_LOADING_SYMBOLS.length; i++) {
-    setTimeout(function () {
-      c_LoadingScreen.innerHTML = '<h1 class="FANCY">' + C_LOADING_SYMBOLS[i] + '</h1>';
-    }, 25 * i);
-  }
+// Показать экран загрузки
+async function F_SHOW_LOADING_SCREEN() {
+  const c_LoadingScreen = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID('LOADING_SCREEN');
+  c_LoadingScreen.style.setProperty('opacity', '1');
+}
+
+// Спрятать экран загрузки 
+async function F_HIDE_LOADING_SCREEN() {
+  const c_LoadingScreen = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID('LOADING_SCREEN');
+  c_LoadingScreen.style.setProperty('opacity', '0');
 }
 
 // [ CUSTOMIZATION CHANGE ]
@@ -467,38 +445,108 @@ async function F_LOAD_WINDOW(c_WindowId) {
     
     const c_FilePath = `${C_ROOT}/FILES/FRAGMENTS/${c_WindowId}/${c_WindowId}.html`;
 
-    try {
-      const r_Response = await fetch(c_FilePath);
-      if (!r_Response.ok) {
-        throw new Error(`Ошибка загрузки файла: ${r_Response.statusText}`);
-      }
-      const c_Data = await r_Response.text();
-      const c_TempDiv = document.createElement('div');
-      c_TempDiv.innerHTML = c_Data;
-      c_Preloader.replaceWith(...c_TempDiv.childNodes);
-    } catch (e_Error) {
-      e_Error = `Ошибка загрузки блока ${c_WindowId}: ${e_Error}`
-      console.error(e_Error);
-      F_SHOW_WARNING(e_Error)
+    const r_Response = await fetch(c_FilePath);
+    if (!r_Response.ok) {
+      return;
     }
+
+    const c_Data = await r_Response.text();
+    const c_TempDiv = document.createElement('div');
+    c_TempDiv.innerHTML = c_Data;
+    c_Preloader.replaceWith(...c_TempDiv.childNodes);
   }
 }
 
-// Показать предупреждение
-async function F_SHOW_WARNING(c_Text) {
-  const c_WarningWindow = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("WARNING");
+// Вспомогательная функция для преобразования относительных путей в абсолютные
+const correctRelativePaths = (c_ParentElement, c_BasePath) => {
+  const c_Elements = c_ParentElement.querySelectorAll('img, a');
+  c_Elements.forEach(i_Element => {
+    if (i_Element.tagName === 'IMG' || i_Element.tagName === 'A') {
+      const c_AttrName = i_Element.tagName === 'IMG' ? 'src' : 'href';
+      const c_AttrValue = i_Element.getAttribute(c_AttrName);
+      if (c_AttrValue && c_AttrValue.startsWith('./')) {
+        // Преобразуем относительный путь в абсолютный
+        i_Element.setAttribute(c_AttrName, `${c_BasePath}/${c_AttrValue.substring(2)}`);
+      }
+    }
+  });
+};
 
-  if (c_WarningWindow.classList.contains('HIDDEN')) {
-    c_WarningWindow.classList.toggle('HIDDEN');
+// Основная функция загрузки контента
+async function F_LOAD_CONTENT_FROM(c_Path) {
+  const c_ContentWindow = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID('CONTENT');
+  const c_SidebarWindow = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID('SIDEBAR');
+  const c_AuthorWindow = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID('AUTHOR');
+  const c_GoBackButton = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID('HEADER_BUTTON_GO_BACK');
+  F_SHOW_LOADING_SCREEN();
+  if (c_ContentWindow) {
+    const c_FilePath = `${C_ROOT}/${c_Path}/index.html`;
+    const c_TempDiv = document.createElement('div');
+
+    //Заменяем окно CONTENT на 'загрузка', пока происходят остальные процессы
+    const r_Response = await fetch(c_FilePath);
+    if (!r_Response.ok) {
+      F_LOAD_CONTENT_FROM('FILES');
+      return;
+    }
+
+    const c_Data = await r_Response.text();
+    c_TempDiv.innerHTML = c_Data;
+
+    // Проверка на наличие флага UNLOADABLE
+    // Если флаг присутствует, загрузка контента прекращается
+    // Используется для предотвращения загрузки самой же главной страницы
+    const c_IsUnloadable = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(c_TempDiv, '.UNLOADABLE');
+
+    if (c_IsUnloadable.length == 1) {
+      F_LOAD_CONTENT_FROM('FILES');
+      return;
+    }
+
+    // Извлечение всех тегов <c_Script>
+    const c_Scripts = c_TempDiv.querySelectorAll('script');
+    const c_ScriptContents = Array.from(c_Scripts).map(c_Script => c_Script.textContent.trim());
+
+    // Удаление всех тегов <c_Script> из временного div
+    c_Scripts.forEach(i_Script => i_Script.remove());
+
+    // Преобразование относительных путей
+    const c_BasePath = c_FilePath.substring(0, c_FilePath.lastIndexOf('/'));
+    correctRelativePaths(c_TempDiv, c_BasePath);
+    c_GoBackButton.setAttribute("onclick", `F_LOAD_CONTENT_FROM('${c_Path}/..')`);
+
+    // Вставка контента
+    if (c_SidebarWindow) {c_SidebarWindow.remove();}
+    if (c_AuthorWindow) {c_AuthorWindow.remove();}
+    c_ContentWindow.replaceWith(...c_TempDiv.childNodes);
+
+    // Выполнение скриптов с использованием eval (Да. Абоба)
+    c_ScriptContents.forEach(i_ScriptContent => {
+      try {
+        eval(i_ScriptContent);
+      } catch (e) {
+        console.error(`Ошибка выполнения скрипта: ${e}`, i_ScriptContent);
+      }
+    });
+
+    // Обновляем хэш в URL
+    window.location.hash = c_Path;
+
+    F_ON_EVENT_CHANGE_LAYOUT();
+    F_TOGGLE_WINDOW('CONTENT')
+    F_ON_LOAD_SETUP_HINTS();
+    F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES();
   }
+  F_HIDE_LOADING_SCREEN();
+}
 
-  const c_WarningText = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(c_WarningWindow, "p")
-  c_WarningText[0].innerHTML = c_Text
-
-  if (!c_WarningWindow.classList.contains('HIDDEN')) {
-    setTimeout(async () => {
-      c_WarningWindow.classList.toggle('HIDDEN')
-    }, 10000);
+// Функция для загрузки контента на основе текущего хэша
+function F_LOAD_CONTENT_BASED_ON_HASH() {
+  const c_Hash = window.location.hash.substring(1); // Убираем '#'
+  if (c_Hash) {
+    F_LOAD_CONTENT_FROM(c_Hash);
+  } else {
+    F_LOAD_CONTENT_FROM('FILES'); // Загрузка по умолчанию
   }
 }
 
@@ -513,8 +561,8 @@ async function F_ON_EVENT_SHOW_TOOLTIP(event) {
   const { clientX: c_MouseX, clientY: c_MouseY } = event;
   const { innerWidth: c_ViewPortWidth, innerHeight: c_ViewPortHeight } = window;
   
-  const c_ToolTipX = (c_MouseX + 200 > c_ViewPortWidth) ? c_MouseX - 200 : c_MouseX;
-  const c_ToolTipY = (c_MouseY + 200 > c_ViewPortHeight) ? c_MouseY - 50 : c_MouseY;
+  const c_ToolTipX = (c_MouseX + 200 > c_ViewPortWidth) ? c_MouseX - 100 : c_MouseX;
+  const c_ToolTipY = (c_MouseY + 100 > c_ViewPortHeight) ? c_MouseY - 100 : c_MouseY;
 
   c_ToolTip.style.top = c_ToolTipY + "px";
   c_ToolTip.style.left = c_ToolTipX + "px";
@@ -586,10 +634,6 @@ async function F_ON_LOAD_SETUP_HINTS() {
     document,
     ".BUTTON.SIDEBAR , .BUTTON.HEADER"
   )
-  const c_HelpHints = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(
-    document, 
-    ".HINT"
-  )
 
   if (await F_LOCAL_STORAGE_GET("hints") == "false") {
     c_HelpButtons.forEach(i_Button => {
@@ -652,30 +696,6 @@ async function F_ON_LOAD_GENERATE_AND_SAVE_THEMES(c_ThemesFromHtml) {
       await F_CUSTOMIZATION_CHANGE_THEME(3);
     }
   }
-}
-
-// Завершение загрузки
-async function F_ON_LOAD_FINISHED() {
-  // Завершение загрузки
-  setTimeout(function () {
-    const c_LoadingScreen = document.getElementById("LOADING_SCREEN");
-    c_LoadingScreen.style.setProperty("opacity", "0");
-  }, 250);
-  setTimeout(function () {
-    const c_Hints = document.querySelectorAll(".HINT");
-    c_Hints.forEach(i_Hint => {
-      i_Hint.style.setProperty("opacity", "0");
-    });
-  }, 1500);
-
-  const c_UnloadedBlocks = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".UNLOADED");
-  c_UnloadedBlocks.forEach(i_UnloadedBlock => {
-    setTimeout(function () {
-      i_UnloadedBlock.classList.remove("UNLOADED");
-    }, 100)
-  });
-
-  F_LOADING_UPDATE();
 }
 
 // ! КОНЕЦ БЛОКА

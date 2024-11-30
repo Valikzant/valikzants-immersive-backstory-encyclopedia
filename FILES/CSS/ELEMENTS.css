@@ -1,4 +1,11 @@
 /*.............................................................................
+.                                 UNLOADABLE                                  .
+.............................................................................*/
+.UNLOADABLE {
+  display: none;
+}
+
+/*.............................................................................
 .                                    HTML                                     .
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
@@ -6,6 +13,7 @@ html {
   box-sizing: border-box;
   letter-spacing: 1px;
   line-height: 1.5;
+  height: -webkit-fill-avaliable;
 }
 
 * {
@@ -38,6 +46,7 @@ body {
   box-sizing: border-box;
   font-size: 15px;
   height: 100vh;
+  height: -webkit-fill-avaliable;
   height: 100svh;
   margin: 0;
   padding: 0;

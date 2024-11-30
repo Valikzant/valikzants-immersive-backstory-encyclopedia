@@ -1,3 +1,5 @@
+
+
 <script>
   // ДЛЯ РЕДАКТИРОВАНИЯ
   // Здесь можно указать свои оттенки/темы для страницы в формате R G B.
@@ -34,35 +36,80 @@
   F_ON_LOAD_GENERATE_AND_SAVE_HUES(C_HUES);
 
   F_ON_LOAD_GENERATE_AND_SAVE_THEMES(C_THEMES);
-  
+
 </script>
+
+<div id="SIDEBAR" class="BLOCK">
+
+  <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
+
+  <div
+    class="BUTTON SIDEBAR"
+    onclick="F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(
+  'categoryname')"
+    data-tooltip="Сервера SS14"
+  >
+    <div class="ICON">🧑🏼‍🚀</div>
+  </div>
+
+  <!--
+  <div
+    class="BUTTON SIDEBAR"
+    onclick="F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(
+  'АЙДИ ТОЙ КАТЕГОРИИ ДЛЯ ПРОКРУТКИ')"
+    data-tooltip="НАЗВАНИЕ КАТЕГОРИИ"
+  >
+    <div class="ICON"> ЭМОДЗИ/БУКВА ДЛЯ ИКОНКИ </div>
+  </div>
+  -->
+
+</div>
 
 <div id="CONTENT" class="BLOCK">
   <div
     class="BUTTON_HELP"
     data-tooltip="
-Главная страница сайта. Пока что очень пустая.
-"
-  >
+Основной раздел вселенных/серверов.
+">
     <div class="ICON">❔</div>
   </div>
 
-  <h2 class="TITLE STATIONARY">Добро пожаловать!</h2>
+  <h2 class="TITLE STATIONARY">Обозреватель категорий</h2>
 
-  <p>
-    Добро пожаловать на Valikzant's Immersive Backstory Encyclopedia!
-    <br><br>
-    Здесь вы можете размещать истории своих персонажей и делиться ими с другими.
-    <br><br>
-    Присоединяйтесь к этому небольшому сообществу на 
-    <a href="https://github.com/Valikzant/valikzants-immersive-backstory-encyclopedia">Github</a> 
-    и добавляйте своих персонажей!
-    <br><br>
-    <strong>САЙТ НАХОДИТСЯ В РАЗРАБОТКЕ. КОНТЕНТ, ЧТО ВЫ ВИДИТЕ, НЕ ЯВЛЯЕТСЯ ФИНАЛЬНЫМ И МОЖЕТ БЫТЬ ИЗМЕНЁН/УБРАН/МОДИФИЦИРОВАН/УДАЛЁН.</strong>
-    <h3 class="BUTTON WIDE INVISIBLE" onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH')">Перейти к обозревателю <span class="ICON">🔍</span> </h3>
-  </p>
+  <div id="CHARACTERS_SLIDERS" class="BLOCK INNER INVISIBLE">
+    <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
+    <h2 id="ss14" class="TITLE STATIONARY">Сервера SS14</h2>
 
+    <!--
+    <h2 id="АЙДИ КАТЕГОРИИ ДЛЯ ПРОКРУТКИ" class="TITLE STATIONARY">НАЗВАНИЕ КАТЕГОРИИ</h2>
+    -->
 
+    <div class="BLOCK INNER">
+      <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
+      <div class="BLOCK INNER">
+        <img alt=""
+          onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO')"
+          class="BLOCK INNER IMAGE"
+          src="./AAVIKKO/icon.webp"
+          loading="lazy"
+        />
+        <p>Аавикко Аваруус</p>
+      </div>
+
+      <!-- 
+      <div class="BLOCK INNER">
+        <img alt=""
+          onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/ПАПКА ВСЕЛЕННОЙ')"
+          class="BLOCK INNER IMAGE"
+          src="./ПАПКА ВСЕЛЕННОЙ/pfp.webp" (Иконка должна быть квадратной)
+          loading="lazy"
+        />
+        <p>ИМЯ ВСЕЛЕННОЙ</p>
+      </div>
+      -->
+
+    </div>
+  </div>
 </div>
 
 <div id="AUTHOR" class="BLOCK HIDDEN">
@@ -72,8 +119,7 @@
 Вероятно, автор оставил здесь о себе какую-либо информацию.
 <br><br>
 Переход по ссылкам за пределы сайта не контролируется. Будьте осторожны!
-"
-  >
+">
     <div class="ICON">❔</div>
   </div>
 

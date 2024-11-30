@@ -1,0 +1,253 @@
+<script>
+
+  // Здесь можно указать свои оттенки/темы для страницы в формате R G B.
+  const C_HUES = [
+    // Максимум 8 оттенков
+    {"hue": [110, 117, 255]},          // Синий
+    {"hue": [248, 56, 56]},          // Яркий красный
+    {"hue": [255, 101, 0]},          // Оранжевый
+    {"hue": [255, 105, 180]},          // Темный оранжевый
+    {"hue": [255, 127, 80]},          // Желтый
+    {"hue": [105, 155, 0]},          // Зеленый
+    {"hue": [0, 198, 198]},          // Голубой
+    {"hue": [138, 43, 226]}          // Фиолетовый
+  ];
+
+  const C_THEMES = [
+    // Темная тема
+    {"solid"      : [13, 23, 53],     // Цвет фона
+    "text"        : [200, 200, 200]}, // Цвет текста
+
+    // Более тёмная тема
+    {"solid"      : [10, 20, 40],     // Цвет фона
+    "text"        : [200, 200, 200]}, // Цвет текста
+
+    // Светлая тема
+    {"solid"      : [224, 204, 254],        // Цвет фона
+    "text"        : [30, 30, 30]},            // Цвет текста
+
+    // Более светлая тема
+    {"solid"      : [244, 224, 254],        // Цвет фона
+    "text"        : [0, 0, 0]}                // Цвет текста
+  ];
+
+  F_ON_LOAD_GENERATE_AND_SAVE_HUES(C_HUES);
+
+  F_ON_LOAD_GENERATE_AND_SAVE_THEMES(C_THEMES);
+
+</script>
+
+<div id="SIDEBAR" class="BLOCK">
+  <div
+    class="BUTTON SIDEBAR"
+    onclick="F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(
+  'bigwork')"
+    data-tooltip="Объёмные Работы"
+  >
+    <div class="ICON">💎</div>
+  </div>
+  <div
+    class="BUTTON SIDEBAR"
+    onclick="F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(
+  'new')"
+    data-tooltip="Недавно Добавленные"
+  >
+    <div class="ICON">⌛</div>
+  </div>
+  <div
+    class="BUTTON SIDEBAR"
+    onclick="F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(
+  'nice')"
+    data-tooltip="Красиво Оформлены"
+  >
+    <div class="ICON">🪄</div>
+  </div>
+  <div
+    class="BUTTON SIDEBAR"
+    onclick="F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(
+  'nanotrasen')"
+    data-tooltip="НаноТрейзен"
+  >
+    <div class="ICON">N</div>
+  </div>
+  <div
+    class="BUTTON SIDEBAR"
+    onclick="F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(
+  'sindycate')"
+    data-tooltip="Синдикат"
+  >
+    <div class="ICON">S</div>
+  </div>
+</div>
+
+<div id="CONTENT" class="BLOCK">
+  <div
+    class="BUTTON_HELP"
+    data-tooltip="
+Основной раздел с различными персонажами сервера SS14 Aavikko Avaruus.
+">
+    <div class="ICON">❔</div>
+  </div>
+
+  <h2 class="TITLE STATIONARY">Персонажи Аавикко</h2>
+
+  <div id="CHARACTERS_SLIDERS" class="BLOCK INNER INVISIBLE">
+    <h2 id="bigwork" class="TITLE STATIONARY">Объёмные Работы</h2>
+
+    <div class="BLOCK INNER">
+
+      <div class="BLOCK INNER">
+        <img alt=""
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/AIVEN UNO')"
+          class="BLOCK INNER IMAGE"
+          src="./AIVEN UNO/pfp.webp"
+          loading="lazy"
+        />
+        <p>Айвен Уно</p>
+      </div>
+
+      <!-- 
+      <div class="BLOCK INNER">
+        <img alt=""
+          onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/ВСЕЛЕННАЯ/ПАПКА ПЕРСОНАЖА')"
+          class="BLOCK INNER IMAGE"
+          src="./ПАПКА ПЕРСОНАЖА/pfp.webp" (Аватарка должна быть квадратной)
+          loading="lazy"
+        />
+        <p>КРАТКОЕ ИМЯ ПЕРСОНАЖА</p>
+      </div>
+      -->
+      
+    </div>
+
+    <h2 id="new" class="TITLE STATIONARY">Недавно Добавленные</h2>
+
+    <div class="BLOCK INNER">
+
+      <div class="BLOCK INNER">
+        <img alt=""
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/KESS SHEYLA')"
+          class="BLOCK INNER IMAGE"
+          src="./KESS SHEYLA/pfp.webp"
+          loading="lazy"
+        />
+        <p>Кэсс-Шейла</p>
+      </div>
+
+      <!-- 
+      <div class="BLOCK INNER">
+        <img alt=""
+          onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/ВСЕЛЕННАЯ/ПАПКА ПЕРСОНАЖА')"
+          class="BLOCK INNER IMAGE"
+          src="./ПАПКА ПЕРСОНАЖА/pfp.webp" (Аватарка должна быть квадратной)
+          loading="lazy"
+        />
+        <p>КРАТКОЕ ИМЯ ПЕРСОНАЖА</p>
+      </div>
+      -->
+
+    </div>
+
+    <h2 id="nice" class="TITLE STATIONARY">Красиво Оформлены</h2>
+
+    <div class="BLOCK INNER">
+
+      <div class="BLOCK INNER">
+        <img alt=""
+          onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')"
+          class="BLOCK INNER IMAGE"
+          src="./PLACEHOLDER/pfp.webp"
+          loading="lazy"
+        />
+        <p>Неизвестный Персонаж</p>
+      </div>
+
+      <!-- 
+      <div class="BLOCK INNER">
+        <img alt=""
+          onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/ВСЕЛЕННАЯ/ПАПКА ПЕРСОНАЖА')"
+          class="BLOCK INNER IMAGE"
+          src="./ПАПКА ПЕРСОНАЖА/pfp.webp" (Аватарка должна быть квадратной)
+          loading="lazy"
+        />
+        <p>КРАТКОЕ ИМЯ ПЕРСОНАЖА</p>
+      </div>
+      -->
+      
+    </div>
+
+    <h2 id="nanotrasen" class="TITLE STATIONARY">НаноТрейзен</h2>
+
+    <div class="BLOCK INNER">
+
+      <div class="BLOCK INNER">
+        <img alt=""
+          onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')"
+          class="BLOCK INNER IMAGE"
+          src="./PLACEHOLDER/pfp.webp"
+          loading="lazy"
+        />
+        <p>Неизвестный Персонаж</p>
+      </div>
+
+      <!-- 
+      <div class="BLOCK INNER">
+        <img alt=""
+          onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/ВСЕЛЕННАЯ/ПАПКА ПЕРСОНАЖА')"
+          class="BLOCK INNER IMAGE"
+          src="./ПАПКА ПЕРСОНАЖА/pfp.webp" (Аватарка должна быть квадратной)
+          loading="lazy"
+        />
+        <p>КРАТКОЕ ИМЯ ПЕРСОНАЖА</p>
+      </div>
+      -->
+      
+    </div>
+
+    <h2 id="sindycate" class="TITLE STATIONARY">Синдикат</h2>
+
+    <div class="BLOCK INNER">
+
+      <div class="BLOCK INNER">
+        <img alt=""
+          onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')"
+          class="BLOCK INNER IMAGE"
+          src="./PLACEHOLDER/pfp.webp"
+          loading="lazy"
+        />
+        <p>Неизвестный Персонаж</p>
+      </div>
+
+      <!-- 
+      <div class="BLOCK INNER">
+        <img alt=""
+          onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/ВСЕЛЕННАЯ/ПАПКА ПЕРСОНАЖА')"
+          class="BLOCK INNER IMAGE"
+          src="./ПАПКА ПЕРСОНАЖА/pfp.webp" (Аватарка должна быть квадратной)
+          loading="lazy"
+        />
+        <p>КРАТКОЕ ИМЯ ПЕРСОНАЖА</p>
+      </div>
+      -->
+      
+    </div>
+  </div>
+</div>
+
+<div id="AUTHOR" class="BLOCK HIDDEN">
+  <div
+    class="BUTTON_HELP"
+    data-tooltip="
+Вероятно, автор оставил здесь о себе какую-либо информацию.
+<br><br>
+Переход по ссылкам за пределы сайта не контролируется. Будьте осторожны!
+">
+    <div class="ICON">❔</div>
+  </div>
+
+  <h2 class="TITLE STATIONARY">Об авторе</h2>
+
+  <p>
+    Вселенная Аавикко Аваруус. Сервер игры SS14.
+  </p>
+</div>
