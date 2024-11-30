@@ -560,7 +560,7 @@ async function F_ON_EVENT_SHOW_TOOLTIP(event) {
 
   const { clientX: c_MouseX, clientY: c_MouseY } = event;
   const { innerWidth: c_ViewPortWidth, innerHeight: c_ViewPortHeight } = window;
-  
+
   const c_ToolTipX = (c_MouseX + 200 > c_ViewPortWidth) ? c_MouseX - 100 : c_MouseX;
   const c_ToolTipY = (c_MouseY + 100 > c_ViewPortHeight) ? c_MouseY - 100 : c_MouseY;
 

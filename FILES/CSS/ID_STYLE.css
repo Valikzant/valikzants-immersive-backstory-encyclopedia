@@ -3,36 +3,81 @@
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
 #LOADING_SCREEN {
+  opacity: 1;
   background: black;
   background: rgb(var(--color-solid));
-  transition: opacity 1.25s cubic-bezier(.07,.81,0,.65);
+  transition: opacity var(--transition-fast);
+  animation: 2s SCALING cubic-bezier(.69,-0.87,.54,1.33) infinite;
+
 }
-#LOADING_SCREEN > h1 {
-  transform: scale(1.5);
+#LOADING_SCREEN > div {
+  position: absolute;
+  background: transparent;
+  width: clamp(1px, 15vw, 3rem);
+  height: clamp(1px, 15vw, 3rem);
+  border-radius: 50%;
+  border: 8px solid rgb(var(--color-accent));
   animation: 2s SPINNING cubic-bezier(.69,-0.87,.54,1.33) infinite;
   text-shadow: none;
+  overflow: hidden;
   color: rgb(var(--color-accent));
+}
+#LOADING_SCREEN > div::before {
+  content: '';
+  inset: 0;
+  margin: -35% auto 0% auto;
+  position: absolute;
+  background: rgb(var(--color-accent));
+  border-radius: 15px;
+  width: 8px;
+  height: 45px;
+}
+#LOADING_SCREEN > *:nth-child(1) {
+  animation: 8s SPINNING cubic-bezier(.69,-0.87,.54,1.33) infinite;
+
 }
 
 @keyframes SPINNING {
   0% {
-    transform: rotate(10deg) scale(2);
+    transform: rotate(10deg) ;
   }
 
   25% {
-    transform: rotate(100deg) scale(2.25);
+    transform: rotate(100deg);
   }
   
   50% {
-    transform: rotate(190deg) scale(2.5);
+    transform: rotate(190deg);
   }
 
   75% {
-    transform: rotate(280deg) scale(2.75);
+    transform: rotate(280deg);
   }
 
   100% {
-    transform: rotate(370deg) scale(2);
+    transform: rotate(370deg);
+  }
+}
+
+@keyframes SCALING {
+  0% {
+    transform: scale(2);
+  }
+
+  25% {
+    transform: scale(2.25);
+  }
+  
+  50% {
+    transform: scale(2.5);
+  }
+
+  75% {
+    transform: scale(2.75);
+  }
+
+  100% {
+    transform: scale(2);
   }
 }
 /* ! КОНЕЦ БЛОКА */
@@ -113,7 +158,7 @@
 /* ! НАЧАЛО БЛОКА */
 #SIDEBAR {
   grid-area: S;
-  margin: 5px;
+  margin: 0px 5px 5px 5px;
   gap: 7.5px;
   max-width: 100%;
   overflow: auto;
@@ -327,6 +372,7 @@
   top: 0;
   left: 0;
   z-index: 2;
+  transition: opacity var(--transition-fast);
 }
 
 #CHARACTER_CARD_IMAGE p {
@@ -378,6 +424,8 @@
   max-height: 100%;
   scroll-snap-align: start;
   transition: transform var(--transition-fast);
+  cursor: pointer;
+
 }
 
 #CHARACTERS_SLIDERS > * > *:hover {
@@ -388,12 +436,13 @@
 #CHARACTERS_SLIDERS > * > * img {
   margin: 0 0 10px 0;
   padding: 0;
+  width: calc(var(--size-ui) * 15);
+  height: calc(var(--size-ui) * 15);
   transition: transform var(--transition-fast);
 }
 
 #CHARACTERS_SLIDERS > * > * img:hover {
   transform: scale(1.03);
-  cursor: pointer;
 }
 
 #CHARACTERS_SLIDERS > * > * p {
