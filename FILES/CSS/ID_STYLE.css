@@ -7,8 +7,11 @@
   background: black;
   background: rgb(var(--color-solid));
   transition: opacity var(--transition-fast);
+  -o-transition-delay: 0.25s;
+  -webkit-transition-delay: 0.25s;
+  -moz-transition-delay: 0.25s;
+  transition-delay: 0.25s;
   animation: 2s SCALING cubic-bezier(.69,-0.87,.54,1.33) infinite;
-
 }
 #LOADING_SCREEN > div {
   position: absolute;
