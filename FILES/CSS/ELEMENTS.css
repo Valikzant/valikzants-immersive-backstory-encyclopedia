@@ -261,6 +261,9 @@ img {
   opacity: 0;
   height: 100%;
   z-index: 4;
+  transition: 
+  opacity var(--transition-fast),
+  transform var(--transition-slow);
 }
 .BUTTON.PAGING.NEXT {
   right: 0;
@@ -334,6 +337,10 @@ img {
     --size-ui: calc(18px * var(--modifier-ui));
     --size-images: calc(70px * (var(--modifier-ui) / 2));
   }
+}
+
+@media (max-width: 768px) {
+
 }
 
 @media (max-width: 600px) {

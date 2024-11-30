@@ -39,6 +39,12 @@
 }
 
 @font-face {
+  font-family: "rubik";
+  src: url("../FONTS/rubik/RubikMonoOne-Regular.ttf");
+  font-display: swap;
+}
+
+@font-face {
   font-family: "rubik_dirt";
   src: url("../FONTS/rubik/RubikDirt-Regular.ttf");
   font-display: swap;

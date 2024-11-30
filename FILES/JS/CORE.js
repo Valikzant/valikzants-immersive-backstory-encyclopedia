@@ -532,7 +532,6 @@ async function F_LOAD_CONTENT_FROM(c_Path) {
     // Обновляем хэш в URL
     window.location.hash = c_Path;
 
-    F_ON_EVENT_CHANGE_LAYOUT();
     F_TOGGLE_WINDOW('CONTENT')
     F_ON_LOAD_SETUP_HINTS();
     F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES();
@@ -574,22 +573,6 @@ async function F_ON_EVENT_SHOW_TOOLTIP(event) {
 async function F_ON_EVENT_HIDE_TOOLTIP() {
   const c_ToolTip = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("TOOLTIP_HELP");
   c_ToolTip.style.display = "none";
-}
-
-// Изменение Layout
-async function F_ON_EVENT_CHANGE_LAYOUT() {
-  const c_SideBar = document.getElementById("SIDEBAR");
-  if (c_SideBar == null) { return; }
-  const c_Body = document.getElementById("body");
-  if (window.innerWidth > 768) {
-    c_Body.style.setProperty("grid-template-rows", "auto 1fr auto");
-    c_Body.style.setProperty("grid-template-areas", '"H H" "S C" "S С"');
-    c_SideBar.style.setProperty("flex-direction", "column");
-  } else {
-    c_Body.style.setProperty("grid-template-rows", "auto auto 1fr auto");
-    c_Body.style.setProperty("grid-template-areas", '"H H" "C C" "C C" "S S"');
-    c_SideBar.style.setProperty("flex-direction", "row");
-  }
 }
 
 // Починка несовместимых размеру экрана модификаторов
@@ -711,9 +694,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   setInterval(F_LOGO_UPDATE, 2000); 
   F_LOGO_UPDATE()
   
-  window.addEventListener("resize", F_ON_EVENT_CHANGE_LAYOUT);
   window.addEventListener("resize", F_ON_EVENT_FIX_MODIFIERS);
-  window.addEventListener("orientationchange", F_ON_EVENT_CHANGE_LAYOUT);
   window.addEventListener("orientationchange", F_ON_EVENT_FIX_MODIFIERS);
 
   // Ставим при загрузке страницы значения в еще несуществующие переменные в памяти браузера
@@ -764,7 +745,6 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
       F_ON_EVENT_FIX_MODIFIERS();
       F_ON_LOAD_SETUP_HINTS();
-      F_ON_EVENT_CHANGE_LAYOUT();
     })
   })
 
