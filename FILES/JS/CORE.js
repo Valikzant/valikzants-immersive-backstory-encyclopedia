@@ -211,8 +211,8 @@ async function F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(c_PageId = null, c_SidebarB
 }
 
 // Открытие и закрытие карточки персонажа
-async function F_INTERACT_WITH_HTML_OPEN_CLOSE_CHARACTER_CARD() {
-  const c_CharacterCard = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("CHARACTER_INFORMATION");
+async function F_INTERACT_WITH_HTML_OPEN_CLOSE_CHARACTER_CARD_SECTION() {
+  const c_CharacterCard = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("CHARACTER_INFORMATION_SECTION");
   if (c_CharacterCard.classList.contains("HIDDEN")) {
     c_CharacterCard.classList.remove("HIDDEN");
     F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(c_CharacterCard.id);

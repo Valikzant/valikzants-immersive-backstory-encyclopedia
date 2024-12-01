@@ -195,6 +195,9 @@
   border-left: 5px solid rgb(var(--color-text), 0.4);
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
+  background: -moz-linear-gradient(90deg, rgb(var(--color-text), 0.1), transparent);
+  background: -o-linear-gradient(90deg, rgb(var(--color-text), 0.1), transparent);
+  background: -webkit-linear-gradient(90deg, rgb(var(--color-text), 0.1), transparent);
   background: linear-gradient(90deg, rgb(var(--color-text), 0.1), transparent);
 }
 
@@ -202,6 +205,9 @@
   border-left: 5px solid rgb(var(--color-accent), 0.4);
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
+  background: -moz-linear-gradient(90deg, rgb(var(--color-accent), 0.2), transparent);
+  background: -o-linear-gradient(90deg, rgb(var(--color-accent), 0.2), transparent);
+  background: -webkit-linear-gradient(90deg, rgb(var(--color-accent), 0.2), transparent);
   background: linear-gradient(90deg, rgb(var(--color-accent), 0.2), transparent);
 }
 
@@ -310,6 +316,21 @@ p.TEXT_ENGRAVED_LUXURY {
   width: 100%;
   height: 100%;
 
+  background: -moz-linear-gradient(
+    90deg,
+    rgb(var(--color-text),0.05),
+    rgb(var(--color-solid))
+  );
+  background: -o-linear-gradient(
+    90deg,
+    rgb(var(--color-text),0.05),
+    rgb(var(--color-solid))
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgb(var(--color-text),0.05),
+    rgb(var(--color-solid))
+  );
   background: linear-gradient(
     90deg,
     rgb(var(--color-text),0.05),
@@ -415,6 +436,21 @@ p.TEXT_VINTAGE {
   width: 100%;
   height: 100%;
 
+  background: -moz-linear-gradient(
+    90deg,
+    rgb(var(--color-text),0.05),
+    rgb(var(--color-solid))
+  );
+  background: -o-linear-gradient(
+    90deg,
+    rgb(var(--color-text),0.05),
+    rgb(var(--color-solid))
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgb(var(--color-text),0.05),
+    rgb(var(--color-solid))
+  );
   background: linear-gradient(
     90deg,
     rgb(var(--color-text),0.05),
@@ -448,6 +484,21 @@ p.TEXT_VINTAGE {
   width: 100%;
   height: 100%;
 
+  background: -moz-linear-gradient(
+    90deg,
+    rgb(var(--color-text),0.05),
+    rgb(var(--color-solid))
+  );
+  background: -o-linear-gradient(
+    90deg,
+    rgb(var(--color-text),0.05),
+    rgb(var(--color-solid))
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgb(var(--color-text),0.05),
+    rgb(var(--color-solid))
+  );
   background: linear-gradient(
     90deg,
     rgb(var(--color-text),0.05),
@@ -465,30 +516,106 @@ p.TEXT_VINTAGE {
   outline: 1px solid rgb(var(--color-accent), 0.75);
 
   background-size: 50px 50px;
-  background-image: linear-gradient(
-      0deg,
-      transparent 24%,
-      rgb(var(--color-text), 0.1) 25%,
-      rgb(var(--color-text), 0.1) 26%,
-      transparent 27%,
-      transparent 74%,
-      rgb(var(--color-text), 0.1) 75%,
-      rgb(var(--color-text), 0.1) 76%,
-      transparent 77%,
-      transparent
-    ),
-    linear-gradient(
-      90deg,
-      transparent 24%,
-      rgb(var(--color-text), 0.1) 25%,
-      rgb(var(--color-text), 0.1) 26%,
-      transparent 27%,
-      transparent 74%,
-      rgb(var(--color-text), 0.1) 75%,
-      rgb(var(--color-text), 0.1) 76%,
-      transparent 77%,
-      transparent
-    );
+  background: 
+  -moz-linear-gradient(
+    0deg,
+    transparent 24%,
+    rgb(var(--color-text), 0.1) 25%,
+    rgb(var(--color-text), 0.1) 26%,
+    transparent 27%,
+    transparent 74%,
+    rgb(var(--color-text), 0.1) 75%,
+    rgb(var(--color-text), 0.1) 76%,
+    transparent 77%,
+    transparent
+  ),
+  -moz-linear-gradient(
+    90deg,
+    transparent 24%,
+    rgb(var(--color-text), 0.1) 25%,
+    rgb(var(--color-text), 0.1) 26%,
+    transparent 27%,
+    transparent 74%,
+    rgb(var(--color-text), 0.1) 75%,
+    rgb(var(--color-text), 0.1) 76%,
+    transparent 77%,
+    transparent
+  );
+  background: 
+  -o-linear-gradient(
+    0deg,
+    transparent 24%,
+    rgb(var(--color-text), 0.1) 25%,
+    rgb(var(--color-text), 0.1) 26%,
+    transparent 27%,
+    transparent 74%,
+    rgb(var(--color-text), 0.1) 75%,
+    rgb(var(--color-text), 0.1) 76%,
+    transparent 77%,
+    transparent
+  ),
+  -o-linear-gradient(
+    90deg,
+    transparent 24%,
+    rgb(var(--color-text), 0.1) 25%,
+    rgb(var(--color-text), 0.1) 26%,
+    transparent 27%,
+    transparent 74%,
+    rgb(var(--color-text), 0.1) 75%,
+    rgb(var(--color-text), 0.1) 76%,
+    transparent 77%,
+    transparent
+  );
+  background: 
+  -webkit-linear-gradient(
+    0deg,
+    transparent 24%,
+    rgb(var(--color-text), 0.1) 25%,
+    rgb(var(--color-text), 0.1) 26%,
+    transparent 27%,
+    transparent 74%,
+    rgb(var(--color-text), 0.1) 75%,
+    rgb(var(--color-text), 0.1) 76%,
+    transparent 77%,
+    transparent
+  ),
+  -webkit-linear-gradient(
+    90deg,
+    transparent 24%,
+    rgb(var(--color-text), 0.1) 25%,
+    rgb(var(--color-text), 0.1) 26%,
+    transparent 27%,
+    transparent 74%,
+    rgb(var(--color-text), 0.1) 75%,
+    rgb(var(--color-text), 0.1) 76%,
+    transparent 77%,
+    transparent
+  );
+  background: 
+  linear-gradient(
+    0deg,
+    transparent 24%,
+    rgb(var(--color-text), 0.1) 25%,
+    rgb(var(--color-text), 0.1) 26%,
+    transparent 27%,
+    transparent 74%,
+    rgb(var(--color-text), 0.1) 75%,
+    rgb(var(--color-text), 0.1) 76%,
+    transparent 77%,
+    transparent
+  ),
+  linear-gradient(
+    90deg,
+    transparent 24%,
+    rgb(var(--color-text), 0.1) 25%,
+    rgb(var(--color-text), 0.1) 26%,
+    transparent 27%,
+    transparent 74%,
+    rgb(var(--color-text), 0.1) 75%,
+    rgb(var(--color-text), 0.1) 76%,
+    transparent 77%,
+    transparent
+  );
 
   animation: SCREEN_LINES var(--transition-long) infinite;
 }

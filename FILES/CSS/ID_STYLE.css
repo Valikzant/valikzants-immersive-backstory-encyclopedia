@@ -284,13 +284,22 @@
 .                                    STORY                                    .
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
-#STORY_BLOCK {
+#STORY_SECTION {
   display: flex;
   flex-direction: column;
 }
 
-#STORY_BLOCK > :nth-child(1) {
+#STORY_SECTION > :nth-child(1) {
   margin: 0 0 0px 0;
+}
+
+/* ! КОНЕЦ БЛОКА */
+/*.............................................................................
+.                                  MAIN PAGE                                  .
+.............................................................................*/
+/* ! НАЧАЛО БЛОКА */
+#MAIN_PAGE_SECTION {
+  
 }
 
 /* ! КОНЕЦ БЛОКА */
@@ -298,7 +307,7 @@
 .                                  CHARACTER                                  .
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
-#CHARACTER_INFORMATION {
+#CHARACTER_INFORMATION_SECTION {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1.5fr;
   grid-template-rows: auto 1fr;
@@ -308,12 +317,12 @@
     "S S S S";
 }
 
-#CHARACTER_INFORMATION_TITLE {
+#CHARACTER_INFORMATION_SECTION_TITLE {
   grid-area: T;
 }
 
 /* CHARACTER SPECIAL */
-#CHARACTER_SPECIAL {
+#CHARACTER_SPECIAL_SECTION {
   grid-area: S;
   display: flex;
   flex-direction: column;
@@ -322,13 +331,13 @@
   margin: 15px 0px 15px 0px;
 }
 
-#CHARACTER_SPECIAL_NAME {
+#CHARACTER_SPECIAL_SECTION_NAME {
   display: flex;
   justify-content: center;
 }
 
 /* CHARACTER CARD */
-#CHARACTER_CARD {
+#CHARACTER_CARD_SECTION {
   grid-area: C;
   display: grid;
   position: relative;
@@ -342,13 +351,13 @@
     "I I";
 }
 
-#CHARACTER_CARD_NAME {
+#CHARACTER_CARD_SECTION_NAME {
   grid-area: N;
   display: flex;
   justify-content: center;
 }
 
-#CHARACTER_CARD_INFORMATION {
+#CHARACTER_CARD_SECTION_INFORMATION {
   grid-area: I;
   position: relative;
   text-align: justify;
@@ -359,7 +368,7 @@
   align-items: center;
 }
 
-#CHARACTER_CARD_IMAGE {
+#CHARACTER_CARD_SECTION_IMAGE {
   width: calc(var(--size-images) * 10);
   height: calc(var(--size-images) * 10);
   margin: 0 15px 15px 0;
@@ -368,7 +377,7 @@
   display: block;
 }
 
-#CHARACTER_CARD_IMAGE img {
+#CHARACTER_CARD_SECTION_IMAGE img {
   position: absolute;
   width: 100%;
   height: auto;
@@ -378,7 +387,7 @@
   transition: opacity var(--transition-fast);
 }
 
-#CHARACTER_CARD_IMAGE p {
+#CHARACTER_CARD_SECTION_IMAGE p {
   position: absolute;
   border-radius: 15px;
   width: 90%;
@@ -390,11 +399,11 @@
   left: 5px;
 }
 
-#CHARACTER_CARD_IMAGE:hover {
+#CHARACTER_CARD_SECTION_IMAGE:hover {
   cursor: help;
 }
 
-#CHARACTER_CARD_IMAGE:hover > img {
+#CHARACTER_CARD_SECTION_IMAGE:hover > img {
   opacity: 0;
   pointer-events: none;
 }
@@ -404,12 +413,12 @@
 .                                   SLIDERS                                   .
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
-#CHARACTERS_SLIDERS {
+#CHARACTERS_SLIDERS_SECTION {
   display: flex;
   flex-direction: column;
 }
 
-#CHARACTERS_SLIDERS > div {
+#CHARACTERS_SLIDERS_SECTION > div {
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
@@ -420,7 +429,7 @@
   gap: 15px;
 }
 
-#CHARACTERS_SLIDERS > * > * {
+#CHARACTERS_SLIDERS_SECTION > * > * {
   min-width: calc(var(--size-ui) * 15);
   max-width: calc(var(--size-ui) * 15);
   min-height: calc(var(--size-ui) * 17);
@@ -431,12 +440,12 @@
 
 }
 
-#CHARACTERS_SLIDERS > * > *:hover {
+#CHARACTERS_SLIDERS_SECTION > * > *:hover {
   transform: scale(1.01);
   outline: rgb(var(--color-accent), 1) solid 1px;
 }
 
-#CHARACTERS_SLIDERS > * > * img {
+#CHARACTERS_SLIDERS_SECTION > * > * img {
   margin: 0 0 10px 0;
   padding: 0;
   width: calc(var(--size-ui) * 15);
@@ -444,11 +453,11 @@
   transition: transform var(--transition-fast);
 }
 
-#CHARACTERS_SLIDERS > * > * img:hover {
+#CHARACTERS_SLIDERS_SECTION > * > * img:hover {
   transform: scale(1.03);
 }
 
-#CHARACTERS_SLIDERS > * > * p {
+#CHARACTERS_SLIDERS_SECTION > * > * p {
   margin: 0 15px 0 0;
   padding: 0;
 }
@@ -460,11 +469,11 @@
 /* ! НАЧАЛО БЛОКА */
 
 @media (max-width: 480px) {
-  #CHARACTER_CARD_INFORMATION {
+  #CHARACTER_CARD_SECTION_INFORMATION {
     display: flex;
   }
 
-  #CHARACTER_CARD_IMAGE {
+  #CHARACTER_CARD_SECTION_IMAGE {
     margin: 0 0 15px 0;
   }
 }
