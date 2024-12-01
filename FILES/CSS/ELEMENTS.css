@@ -23,7 +23,7 @@ html {
   -o-user-select: none;
   
   user-select: none;
-  scrollbar-color: rgb(var(--color-accent)) transparent;
+  scrollbar-color: rgba(var(--color-accent)) rgba(0, 0, 0, 0);
   scrollbar-width: thin;
 }
 /* ! КОНЕЦ БЛОКА */
@@ -133,11 +133,11 @@ a {
 }
 
 a:visited {
-  color: rgb(var(--color-accent));
+  color: rgba(var(--color-accent));
 }
 
 a:hover {
-  color: rgb(var(--color-text));
+  color: rgba(var(--color-text));
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
@@ -156,6 +156,7 @@ img {
 /* ! НАЧАЛО БЛОКА */
 .BLOCK {
   position: relative;
+  display: block;
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -177,7 +178,7 @@ img {
 .BLOCK.INNER.INVISIBLE {
   margin: 5px 0;
   padding: 0;
-  background: transparent;
+  background: rgba(0, 0, 0, 0);
   width: 100%;
   box-shadow: none;
   outline: none !important;
@@ -302,12 +303,12 @@ img {
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgb(var(--color-accent));
+  box-shadow: inset 0 0 5px rgba(var(--color-accent));
   border-radius: 15px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(var(--color-accent));
+  background: rgba(var(--color-accent));
   border-radius: 15px;
 }
 /* ! КОНЕЦ БЛОКА */

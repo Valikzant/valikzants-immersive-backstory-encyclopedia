@@ -3,7 +3,7 @@
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
 #LOADING_SCREEN > div {
-  filter: drop-shadow(0px 0px 10px rgb(var(--color-accent), 0.5));
+  filter: drop-shadow(0px 0px 10px rgba(var(--color-accent), 0.5));
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
@@ -22,8 +22,8 @@
 /* ! НАЧАЛО БЛОКА */
 body {
   font-family: "geologica";
-  background: rgb(var(--color-solid));
-  color: rgb(var(--color-text));
+  background: rgba(var(--color-solid));
+  color: rgba(var(--color-text));
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
@@ -33,10 +33,10 @@ body {
 h1.FANCY,
 h2.FANCY,
 h3.FANCY {
-  color: transparent;
+  color: rgba(0, 0, 0, 0);
   text-shadow: 
-  0.5px 0.5px 0px rgb(var(--color-accent)),
-  -0.55px -0.95px 0px rgb(var(--color-text));
+  0.5px 0.5px 0px rgba(var(--color-accent)),
+  -0.55px -0.95px 0px rgba(var(--color-text));
 }
 
 h1.TITLE,
@@ -47,7 +47,7 @@ h3.TITLE {
 }
 
 a {
-  color: rgb(var(--color-accent));
+  color: rgba(var(--color-accent));
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
@@ -67,7 +67,7 @@ img {
 }
 
 .BLOCK.INNER {
-  background: rgb(var(--color-solid));
+  background: rgba(var(--color-solid));
   outline: 1px solid rgba(var(--color-text), 0.05);
 }
 
@@ -77,17 +77,17 @@ img {
 
 .BLOCK.SPECIAL {
   background: 
-  -moz-linear-gradient(to right, rgb(var(--color-accent), 0.1) 0%, rgb(var(--color-accent), 0.1) 100%),
-  -moz-linear-gradient(to right, rgb(var(--color-solid)), rgb(var(--color-solid)));
+  -moz-linear-gradient(to right, rgba(var(--color-accent), 0.1) 0%, rgba(var(--color-accent), 0.1) 100%),
+  -moz-linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
   background: 
-  -o-linear-gradient(to right, rgb(var(--color-accent), 0.1) 0%, rgb(var(--color-accent), 0.1) 100%),
-  -o-linear-gradient(to right, rgb(var(--color-solid)), rgb(var(--color-solid)));
+  -o-linear-gradient(to right, rgba(var(--color-accent), 0.1) 0%, rgba(var(--color-accent), 0.1) 100%),
+  -o-linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
   background: 
-  -webkit-linear-gradient(to right, rgb(var(--color-accent), 0.1) 0%, rgb(var(--color-accent), 0.1) 100%),
-  -webkit-linear-gradient(to right, rgb(var(--color-solid)), rgb(var(--color-solid)));
+  -webkit-linear-gradient(to right, rgba(var(--color-accent), 0.1) 0%, rgba(var(--color-accent), 0.1) 100%),
+  -webkit-linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
   background: 
-  linear-gradient(to right, rgb(var(--color-accent), 0.1) 0%, rgb(var(--color-accent), 0.1) 100%),
-  linear-gradient(to right, rgb(var(--color-solid)), rgb(var(--color-solid)));
+  linear-gradient(to right, rgba(var(--color-accent), 0.1) 0%, rgba(var(--color-accent), 0.1) 100%),
+  linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
   outline: 1px solid rgba(var(--color-accent), 0.5);
 }
 
@@ -97,7 +97,7 @@ img {
 
 .BUTTON {
   background: 
-  rgb(var(--color-solid));
+  rgba(var(--color-solid));
   border-radius: 15px;
   transition: transform var(--transition-fast);
   outline: 1px solid rgba(var(--color-text), 0.075);
@@ -112,9 +112,9 @@ img {
 }
 
 .ICON {
-  color: transparent;
+  color: rgba(0, 0, 0, 0);
   text-shadow: 
-  0.5px 0.5px 0px rgb(var(--color-accent)),
-  -0.55px -0.95px 0px rgb(var(--color-text));
+  0.5px 0.5px 0px rgba(var(--color-accent)),
+  -0.55px -0.95px 0px rgba(var(--color-text));
 }
 /* ! КОНЕЦ БЛОКА

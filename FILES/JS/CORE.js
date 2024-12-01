@@ -648,7 +648,7 @@ async function F_ON_LOAD_GENERATE_AND_SAVE_HUES(c_HuesFromHtml) {
   );
 
   c_HueChoosers.forEach(function(i_HueChooser, I_) {
-    i_HueChooser.style.setProperty("background", 'rgb(' + L_HUES[I_]["hue"] + ')');
+    i_HueChooser.style.setProperty("background", 'rgba(' + L_HUES[I_]["hue"] + ')');
     I_ += 1;
   });
 
@@ -668,7 +668,7 @@ async function F_ON_LOAD_GENERATE_AND_SAVE_THEMES(c_ThemesFromHtml) {
   );
 
   c_ThemeChoosers.forEach(function(i_ThemeChooser, I_) {
-    i_ThemeChooser.style.setProperty("background", 'rgb(' + L_THEMES[I_]["solid"] + ')');
+    i_ThemeChooser.style.setProperty("background", 'rgba(' + L_THEMES[I_]["solid"] + ')');
     I_ += 1;
   });
 

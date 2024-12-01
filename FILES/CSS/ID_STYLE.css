@@ -5,7 +5,7 @@
 #LOADING_SCREEN {
   opacity: 1;
   background: black;
-  background: rgb(var(--color-solid));
+  background: rgba(var(--color-solid));
   transition: opacity var(--transition-fast);
   -o-transition-delay: 0.25s;
   -webkit-transition-delay: 0.25s;
@@ -15,22 +15,22 @@
 }
 #LOADING_SCREEN > div {
   position: absolute;
-  background: transparent;
+  background: rgba(0, 0, 0, 0);
   width: clamp(1px, 15vw, 3rem);
   height: clamp(1px, 15vw, 3rem);
   border-radius: 50%;
-  border: 8px solid rgb(var(--color-accent));
+  border: 8px solid rgba(var(--color-accent));
   animation: 2s SPINNING cubic-bezier(.69,-0.87,.54,1.33) infinite;
   text-shadow: none;
   overflow: hidden;
-  color: rgb(var(--color-accent));
+  color: rgba(var(--color-accent));
 }
 #LOADING_SCREEN > div::before {
   content: '';
   inset: 0;
   margin: -35% auto 0% auto;
   position: absolute;
-  background: rgb(var(--color-accent));
+  background: rgba(var(--color-accent));
   border-radius: 15px;
   width: 8px;
   height: 45px;
@@ -96,6 +96,7 @@
   padding: 5px;
   translate: 0%;
   z-index: 3;
+  display: block;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -131,6 +132,7 @@
   max-height: calc(var(--size-ui) * 2);
   white-space: nowrap;
   z-index: 2;
+  display: block;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -166,6 +168,7 @@
   max-width: 100%;
   overflow: auto;
   z-index: 2;
+  display: block;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -200,6 +203,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   max-width: 100%;
+  display: block;
   display: flex;
   align-items: start;
   justify-content: start;
@@ -221,6 +225,7 @@
   height: calc(var(--size-ui) * 7.6 * 2);
   position: relative;
   padding: 7.5px;
+  display: block;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -233,6 +238,7 @@
   height: calc(var(--size-ui) * 7.6 * 2);
   position: relative;
   padding: 7.5px;
+  display: block;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -251,6 +257,7 @@
   width: calc(var(--size-ui) * 3.4 * 2);
   height: calc(var(--size-ui) * 3.4 * 2);
   font-size: 0.75em;
+  display: block;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -263,6 +270,7 @@
   width: calc(var(--size-ui) * 3.4 * 2);
   height: calc(var(--size-ui) * 3.4 * 1);  
   font-size: 0.75em;
+  display: block;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -273,6 +281,7 @@
   width: calc(var(--size-ui) * 3.4 * 4 + 22px);
   height: calc(var(--size-ui) * 3.4 * 1);
   font-size: 0.75em;
+  display: block;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -285,6 +294,7 @@
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
 #STORY_SECTION {
+  display: block;
   display: flex;
   flex-direction: column;
 }
@@ -324,6 +334,7 @@
 /* CHARACTER SPECIAL */
 #CHARACTER_SPECIAL_SECTION {
   grid-area: S;
+  display: block;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -332,6 +343,7 @@
 }
 
 #CHARACTER_SPECIAL_SECTION_NAME {
+  display: block;
   display: flex;
   justify-content: center;
 }
@@ -353,6 +365,7 @@
 
 #CHARACTER_CARD_SECTION_NAME {
   grid-area: N;
+  display: block;
   display: flex;
   justify-content: center;
 }
@@ -414,6 +427,7 @@
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
 #CHARACTERS_SLIDERS_SECTION {
+  display: block;
   display: flex;
   flex-direction: column;
 }
@@ -423,6 +437,7 @@
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scroll-padding-left: 5px;
+  display: block;
   display: flex;
   flex-direction: row;
   margin: 0px 0 25px 0;
@@ -442,7 +457,7 @@
 
 #CHARACTERS_SLIDERS_SECTION > * > *:hover {
   transform: scale(1.01);
-  outline: rgb(var(--color-accent), 1) solid 1px;
+  outline: rgba(var(--color-accent), 1) solid 1px;
 }
 
 #CHARACTERS_SLIDERS_SECTION > * > * img {
@@ -470,7 +485,8 @@
 
 @media (max-width: 480px) {
   #CHARACTER_CARD_SECTION_INFORMATION {
-    display: flex;
+    display: block;
+  display: flex;
   }
 
   #CHARACTER_CARD_SECTION_IMAGE {

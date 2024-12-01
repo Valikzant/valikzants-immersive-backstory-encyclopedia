@@ -3,7 +3,7 @@
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
 #LOADING_SCREEN > div {
-  filter: drop-shadow(0px 0px 10px rgb(var(--color-accent), 0.5));
+  filter: drop-shadow(0px 0px 10px rgba(var(--color-accent), 0.5));
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
@@ -22,19 +22,19 @@
 /* ! НАЧАЛО БЛОКА */
 body {
   font-family: "geologica";
-  color: rgb(var(--color-text));
+  color: rgba(var(--color-text));
   background: 
-  -moz-radial-gradient(circle at top left, rgb(var(--color-accent)) -450%, transparent 60%),
-  -moz-radial-gradient(circle at bottom right, rgb(var(--color-accent)) -450%, rgb(var(--color-solid)) 70%);
+  -moz-radial-gradient(circle at top left, rgba(var(--color-accent)) -450%, rgba(0, 0, 0, 0) 60%),
+  -moz-radial-gradient(circle at bottom right, rgba(var(--color-accent)) -450%, rgba(var(--color-solid)) 70%);
   background: 
-  -o-radial-gradient(circle at top left, rgb(var(--color-accent)) -450%, transparent 60%),
-  -o-radial-gradient(circle at bottom right, rgb(var(--color-accent)) -450%, rgb(var(--color-solid)) 70%);
+  -o-radial-gradient(circle at top left, rgba(var(--color-accent)) -450%, rgba(0, 0, 0, 0) 60%),
+  -o-radial-gradient(circle at bottom right, rgba(var(--color-accent)) -450%, rgba(var(--color-solid)) 70%);
   background: 
-  -webkit-radial-gradient(circle at top left, rgb(var(--color-accent)) -450%, transparent 60%),
-  -webkit-radial-gradient(circle at bottom right, rgb(var(--color-accent)) -450%, rgb(var(--color-solid)) 70%);
+  -webkit-radial-gradient(circle at top left, rgba(var(--color-accent)) -450%, rgba(0, 0, 0, 0) 60%),
+  -webkit-radial-gradient(circle at bottom right, rgba(var(--color-accent)) -450%, rgba(var(--color-solid)) 70%);
   background: 
-  radial-gradient(circle at top left, rgb(var(--color-accent)) -450%, transparent 60%),
-  radial-gradient(circle at bottom right, rgb(var(--color-accent)) -450%, rgb(var(--color-solid)) 70%);
+  radial-gradient(circle at top left, rgba(var(--color-accent)) -450%, rgba(0, 0, 0, 0) 60%),
+  radial-gradient(circle at bottom right, rgba(var(--color-accent)) -450%, rgba(var(--color-solid)) 70%);
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
@@ -44,10 +44,10 @@ body {
 h1.FANCY,
 h2.FANCY,
 h3.FANCY {
-  color: transparent;
+  color: rgba(0, 0, 0, 0);
   text-shadow: 
-  0.5px 0.5px 0px rgb(var(--color-accent)),
-  -0.55px -0.95px 0px rgb(var(--color-text));
+  0.5px 0.5px 0px rgba(var(--color-accent)),
+  -0.55px -0.95px 0px rgba(var(--color-text));
 }
 
 h1.TITLE,
@@ -58,7 +58,7 @@ h3.TITLE {
 }
 
 a {
-  color: rgb(var(--color-accent));
+  color: rgba(var(--color-accent));
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
@@ -75,15 +75,15 @@ img {
 /* ! НАЧАЛО БЛОКА */
 
 .BLOCK.INNER {
-  outline: 1px solid rgb(var(--color-accent),0.1);
+  outline: 1px solid rgba(var(--color-accent),0.1);
   background: 
-  -moz-radial-gradient(circle at bottom left, rgb(var(--color-accent)) -1250%, transparent 150%);
+  -moz-radial-gradient(circle at bottom left, rgba(var(--color-accent)) -1250%, rgba(0, 0, 0, 0) 150%);
   background: 
-  -o-radial-gradient(circle at bottom left, rgb(var(--color-accent)) -1250%, transparent 150%);
+  -o-radial-gradient(circle at bottom left, rgba(var(--color-accent)) -1250%, rgba(0, 0, 0, 0) 150%);
   background: 
-  -webkit-radial-gradient(circle at bottom left, rgb(var(--color-accent)) -1250%, transparent 150%);
+  -webkit-radial-gradient(circle at bottom left, rgba(var(--color-accent)) -1250%, rgba(0, 0, 0, 0) 150%);
   background: 
-  radial-gradient(circle at bottom left, rgb(var(--color-accent)) -1250%, transparent 150%);
+  radial-gradient(circle at bottom left, rgba(var(--color-accent)) -1250%, rgba(0, 0, 0, 0) 150%);
 }
 
 .BLOCK.INNER.IMAGE {
@@ -95,45 +95,45 @@ img {
   background: 
   -moz-radial-gradient(
     ellipse at bottom left,
-    rgb(var(--color-accent), 0.35) 0%,
-    rgb(var(--color-accent), 0.25) 25%,
-    rgb(var(--color-accent), 0.15) 50%,
+    rgba(var(--color-accent), 0.35) 0%,
+    rgba(var(--color-accent), 0.25) 25%,
+    rgba(var(--color-accent), 0.15) 50%,
     rgba(var(--color-accent), 0.2) 75%,
     rgba(var(--color-accent), 0.2) 100%
   ),
-  -moz-linear-gradient(to right, rgb(var(--color-solid)), rgb(var(--color-solid)));
+  -moz-linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
   background: 
   -o-radial-gradient(
     ellipse at bottom left,
-    rgb(var(--color-accent), 0.35) 0%,
-    rgb(var(--color-accent), 0.25) 25%,
-    rgb(var(--color-accent), 0.15) 50%,
+    rgba(var(--color-accent), 0.35) 0%,
+    rgba(var(--color-accent), 0.25) 25%,
+    rgba(var(--color-accent), 0.15) 50%,
     rgba(var(--color-accent), 0.2) 75%,
     rgba(var(--color-accent), 0.2) 100%
   ),
-  -o-linear-gradient(to right, rgb(var(--color-solid)), rgb(var(--color-solid)));
+  -o-linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
   background: 
   -webkit-radial-gradient(
     ellipse at bottom left,
-    rgb(var(--color-accent), 0.35) 0%,
-    rgb(var(--color-accent), 0.25) 25%,
-    rgb(var(--color-accent), 0.15) 50%,
+    rgba(var(--color-accent), 0.35) 0%,
+    rgba(var(--color-accent), 0.25) 25%,
+    rgba(var(--color-accent), 0.15) 50%,
     rgba(var(--color-accent), 0.2) 75%,
     rgba(var(--color-accent), 0.2) 100%
   ),
-  -webkit-linear-gradient(to right, rgb(var(--color-solid)), rgb(var(--color-solid)));
+  -webkit-linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
   background: 
   radial-gradient(
     ellipse at bottom left,
-    rgb(var(--color-accent), 0.35) 0%,
-    rgb(var(--color-accent), 0.25) 25%,
-    rgb(var(--color-accent), 0.15) 50%,
+    rgba(var(--color-accent), 0.35) 0%,
+    rgba(var(--color-accent), 0.25) 25%,
+    rgba(var(--color-accent), 0.15) 50%,
     rgba(var(--color-accent), 0.2) 75%,
     rgba(var(--color-accent), 0.2) 100%
   ),
-  linear-gradient(to right, rgb(var(--color-solid)), rgb(var(--color-solid)));
+  linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
   outline: 1px solid rgba(var(--color-accent), 0.5);
-  filter: drop-shadow(0 0 15px rgb(var(--color-accent), 0.25));
+  filter: drop-shadow(0 0 15px rgba(var(--color-accent), 0.25));
 }
 
 .BLOCK.HIDDEN {
@@ -141,11 +141,11 @@ img {
 }
 
 .BUTTON {
-  background: rgb(var(--color-solid));
+  background: rgba(var(--color-solid));
   border-radius: 15px;
   transition: transform var(--transition-fast);
   box-shadow: -5px -5px 5px rgba(var(--color-accent), 0.05) inset;
-  outline: 1px solid rgb(var(--color-text), 0.05);
+  outline: 1px solid rgba(var(--color-text), 0.05);
 }
 
 .BUTTON.ACTIVE {
@@ -153,51 +153,51 @@ img {
   background: 
   -moz-radial-gradient(
     ellipse at bottom left,
-    rgb(var(--color-accent), 0.35) 0%,
-    rgb(var(--color-accent), 0.25) 25%,
-    rgb(var(--color-accent), 0.15) 50%,
+    rgba(var(--color-accent), 0.35) 0%,
+    rgba(var(--color-accent), 0.25) 25%,
+    rgba(var(--color-accent), 0.15) 50%,
     rgba(var(--color-accent), 0.2) 75%,
     rgba(var(--color-accent), 0.2) 100%
   ),
-  -moz-linear-gradient(to right, rgb(var(--color-solid)), rgb(var(--color-solid)));
+  -moz-linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
   background: 
   -o-radial-gradient(
     ellipse at bottom left,
-    rgb(var(--color-accent), 0.35) 0%,
-    rgb(var(--color-accent), 0.25) 25%,
-    rgb(var(--color-accent), 0.15) 50%,
+    rgba(var(--color-accent), 0.35) 0%,
+    rgba(var(--color-accent), 0.25) 25%,
+    rgba(var(--color-accent), 0.15) 50%,
     rgba(var(--color-accent), 0.2) 75%,
     rgba(var(--color-accent), 0.2) 100%
   ),
-  -o-linear-gradient(to right, rgb(var(--color-solid)), rgb(var(--color-solid)));
+  -o-linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
   background: 
   -webkit-radial-gradient(
     ellipse at bottom left,
-    rgb(var(--color-accent), 0.35) 0%,
-    rgb(var(--color-accent), 0.25) 25%,
-    rgb(var(--color-accent), 0.15) 50%,
+    rgba(var(--color-accent), 0.35) 0%,
+    rgba(var(--color-accent), 0.25) 25%,
+    rgba(var(--color-accent), 0.15) 50%,
     rgba(var(--color-accent), 0.2) 75%,
     rgba(var(--color-accent), 0.2) 100%
   ),
-  -webkit-linear-gradient(to right, rgb(var(--color-solid)), rgb(var(--color-solid)));
+  -webkit-linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
   background: 
   radial-gradient(
     ellipse at bottom left,
-    rgb(var(--color-accent), 0.35) 0%,
-    rgb(var(--color-accent), 0.25) 25%,
-    rgb(var(--color-accent), 0.15) 50%,
+    rgba(var(--color-accent), 0.35) 0%,
+    rgba(var(--color-accent), 0.25) 25%,
+    rgba(var(--color-accent), 0.15) 50%,
     rgba(var(--color-accent), 0.2) 75%,
     rgba(var(--color-accent), 0.2) 100%
   ),
-  linear-gradient(to right, rgb(var(--color-solid)), rgb(var(--color-solid)));
+  linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
   outline: 1px solid rgba(var(--color-accent), 0.5);
-  filter: drop-shadow(0 0 15px rgb(var(--color-accent), 0.25));
+  filter: drop-shadow(0 0 15px rgba(var(--color-accent), 0.25));
 }
 
 .ICON {
-  color: transparent;
+  color: rgba(0, 0, 0, 0);
   text-shadow: 
-  0.5px 0.5px 0px rgb(var(--color-accent)),
-  -0.55px -0.95px 0px rgb(var(--color-text));
+  0.5px 0.5px 0px rgba(var(--color-accent)),
+  -0.55px -0.95px 0px rgba(var(--color-text));
 }
 /* ! КОНЕЦ БЛОКА
