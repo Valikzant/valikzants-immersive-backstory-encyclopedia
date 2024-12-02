@@ -316,8 +316,9 @@
   margin: auto;
   flex-wrap: wrap;
   border-radius: 15px;
-  min-height: 400px;
+  min-height: 700px;
   height: 90%;
+  max-height: 800px;
   max-width: 1500px;
 }
 #MAIN_PAGE_SECTION > div {
@@ -596,7 +597,6 @@
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
 #CHARACTERS_SLIDERS_SECTION {
-
   display: flex;
   flex-direction: column;
 }
@@ -606,7 +606,6 @@
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scroll-padding-left: 5px;
-
   display: flex;
   flex-direction: row;
   margin: 0px 0 25px 0;
@@ -653,7 +652,7 @@
 /* ! НАЧАЛО БЛОКА */
 @media (max-width: 929px) {
   #MAIN_PAGE_SECTION_SEARCH_EYELID {
-    margin: auto auto 120px auto;
+    margin: auto auto 75px auto;
   }
   #MAIN_PAGE_SECTION_SEARCH_EYE_HINT {
     height: 75%;
