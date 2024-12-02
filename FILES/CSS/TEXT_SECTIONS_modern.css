@@ -512,113 +512,109 @@ p.TEXT_VINTAGE {
 
 .TEXT_BLOCK.ON_SCREEN {
   text-shadow: 0 0 5px rgba(var(--color-solid));
-
   padding: 15px 15px 10px;
-
   outline: 1px solid rgba(var(--color-accent), 0.75);
-
+  background: 
+  -moz-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 24%,
+    rgba(var(--color-text), 0.1) 25%,
+    rgba(var(--color-text), 0.1) 26%,
+    rgba(0, 0, 0, 0) 27%,
+    rgba(0, 0, 0, 0) 74%,
+    rgba(var(--color-text), 0.1) 75%,
+    rgba(var(--color-text), 0.1) 76%,
+    rgba(0, 0, 0, 0) 77%,
+    rgba(0, 0, 0, 0)
+  ),
+  -moz-linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 24%,
+    rgba(var(--color-text), 0.1) 25%,
+    rgba(var(--color-text), 0.1) 26%,
+    rgba(0, 0, 0, 0) 27%,
+    rgba(0, 0, 0, 0) 74%,
+    rgba(var(--color-text), 0.1) 75%,
+    rgba(var(--color-text), 0.1) 76%,
+    rgba(0, 0, 0, 0) 77%,
+    rgba(0, 0, 0, 0)
+  );
+  background: 
+  -o-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 24%,
+    rgba(var(--color-text), 0.1) 25%,
+    rgba(var(--color-text), 0.1) 26%,
+    rgba(0, 0, 0, 0) 27%,
+    rgba(0, 0, 0, 0) 74%,
+    rgba(var(--color-text), 0.1) 75%,
+    rgba(var(--color-text), 0.1) 76%,
+    rgba(0, 0, 0, 0) 77%,
+    rgba(0, 0, 0, 0)
+  ),
+  -o-linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 24%,
+    rgba(var(--color-text), 0.1) 25%,
+    rgba(var(--color-text), 0.1) 26%,
+    rgba(0, 0, 0, 0) 27%,
+    rgba(0, 0, 0, 0) 74%,
+    rgba(var(--color-text), 0.1) 75%,
+    rgba(var(--color-text), 0.1) 76%,
+    rgba(0, 0, 0, 0) 77%,
+    rgba(0, 0, 0, 0)
+  );
+  background: 
+  -webkit-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 24%,
+    rgba(var(--color-text), 0.1) 25%,
+    rgba(var(--color-text), 0.1) 26%,
+    rgba(0, 0, 0, 0) 27%,
+    rgba(0, 0, 0, 0) 74%,
+    rgba(var(--color-text), 0.1) 75%,
+    rgba(var(--color-text), 0.1) 76%,
+    rgba(0, 0, 0, 0) 77%,
+    rgba(0, 0, 0, 0)
+  ),
+  -webkit-linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 24%,
+    rgba(var(--color-text), 0.1) 25%,
+    rgba(var(--color-text), 0.1) 26%,
+    rgba(0, 0, 0, 0) 27%,
+    rgba(0, 0, 0, 0) 74%,
+    rgba(var(--color-text), 0.1) 75%,
+    rgba(var(--color-text), 0.1) 76%,
+    rgba(0, 0, 0, 0) 77%,
+    rgba(0, 0, 0, 0)
+  );
+  background: 
+  linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 24%,
+    rgba(var(--color-text), 0.1) 25%,
+    rgba(var(--color-text), 0.1) 26%,
+    rgba(0, 0, 0, 0) 27%,
+    rgba(0, 0, 0, 0) 74%,
+    rgba(var(--color-text), 0.1) 75%,
+    rgba(var(--color-text), 0.1) 76%,
+    rgba(0, 0, 0, 0) 77%,
+    rgba(0, 0, 0, 0)
+  ),
+  linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 24%,
+    rgba(var(--color-text), 0.1) 25%,
+    rgba(var(--color-text), 0.1) 26%,
+    rgba(0, 0, 0, 0) 27%,
+    rgba(0, 0, 0, 0) 74%,
+    rgba(var(--color-text), 0.1) 75%,
+    rgba(var(--color-text), 0.1) 76%,
+    rgba(0, 0, 0, 0) 77%,
+    rgba(0, 0, 0, 0)
+  );
   background-size: 50px 50px;
-  background: 
-  -moz-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0) 24%,
-    rgba(var(--color-text), 0.1) 25%,
-    rgba(var(--color-text), 0.1) 26%,
-    rgba(0, 0, 0, 0) 27%,
-    rgba(0, 0, 0, 0) 74%,
-    rgba(var(--color-text), 0.1) 75%,
-    rgba(var(--color-text), 0.1) 76%,
-    rgba(0, 0, 0, 0) 77%,
-    rgba(0, 0, 0, 0)
-  ),
-  -moz-linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0) 24%,
-    rgba(var(--color-text), 0.1) 25%,
-    rgba(var(--color-text), 0.1) 26%,
-    rgba(0, 0, 0, 0) 27%,
-    rgba(0, 0, 0, 0) 74%,
-    rgba(var(--color-text), 0.1) 75%,
-    rgba(var(--color-text), 0.1) 76%,
-    rgba(0, 0, 0, 0) 77%,
-    rgba(0, 0, 0, 0)
-  );
-  background: 
-  -o-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0) 24%,
-    rgba(var(--color-text), 0.1) 25%,
-    rgba(var(--color-text), 0.1) 26%,
-    rgba(0, 0, 0, 0) 27%,
-    rgba(0, 0, 0, 0) 74%,
-    rgba(var(--color-text), 0.1) 75%,
-    rgba(var(--color-text), 0.1) 76%,
-    rgba(0, 0, 0, 0) 77%,
-    rgba(0, 0, 0, 0)
-  ),
-  -o-linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0) 24%,
-    rgba(var(--color-text), 0.1) 25%,
-    rgba(var(--color-text), 0.1) 26%,
-    rgba(0, 0, 0, 0) 27%,
-    rgba(0, 0, 0, 0) 74%,
-    rgba(var(--color-text), 0.1) 75%,
-    rgba(var(--color-text), 0.1) 76%,
-    rgba(0, 0, 0, 0) 77%,
-    rgba(0, 0, 0, 0)
-  );
-  background: 
-  -webkit-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0) 24%,
-    rgba(var(--color-text), 0.1) 25%,
-    rgba(var(--color-text), 0.1) 26%,
-    rgba(0, 0, 0, 0) 27%,
-    rgba(0, 0, 0, 0) 74%,
-    rgba(var(--color-text), 0.1) 75%,
-    rgba(var(--color-text), 0.1) 76%,
-    rgba(0, 0, 0, 0) 77%,
-    rgba(0, 0, 0, 0)
-  ),
-  -webkit-linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0) 24%,
-    rgba(var(--color-text), 0.1) 25%,
-    rgba(var(--color-text), 0.1) 26%,
-    rgba(0, 0, 0, 0) 27%,
-    rgba(0, 0, 0, 0) 74%,
-    rgba(var(--color-text), 0.1) 75%,
-    rgba(var(--color-text), 0.1) 76%,
-    rgba(0, 0, 0, 0) 77%,
-    rgba(0, 0, 0, 0)
-  );
-  background: 
-  linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0) 24%,
-    rgba(var(--color-text), 0.1) 25%,
-    rgba(var(--color-text), 0.1) 26%,
-    rgba(0, 0, 0, 0) 27%,
-    rgba(0, 0, 0, 0) 74%,
-    rgba(var(--color-text), 0.1) 75%,
-    rgba(var(--color-text), 0.1) 76%,
-    rgba(0, 0, 0, 0) 77%,
-    rgba(0, 0, 0, 0)
-  ),
-  linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0) 24%,
-    rgba(var(--color-text), 0.1) 25%,
-    rgba(var(--color-text), 0.1) 26%,
-    rgba(0, 0, 0, 0) 27%,
-    rgba(0, 0, 0, 0) 74%,
-    rgba(var(--color-text), 0.1) 75%,
-    rgba(var(--color-text), 0.1) 76%,
-    rgba(0, 0, 0, 0) 77%,
-    rgba(0, 0, 0, 0)
-  );
-
   animation: SCREEN_LINES var(--transition-long) infinite;
 }
 .TEXT_BLOCK.ON_SCREEN p {
