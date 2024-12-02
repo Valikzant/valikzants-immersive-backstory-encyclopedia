@@ -725,6 +725,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES();
 
   // При загрузки окон ...
+  F_LOAD_WINDOW('HELP')
   F_LOAD_WINDOW('THEMES').then(async () => {
     F_LOAD_WINDOW('SETTINGS').then(async () => {
       if (await F_LOCAL_STORAGE_GET("classes-parameter") != null) {
