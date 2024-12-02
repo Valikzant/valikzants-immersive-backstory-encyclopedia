@@ -655,7 +655,8 @@
     margin: auto auto 75px auto;
   }
   #MAIN_PAGE_SECTION_SEARCH_EYE_HINT {
-    height: 75%;
+    height: 65%;
+    translate: 0% 15%;
   }
 }
 
@@ -668,6 +669,10 @@
       "C C"
       "S S";
   }
+  #MAIN_PAGE_SECTION_SEARCH_EYE_HINT {
+    translate: 0% 15%;
+    height: 65%;
+  }
   #SIDEBAR {
     flex-direction: row;
   }
@@ -676,6 +681,10 @@
 @media (max-width: 600px) {
   #MAIN_PAGE_SECTION {
     height: 80%;
+  }
+  #MAIN_PAGE_SECTION_SEARCH_EYE_HINT {
+    translate: 0% 0%;
+    height: 65%;
   }
   #MAIN_PAGE_SECTION_SEARCH_EYELID {
     margin: auto auto 150px auto;
