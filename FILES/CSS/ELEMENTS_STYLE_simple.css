@@ -7,6 +7,36 @@
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
+.                                  MAIN PAGE                                  .
+.............................................................................*/
+/* ! НАЧАЛО БЛОКА */
+#MAIN_PAGE_SECTION_TITLE {
+  background: 
+  radial-gradient(circle at 50%, rgba(var(--color-accent)) -350%, rgba(0, 0, 0, 0) 55%);
+}
+
+#MAIN_PAGE_SECTION_SEARCH {
+  background: 
+  radial-gradient(circle at 50%, rgba(var(--color-accent)) -350%, rgba(0, 0, 0, 0) 55%);
+}
+
+#MAIN_PAGE_SECTION_SEARCH_EYE_HINT {
+  background: 
+  radial-gradient(circle at 50%, rgba(var(--color-solid), 0.5) 20%, rgba(var(--color-solid), 0.25) 40%, rgba(0, 0, 0, 0) 45%);
+}
+
+#MAIN_PAGE_SECTION_SEARCH_EYE {
+  background: rgba(var(--color-accent));
+}
+
+#MAIN_PAGE_SECTION_SEARCH_EYELID {
+  filter: 
+  drop-shadow(0 0 5px rgba(var(--color-accent), 0.5))
+  drop-shadow(-2px -2px 0px rgba(var(--color-text)));
+}
+
+/* ! КОНЕЦ БЛОКА */
+/*.............................................................................
 .                                   ШРИФТЫ                                    .
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */

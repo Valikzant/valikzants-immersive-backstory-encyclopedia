@@ -96,7 +96,7 @@
   padding: 5px;
   translate: 0%;
   z-index: 3;
-  display: block;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -132,7 +132,7 @@
   max-height: calc(var(--size-ui) * 2);
   white-space: nowrap;
   z-index: 2;
-  display: block;
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -168,7 +168,7 @@
   max-width: 100%;
   overflow: auto;
   z-index: 2;
-  display: block;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -203,7 +203,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   max-width: 100%;
-  display: block;
+
   display: flex;
   align-items: start;
   justify-content: start;
@@ -225,7 +225,7 @@
   height: calc(var(--size-ui) * 7.6 * 2);
   position: relative;
   padding: 7.5px;
-  display: block;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -238,7 +238,7 @@
   height: calc(var(--size-ui) * 7.6 * 2);
   position: relative;
   padding: 7.5px;
-  display: block;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -257,7 +257,7 @@
   width: calc(var(--size-ui) * 3.4 * 2);
   height: calc(var(--size-ui) * 3.4 * 2);
   font-size: 0.75em;
-  display: block;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -270,7 +270,7 @@
   width: calc(var(--size-ui) * 3.4 * 2);
   height: calc(var(--size-ui) * 3.4 * 1);  
   font-size: 0.75em;
-  display: block;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -281,7 +281,7 @@
   width: calc(var(--size-ui) * 3.4 * 4 + 22px);
   height: calc(var(--size-ui) * 3.4 * 1);
   font-size: 0.75em;
-  display: block;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -294,7 +294,7 @@
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
 #STORY_SECTION {
-  display: block;
+
   display: flex;
   flex-direction: column;
 }
@@ -309,7 +309,176 @@
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
 #MAIN_PAGE_SECTION {
-  
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin: auto;
+  flex-wrap: wrap;
+  border-radius: 15px;
+  min-height: 400px;
+  height: 90%;
+  max-width: 1500px;
+}
+#MAIN_PAGE_SECTION > div {
+  flex-grow: 1;
+  flex-basis: 450px;
+  min-height: 350px;
+}
+#MAIN_PAGE_SECTION > a {
+  position: absolute;
+  inset: 0;
+  margin: auto auto 15px auto;
+  width: 6ch;
+  height: 1ch;
+}
+
+#MAIN_PAGE_SECTION_TITLE {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#MAIN_PAGE_SECTION_TITLE > h1 {
+  font-size: 800%;
+}
+
+#MAIN_PAGE_SECTION_TITLE > p:first-child {
+  position: relative;
+  text-align: center;
+  font-size: 85%;
+  opacity: 0.25;
+}
+
+#MAIN_PAGE_SECTION_TITLE > p:last-child {
+  position: relative;
+  text-align: center;
+  max-width: 250px;
+  font-size: 125%;
+}
+
+#MAIN_PAGE_SECTION_SEARCH {
+  position: relative;
+}
+
+#MAIN_PAGE_SECTION_SEARCH_EYE_HINT {
+  position: relative;
+  font-size: 125%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.05;
+  transition: opacity var(--transition-fast);
+}
+
+#MAIN_PAGE_SECTION_SEARCH_EYE {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 50%;
+  width: min(calc(var(--size-ui) * 15), 210px);
+  height: min(calc(var(--size-ui) * 15), 210px);
+  animation: LOOKING var(--transition-eye) infinite;
+}
+
+#MAIN_PAGE_SECTION_SEARCH_EYELID {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 50%;
+  width: min(calc(var(--size-ui) * 30), 400px);
+  height: min(calc(var(--size-ui) * 20), 280px);
+  outline: 25px solid rgba(var(--color-accent));
+  animation: ROTATING var(--transition-eye) infinite;
+  transition: scale var(--transition-fast);
+}
+
+#MAIN_PAGE_SECTION_SEARCH_EYELID:hover {
+  scale: 1.05;
+  cursor: pointer;
+}
+
+#MAIN_PAGE_SECTION_SEARCH_EYELID:hover + #MAIN_PAGE_SECTION_SEARCH_EYE_HINT {
+  opacity: 1;
+}
+
+@keyframes LOOKING {
+  0% {
+    transform: translate(-5px, -10px);
+  }
+  10% {
+    transform: translate(5px, 15px);
+  }
+  20% {
+    transform: translate(-5px, 25px);
+  }
+  30% {
+    transform: translate(10px, 20px);
+  }
+  40% {
+    transform: translate(-50px, 10px);
+  }
+  50% {
+    transform: translate(-50px, -10px);
+  }
+  60% {
+    transform: translate(-40px, -20px);
+  }
+  70% {
+    transform: translate(-20px, 5px);
+  }
+  80% {
+    transform: translate(20px, 10px);
+  }
+  90% {
+    transform: translate(-10px, 10px);
+  }
+  100% {
+    transform: translate(-5px, -10px);
+  }
+}
+
+@keyframes ROTATING {
+  0% {
+    transform: rotateY(-5deg);
+  }
+  10% {
+    transform: rotateY(5deg);
+  }
+  20% {
+    transform: rotateY(-5deg);
+  }
+  30% {
+    transform: rotateY(10deg);
+  }
+  40% {
+    transform: rotateY(-20deg);
+  }
+  50% {
+    transform: rotateY(-20deg);
+  }
+  60% {
+    transform: rotateY(-15deg);
+  }
+  70% {
+    transform: rotateY(-10deg);
+  }
+  80% {
+    transform: rotateY(10deg);
+  }
+  90% {
+    transform: rotateY(-10deg);
+  }
+  100% {
+    transform: rotateY(-5deg);
+  }
 }
 
 /* ! КОНЕЦ БЛОКА */
@@ -334,7 +503,7 @@
 /* CHARACTER SPECIAL */
 #CHARACTER_SPECIAL_SECTION {
   grid-area: S;
-  display: block;
+
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -343,7 +512,7 @@
 }
 
 #CHARACTER_SPECIAL_SECTION_NAME {
-  display: block;
+
   display: flex;
   justify-content: center;
 }
@@ -365,7 +534,7 @@
 
 #CHARACTER_CARD_SECTION_NAME {
   grid-area: N;
-  display: block;
+
   display: flex;
   justify-content: center;
 }
@@ -387,7 +556,7 @@
   margin: 0 15px 15px 0;
   position: relative;
   float: left;
-  display: block;
+
 }
 
 #CHARACTER_CARD_SECTION_IMAGE img {
@@ -427,7 +596,7 @@
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
 #CHARACTERS_SLIDERS_SECTION {
-  display: block;
+
   display: flex;
   flex-direction: column;
 }
@@ -437,7 +606,7 @@
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scroll-padding-left: 5px;
-  display: block;
+
   display: flex;
   flex-direction: row;
   margin: 0px 0 25px 0;
@@ -482,15 +651,12 @@
 .                                    MEDIA                                    .
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
-
-@media (max-width: 480px) {
-  #CHARACTER_CARD_SECTION_INFORMATION {
-    display: block;
-  display: flex;
+@media (max-width: 929px) {
+  #MAIN_PAGE_SECTION_SEARCH_EYELID {
+    margin: auto auto 120px auto;
   }
-
-  #CHARACTER_CARD_SECTION_IMAGE {
-    margin: 0 0 15px 0;
+  #MAIN_PAGE_SECTION_SEARCH_EYE_HINT {
+    height: 75%;
   }
 }
 
@@ -503,9 +669,27 @@
       "C C"
       "S S";
   }
-
   #SIDEBAR {
     flex-direction: row;
   }
 }
+
+@media (max-width: 600px) {
+  #MAIN_PAGE_SECTION {
+    height: 80%;
+  }
+  #MAIN_PAGE_SECTION_SEARCH_EYELID {
+    margin: auto auto 150px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  #CHARACTER_CARD_SECTION_INFORMATION {
+    display: flex;
+  }
+  #CHARACTER_CARD_SECTION_IMAGE {
+    margin: 0 0 15px 0;
+  }
+}
+
 /* ! КОНЕЦ БЛОКА */

@@ -384,6 +384,7 @@ async function F_SETTINGS_CHANGE_ANIMATIONS(c_Mode) {
     c_Body.style.setProperty("--transition-fast", "0.5s cubic-bezier(0.165, 0.84, 0.44, 1)");
     c_Body.style.setProperty("--transition-slow", '2s cubic-bezier(.11,.86,.59,.97)');
     c_Body.style.setProperty("--transition-long", '10s cubic-bezier(.32,.17,.5,1.07)');
+    c_Body.style.setProperty("--transition-eye", '20s cubic-bezier(.11,.86,.59,.97)');
   } else {
     await F_LOCAL_STORAGE_SET("animations", "false");
     await F_INTERACT_WITH_HTML_ENABLE_BUTTON_BY_ID("ANIMATION_TOGGLE_CHOOSER_OFF");
@@ -391,6 +392,7 @@ async function F_SETTINGS_CHANGE_ANIMATIONS(c_Mode) {
     c_Body.style.setProperty("--transition-fast", 'none');
     c_Body.style.setProperty("--transition-slow", 'none');
     c_Body.style.setProperty("--transition-long", 'none');
+    c_Body.style.setProperty("--transition-eye", 'none');
   }
 }
 

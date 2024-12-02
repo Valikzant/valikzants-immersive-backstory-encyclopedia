@@ -1,4 +1,18 @@
 /*.............................................................................
+.                                  MAIN PAGE                                  .
+.............................................................................*/
+/* ! НАЧАЛО БЛОКА */
+#MAIN_PAGE_SECTION_SEARCH_EYE {
+  background: rgba(var(--color-accent));
+}
+
+#MAIN_PAGE_SECTION_SEARCH_EYELID {
+  filter: 
+  drop-shadow(0 0 5px rgba(var(--color-accent), 0.5));
+}
+
+/* ! КОНЕЦ БЛОКА */
+/*.............................................................................
 .                                   ШРИФТЫ                                    .
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
@@ -27,6 +41,8 @@ h2.FANCY,
 h3.FANCY {
   color: rgba(0, 0, 0, 0);
   text-shadow: 1px 1px 1px rgba(var(--color-accent));
+  filter: 
+  drop-shadow(0 0 5px rgba(var(--color-accent), 0.5))
 }
 
 h1.TITLE,
@@ -83,5 +99,7 @@ a {
 .ICON {
   color: rgba(0, 0, 0, 0);
   text-shadow: 1px 1px 0px rgba(var(--color-accent));
+  filter: 
+  drop-shadow(0 0 5px rgba(var(--color-accent), 0.5))
 }
 /* ! КОНЕЦ БЛОКА

@@ -118,7 +118,7 @@
 .TEXT_BLOCK::after {
   content: "";
   opacity: 0.25;
-  display: block;
+
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -147,7 +147,7 @@
   padding: 5px 10px 0px 10px;
   margin: 20px 0px 15px 0px;
   gap: 5px;
-  display: block;
+
   display: flex;
   flex-direction: column;
 }
