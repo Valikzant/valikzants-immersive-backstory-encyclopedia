@@ -107,15 +107,6 @@ img {
 
 .BLOCK.SPECIAL {
   background: 
-  -moz-linear-gradient(to right, rgba(var(--color-accent), 0.1) 0%, rgba(var(--color-accent), 0.1) 100%),
-  -moz-linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
-  background: 
-  -o-linear-gradient(to right, rgba(var(--color-accent), 0.1) 0%, rgba(var(--color-accent), 0.1) 100%),
-  -o-linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
-  background: 
-  -webkit-linear-gradient(to right, rgba(var(--color-accent), 0.1) 0%, rgba(var(--color-accent), 0.1) 100%),
-  -webkit-linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
-  background: 
   linear-gradient(to right, rgba(var(--color-accent), 0.1) 0%, rgba(var(--color-accent), 0.1) 100%),
   linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
   outline: 1px solid rgba(var(--color-accent), 0.5);

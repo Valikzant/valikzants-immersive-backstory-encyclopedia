@@ -54,15 +54,6 @@ body {
   font-family: "geologica";
   color: rgba(var(--color-text));
   background: 
-  -moz-radial-gradient(circle at top left, rgba(var(--color-accent)) -250%, rgba(0, 0, 0, 0) 60%),
-  -moz-radial-gradient(circle at bottom right, rgba(var(--color-accent)) -350%, rgba(var(--color-solid)) 70%);
-  background: 
-  -o-radial-gradient(circle at top left, rgba(var(--color-accent)) -250%, rgba(0, 0, 0, 0) 60%),
-  -o-radial-gradient(circle at bottom right, rgba(var(--color-accent)) -350%, rgba(var(--color-solid)) 70%);
-  background: 
-  -webkit-radial-gradient(circle at top left, rgba(var(--color-accent)) -250%, rgba(0, 0, 0, 0) 60%),
-  -webkit-radial-gradient(circle at bottom right, rgba(var(--color-accent)) -350%, rgba(var(--color-solid)) 70%);
-  background: 
   radial-gradient(circle at 50%, rgba(var(--color-accent)) -1000%, rgba(0, 0, 0, 0) 80%),
   radial-gradient(circle at top left, rgba(var(--color-accent)) -250%, rgba(0, 0, 0, 0) 60%),
   radial-gradient(circle at bottom right, rgba(var(--color-accent)) -350%, rgba(var(--color-solid)) 70%);
@@ -107,13 +98,7 @@ img {
 
 .BLOCK.INNER {
   outline: 1px solid rgba(var(--color-accent),0.1);
-  background: 
-  -moz-radial-gradient(circle at bottom left, rgba(var(--color-accent)) -1250%, rgba(0, 0, 0, 0) 150%);
-  background: 
-  -o-radial-gradient(circle at bottom left, rgba(var(--color-accent)) -1250%, rgba(0, 0, 0, 0) 150%);
-  background: 
-  -webkit-radial-gradient(circle at bottom left, rgba(var(--color-accent)) -1250%, rgba(0, 0, 0, 0) 150%);
-  background: 
+  background:
   radial-gradient(circle at bottom left, rgba(var(--color-accent)) -1250%, rgba(0, 0, 0, 0) 150%);
 }
 
@@ -123,36 +108,6 @@ img {
 
 .BLOCK.SPECIAL {
   box-shadow: 5px 5px 5px rgba(var(--color-solid), 0.5);
-  background: 
-  -moz-radial-gradient(
-    ellipse at bottom left,
-    rgba(var(--color-accent), 0.35) 0%,
-    rgba(var(--color-accent), 0.25) 25%,
-    rgba(var(--color-accent), 0.15) 50%,
-    rgba(var(--color-accent), 0.2) 75%,
-    rgba(var(--color-accent), 0.2) 100%
-  ),
-  -moz-linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
-  background: 
-  -o-radial-gradient(
-    ellipse at bottom left,
-    rgba(var(--color-accent), 0.35) 0%,
-    rgba(var(--color-accent), 0.25) 25%,
-    rgba(var(--color-accent), 0.15) 50%,
-    rgba(var(--color-accent), 0.2) 75%,
-    rgba(var(--color-accent), 0.2) 100%
-  ),
-  -o-linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
-  background: 
-  -webkit-radial-gradient(
-    ellipse at bottom left,
-    rgba(var(--color-accent), 0.35) 0%,
-    rgba(var(--color-accent), 0.25) 25%,
-    rgba(var(--color-accent), 0.15) 50%,
-    rgba(var(--color-accent), 0.2) 75%,
-    rgba(var(--color-accent), 0.2) 100%
-  ),
-  -webkit-linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
   background: 
   radial-gradient(
     ellipse at bottom left,
@@ -181,36 +136,6 @@ img {
 
 .BUTTON.ACTIVE {
   box-shadow: 5px 5px 5px rgba(var(--color-solid), 0.5);
-  background: 
-  -moz-radial-gradient(
-    ellipse at bottom left,
-    rgba(var(--color-accent), 0.35) 0%,
-    rgba(var(--color-accent), 0.25) 25%,
-    rgba(var(--color-accent), 0.15) 50%,
-    rgba(var(--color-accent), 0.2) 75%,
-    rgba(var(--color-accent), 0.2) 100%
-  ),
-  -moz-linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
-  background: 
-  -o-radial-gradient(
-    ellipse at bottom left,
-    rgba(var(--color-accent), 0.35) 0%,
-    rgba(var(--color-accent), 0.25) 25%,
-    rgba(var(--color-accent), 0.15) 50%,
-    rgba(var(--color-accent), 0.2) 75%,
-    rgba(var(--color-accent), 0.2) 100%
-  ),
-  -o-linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
-  background: 
-  -webkit-radial-gradient(
-    ellipse at bottom left,
-    rgba(var(--color-accent), 0.35) 0%,
-    rgba(var(--color-accent), 0.25) 25%,
-    rgba(var(--color-accent), 0.15) 50%,
-    rgba(var(--color-accent), 0.2) 75%,
-    rgba(var(--color-accent), 0.2) 100%
-  ),
-  -webkit-linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
   background: 
   radial-gradient(
     ellipse at bottom left,

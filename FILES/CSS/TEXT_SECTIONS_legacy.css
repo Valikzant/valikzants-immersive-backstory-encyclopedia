@@ -120,21 +120,6 @@
   width: 100%;
   height: 100%;
 
-  background: -moz-linear-gradient(
-    90deg,
-    rgba(var(--color-solid)),
-    rgba(var(--color-solid))
-  );
-  background: -o-linear-gradient(
-    90deg,
-    rgba(var(--color-solid)),
-    rgba(var(--color-solid))
-  );
-  background: -webkit-linear-gradient(
-    90deg,
-    rgba(var(--color-solid)),
-    rgba(var(--color-solid))
-  );
   background: linear-gradient(
     90deg,
     rgba(var(--color-solid)),
