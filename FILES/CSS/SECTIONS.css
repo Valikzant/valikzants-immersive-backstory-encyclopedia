@@ -296,13 +296,9 @@
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
 #STORY_SECTION {
-
+  padding: 10px 10px 10px 0px;
   display: flex;
   flex-direction: column;
-}
-
-#STORY_SECTION > :nth-child(1) {
-  margin: 0 0 0px 0;
 }
 
 /* ! КОНЕЦ БЛОКА */
@@ -342,9 +338,9 @@
   translate: 0% -5%;
   white-space: nowrap;
   font-size: 1000%;
-  opacity: 0.05;
+  opacity: 0.1;
   font-weight: bolder;
-  filter: blur(10px);
+  filter: blur(15px);
   overflow: hidden;
 }
 #MAIN_PAGE_SECTION_BACKGROUND_TEXT > p{
@@ -379,7 +375,7 @@
 #MAIN_PAGE_SECTION_TITLE > p:last-child {
   position: relative;
   text-align: center;
-  max-width: 250px;
+  max-width: 400px;
   font-size: 125%;
 }
 
@@ -478,7 +474,7 @@
     transform: translate(-50px, -10px);
   }
   60% {
-    transform: translate(-40px, -20px);
+    transform: translate(30px, -10px);
   }
   70% {
     transform: translate(-20px, 5px);
@@ -532,46 +528,25 @@
 
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
-.                                  CHARACTER                                  .
+.                                  PAGE INFO                                  .
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
-#CHARACTER_INFORMATION_SECTION {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1.5fr;
-  grid-template-rows: auto 1fr;
-  grid-template-areas:
-    "T T T T"
-    "C C C C"
-    "S S S S";
-}
-
-#CHARACTER_INFORMATION_SECTION_TITLE {
-  grid-area: T;
-}
-
-/* CHARACTER SPECIAL */
-#CHARACTER_SPECIAL_SECTION {
-  grid-area: S;
-
+.PAGE_INFORMATION_SECTION {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-  position: relative;
-  margin: 15px 0px 15px 0px;
+  width: 100%;
 }
 
-#CHARACTER_SPECIAL_SECTION_NAME {
-
+.PAGE_SPECIAL_SECTION_NAME {
   display: flex;
   justify-content: center;
 }
 
-/* CHARACTER CARD */
-#CHARACTER_CARD_SECTION {
+.PAGE_CARD_SECTION {
   grid-area: C;
   display: grid;
   position: relative;
-  gap: 15px;
+  gap: 10px;
+  margin-bottom: 10px !important;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto auto;
   grid-template-areas:
@@ -581,14 +556,13 @@
     "I I";
 }
 
-#CHARACTER_CARD_SECTION_NAME {
+.PAGE_CARD_SECTION_NAME {
   grid-area: N;
-
   display: flex;
   justify-content: center;
 }
 
-#CHARACTER_CARD_SECTION_INFORMATION {
+.PAGE_CARD_SECTION_INFORMATION {
   grid-area: I;
   position: relative;
   text-align: justify;
@@ -599,26 +573,28 @@
   align-items: center;
 }
 
-#CHARACTER_CARD_SECTION_IMAGE {
+.PAGE_CARD_SECTION_IMAGE {
+  overflow: hidden;
   width: calc(var(--size-images) * 10);
   height: calc(var(--size-images) * 10);
-  margin: 0 15px 15px 0;
+  margin: 0px 10px 0px 0px !important;
   position: relative;
   float: left;
-
 }
 
-#CHARACTER_CARD_SECTION_IMAGE img {
+.PAGE_CARD_SECTION_IMAGE img {
   position: absolute;
+  object-fit:cover;
   width: 100%;
-  height: auto;
+  height: 100%;
   top: 0;
   left: 0;
   z-index: 2;
   transition: opacity var(--transition-fast);
+  transition-delay: 0.25s;
 }
 
-#CHARACTER_CARD_SECTION_IMAGE p {
+.PAGE_CARD_SECTION_IMAGE p {
   position: absolute;
   border-radius: 15px;
   width: 90%;
@@ -630,67 +606,215 @@
   left: 5px;
 }
 
-#CHARACTER_CARD_SECTION_IMAGE:hover {
+.PAGE_CARD_SECTION_IMAGE:hover {
   cursor: help;
 }
 
-#CHARACTER_CARD_SECTION_IMAGE:hover > img {
+.PAGE_CARD_SECTION_IMAGE:hover > img {
   opacity: 0;
   pointer-events: none;
 }
 
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
-.                                   SLIDERS                                   .
+.                               CONTENT HOLDER                                .
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
-#CHARACTERS_SLIDERS_SECTION {
+#CONTENT_HOLDER_SECTION {
   display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 10px 0px 0px 0px;
   flex-direction: column;
 }
 
-#CHARACTERS_SLIDERS_SECTION > div {
-  overflow-x: auto;
-  overflow-y: hidden;
+#CONTENT_HOLDER_SECTION > .CONTENT_CARDS_SLIDER {
+  position: relative;
   scroll-snap-type: x mandatory;
-  scroll-padding-left: 5px;
+  scroll-padding: 9px;
+  padding-top: 54px;
+  margin: 0px 0px 10px 0px;
+  overflow-y: auto;
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: row;
-  margin: 0px 0 25px 0;
-  gap: 15px;
+  gap: 10px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+#CONTENT_HOLDER_SECTION > *::-webkit-scrollbar {
+  display: none;
 }
 
-#CHARACTERS_SLIDERS_SECTION > * > * {
-  min-width: calc(var(--size-ui) * 15);
-  max-width: calc(var(--size-ui) * 15);
-  min-height: calc(var(--size-ui) * 17);
-  max-height: 100%;
-  scroll-snap-align: start;
-  transition: transform var(--transition-fast);
+#CONTENT_HOLDER_SECTION > * > h2 {
+  position: sticky;
+  left: 0px;
+  width: 0px;
+  translate: 0px -45px;
+}
+
+#CONTENT_HOLDER_SECTION > *:hover > .CONTENT_CARDS_SLIDER.BUTTON_RIGHT,
+#CONTENT_HOLDER_SECTION > *:hover > .CONTENT_CARDS_SLIDER.BUTTON_LEFT {
+  opacity: 1;
+}
+
+.CONTENT_CARDS_SLIDER.BUTTON_RIGHT,
+.CONTENT_CARDS_SLIDER.BUTTON_LEFT {
+  position: sticky;
+  top: 0px;
+  padding: 30px;
+  font-size: 150%;
+  display: flex;
+  align-items: center;
+  z-index: 6;
+  opacity: 0.25;
   cursor: pointer;
-
+  transition: 
+  opacity var(--transition-fast),
+  filter var(--transition-fast);
+}
+.CONTENT_CARDS_SLIDER.BUTTON_RIGHT {
+  right: -30px;
+}
+.CONTENT_CARDS_SLIDER.BUTTON_LEFT {
+  left: -30px;
+}
+.CONTENT_CARDS_SLIDER.BUTTON_RIGHT:hover,
+.CONTENT_CARDS_SLIDER.BUTTON_LEFT:hover {
+  filter: brightness(1.5);
 }
 
-#CHARACTERS_SLIDERS_SECTION > * > *:hover {
-  transform: scale(1.01);
-  outline: rgba(var(--color-accent), 1) solid 1px;
+.CONTENT_CARDS_SLIDER.WIDE .CONTENT_CARD {
+  min-width: calc(var(--size-images) * 10 + 10px);
+  min-height: calc(var(--size-images) * 5);
+  max-width: calc(var(--size-images) * 10);
+  max-height: calc(var(--size-images) * 5);
 }
 
-#CHARACTERS_SLIDERS_SECTION > * > * img {
-  margin: 0 0 10px 0;
+.CONTENT_CARDS_SLIDER.TALL .CONTENT_CARD {
+  min-width: calc(var(--size-images) * 5);
+  min-height: calc(var(--size-images) * 10 + 10px);
+  max-width: calc(var(--size-images) * 5);
+  max-height: calc(var(--size-images) * 10);
+}
+
+.CONTENT_CARDS_SLIDER.COMPACT .CONTENT_CARD {
+  min-width: calc(var(--size-images) * 5);
+  min-height: calc(var(--size-images) * 5);
+  max-width: calc(var(--size-images) * 5);
+  max-height: calc(var(--size-images) * 5);
+}
+
+.CONTENT_CARDS_SLIDER.HUGE .CONTENT_CARD {
+  min-width: calc(var(--size-images) * 10 + 10px);
+  min-height: calc(var(--size-images) * 10 + 10px);
+  max-width: calc(var(--size-images) * 10);
+  max-height: calc(var(--size-images) * 10);
+}
+
+.CONTENT_CARD {
+  overflow: hidden;
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  transition: 
+  opacity var(--transition-fast),
+  filter var(--transition-fast),
+  transform var(--transition-fast);
+  cursor: pointer;
+  scroll-snap-align: start;
+}
+
+.CONTENT_CARD img {
+  object-fit:cover;
   padding: 0;
-  width: calc(var(--size-ui) * 15);
-  height: calc(var(--size-ui) * 15);
-  transition: transform var(--transition-fast);
+  width: 100%;
+  height: 100%;
+  transition: 
+  transform var(--transition-fast);
 }
 
-#CHARACTERS_SLIDERS_SECTION > * > * img:hover {
-  transform: scale(1.03);
+.CONTENT_CARD_TITLE {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  margin: auto 0px 0px 0px;
+  width: 100%;
+  height: calc(var(--size-ui) * 2.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  overflow: hidden;
+  transition: 
+  height var(--transition-fast),
+  opacity var(--transition-fast),
+  filter var(--transition-slow),
+  background var(--transition-slow);
 }
 
-#CHARACTERS_SLIDERS_SECTION > * > * p {
-  margin: 0 15px 0 0;
-  padding: 0;
+.CONTENT_CARD_TITLE > h3 {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+  font-size: 110%;
+  text-overflow: ellipsis;
+  z-index: 2;
+  height: auto;
+  width: 90%;
+  transition: 
+  font-size var(--transition-fast),
+  transform var(--transition-fast);
+}
+
+.CONTENT_CARD:hover > .CONTENT_CARD_TITLE {
+  filter: brightness(1.25);
+  opacity: 1;
+}
+
+.CONTENT_CARD:hover {
+  z-index: 5;
+  transition-delay: 0.5s;
+}
+.CONTENT_CARD_TITLE:hover {
+  height: 75%;
+  transition-delay: 0.5s;
+}
+.CONTENT_CARD_TITLE:hover > h3 {
+  animation: EXPANSION var(--transition-fast) 0.5s forwards;
+}
+.CONTENT_CARD:hover ~ .CONTENT_CARD,
+.CONTENT_CARD:has( ~ .CONTENT_CARD:hover) {
+  opacity: 0.5;
+  transition-duration: 2s;
+  transition-delay: 1s;
+}
+
+.CONTENT_CARD:hover ~ .CONTENT_CARDS_SLIDER.BUTTON_RIGHT,
+.CONTENT_CARDS_SLIDER.BUTTON_LEFT:has( ~ .CONTENT_CARD:hover) {
+  opacity: 0.25 !important;
+}
+
+.CONTENT_CARD {
+  transition-delay: 0s;
+  transition-duration: 1s;
+}
+
+@keyframes EXPANSION {
+  0% {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  90% {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  100% {
+    overflow: visible;
+    white-space: wrap;
+    font-size: 125%;
+  }
 }
 
 /* ! КОНЕЦ БЛОКА */
@@ -723,10 +847,10 @@
 }
 
 @media (max-width: 480px) {
-  #CHARACTER_CARD_SECTION_INFORMATION {
+  .PAGE_CARD_SECTION_INFORMATION {
     display: flex;
   }
-  #CHARACTER_CARD_SECTION_IMAGE {
+  .PAGE_CARD_SECTION_IMAGE {
     margin: 0 0 15px 0;
   }
   #MAIN_PAGE_SECTION {

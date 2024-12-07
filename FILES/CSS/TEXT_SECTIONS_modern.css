@@ -149,7 +149,7 @@
 /* TEXT DEFAULT       */
 
 .TEXT_BLOCK.DEFAULT {
-  padding: 0px;
+  padding: 0px 10px 0px 0px;
   content-visibility: visible;
   border-radius: 0px;
 }

@@ -101,6 +101,22 @@ async function F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(c_Element, c_Class) {
   return c_Element.querySelectorAll(c_Class);
 }
 
+// Сжатие элемента по ID
+async function F_INTERACT_WITH_HTML_FOLD_ELEMENT_BY_ID(c_ElementId) {
+  const c_Element = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID(c_ElementId);
+  if (!c_Element.classList.contains("FOLDED") && c_Element) {
+    c_Element.classList.add("FOLDED");
+  }
+}
+
+// Расширение элемента по ID
+async function F_INTERACT_WITH_HTML_EXPAND_ELEMENT_BY_ID(c_ElementId) {
+  const c_Element = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID(c_ElementId);
+  if (c_Element.classList.contains("FOLDED") && c_Element) {
+    c_Element.classList.remove("FOLDED");
+  }
+}
+
 // Выключение элемента по ID
 async function F_INTERACT_WITH_HTML_DISABLE_ELEMENT_BY_ID(c_ElementId) {
   const c_Element = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID(c_ElementId);
@@ -152,6 +168,24 @@ async function F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(c_ElementId) {
   }, 10);
 }
 
+// Скролл внутри слайдеров по кнопкам
+async function F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(c_Button, c_Direction) {
+  const c_ContentSlider = c_Button.parentElement;
+
+  if (c_Direction === 'RIGHT') {
+    c_ContentSlider.scrollBy({
+      left: 200,
+      behavior: 'smooth'
+    });
+  } else {
+    c_ContentSlider.scrollBy({
+      left: -200,
+      behavior: 'smooth'
+    });
+  }
+}
+
+// [ PAGES ]
 // Открытие и закрытие страниц по списку текущих страниц
 async function F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(c_PageId = null, c_SidebarButton = null) {
   const c_SidebarButtons = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".SIDEBAR.BUTTON");
@@ -168,7 +202,7 @@ async function F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(c_PageId = null, c_SidebarB
   if (c_PageId == null) {
     c_StoryPages.forEach(i_Page => {
       if (i_Page.id == "start") {
-        c_SidebarButtons[1].classList.add("ACTIVE");
+        c_SidebarButtons[0].classList.add("ACTIVE");
         return;
       }
       i_Page.classList.add("CLOSED");
@@ -185,7 +219,6 @@ async function F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(c_PageId = null, c_SidebarB
 
     // Определяем индекс следующей или предыдущей страницы
     let v_NewPageIndex = c_PageId === '+1' ? v_CurrentPageIndex + 1 : v_CurrentPageIndex - 1;
-
     // Проверяем, не вышли ли за границы массива
     if (v_NewPageIndex >= 0 && v_NewPageIndex < c_StoryPages.length) {
       c_StoryPages[v_CurrentPageIndex].classList.add("CLOSED");
@@ -195,7 +228,7 @@ async function F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(c_PageId = null, c_SidebarB
       c_SidebarButtons.forEach(i_Button => {
         i_Button.classList.remove("ACTIVE");
       });
-      c_SidebarButtons[v_NewPageIndex + 1].classList.add("ACTIVE");
+      c_SidebarButtons[v_NewPageIndex].classList.add("ACTIVE");
     }
 
   } else {
@@ -207,17 +240,6 @@ async function F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(c_PageId = null, c_SidebarB
         i_Page.classList.add("CLOSED");
       }
     });
-  }
-}
-
-// Открытие и закрытие карточки персонажа
-async function F_INTERACT_WITH_HTML_OPEN_CLOSE_CHARACTER_CARD_SECTION() {
-  const c_CharacterCard = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("CHARACTER_INFORMATION_SECTION");
-  if (c_CharacterCard.classList.contains("HIDDEN")) {
-    c_CharacterCard.classList.remove("HIDDEN");
-    F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(c_CharacterCard.id);
-  } else {
-    c_CharacterCard.classList.add("HIDDEN");
   }
 }
 
@@ -315,7 +337,7 @@ async function F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(c_InterfaceModifier) {
 
 // Изменения css
 async function F_CUSTOMIZATION_CHANGE_CLASSES_FILE(c_CssFilesParameter) {
-  const c_ClassesFileLink = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("ELEMENTS_STYLE_CSS_FILE");
+  const c_ClassesFileLink = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("STYLE_CSS_FILE");
   const c_TextBlocksFileLink = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("TEXT_BLOCKS_CSS_FILE");
 
   F_INTERACT_WITH_HTML_DISABLE_BUTTON_BY_ID("CLASSES_STYLE_CHOOSER_MODERN");
@@ -338,7 +360,7 @@ async function F_CUSTOMIZATION_CHANGE_CLASSES_FILE(c_CssFilesParameter) {
     const c_ClassesFileLinkHrefParts = c_ClassesFileLinkHref.split('/');
     const c_ClassesFileNameWithParams = c_ClassesFileLinkHrefParts[c_ClassesFileLinkHrefParts.length - 1];
     const [c_ClassesFileName, c_ClassesFileParams] = c_ClassesFileNameWithParams.split('?');
-    const c_ClassesNewFileName = `ELEMENTS_STYLE_${c_CssFilesParameter}.css`;
+    const c_ClassesNewFileName = `STYLE_${c_CssFilesParameter}.css`;
     c_ClassesFileLinkHrefParts[c_ClassesFileLinkHrefParts.length - 1] = c_ClassesFileParams ? `${c_ClassesNewFileName}?${c_ClassesFileParams}` : c_ClassesNewFileName;
     const c_ClassesFileLinkHrefNew = c_ClassesFileLinkHrefParts.join('/');
     c_ClassesFileLink.setAttribute('href', c_ClassesFileLinkHrefNew);

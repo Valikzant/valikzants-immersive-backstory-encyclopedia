@@ -17,6 +17,26 @@ body {
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
+.                               CONTENT HOLDER                                .
+.............................................................................*/
+/* ! НАЧАЛО БЛОКА */
+.CONTENT_CARD_TITLE:hover {
+  background: rgba(var(--color-solid), 0.75);
+}
+
+.CONTENT_CARDS_SLIDER.BUTTON_RIGHT {
+  background: rgba(var(--color-solid),0.5);
+}
+.CONTENT_CARDS_SLIDER.BUTTON_LEFT {
+  background: rgba(var(--color-solid),0.5);
+}
+
+.CONTENT_CARD_TITLE {
+  background: rgba(var(--color-solid),0.5);
+}
+
+/* ! КОНЕЦ БЛОКА */
+/*.............................................................................
 .                                    TEXT                                     .
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */

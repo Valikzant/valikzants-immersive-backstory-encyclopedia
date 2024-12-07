@@ -47,7 +47,7 @@
 
 <div id="SIDEBAR" class="BLOCK">
   
-  <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_CHARACTER_CARD_SECTION()" 
+  <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGE_CARD_SECTION()" 
     data-tooltip="Карточка персонажа (Скрыть/Раскрыть)"> 
     <div class="ICON"> 👤 </div>
   </div>
@@ -82,6 +82,7 @@
 
 <div id="CONTENT" class="BLOCK">
 
+  <!-- НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ -->
   <div class="BUTTON_HELP" data-tooltip=
   "
   Основной раздел, где вы можете узнать о VIBE'е персонажа автора.
@@ -89,23 +90,20 @@
       <div class="ICON"> ❔ </div>
   </div>
 
-  <div id="CHARACTER_INFORMATION_SECTION" class="BLOCK INNER INVISIBLE">
-
-    <h2 id="CHARACTER_INFORMATION_SECTION_TITLE" class="TITLE">Информация о персонаже</h2>
+  <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
+  <div class="BLOCK INNER INVISIBLE PAGE_INFORMATION_SECTION">
+    <h2 class="TITLE">Информация о персонаже</h2>
     
-    <div id="CHARACTER_CARD_SECTION" class="BLOCK INNER SPECIAL">
-      <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
-      <h3 id="CHARACTER_CARD_SECTION_NAME">
+    <div class="PAGE_CARD_SECTION BLOCK INNER SPECIAL">
+      <h3 class="PAGE_CARD_SECTION_NAME">
         Имя вашего персонажа здесь
       </h3>
 
-      <div id="CHARACTER_CARD_SECTION_INFORMATION">
-
-        <div id="CHARACTER_CARD_SECTION_IMAGE" class="BLOCK INNER">
-
-          <img alt="Описание изображения" class="BLOCK INNER IMAGE" src="./pfp.webp" loading="lazy">
-          <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
+      <div class="PAGE_CARD_SECTION_INFORMATION">
+        <div class="PAGE_CARD_SECTION_IMAGE">
+          <img alt="Имя вашего персонажа здесь" src="./icon.webp" loading="lazy">
           <p>
+            <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
             Раса      : ???
             <br>
             Рост      : ??? см
@@ -116,25 +114,22 @@
             <br>
             Осн. Роли : ???
           </p>
-
         </div>
-        <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
         <p>
+          <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
           Обширное описание вашего персонажа здесь из игры или собственное только для этой страницы, если вы так желаете. Вообще, тут будет много бессмысленного текста для примера и вы не обязаны его читать, однако продолжаете его читать. Я рад, что вам всё еще интересно продолжать смотреть на эти буквы, исследуя, видимо, каждую из них.
         </p>
-
       </div>
-
     </div>
 
-    <div id="CHARACTER_SPECIAL_SECTION" class="BLOCK INNER SPECIAL">
+    <div class="PAGE_CARD_SECTION BLOCK INNER SPECIAL">
       <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
-      <h3 id="CHARACTER_SPECIAL_SECTION_NAME"> 
-        Особенности/Навыки
+      <h3 class="PAGE_CARD_SECTION_NAME">
+        Навыки
       </h3>
 
-      <div id="CHARACTER_SPECIAL_SECTION_INFORMATION">
-        <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
+      <div class="PAGE_CARD_SECTION_INFORMATION">
+      <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
         <p>
           + Я умею то!
           <br>
@@ -146,16 +141,14 @@
           <br><br>
           Или просто особенности вашего персонажа, без навыков или вместе с ними
         </p>
-
       </div>
-
     </div>
-      
   </div>
 
+  <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
   <div id="STORY_SECTION" class="BLOCK INNER INVISIBLE">
     
-    <h2 class="TITLE STATIONARY">История персонажа</h2>
+    <h2 class="TITLE STATIONARY INVISIBLE">История персонажа</h2>
 
     <div onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES('-1')" id="BUTTON_PREVIOUS_PAGE" class="BUTTON PAGING">◀<div class="FILLER HALF"></div>◀<div class="FILLER HALF"></div>◀<div class="FILLER HALF"></div>◀</div>
     <div onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES('+1')" id="BUTTON_NEXT_PAGE" class="BUTTON PAGING NEXT">▶<div class="FILLER HALF"></div>▶<div class="FILLER HALF"></div>▶<div class="FILLER HALF"></div>▶</div>
@@ -376,6 +369,7 @@
 
 <div id="AUTHOR" class="BLOCK HIDDEN">
 
+  <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
   <div class="BUTTON_HELP" data-tooltip=
   "
   Вероятно, автор оставил здесь о себе какую-либо информацию.
@@ -385,7 +379,7 @@
       <div class="ICON"> ❔ </div>
   </div>
 
-  <h2 class="TITLE STATIONARY">Об авторе</h2>
+  <h2 class="TITLE STATIONARY INVISIBLE">Об авторе</h2>
   <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
   <p>
     Информация об авторе???

@@ -71,12 +71,6 @@ h3 {
   z-index: 2;
 }
 
-h2::before,
-h3::before {
-  content: "-";
-  visibility: hidden;
-}
-
 h1.FANCY,
 h2.FANCY,
 h3.FANCY {
@@ -100,12 +94,15 @@ h2.TITLE.INVISIBLE,
 h3.TITLE.INVISIBLE {
   background: none;
   box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 h1.TITLE.STATIONARY,
 h2.TITLE.STATIONARY,
 h3.TITLE.STATIONARY {
   position: relative;
+  margin: 0px 0px 0px 10px;
   background: none;
   box-shadow: none;
 }
@@ -172,15 +169,11 @@ img {
   padding: 0;
   margin: 0;
   width: 100%;
-  max-width: min-content;
   height: auto;
 }
 
 .BLOCK.INNER.INVISIBLE {
-  margin: 5px 0;
-  padding: 0;
   background: rgba(0, 0, 0, 0);
-  width: 100%;
   box-shadow: none;
   outline: none !important;
 }
