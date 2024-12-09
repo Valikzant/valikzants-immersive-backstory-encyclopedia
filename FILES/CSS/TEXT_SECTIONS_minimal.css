@@ -106,12 +106,13 @@
   padding: 10px;
   margin: 0px 0px 10px 0px;
   position: relative;
-
   z-index: 2;
-
   text-rendering:optimizeSpeed;
 }
 
+.TEXT_BLOCK img {
+  max-width: min-content;
+}
 .TEXT_BLOCK p {
   z-index: 3;
 }

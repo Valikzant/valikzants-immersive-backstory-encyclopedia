@@ -199,16 +199,41 @@ async function F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(c_PageId = null, c_SidebarB
     })
   }
   const c_StoryPages = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".PAGE");
+
+  // Получаем текущий путь из хэша URL
+  const c_CurrentPath = window.location.hash.substring(1);
+
   if (c_PageId == null) {
-    c_StoryPages.forEach(i_Page => {
-      if (i_Page.id == "info") {
-        c_SidebarButtons[0].classList.add("ACTIVE");
-        return;
-      }
-      i_Page.classList.add("CLOSED");
-    });
+    // Восстановление сохраненной страницы при первой загрузке
+    let v_SavedPageIndex = await F_LOCAL_STORAGE_GET(c_CurrentPath) || 0; // По умолчанию 0
+    v_SavedPageIndex = parseInt(v_SavedPageIndex, 10);
+    if (v_SavedPageIndex >= 0 && v_SavedPageIndex < c_StoryPages.length) {
+      c_StoryPages.forEach((i_Page, index) => {
+          if (index === v_SavedPageIndex) {
+              i_Page.classList.remove("CLOSED");
+          } else {
+              i_Page.classList.add("CLOSED");
+          }
+      });
+      c_SidebarButtons.forEach((i_Button, index) => {
+          if(index === v_SavedPageIndex) {
+              i_Button.classList.add("ACTIVE");
+          } else {
+              i_Button.classList.remove("ACTIVE")
+          }
+      })
+    } else {
+        c_StoryPages.forEach(i_Page => {
+            if (i_Page.id == "info") {
+                c_SidebarButtons[0].classList.add("ACTIVE");
+                return;
+            }
+            i_Page.classList.add("CLOSED");
+        });
+    }
+    return;
+
   } else if (c_PageId == '-1' || c_PageId == '+1') {
-    // Проверяем какая по счёту незакрытая страница
     let v_CurrentPageIndex = -1;
     for (let i = 0; i < c_StoryPages.length; i++) {
       if (!c_StoryPages[i].classList.contains("CLOSED")) {
@@ -217,29 +242,40 @@ async function F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(c_PageId = null, c_SidebarB
       }
     }
 
-    // Определяем индекс следующей или предыдущей страницы
     let v_NewPageIndex = c_PageId === '+1' ? v_CurrentPageIndex + 1 : v_CurrentPageIndex - 1;
-    // Проверяем, не вышли ли за границы массива
+
     if (v_NewPageIndex >= 0 && v_NewPageIndex < c_StoryPages.length) {
       c_StoryPages[v_CurrentPageIndex].classList.add("CLOSED");
       c_StoryPages[v_NewPageIndex].classList.remove("CLOSED");
       F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(c_StoryPages[v_NewPageIndex].id);
-      // Также смотрим сколько у нас кнопок сайдбара и по айди страницы делаем активным ту кнопку, которая по счету совпадает со страницой
+
       c_SidebarButtons.forEach(i_Button => {
         i_Button.classList.remove("ACTIVE");
       });
       c_SidebarButtons[v_NewPageIndex].classList.add("ACTIVE");
-    }
 
+      // Сохраняем текущую страницу в localStorage
+      F_LOCAL_STORAGE_SET(c_CurrentPath, v_NewPageIndex);
+    }
   } else {
-    c_StoryPages.forEach(i_Page => {
+    c_StoryPages.forEach((i_Page, index) => {
       if (i_Page.id == c_PageId) {
         i_Page.classList.remove("CLOSED");
-        F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(i_Page.id)
+        F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(i_Page.id);
+        // Сохраняем текущую страницу в localStorage
+        F_LOCAL_STORAGE_SET(c_CurrentPath, index);
       } else {
         i_Page.classList.add("CLOSED");
       }
     });
+
+    c_SidebarButtons.forEach((i_Button, index) => {
+        if(c_StoryPages[index].id == c_PageId) {
+            i_Button.classList.add("ACTIVE");
+        } else {
+            i_Button.classList.remove("ACTIVE");
+        }
+    })
   }
 }
 
@@ -403,7 +439,7 @@ async function F_SETTINGS_CHANGE_ANIMATIONS(c_Mode) {
     await F_LOCAL_STORAGE_SET("animations", "true");
     await F_INTERACT_WITH_HTML_ENABLE_BUTTON_BY_ID("ANIMATION_TOGGLE_CHOOSER_ON");
     await F_INTERACT_WITH_HTML_DISABLE_BUTTON_BY_ID("ANIMATION_TOGGLE_CHOOSER_OFF");
-    c_Body.style.setProperty("--transition-background", "50s linear");
+    c_Body.style.setProperty("--transition-background", "15s ease-in-out");
     c_Body.style.setProperty("--transition-fast", "0.5s cubic-bezier(0.165, 0.84, 0.44, 1)");
     c_Body.style.setProperty("--transition-slow", '2s cubic-bezier(.11,.86,.59,.97)');
     c_Body.style.setProperty("--transition-long", '10s cubic-bezier(.32,.17,.5,1.07)');
@@ -486,7 +522,7 @@ async function F_LOAD_WINDOW(c_WindowId) {
 }
 
 // Вспомогательная функция для преобразования относительных путей в абсолютные
-const correctRelativePaths = (c_ParentElement, c_BasePath) => {
+const c_CorrectRelativePaths = (c_ParentElement, c_BasePath) => {
   const c_Elements = c_ParentElement.querySelectorAll('img, a');
   c_Elements.forEach(i_Element => {
     if (i_Element.tagName === 'IMG' || i_Element.tagName === 'A') {
@@ -500,7 +536,8 @@ const correctRelativePaths = (c_ParentElement, c_BasePath) => {
   });
 };
 
-const c_NormalizedPath = (c_Path) => {
+// Убирание /..
+const c_NormalizePath = (c_Path) => {
   const c_Segments = c_Path.split('/');
   const c_Stack = [];
 
@@ -555,8 +592,12 @@ async function F_LOAD_CONTENT_FROM(c_Path) {
 
     // Преобразование относительных путей
     const c_BasePath = c_FilePath.substring(0, c_FilePath.lastIndexOf('/'));
-    correctRelativePaths(c_TempDiv, c_BasePath);
+    c_CorrectRelativePaths(c_TempDiv, c_BasePath);
     c_GoBackButton.setAttribute("onclick", `F_LOAD_CONTENT_FROM('${c_Path}/..')`);
+
+    // Обновляем хэш в URL
+    const c_NormalizedPath = c_NormalizePath(c_Path);
+    window.location.hash = c_NormalizedPath;
 
     // Вставка контента
     if (c_SidebarWindow) {c_SidebarWindow.remove();}
@@ -572,12 +613,9 @@ async function F_LOAD_CONTENT_FROM(c_Path) {
       }
     });
 
-    // Обновляем хэш в URL
-    const normalizedPath = c_NormalizedPath(c_Path);
-    window.location.hash = normalizedPath;
-
     F_TOGGLE_WINDOW('CONTENT')
     F_ON_LOAD_SETUP_HINTS();
+    // Открываем сохраненную страницу
     F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES();
   }
   F_HIDE_LOADING_SCREEN();

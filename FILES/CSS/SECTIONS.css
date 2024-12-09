@@ -85,57 +85,6 @@
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
-.                             BACKGROUND DEPTH                                .
-.............................................................................*/
-/* ! НАЧАЛО БЛОКА */
-#BODY_BACKGROUND_DEPTH_TEXT {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  translate: 0% -5%;
-  white-space: nowrap;
-  font-size: 1000%;
-  opacity: 0.1;
-  font-weight: bolder;
-  filter: blur(15px);
-  overflow: hidden;
-}
-#BODY_BACKGROUND_DEPTH_TEXT > p{
-  position: absolute;
-  left: 0;
-}
-#BODY_BACKGROUND_DEPTH_TEXT > p:nth-of-type(even) {
-  animation: SLIDING_LEFT_TO_RIGHT var(--transition-slide) infinite;
-}
-#BODY_BACKGROUND_DEPTH_TEXT > p:nth-of-type(odd) {
-  animation: SLIDING_RIGHT_TO_LEFT var(--transition-slide) infinite;
-}
-
-@keyframes SLIDING_LEFT_TO_RIGHT {
-  0% {
-    translate: 0%;
-  }
-  50% {    
-    translate: calc(-100% + 100vw);
-  }
-  100% {
-    translate: 0%;
-  }
-}
-
-@keyframes SLIDING_RIGHT_TO_LEFT {
-  0% {
-    translate: calc(-100% + 100vw);
-  }
-  50% {    
-    translate: 0%;
-  }
-  100% {
-    translate: calc(-100% + 100vw);
-  }
-}
-/* ! КОНЕЦ БЛОКА */
-/*.............................................................................
 .                                   WARNING                                   .
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */

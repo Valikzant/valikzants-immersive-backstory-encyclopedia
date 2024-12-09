@@ -9,10 +9,12 @@
   position: relative;
   outline: 1px solid rgba(var(--color-text));
   z-index: 2;
-
   text-rendering:optimizeSpeed;
 }
 
+.TEXT_BLOCK img {
+  max-width: min-content;
+}
 .TEXT_BLOCK p {
   z-index: 3;
 }
