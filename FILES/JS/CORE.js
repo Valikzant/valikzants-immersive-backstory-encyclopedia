@@ -439,7 +439,7 @@ async function F_SETTINGS_CHANGE_ANIMATIONS(c_Mode) {
     await F_LOCAL_STORAGE_SET("animations", "true");
     await F_INTERACT_WITH_HTML_ENABLE_BUTTON_BY_ID("ANIMATION_TOGGLE_CHOOSER_ON");
     await F_INTERACT_WITH_HTML_DISABLE_BUTTON_BY_ID("ANIMATION_TOGGLE_CHOOSER_OFF");
-    c_Body.style.setProperty("--transition-background", "15s ease-in-out");
+    c_Body.style.setProperty("--transition-background", "60s ease-in-out");
     c_Body.style.setProperty("--transition-fast", "0.5s cubic-bezier(0.165, 0.84, 0.44, 1)");
     c_Body.style.setProperty("--transition-slow", '2s cubic-bezier(.11,.86,.59,.97)');
     c_Body.style.setProperty("--transition-long", '10s cubic-bezier(.32,.17,.5,1.07)');
