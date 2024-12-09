@@ -201,7 +201,7 @@ async function F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(c_PageId = null, c_SidebarB
   const c_StoryPages = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".PAGE");
   if (c_PageId == null) {
     c_StoryPages.forEach(i_Page => {
-      if (i_Page.id == "start") {
+      if (i_Page.id == "info") {
         c_SidebarButtons[0].classList.add("ACTIVE");
         return;
       }
@@ -403,6 +403,7 @@ async function F_SETTINGS_CHANGE_ANIMATIONS(c_Mode) {
     await F_LOCAL_STORAGE_SET("animations", "true");
     await F_INTERACT_WITH_HTML_ENABLE_BUTTON_BY_ID("ANIMATION_TOGGLE_CHOOSER_ON");
     await F_INTERACT_WITH_HTML_DISABLE_BUTTON_BY_ID("ANIMATION_TOGGLE_CHOOSER_OFF");
+    c_Body.style.setProperty("--transition-background", "50s linear");
     c_Body.style.setProperty("--transition-fast", "0.5s cubic-bezier(0.165, 0.84, 0.44, 1)");
     c_Body.style.setProperty("--transition-slow", '2s cubic-bezier(.11,.86,.59,.97)');
     c_Body.style.setProperty("--transition-long", '10s cubic-bezier(.32,.17,.5,1.07)');
@@ -412,10 +413,12 @@ async function F_SETTINGS_CHANGE_ANIMATIONS(c_Mode) {
     await F_LOCAL_STORAGE_SET("animations", "false");
     await F_INTERACT_WITH_HTML_ENABLE_BUTTON_BY_ID("ANIMATION_TOGGLE_CHOOSER_OFF");
     await F_INTERACT_WITH_HTML_DISABLE_BUTTON_BY_ID("ANIMATION_TOGGLE_CHOOSER_ON");
+    c_Body.style.setProperty("--transition-background", "none");
     c_Body.style.setProperty("--transition-fast", 'none');
     c_Body.style.setProperty("--transition-slow", 'none');
     c_Body.style.setProperty("--transition-long", 'none');
     c_Body.style.setProperty("--transition-eye", 'none');
+    c_Body.style.setProperty("--transition-slide", 'none');
   }
 }
 
@@ -497,6 +500,21 @@ const correctRelativePaths = (c_ParentElement, c_BasePath) => {
   });
 };
 
+const c_NormalizedPath = (c_Path) => {
+  const c_Segments = c_Path.split('/');
+  const c_Stack = [];
+
+  for (const c_Segment of c_Segments) {
+    if (c_Segment === '..') {
+      c_Stack.pop();
+    } else if (c_Segment !== '' && c_Segment !== '.') {
+      c_Stack.push(c_Segment);
+    }
+  }
+
+  return `#${c_Stack.join('/')}`;
+}
+
 // Основная функция загрузки контента
 async function F_LOAD_CONTENT_FROM(c_Path) {
   const c_ContentWindow = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID('CONTENT');
@@ -555,7 +573,8 @@ async function F_LOAD_CONTENT_FROM(c_Path) {
     });
 
     // Обновляем хэш в URL
-    window.location.hash = c_Path;
+    const normalizedPath = c_NormalizedPath(c_Path);
+    window.location.hash = normalizedPath;
 
     F_TOGGLE_WINDOW('CONTENT')
     F_ON_LOAD_SETUP_HINTS();
@@ -585,7 +604,7 @@ async function F_ON_EVENT_SHOW_TOOLTIP(event) {
   const { clientX: c_MouseX, clientY: c_MouseY } = event;
   const { innerWidth: c_ViewPortWidth, innerHeight: c_ViewPortHeight } = window;
 
-  const c_ToolTipX = (c_MouseX + 200 > c_ViewPortWidth) ? c_MouseX - 100 : c_MouseX;
+  const c_ToolTipX = (c_MouseX + 300 > c_ViewPortWidth) ? c_MouseX - 100 : c_MouseX;
   const c_ToolTipY = (c_MouseY + 100 > c_ViewPortHeight) ? c_MouseY - 100 : c_MouseY;
 
   c_ToolTip.style.top = c_ToolTipY + "px";

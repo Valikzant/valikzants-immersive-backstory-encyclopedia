@@ -40,21 +40,18 @@
 
 <div id="SIDEBAR" class="BLOCK">
   <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
-  <div
-    class="BUTTON SIDEBAR"
-    onclick="F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(
-  'bigwork')"
-    data-tooltip="Объёмные Работы"
-  >
-    <div class="ICON">💎</div>
+  <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(
+    'info', this)" data-tooltip=
+    "Информация"> <div class="ICON">
+      ❔
+    </div>
   </div>
-  <div
-    class="BUTTON SIDEBAR"
-    onclick="F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(
-  'new')"
-    data-tooltip="Последние Добавленные"
-  >
-    <div class="ICON">⌛</div>
+
+  <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(
+    'characters', this)" data-tooltip=
+    "Обозреватель Персонажей"> <div class="ICON">
+      🔍
+    </div>
   </div>
 </div>
 
@@ -68,271 +65,283 @@
     <div class="ICON">❔</div>
   </div>
 
-  <div class="BLOCK INNER INVISIBLE PAGE_INFORMATION_SECTION">
-    <h2 class="TITLE">Информация о Аавикко</h2>
+  <div id="PAGING_SECTION" class="BLOCK INNER INVISIBLE">
 
-    <div class="PAGE_CARD_SECTION BLOCK INNER SPECIAL">
-      <h3 class="PAGE_CARD_SECTION_NAME">
-        Аавикко Аваруус
-      </h3>
-
-      <div class="PAGE_CARD_SECTION_INFORMATION">
-        <div class="PAGE_CARD_SECTION_IMAGE">
-          <img alt="Айвен Уно" src="./icon.webp" loading="lazy">
-          <p>
-            доп инфо???
-          </p>
-        </div>
-        <p>
-          Вау. Круитй серверик. Я корочер рад прикольно все дела. 
-          А ещё тут надо побольше текста бы
-        </p>
-      </div>
-    </div>
-
-    <div class="PAGE_CARD_SECTION BLOCK INNER SPECIAL">
-      <h3 class="PAGE_CARD_SECTION_NAME">
-        Особенности
-      </h3>
-
-      <div class="PAGE_CARD_SECTION_INFORMATION">
-        <p>
-          НЕТ ЕРП
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
-  <div id="CONTENT_HOLDER_SECTION" class="BLOCK INNER INVISIBLE">
-    <h2 class="TITLE STATIONARY INVISIBLE">Обозреватель Персонажей</h2>
-
-    <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
-    <div class="BLOCK INVISIBLE INNER CONTENT_CARDS_SLIDER HUGE">
+    <div onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES('-1')" id="BUTTON_PREVIOUS_PAGE" class="BUTTON PAGING">◀<div class="FILLER HALF"></div>◀<div class="FILLER HALF"></div>◀<div class="FILLER HALF"></div>◀</div>
+    <div onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES('+1')" id="BUTTON_NEXT_PAGE" class="BUTTON PAGING NEXT">▶<div class="FILLER HALF"></div>▶<div class="FILLER HALF"></div>▶<div class="FILLER HALF"></div>▶</div>
+    
+    <div id="info" class="BLOCK INNER INVISIBLE PAGE">
       
-      <h2 id="bigwork" class="TITLE INVISIBLE">Объёмные Работы</h2>
+      <h2 class="TITLE">Информация о Аавикко</h2>
 
-      <div class="CONTENT_CARDS_SLIDER BUTTON_LEFT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'LEFT')">◀</div>
-
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/AIVEN UNO')">
-        <img alt="Айвен Уно"
-          src="./AIVEN UNO/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Айвен Уно</h3>
+      <div class="BLOCK INNER INVISIBLE PAGE_INFORMATION_SECTION">
+        <div class="PAGE_CARD_SECTION BLOCK INNER SPECIAL">
+          <h3 class="PAGE_CARD_SECTION_NAME">
+            Аавикко Аваруус
+          </h3>
+    
+          <div class="PAGE_CARD_SECTION_INFORMATION">
+            <div class="PAGE_CARD_SECTION_IMAGE">
+              <img alt="Айвен Уно" src="./icon.webp" loading="lazy">
+              <p>
+                доп инфо???
+              </p>
+            </div>
+            <p>
+              Вау. Круитй серверик. Я корочер рад прикольно все дела. 
+              А ещё тут надо побольше текста бы
+            </p>
+          </div>
+        </div>
+    
+        <div class="PAGE_CARD_SECTION BLOCK INNER SPECIAL">
+          <h3 class="PAGE_CARD_SECTION_NAME">
+            Особенности
+          </h3>
+    
+          <div class="PAGE_CARD_SECTION_INFORMATION">
+            <p>
+              НЕТ ЕРП
+            </p>
+          </div>
         </div>
       </div>
-
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
-        <img alt="Описание изображения"
-          src="./PLACEHOLDER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонный Персонаж</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
-        <img alt="Описание изображения"
-          src="./PLACEHOLDER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонный Персонаж</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
-        <img alt="Описание изображения"
-          src="./PLACEHOLDER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонный Персонаж</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
-        <img alt="Описание изображения"
-          src="./PLACEHOLDER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонный Персонаж</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
-        <img alt="Описание изображения"
-          src="./PLACEHOLDER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонный Персонаж</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
-        <img alt="Описание изображения"
-          src="./PLACEHOLDER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонный Персонаж</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
-        <img alt="Описание изображения"
-          src="./PLACEHOLDER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонный Персонаж</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
-        <img alt="Описание изображения"
-          src="./PLACEHOLDER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонный Персонаж</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
-        <img alt="Описание изображения"
-          src="./PLACEHOLDER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонный Персонаж</h3>
-        </div>
-      </div>
-
-      <!-- 
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/ПАПКА')">
-        <img alt="Описание изображения"
-          src="./ПАПКА/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонная Вселенная</h3>
-        </div>
-      </div>
-      -->
-
-      <div class="CONTENT_CARDS_SLIDER BUTTON_RIGHT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'RIGHT')">▶</div>
+    
     </div>
 
     <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
-    <div class="BLOCK INVISIBLE INNER CONTENT_CARDS_SLIDER COMPACT">
-      
-      <h2 id="new" class="TITLE INVISIBLE">Последние Добавленные</h2>
+    <div id="characters" class="BLOCK INNER INVISIBLE PAGE">
 
-      <div class="CONTENT_CARDS_SLIDER BUTTON_LEFT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'LEFT')">◀</div>
+      <h2 class="TITLE">Обозреватель Персонажей</h2>
 
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/KESS SHEYLA')">
-        <img alt="Кэсс Шейла"
-          src="./KESS SHEYLA/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Кэсс Шейла</h3>
+      <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
+      <div class="BLOCK INVISIBLE INNER CONTENT_CARDS_SLIDER HUGE">
+        
+        <h2 class="TITLE INVISIBLE">Объёмные Работы</h2>
+
+        <div class="CONTENT_CARDS_SLIDER BUTTON_LEFT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'LEFT')"> <div class="ICON">◀</div></div>
+
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/AIVEN UNO')">
+          <img alt="Айвен Уно"
+            src="./AIVEN UNO/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Айвен Уно</h3>
+          </div>
         </div>
+
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
+          <img alt="Описание изображения"
+            src="./PLACEHOLDER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонный Персонаж</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
+          <img alt="Описание изображения"
+            src="./PLACEHOLDER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонный Персонаж</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
+          <img alt="Описание изображения"
+            src="./PLACEHOLDER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонный Персонаж</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
+          <img alt="Описание изображения"
+            src="./PLACEHOLDER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонный Персонаж</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
+          <img alt="Описание изображения"
+            src="./PLACEHOLDER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонный Персонаж</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
+          <img alt="Описание изображения"
+            src="./PLACEHOLDER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонный Персонаж</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
+          <img alt="Описание изображения"
+            src="./PLACEHOLDER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонный Персонаж</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
+          <img alt="Описание изображения"
+            src="./PLACEHOLDER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонный Персонаж</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
+          <img alt="Описание изображения"
+            src="./PLACEHOLDER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонный Персонаж</h3>
+          </div>
+        </div>
+
+        <!-- 
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/ПАПКА')">
+          <img alt="Описание изображения"
+            src="./ПАПКА/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонная Вселенная</h3>
+          </div>
+        </div>
+        -->
+
+        <div class="CONTENT_CARDS_SLIDER BUTTON_RIGHT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'RIGHT')"> <div class="ICON">▶</div></div>
       </div>
 
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
-        <img alt="Описание изображения"
-          src="./PLACEHOLDER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонный Персонаж</h3>
+        <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
+      <div class="BLOCK INVISIBLE INNER CONTENT_CARDS_SLIDER COMPACT">
+        
+        <h2 id="new" class="TITLE INVISIBLE">Последние Добавленные</h2>
+
+        <div class="CONTENT_CARDS_SLIDER BUTTON_LEFT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'LEFT')"> <div class="ICON">◀</div></div>
+
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/KESS SHEYLA')">
+          <img alt="Кэсс Шейла"
+            src="./KESS SHEYLA/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Кэсс Шейла</h3>
+          </div>
         </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
-        <img alt="Описание изображения"
-          src="./PLACEHOLDER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонный Персонаж</h3>
+
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
+          <img alt="Описание изображения"
+            src="./PLACEHOLDER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонный Персонаж</h3>
+          </div>
         </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
-        <img alt="Описание изображения"
-          src="./PLACEHOLDER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонный Персонаж</h3>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
+          <img alt="Описание изображения"
+            src="./PLACEHOLDER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонный Персонаж</h3>
+          </div>
         </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
-        <img alt="Описание изображения"
-          src="./PLACEHOLDER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонный Персонаж</h3>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
+          <img alt="Описание изображения"
+            src="./PLACEHOLDER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонный Персонаж</h3>
+          </div>
         </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
-        <img alt="Описание изображения"
-          src="./PLACEHOLDER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонный Персонаж</h3>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
+          <img alt="Описание изображения"
+            src="./PLACEHOLDER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонный Персонаж</h3>
+          </div>
         </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
-        <img alt="Описание изображения"
-          src="./PLACEHOLDER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонный Персонаж</h3>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
+          <img alt="Описание изображения"
+            src="./PLACEHOLDER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонный Персонаж</h3>
+          </div>
         </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
-        <img alt="Описание изображения"
-          src="./PLACEHOLDER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонный Персонаж</h3>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
+          <img alt="Описание изображения"
+            src="./PLACEHOLDER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонный Персонаж</h3>
+          </div>
         </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
-        <img alt="Описание изображения"
-          src="./PLACEHOLDER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонный Персонаж</h3>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
+          <img alt="Описание изображения"
+            src="./PLACEHOLDER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонный Персонаж</h3>
+          </div>
         </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
-        <img alt="Описание изображения"
-          src="./PLACEHOLDER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонный Персонаж</h3>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
+          <img alt="Описание изображения"
+            src="./PLACEHOLDER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонный Персонаж</h3>
+          </div>
         </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO/PLACEHOLDER')">
+          <img alt="Описание изображения"
+            src="./PLACEHOLDER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонный Персонаж</h3>
+          </div>
+        </div>
+
+        <!-- 
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/ПАПКА')">
+          <img alt="Описание изображения"
+            src="./ПАПКА/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонная Вселенная</h3>
+          </div>
+        </div>
+        -->
+
+        <div class="CONTENT_CARDS_SLIDER BUTTON_RIGHT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'RIGHT')"> <div class="ICON">▶</div></div>
       </div>
 
-      <!-- 
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/ПАПКА')">
-        <img alt="Описание изображения"
-          src="./ПАПКА/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонная Вселенная</h3>
-        </div>
-      </div>
-      -->
-
-      <div class="CONTENT_CARDS_SLIDER BUTTON_RIGHT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'RIGHT')">▶</div>
     </div>
 
   </div>

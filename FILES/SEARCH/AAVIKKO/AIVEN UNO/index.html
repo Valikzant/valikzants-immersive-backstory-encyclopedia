@@ -13,20 +13,20 @@
 
   const C_THEMES = [
     // Темная тема
-    {"solid"      : [13, 23, 53],     // Цвет фона
+    {"solid"      : [43, 15, 65],     // Цвет фона
     "text"        : [200, 200, 200]}, // Цвет текста
 
     // Более тёмная тема
-    {"solid"      : [10, 20, 40],     // Цвет фона
+    {"solid"      : [33, 15, 55],     // Цвет фона
     "text"        : [200, 200, 200]}, // Цвет текста
 
     // Светлая тема
-    {"solid"      : [224, 204, 254],        // Цвет фона
-    "text"        : [30, 30, 30]},            // Цвет текста
+    {"solid"      : [224, 204, 254],  // Цвет фона
+    "text"        : [30, 30, 30]},    // Цвет текста
 
     // Более светлая тема
-    {"solid"      : [244, 224, 254],        // Цвет фона
-    "text"        : [0, 0, 0]}                // Цвет текста
+    {"solid"      : [244, 224, 254],  // Цвет фона
+    "text"        : [0, 0, 0]}        // Цвет текста
   ];
 
   // НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ
@@ -40,59 +40,75 @@
 <div id="SIDEBAR" class="BLOCK">
   <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
   <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(
+    'info', this)" data-tooltip=
+    "Информация"> <div class="ICON">
+    ❔
+    </div>
+  </div>
+
+  <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(
     'start', this)" data-tooltip=
     "Предыстория"> <div class="ICON">
       1
     </div>
   </div>
+
   <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(
     'iwasfound', this)" data-tooltip=
     "Меня Нашли"> <div class="ICON">
       2
     </div>
   </div>
+
   <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(
     'newworld', this)" data-tooltip=
     "Новый Мир"> <div class="ICON">
       3
     </div>
   </div>
+
   <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(
     'twist', this)" data-tooltip=
     "Неожиданный Поворот"> <div class="ICON">
       4
     </div>
   </div>
+
   <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(
     'dormstation', this)" data-tooltip=
     "Torus-304"> <div class="ICON">
       5
     </div>
   </div>
+
   <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(
     'theroom', this)" data-tooltip=
     "Каюта Айвена"> <div class="ICON">
       6
     </div>
   </div>
+
   <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(
     'firstnotification', this)" data-tooltip=
     "Первое Уведомление"> <div class="ICON">
       7
     </div>
   </div>
+
   <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(
     'beforework', this)" data-tooltip=
     "Подготовка К Работе"> <div class="ICON">
       8
     </div>
   </div>
+
   <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(
     'rutina', this)" data-tooltip=
     "Погружение В Рутину"> <div class="ICON">
       9
     </div>
   </div>
+  
   <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(
     'spenttime', this)" data-tooltip=
     "Прожитое время"> <div class="ICON">
@@ -110,71 +126,71 @@
       <div class="ICON"> ❔ </div>
   </div>
 
-  <div class="BLOCK INNER INVISIBLE PAGE_INFORMATION_SECTION">
-    <h2 class="TITLE">Информация о персонаже</h2>
-
-    <div class="PAGE_CARD_SECTION BLOCK INNER SPECIAL">
-      <h3 class="PAGE_CARD_SECTION_NAME">
-        Айвен Уно
-      </h3>
-
-      <div class="PAGE_CARD_SECTION_INFORMATION">
-        <div class="PAGE_CARD_SECTION_IMAGE BLOCK INNER">
-          <img alt="Айвен Уно" src="./icon.webp" loading="lazy">
-          <p>
-            Раса      : Вульпканин
-            <br><br>
-            Рост      : 161 см
-            <br><br>
-            Вес       : 57 кг
-            <br><br>
-            Статус    : Холост
-            <br><br>
-            Осн. Роли : Уборщик
-          </p>
-        </div>
-        <p>
-          Решив осмотреть этого вульпканина, вы сразу же замечаете его глаза:
-          большие, фиолетовые, с розовыми искорками, словно миниатюрные галактики,
-          полные тайн и неизведанных глубин. Эти глаза будто заглядывают вам обратно в душу.
-          <br><br>
-          Мягкая серо-лавандовая шерсть обрамляет этот завораживающий взгляд и нежно переливается в свете,
-          создавая ощущение пушистого, чистого облака. А низкое, стройное телосложение намекает на юношескую
-          грацию и подвижность.
-          <br><br>
-          Приметы: большие фиолетовые глаза, низкий рост, уши, направленные в стороны, и чёрный кончик хвоста.
-        </p>
-      </div>
-    </div>
-
-    <div class="PAGE_CARD_SECTION BLOCK INNER SPECIAL">
-      <h3 class="PAGE_CARD_SECTION_NAME">
-        Навыки
-      </h3>
-
-      <div class="PAGE_CARD_SECTION_INFORMATION">
-        <p>
-          + Понимание устройства огнестрельного оружия
-          <br>
-          + Стрельба из лёгкого оружия (Пистолеты, Винтовки)
-          <br>
-          + Профессиональная уборка
-          <br>
-          - Перенос тяжелых предметов
-          <br>
-          - Открытие шлюзов руками
-          <br>
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div id="STORY_SECTION" class="BLOCK INNER INVISIBLE">
-
-    <h2 class="TITLE STATIONARY INVISIBLE">История персонажа</h2>
+  <div id="PAGING_SECTION" class="BLOCK INNER INVISIBLE">
 
     <div onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES('-1')" id="BUTTON_PREVIOUS_PAGE" class="BUTTON PAGING">◀<div class="FILLER HALF"></div>◀<div class="FILLER HALF"></div>◀<div class="FILLER HALF"></div>◀</div>
     <div onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES('+1')" id="BUTTON_NEXT_PAGE" class="BUTTON PAGING NEXT">▶<div class="FILLER HALF"></div>▶<div class="FILLER HALF"></div>▶<div class="FILLER HALF"></div>▶</div>
+
+    <div id="info" class="BLOCK INNER INVISIBLE PAGE">
+      <h2 class="TITLE">Информация о Персонаже</h2>
+
+      <div class="BLOCK INNER INVISIBLE PAGE_INFORMATION_SECTION">
+        <div class="PAGE_CARD_SECTION BLOCK INNER SPECIAL">
+          <h3 class="PAGE_CARD_SECTION_NAME">
+            Айвен Уно
+          </h3>
+    
+          <div class="PAGE_CARD_SECTION_INFORMATION">
+            <div class="PAGE_CARD_SECTION_IMAGE BLOCK INNER">
+              <img alt="Айвен Уно" src="./icon.webp" loading="lazy">
+              <p>
+                Раса      : Вульпканин
+                <br><br>
+                Рост      : 161 см
+                <br><br>
+                Вес       : 57 кг
+                <br><br>
+                Статус    : Холост
+                <br><br>
+                Осн. Роли : Уборщик
+              </p>
+            </div>
+            <p>
+              Решив осмотреть этого вульпканина, вы сразу же замечаете его глаза:
+              большие, фиолетовые, с розовыми искорками, словно миниатюрные галактики,
+              полные тайн и неизведанных глубин. Эти глаза будто заглядывают вам обратно в душу.
+              <br><br>
+              Мягкая серо-лавандовая шерсть обрамляет этот завораживающий взгляд и нежно переливается в свете,
+              создавая ощущение пушистого, чистого облака. А низкое, стройное телосложение намекает на юношескую
+              грацию и подвижность.
+              <br><br>
+              Приметы: большие фиолетовые глаза, низкий рост, уши, направленные в стороны, и чёрный кончик хвоста.
+            </p>
+          </div>
+        </div>
+    
+        <div class="PAGE_CARD_SECTION BLOCK INNER SPECIAL">
+          <h3 class="PAGE_CARD_SECTION_NAME">
+            Навыки
+          </h3>
+    
+          <div class="PAGE_CARD_SECTION_INFORMATION">
+            <p>
+              + Понимание устройства огнестрельного оружия
+              <br>
+              + Стрельба из лёгкого оружия (Пистолеты, Винтовки)
+              <br>
+              + Профессиональная уборка
+              <br>
+              - Перенос тяжелых предметов
+              <br>
+              - Открытие шлюзов руками
+              <br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div id="start" class="BLOCK INNER INVISIBLE PAGE">
       <h2 class="TITLE">Предыстория</h2>

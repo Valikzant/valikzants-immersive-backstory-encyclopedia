@@ -1,4 +1,14 @@
 /*.............................................................................
+.                                   ШРИФТЫ                                    .
+.............................................................................*/
+/* ! НАЧАЛО БЛОКА */
+@font-face {
+  font-family: "geologica";
+  src: url("../FONTS/geologica/Geologica-Light.ttf");
+  font-display: block;
+}
+/* ! КОНЕЦ БЛОКА */
+/*.............................................................................
 .                                   LOADING                                   .
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
@@ -46,43 +56,18 @@
 
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
-.                               CONTENT HOLDER                                .
+.                                CONTENT CARDS                                .
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
 .CONTENT_CARD {
   border-radius: 15px;
 }
 
-.CONTENT_CARDS_SLIDER.HUGE {
-  filter: drop-shadow(0px 0px 5em rgba(var(--color-accent), 0.15));
-}
-
-.CONTENT_CARDS_SLIDER.TALL {
-  filter: drop-shadow(0px 0px 5em rgba(var(--color-accent), 0.15));
-}
-
-.CONTENT_CARDS_SLIDER.WIDE {
-  filter: drop-shadow(0px 0px 5em rgba(var(--color-accent), 0.15));
-}
-
-.CONTENT_CARDS_SLIDER.COMPACT {
-  filter: drop-shadow(0px 0px 5em rgba(var(--color-accent), 0.15));
-}
-
 .CONTENT_CARD:hover {
-  filter: drop-shadow(0px 0px 5em rgba(var(--color-accent), 0.5));
+  filter: drop-shadow(0px 0px 0.75em rgba(var(--color-accent), 0.25));
 }
 .CONTENT_CARD_TITLE:hover {
   background: rgba(var(--color-solid), 0.75);
-}
-
-.CONTENT_CARDS_SLIDER.BUTTON_RIGHT {
-  background: 
-  linear-gradient(to left, rgba(var(--color-solid)), rgba(0, 0, 0, 0));
-}
-.CONTENT_CARDS_SLIDER.BUTTON_LEFT {
-  background: 
-  linear-gradient(to right, rgba(var(--color-solid)), rgba(0, 0, 0, 0));
 }
 
 .CONTENT_CARD_TITLE {
@@ -91,14 +76,10 @@
 
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
-.                                   ШРИФТЫ                                    .
+.                             BACKGROUND DEPTH                                .
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
-@font-face {
-  font-family: "geologica";
-  src: url("../FONTS/geologica/Geologica-Light.ttf");
-  font-display: block;
-}
+/* * Пустой для этого вида стиля
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
 .                                    BODY                                     .
@@ -108,10 +89,26 @@ body {
   font-family: "geologica";
   color: rgba(var(--color-text));
   background: 
-  radial-gradient(circle at 50%, rgba(var(--color-accent)) -1000%, rgba(0, 0, 0, 0) 80%),
-  radial-gradient(circle at top left, rgba(var(--color-accent)) -250%, rgba(0, 0, 0, 0) 60%),
-  radial-gradient(circle at bottom right, rgba(var(--color-accent)) -350%, rgba(var(--color-solid)) 70%);
+  radial-gradient(circle at 50%, rgba(var(--color-accent)) -550%, rgba(0, 0, 0, 0) 30%),
+  radial-gradient(circle at top left, rgba(var(--color-accent)) -150%, rgba(0, 0, 0, 0) 30%),
+  radial-gradient(circle at bottom right, rgba(var(--color-accent)) -150%, rgba(var(--color-solid)) 30%);
+  background-size: 500%;
+  animation: BACKGROUND_MOVEMENT var(--transition-background) infinite;
 }
+@keyframes BACKGROUND_MOVEMENT {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
 .                                    TEXT                                     .
@@ -146,6 +143,7 @@ a {
   outline: 1px solid rgba(var(--color-accent),0.1);
   background:
   radial-gradient(circle at bottom left, rgba(var(--color-accent)) -1250%, rgba(0, 0, 0, 0) 150%);
+  border-radius: 15px;
 }
 
 .BLOCK.SPECIAL {
@@ -153,15 +151,17 @@ a {
   background: 
   radial-gradient(
     ellipse at bottom left,
-    rgba(var(--color-accent), 0.35) 0%,
-    rgba(var(--color-accent), 0.25) 25%,
-    rgba(var(--color-accent), 0.15) 50%,
-    rgba(var(--color-accent), 0.2) 75%,
-    rgba(var(--color-accent), 0.2) 100%
-  ),
-  linear-gradient(to right, rgba(var(--color-solid)), rgba(var(--color-solid)));
+    rgba(var(--color-accent), 0.2) 0%,
+    rgba(var(--color-accent), 0.15) 25%,
+    rgba(var(--color-accent), 0.05) 50%,
+    rgba(var(--color-accent), 0.1) 75%,
+    rgba(var(--color-accent), 0.15) 100%
+  );
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
   outline: 1px solid rgba(var(--color-accent), 0.5);
   filter: drop-shadow(0 0 15px rgba(var(--color-accent), 0.25));
+  border-radius: 15px;
 }
 
 .BLOCK.HIDDEN {

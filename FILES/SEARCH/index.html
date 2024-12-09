@@ -40,31 +40,22 @@
 
 </script>
 
+
+<!--
 <div id="SIDEBAR" class="BLOCK">
 
-  <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
 
-  <div
-    class="BUTTON SIDEBAR"
-    onclick="F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(
-  'categoryname')"
-    data-tooltip="Сервера SS14"
-  >
-    <div class="ICON">🧑🏼‍🚀</div>
+  <div class="BUTTON SIDEBAR" onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES(
+    'characters', this)" data-tooltip=
+    "Обозреватель Вселенных"> <div class="ICON">
+      🔍
+    </div>
   </div>
 
-  <!--
-  <div
-    class="BUTTON SIDEBAR"
-    onclick="F_INTERACT_WITH_HTML_SCROLL_TO_ELEMENT_BY_ID(
-  'АЙДИ ТОЙ КАТЕГОРИИ ДЛЯ ПРОКРУТКИ')"
-    data-tooltip="НАЗВАНИЕ КАТЕГОРИИ"
-  >
-    <div class="ICON"> ЭМОДЗИ/БУКВА ДЛЯ ИКОНКИ </div>
-  </div>
-  -->
 
 </div>
+-->
+
 
 <div id="CONTENT" class="BLOCK">
   <!-- НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ -->
@@ -76,170 +67,174 @@
     <div class="ICON">❔</div>
   </div>
 
-  <!-- НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ -->
+  <div id="PAGING_SECTION" class="BLOCK INNER INVISIBLE">
 
-  <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
-  <div id="CONTENT_HOLDER_SECTION" class="BLOCK INNER INVISIBLE">
+    <div onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES('-1')" id="BUTTON_PREVIOUS_PAGE" class="BUTTON PAGING">◀<div class="FILLER HALF"></div>◀<div class="FILLER HALF"></div>◀<div class="FILLER HALF"></div>◀</div>
+    <div onclick="F_INTERACT_WITH_HTML_OPEN_CLOSE_PAGES('+1')" id="BUTTON_NEXT_PAGE" class="BUTTON PAGING NEXT">▶<div class="FILLER HALF"></div>▶<div class="FILLER HALF"></div>▶<div class="FILLER HALF"></div>▶</div>
+    
     <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
-    <h2 class="TITLE STATIONARY INVISIBLE">Обозреватель категорий</h2>
-    <!--
-    <h2 id="АЙДИ КАТЕГОРИИ ДЛЯ ПРОКРУТКИ" class="TITLE STATIONARY INVISIBLE">НАЗВАНИЕ КАТЕГОРИИ</h2>
-    -->
-
-    <div class="BLOCK INVISIBLE INNER CONTENT_CARDS_SLIDER HUGE">
+    <div id="CONTENT_HOLDER_SECTION" class="BLOCK INNER INVISIBLE">
       <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
-      <h2 id="ss14" class="TITLE INVISIBLE">Сервера SS14</h3>
-
-      <div class="CONTENT_CARDS_SLIDER BUTTON_LEFT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'LEFT')">◀</div>
-
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO')">
-        <img alt="Авико Аварус"
-          src="./AAVIKKO/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Аавикко Аваруус</h3>
-        </div>
-      </div>
-
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
-        <img alt="Описание изображения"
-          src="./OTHER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонная Вселенная</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
-        <img alt="Описание изображения"
-          src="./OTHER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонная Вселенная Для Шаблонных Вселенных Вау!</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
-        <img alt="Описание изображения"
-          src="./OTHER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонная Вселенная</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
-        <img alt="Описание изображения"
-          src="./OTHER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонная Вселенная</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
-        <img alt="Описание изображения"
-          src="./OTHER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонная Вселенная</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
-        <img alt="Описание изображения"
-          src="./OTHER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонная Вселенная</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
-        <img alt="Описание изображения"
-          src="./OTHER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонная Вселенная</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
-        <img alt="Описание изображения"
-          src="./OTHER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонная Вселенная</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
-        <img alt="Описание изображения"
-          src="./OTHER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонная Вселенная</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
-        <img alt="Описание изображения"
-          src="./OTHER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонная Вселенная</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
-        <img alt="Описание изображения"
-          src="./OTHER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонная Вселенная</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
-        <img alt="Описание изображения"
-          src="./OTHER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонная Вселенная</h3>
-        </div>
-      </div>
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
-        <img alt="Описание изображения"
-          src="./OTHER/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонная Вселенная</h3>
-        </div>
-      </div>
-
-      <!-- 
-      <div class="BLOCK INNER CONTENT_CARD"
-      onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/ПАПКА')">
-        <img alt="Описание изображения"
-          src="./ПАПКА/icon.webp"
-          loading="lazy"/>
-        <div class="CONTENT_CARD_TITLE">
-          <h3>Шаблонная Вселенная</h3>
-        </div>
-      </div>
+      <h2 class="TITLE">Обозреватель категорий</h2>
+      <!--
+      <h2 id="АЙДИ КАТЕГОРИИ ДЛЯ ПРОКРУТКИ" class="TITLE STATIONARY INVISIBLE">НАЗВАНИЕ КАТЕГОРИИ</h2>
       -->
 
-      <div class="CONTENT_CARDS_SLIDER BUTTON_RIGHT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'RIGHT')">▶</div>
+      <div class="BLOCK INVISIBLE INNER CONTENT_CARDS_SLIDER HUGE">
+        <!-- ДЛЯ РЕДАКТИРОВАНИЯ -->
+        <h2 id="ss14" class="TITLE INVISIBLE">Сервера SS14</h3>
+
+        <div class="CONTENT_CARDS_SLIDER BUTTON_LEFT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'LEFT')"> <div class="ICON">◀</div></div>
+
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO')">
+          <img alt="Авико Аварус"
+            src="./AAVIKKO/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Аавикко Аваруус</h3>
+          </div>
+        </div>
+
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
+          <img alt="Описание изображения"
+            src="./OTHER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонная Вселенная</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
+          <img alt="Описание изображения"
+            src="./OTHER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонная Вселенная Для Шаблонных Вселенных Вау!</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
+          <img alt="Описание изображения"
+            src="./OTHER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонная Вселенная</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
+          <img alt="Описание изображения"
+            src="./OTHER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонная Вселенная</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
+          <img alt="Описание изображения"
+            src="./OTHER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонная Вселенная</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
+          <img alt="Описание изображения"
+            src="./OTHER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонная Вселенная</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
+          <img alt="Описание изображения"
+            src="./OTHER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонная Вселенная</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
+          <img alt="Описание изображения"
+            src="./OTHER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонная Вселенная</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
+          <img alt="Описание изображения"
+            src="./OTHER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонная Вселенная</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
+          <img alt="Описание изображения"
+            src="./OTHER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонная Вселенная</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
+          <img alt="Описание изображения"
+            src="./OTHER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонная Вселенная</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
+          <img alt="Описание изображения"
+            src="./OTHER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонная Вселенная</h3>
+          </div>
+        </div>
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/OTHER')">
+          <img alt="Описание изображения"
+            src="./OTHER/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонная Вселенная</h3>
+          </div>
+        </div>
+
+        <!-- 
+        <div class="BLOCK INNER CONTENT_CARD"
+        onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/ПАПКА')">
+          <img alt="Описание изображения"
+            src="./ПАПКА/icon.webp"
+            loading="lazy"/>
+          <div class="CONTENT_CARD_TITLE">
+            <h3>Шаблонная Вселенная</h3>
+          </div>
+        </div>
+        -->
+
+        <div class="CONTENT_CARDS_SLIDER BUTTON_RIGHT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'RIGHT')"> <div class="ICON">▶</div></div>
+      </div>
+
     </div>
 
-    
     <!-- <div class="BLOCK INVISIBLE INNER CONTENT_CARDS_SLIDER COMPACT">
       <h2 id="ss14" class="TITLE INVISIBLE">Сервера SS14</h3>
 
-      <div class="CONTENT_CARDS_SLIDER BUTTON_LEFT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'LEFT')">◀</div>
+      <div class="CONTENT_CARDS_SLIDER BUTTON_LEFT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'LEFT')"> <div class="ICON">◀</div></div>
 
       <div class="BLOCK INNER CONTENT_CARD"
       onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO')">
@@ -370,13 +365,13 @@
       </div>
       
 
-      <div class="CONTENT_CARDS_SLIDER BUTTON_RIGHT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'RIGHT')">▶</div>
+      <div class="CONTENT_CARDS_SLIDER BUTTON_RIGHT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'RIGHT')"> <div class="ICON">▶</div></div>
     </div>
 
     <div class="BLOCK INVISIBLE INNER CONTENT_CARDS_SLIDER WIDE">
       <h2 id="ss14" class="TITLE INVISIBLE">Сервера SS14</h3>
 
-      <div class="CONTENT_CARDS_SLIDER BUTTON_LEFT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'LEFT')">◀</div>
+      <div class="CONTENT_CARDS_SLIDER BUTTON_LEFT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'LEFT')"> <div class="ICON">◀</div></div>
 
       <div class="BLOCK INNER CONTENT_CARD"
       onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO')">
@@ -506,13 +501,13 @@
         </div>
       </div>
 
-      <div class="CONTENT_CARDS_SLIDER BUTTON_RIGHT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'RIGHT')">▶</div>
+      <div class="CONTENT_CARDS_SLIDER BUTTON_RIGHT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'RIGHT')"> <div class="ICON">▶</div></div>
     </div>
 
     <div class="BLOCK INVISIBLE INNER CONTENT_CARDS_SLIDER TALL">
       <h2 id="ss14" class="TITLE INVISIBLE">Сервера SS14</h3>
 
-      <div class="CONTENT_CARDS_SLIDER BUTTON_LEFT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'LEFT')">◀</div>
+      <div class="CONTENT_CARDS_SLIDER BUTTON_LEFT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'LEFT')"> <div class="ICON">◀</div></div>
 
       <div class="BLOCK INNER CONTENT_CARD"
       onclick="F_LOAD_CONTENT_FROM('FILES/SEARCH/AAVIKKO')">
@@ -642,7 +637,7 @@
         </div>
       </div>
 
-      <div class="CONTENT_CARDS_SLIDER BUTTON_RIGHT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'RIGHT')">▶</div>
+      <div class="CONTENT_CARDS_SLIDER BUTTON_RIGHT" onclick="F_INTERACT_WITH_HTML_SLIDER_SCROLL_IN_DIRECTION(this, 'RIGHT')"> <div class="ICON">▶</div></div>
     </div> -->
 
   </div>

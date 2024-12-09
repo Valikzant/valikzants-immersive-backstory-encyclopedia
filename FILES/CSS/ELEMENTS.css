@@ -21,7 +21,8 @@ html {
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
-  
+  -webkit-backface-visibility: hidden; 
+  backface-visibility: hidden;
   user-select: none;
   scrollbar-color: rgba(var(--color-accent)) rgba(0, 0, 0, 0);
   scrollbar-width: thin;
@@ -39,6 +40,7 @@ body {
   --size-images: unset;
   --modifier-font: unset;
   --modifier-ui: unset;
+  --transition-background: unset;
   --transition-fast: unset;
   --transition-slow: unset;
   --transition-long: unset;
@@ -111,7 +113,6 @@ h1.HINT,
 h2.HINT,
 h3.HINT {
   position: relative;
-
   text-align: center;
   top: 50%;
   left: 50%;
@@ -252,7 +253,7 @@ img {
 
 .BUTTON.PAGING {
   position: absolute;
-  width: calc(var(--size-ui) * 4);
+  width: calc(var(--size-ui) * 3);
   opacity: 0;
   height: 100%;
   z-index: 4;

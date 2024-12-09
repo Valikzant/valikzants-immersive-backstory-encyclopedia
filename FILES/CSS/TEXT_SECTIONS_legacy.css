@@ -4,7 +4,7 @@
 /* ! НАЧАЛО БЛОКА */
 .TEXT_BLOCK {
   display: inline-block;
-  padding: 15px;
+  padding: 10px;
   margin: 0px 0px 10px 0px;
   position: relative;
   outline: 1px solid rgba(var(--color-text));
@@ -38,7 +38,7 @@
 /* TEXT DEFAULT       */
 
 .TEXT_BLOCK.DEFAULT {
-  padding: 0px 10px 0px 0px;
+  padding: 0px;
   outline: none;
   content-visibility: visible;
 }
@@ -47,7 +47,7 @@
 
 .TEXT_BLOCK.MESSAGE {
   padding: 5px 10px 0px 10px;
-  margin: 20px 0px 15px 0px;
+  margin: 20px 0px 10px 0px;
   gap: 5px;
 
   display: flex;
@@ -99,7 +99,7 @@
 /* TEXT ENGRAVED      */
 
 .TEXT_BLOCK.ENGRAVED {
-  padding: 15px 15px 10px;
+  padding: 10px 10px 10px;
 
   color: rgba(var(--color-text));
 }
@@ -172,7 +172,7 @@ p.TEXT_ENGRAVED_LUXURY {
 /* TEXT PAPER         */
 
 .TEXT_BLOCK.PAPER {
-  padding: 15px 15px 10px 25px;
+  padding: 10px 10px 10px 25px;
 
   ;
 }
@@ -253,7 +253,7 @@ p.TEXT_VINTAGE {
 /* TEXT NEWSPAPER     */
 
 .TEXT_BLOCK.NEWSPAPER {
-  padding: 15px 15px 10px 25px;
+  padding: 10px 10px 10px 25px;
 
   ;
 }
@@ -313,7 +313,7 @@ p.TEXT_VINTAGE {
 .TEXT_BLOCK.ON_SCREEN {
   text-shadow: 0 0 5px rgba(var(--color-solid));
   outline: 1px solid rgba(var(--color-accent));
-  padding: 15px 15px 10px;
+  padding: 10px 10px 10px;
 
   background: rgba(var(--color-solid));
 }
@@ -344,7 +344,7 @@ p.TEXT_VINTAGE {
 
   color: rgba(var(--color-accent));
 
-  padding: 15px 15px 10px;
+  padding: 10px 10px 10px;
 }
 .TEXT_BLOCK.NEON_SIGN.OLD p {
   font-size: 2.25em;
@@ -372,7 +372,7 @@ p.TEXT_VINTAGE {
 
   color: rgba(var(--color-accent));
 
-  padding: 15px 15px 10px;
+  padding: 10px 10px 10px;
 }
 .TEXT_BLOCK.GRAFFITI p {
   font-style: italic;
@@ -393,7 +393,7 @@ p.TEXT_VINTAGE {
 
   color: rgba(var(--color-text));
 
-  padding: 15px 15px 10px;
+  padding: 10px 10px 10px;
 }
 .TEXT_BLOCK.FUTURE_SIGN p {
   font-size: 2.25em;
@@ -420,7 +420,7 @@ p.TEXT_VINTAGE {
 
   color: rgba(var(--color-text));
 
-  padding: 15px 15px 10px;
+  padding: 10px 10px 10px;
 }
 .TEXT_BLOCK.ANCIENT_STONE_SIGN p {
   font-weight: bolder;
@@ -434,7 +434,7 @@ p.TEXT_VINTAGE {
 /* TEXT AUTHOR NOTE   */
 
 .TEXT_BLOCK.AUTHOR_NOTE {
-  padding: 15px 15px 10px;
+  padding: 10px 10px 10px;
   outline: 1px solid rgba(var(--color-accent));
   background: rgba(var(--color-solid));
 }
@@ -445,11 +445,28 @@ p.TEXT_VINTAGE {
 /* TEXT IMPORTANT     */
 
 .TEXT_BLOCK.IMPORTANT {
-  padding: 15px 15px 10px;
+  padding: 10px 10px 10px;
 
   background: rgba(var(--color-solid));
 }
 .TEXT_BLOCK.IMPORTANT::after {
   content: "Важное";
+}
+/* ! КОНЕЦ БЛОКА */
+/*.............................................................................
+.                                  СТРАНИЦЫ                                   .
+.............................................................................*/
+/* ! НАЧАЛО БЛОКА */
+.PAGE {
+  position: relative;
+}
+
+.PAGE::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 /* ! КОНЕЦ БЛОКА */
