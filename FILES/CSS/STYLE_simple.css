@@ -81,8 +81,11 @@
 /* ! НАЧАЛО БЛОКА */
 body {
   font-family: "geologica";
-  background: rgba(var(--color-solid));
   color: rgba(var(--color-text));
+  background: 
+  radial-gradient(circle at 50%, rgba(var(--color-accent)) -350%, rgba(0, 0, 0, 0) 50%),
+  radial-gradient(circle at top left, rgba(var(--color-accent)) -150%, rgba(0, 0, 0, 0) 50%),
+  radial-gradient(circle at bottom right, rgba(var(--color-accent)) -150%, rgba(var(--color-solid)) 50%);
 }
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................

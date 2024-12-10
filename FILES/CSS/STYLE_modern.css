@@ -76,6 +76,63 @@
 
 /* ! КОНЕЦ БЛОКА */
 /*.............................................................................
+.                              BACKGROUND DEPTH                               .
+.............................................................................*/
+/* ! НАЧАЛО БЛОКА */
+#BACKGROUND_DEPTH {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+#BACKGROUND_DEPTH > div {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(var(--color-accent), 0.75);
+  -o-mask: url(/valikzants-immersive-backstory-encyclopedia/FILES/PICTURES/MASKS/BACKGROUND_BUBBLES.webp) 100% / 100% repeat;
+  -moz-mask: url(/valikzants-immersive-backstory-encyclopedia/FILES/PICTURES/MASKS/BACKGROUND_BUBBLES.webp) 100% / 100% repeat;
+  -webkit-mask: url(/valikzants-immersive-backstory-encyclopedia/FILES/PICTURES/MASKS/BACKGROUND_BUBBLES.webp) 100% / 100% repeat;
+  mask: url(/valikzants-immersive-backstory-encyclopedia/FILES/PICTURES/MASKS/BACKGROUND_BUBBLES.webp) 100% / 100% repeat;
+  animation: MASK_MOVEMENT var(--transition-mask) infinite;
+}
+#BACKGROUND_DEPTH > div:nth-child(1) {
+  animation-delay: 0s;
+}
+#BACKGROUND_DEPTH > div:nth-child(1) {
+  animation-delay: 30s;
+}
+@keyframes MASK_MOVEMENT {
+  0% {
+    -o-mask-position: 0% 0%;
+    -moz-mask-position: 0% 0%;
+    -webkit-mask-position: 0% 0%;
+    mask-position: 0% 0%;
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  99% {
+    -o-mask-position: 100% 100%;
+    -moz-mask-position: 100% 100%;
+    -webkit-mask-position: 100% 100%;
+    mask-position: 100% 100%;
+    opacity: 0;
+  }
+
+  100% {
+    -o-mask-position: 0% 0%;
+    -moz-mask-position: 0% 0%;
+    -webkit-mask-position: 0% 0%;
+    mask-position: 0% 0%;
+    opacity: 0;
+  }
+}
+/* ! КОНЕЦ БЛОКА */
+/*.............................................................................
 .                                    BODY                                     .
 .............................................................................*/
 /* ! НАЧАЛО БЛОКА */
@@ -86,7 +143,7 @@ body {
   radial-gradient(circle at 50%, rgba(var(--color-accent)) -350%, rgba(0, 0, 0, 0) 50%),
   radial-gradient(circle at top left, rgba(var(--color-accent)) -150%, rgba(0, 0, 0, 0) 50%),
   radial-gradient(circle at bottom right, rgba(var(--color-accent)) -150%, rgba(var(--color-solid)) 50%);
-  background-size: 500%;
+  background-size: 200%;
   animation: BACKGROUND_MOVEMENT var(--transition-background) infinite;
 }
 @keyframes BACKGROUND_MOVEMENT {

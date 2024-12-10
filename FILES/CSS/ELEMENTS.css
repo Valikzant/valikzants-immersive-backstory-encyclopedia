@@ -41,6 +41,7 @@ body {
   --size-images: unset;
   --modifier-font: unset;
   --modifier-ui: unset;
+  --transition-mask: unset;
   --transition-background: unset;
   --transition-fast: unset;
   --transition-slow: unset;
