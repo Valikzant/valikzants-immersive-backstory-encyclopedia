@@ -394,7 +394,7 @@
   border-radius: 50%;
   width: min(calc(var(--size-ui) * 30), 400px);
   height: min(calc(var(--size-ui) * 20), 280px);
-  outline: 25px solid rgba(var(--color-accent));
+  border: 25px solid rgba(var(--color-accent));
   animation: ROTATING var(--transition-eye) infinite;
   transition: scale var(--transition-fast);
 }
@@ -787,22 +787,32 @@
       "C C"
       "C C"
       "S S";
+    animation: none;
   }
   #SIDEBAR {
     flex-direction: row;
   }
-  #BODY_BACKGROUND_DEPTH_TEXT {
-    margin: 5vw 0px;
+  #BACKGROUND_DEPTH {
+    display: none;
   }
 }
 
 @media (max-width: 600px) {
+  #body {
+    animation: none;
+  }
   #MAIN_PAGE_SECTION {
     min-height: 750px;
+  }
+  #BACKGROUND_DEPTH {
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
+  #body {
+    animation: none;
+  }
   .PAGE_CARD_SECTION_INFORMATION {
     display: flex;
   }
@@ -811,6 +821,9 @@
   }
   #MAIN_PAGE_SECTION {
     min-height: 700px;
+  }
+  #BACKGROUND_DEPTH {
+    display: none;
   }
 }
 
