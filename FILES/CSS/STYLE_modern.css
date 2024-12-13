@@ -89,11 +89,11 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  background: rgba(var(--color-accent), 0.75);
-  -o-mask: url(/valikzants-immersive-backstory-encyclopedia/FILES/PICTURES/MASKS/BACKGROUND_BUBBLES.webp) 100% / 100% repeat;
-  -moz-mask: url(/valikzants-immersive-backstory-encyclopedia/FILES/PICTURES/MASKS/BACKGROUND_BUBBLES.webp) 100% / 100% repeat;
-  -webkit-mask: url(/valikzants-immersive-backstory-encyclopedia/FILES/PICTURES/MASKS/BACKGROUND_BUBBLES.webp) 100% / 100% repeat;
-  mask: url(/valikzants-immersive-backstory-encyclopedia/FILES/PICTURES/MASKS/BACKGROUND_BUBBLES.webp) 100% / 100% repeat;
+  background: rgba(var(--color-accent), 0.25);
+  -o-mask: url(/valikzants-immersive-backstory-encyclopedia/FILES/PICTURES/MASKS/BACKGROUND_BUBBLES.webp) repeat;
+  -moz-mask: url(/valikzants-immersive-backstory-encyclopedia/FILES/PICTURES/MASKS/BACKGROUND_BUBBLES.webp) repeat;
+  -webkit-mask: url(/valikzants-immersive-backstory-encyclopedia/FILES/PICTURES/MASKS/BACKGROUND_BUBBLES.webp) repeat;
+  mask: url(/valikzants-immersive-backstory-encyclopedia/FILES/PICTURES/MASKS/BACKGROUND_BUBBLES.webp) repeat;
   animation: MASK_MOVEMENT var(--transition-mask) infinite;
 }
 #BACKGROUND_DEPTH > div:nth-child(1) {
@@ -116,10 +116,10 @@
   }
 
   99% {
-    -o-mask-position: 100% 100%;
-    -moz-mask-position: 100% 100%;
-    -webkit-mask-position: 100% 100%;
-    mask-position: 100% 100%;
+    -o-mask-position: 50% 25%;
+    -moz-mask-position: 50% 25%;
+    -webkit-mask-position: 50% 25%;
+    mask-position: 50% 25%;
     opacity: 0;
   }
 

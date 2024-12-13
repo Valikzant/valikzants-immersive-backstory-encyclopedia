@@ -743,7 +743,6 @@
 .CONTENT_CARD:hover ~ .CONTENT_CARD,
 .CONTENT_CARD:has( ~ .CONTENT_CARD:hover) {
   opacity: 0.5;
-  transition-duration: 1s;
   transition-delay: 0.25s;
   transform: translateZ(-1px);
 }
@@ -751,10 +750,6 @@
 .CONTENT_CARD:hover ~ .CONTENT_CARDS_SLIDER.BUTTON_RIGHT,
 .CONTENT_CARDS_SLIDER.BUTTON_LEFT:has( ~ .CONTENT_CARD:hover) {
   opacity: 0 !important;
-}
-
-.CONTENT_CARD {
-  transition-duration: 1s;
 }
 
 @keyframes EXPANSION {
