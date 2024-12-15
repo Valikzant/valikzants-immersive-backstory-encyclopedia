@@ -233,12 +233,6 @@ img {
   cursor: not-allowed;
 }
 
-.BUTTON.SIDEBAR {
-  font-size: clamp(10px, 1.25em, 18px);
-  max-width: clamp(45px, 1em, 60px);
-  max-height: clamp(45px, 1em, 60px);
-}
-
 .BUTTON_HELP {
   cursor: help;
   position: absolute;
@@ -247,7 +241,7 @@ img {
   justify-content: center;
   align-content: center;
   text-align: center;
-  font-size: clamp(10px, 1em, 14px);
+  font-size: clamp(15px, 1em, 17px);
   min-width: var(--size-ui);
   min-height: var(--size-ui);
   z-index: 4;
@@ -268,6 +262,14 @@ img {
 }
 .BUTTON.PAGING:hover {
   opacity: 0.5;
+}
+
+.BUTTON.SIDEBAR,
+.BUTTON.HEADER {
+  font-size: clamp(15px, 1.25em, 25px);
+  min-width: clamp(40px, var(--size-ui) * 5, 45px);
+  min-height: clamp(40px, var(--size-ui) * 5, 45px);
+  flex-shrink: 0;
 }
 
 .SPACER {

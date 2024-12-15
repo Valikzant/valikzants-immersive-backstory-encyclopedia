@@ -126,7 +126,7 @@
 /* ! НАЧАЛО БЛОКА */
 #HEADER {
   grid-area: H;
-  margin: 10px 5px 5px 5px;
+  margin: 10px 0px 5px 0px;
   gap: 7.5px;
   min-height: calc(var(--size-ui) * 2);
   max-height: calc(var(--size-ui) * 2);
@@ -140,20 +140,10 @@
 }
 
 #HEADER_BUTTON_GO_BACK {
-  margin: 0px 10px 0px 0px;
+  font-size: clamp(20px, 1.5em, 25px);
 }
-
-#LOGO_CONSTANT_PART,
-#LOGO_CHANGING_PART {
-  display: inline;
-  letter-spacing: -8px;
-  margin: 0;
-  padding: 0;
-}
-
-#LOGO_CHANGING_PART {
-  opacity: 0.35;
-  z-index: -1;
+#HEADER_BUTTON_VIBE {
+  font-size: clamp(15px, 1em, 20px);
 }
 
 /* ! КОНЕЦ БЛОКА */
@@ -163,26 +153,18 @@
 /* ! НАЧАЛО БЛОКА */
 #SIDEBAR {
   grid-area: S;
-  margin: 0px 5px 5px 5px;
+  margin: 0px 5px 5px 0px;
   gap: 7.5px;
-  max-width: 100%;
   overflow: auto;
   z-index: 2;
-
   display: flex;
   flex-direction: column;
-  align-items: center;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
 
 #SIDEBAR::-webkit-scrollbar {
   display: none;
-}
-
-#SIDEBAR > * {
-  min-width: clamp(40px, calc(var(--size-ui) * 3), 180px);
-  min-height: clamp(35px, calc(var(--size-ui) * 3), 180px);
 }
 
 /* ! КОНЕЦ БЛОКА */
@@ -223,8 +205,8 @@
 #HINT_TOGGLE_CHOOSERS,
 #LAYOUT_CHOOSERS {
   gap: 4px;
-  width: calc(var(--size-ui) * 7.6);
-  height: calc(var(--size-ui) * 7.6 * 2);
+  width: calc(var(--size-ui) * 10);
+  height: calc(var(--size-ui) * 10 * 2);
   position: relative;
   padding: 7.5px;
 
@@ -236,8 +218,8 @@
 }
 #CLASSES_STYLE_CHOOSERS {
   gap: 4px;
-  width: calc(var(--size-ui) * 7.6 * 2 + 22px);
-  height: calc(var(--size-ui) * 7.6 * 2);
+  width: calc(var(--size-ui) * 10 * 2 + 22px);
+  height: calc(var(--size-ui) * 10 * 2);
   position: relative;
   padding: 7.5px;
 
@@ -249,17 +231,15 @@
 }
 
 #HUE_CHOOSERS > *:not(:nth-child(1)) {
-  width: calc(var(--size-ui) * 3.4);
-  height: calc(var(--size-ui) * 3.4);
+  width: calc(var(--size-ui) * 4.5);
+  height: calc(var(--size-ui) * 4.5);
 }
 #CUSTOMIZATION_SAVING_CHOOSERS > *:not(:nth-child(1)),
 #ANIMATION_TOGGLE_CHOOSERS > *:not(:nth-child(1)),
 #HINT_TOGGLE_CHOOSERS > *:not(:nth-child(1)),
 #LAYOUT_CHOOSERS > *:not(:nth-child(1)) {
-  width: calc(var(--size-ui) * 3.4 * 2);
-  height: calc(var(--size-ui) * 3.4 * 2);
-  font-size: 0.75em;
-
+  width: calc(var(--size-ui) * 4.5 * 2);
+  height: calc(var(--size-ui) * 4.5 * 2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -269,10 +249,8 @@
 #THEME_CHOOSERS > *:not(:nth-child(1)),
 #FONT_SIZE_CHOOSERS > *:not(:nth-child(1)),
 #INTERFACE_SIZE_CHOOSERS > *:not(:nth-child(1)) {
-  width: calc(var(--size-ui) * 3.4 * 2);
-  height: calc(var(--size-ui) * 3.4 * 1);  
-  font-size: 0.75em;
-
+  width: calc(var(--size-ui) * 4.5 * 2);
+  height: calc(var(--size-ui) * 4.5 * 1);  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -280,10 +258,8 @@
 }
 
 #CLASSES_STYLE_CHOOSERS > *:not(:nth-child(1)) {
-  width: calc(var(--size-ui) * 3.4 * 4 + 22px);
-  height: calc(var(--size-ui) * 3.4 * 1);
-  font-size: 0.75em;
-
+  width: calc(var(--size-ui) * 4.5 * 4 + 22px);
+  height: calc(var(--size-ui) * 4.5 * 1);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -8,18 +8,18 @@
   <title>V ☰ I ☰ B ☰ E</title>
   <!-- НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ -->
     <style>
-    body {background: #333333;}
+    body {background-color: #333333;}
     #LOADING_SCREEN { background: black; opacity: 1; font-family: 'geologica', Times, serif; position: fixed; margin: 0; padding: 0; top: 0; left: 0; width: 100%; height: 100%; font-size: 2em; z-index: 10; opacity: 1;  pointer-events: none; display: block; display: flex; flex-direction: column; align-items: center; justify-content: center;}
     @media (screenorientation: portrait) { body { grid-template-rows: auto auto 1fr auto; grid-template-areas: "H H" "C C" "C C" "S S";}}
     .BLOCK.HIDDEN * {display: none !important;}
     #HEADER {grid-area: H;} #SIDEBAR {grid-area: S;} #THEMES, #SETTINGS, #AUTHOR, #CONTENT {grid-area: C;}
   </style>
   <!-- НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ -->
-  <script src="/valikzants-immersive-backstory-encyclopedia/FILES/JS/CORE.js?v=update5.101"></script>
-  <link rel="stylesheet" href="/valikzants-immersive-backstory-encyclopedia/FILES/CSS/ELEMENTS.css?v=update5.101">
-  <link rel="stylesheet" id="STYLE_CSS_FILE" rel="stylesheet" href="/valikzants-immersive-backstory-encyclopedia/FILES/CSS/STYLE_legacy.css?v=update5.101">
-  <link rel="preload" as="style" onload="this.rel='stylesheet'" href="/valikzants-immersive-backstory-encyclopedia/FILES/CSS/SECTIONS.css?v=update5.101">
-  <link id="TEXT_BLOCKS_CSS_FILE" rel="stylesheet" href="/valikzants-immersive-backstory-encyclopedia/FILES/CSS/TEXT_SECTIONS_modern.css?v=update5.101">
+  <script src="/valikzants-immersive-backstory-encyclopedia/FILES/JS/CORE.js?v=update5.11"></script>
+  <link rel="stylesheet" href="/valikzants-immersive-backstory-encyclopedia/FILES/CSS/ELEMENTS.css?v=update5.11">
+  <link rel="stylesheet" id="STYLE_CSS_FILE" rel="stylesheet" href="/valikzants-immersive-backstory-encyclopedia/FILES/CSS/STYLE_legacy.css?v=update5.11">
+  <link rel="preload" as="style" onload="this.rel='stylesheet'" href="/valikzants-immersive-backstory-encyclopedia/FILES/CSS/SECTIONS.css?v=update5.11">
+  <link id="TEXT_BLOCKS_CSS_FILE" rel="stylesheet" href="/valikzants-immersive-backstory-encyclopedia/FILES/CSS/TEXT_SECTIONS_modern.css?v=update5.11">
   <!-- НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ -->
 </head>
 <script>
@@ -94,20 +94,14 @@
     <!-- НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ -->
     <div id="HEADER_BUTTON_GO_BACK" onclick="F_LOAD_CONTENT_FROM('./..')" data-tooltip=
     "Назад" class="BUTTON HEADER INVISIBLE">
-      <div class="ICON">◀</div>
+      <div class="ICON">🞀</div>
     </div>
 
     <!-- НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ -->
     <div id="HEADER_BUTTON_VIBE" onclick="window.location.href='/valikzants-immersive-backstory-encyclopedia/index.html'" data-tooltip=
     "Главная страница" class="BUTTON HEADER INVISIBLE">
       <h1 id="HEADER_LOGO" class="FANCY">
-        <div id="LOGO_CONSTANT_PART">V</div>
-        <div id="LOGO_CHANGING_PART"></div>
-        <div id="LOGO_CONSTANT_PART">I</div>
-        <div id="LOGO_CHANGING_PART"></div>
-        <div id="LOGO_CONSTANT_PART">B</div>
-        <div id="LOGO_CHANGING_PART"></div>
-        <div id="LOGO_CONSTANT_PART">E</div>
+        V I B E
       </h1>
     </div>
 
@@ -115,23 +109,23 @@
     <div class="SPACER"></div>
 
     <!-- НЕ ТРЕБУЕТ ИЗМЕНЕНИЙ -->
-    <div onclick="F_TOGGLE_WINDOW('CONTENT')" data-tooltip=
-    "Основной блок" class="BUTTON HEADER INVISIBLE">
-      <div class="ICON">📄</div>
+    <div onclick="F_TOGGLE_WINDOW('CONTENT', this)" data-tooltip=
+    "Основной блок" class="BUTTON HEADER INVISIBLE ACTIVE">
+      <div class="ICON">🟰</div>
     </div>
-    <div onclick="F_TOGGLE_WINDOW('THEMES')" data-tooltip=
+    <div onclick="F_TOGGLE_WINDOW('THEMES', this)" data-tooltip=
     "Кастомизация" class="BUTTON HEADER INVISIBLE">
-      <div class="ICON">🎨</div>
+      <div class="ICON">🖌️</div>
     </div>
-    <div onclick="F_TOGGLE_WINDOW('SETTINGS')" data-tooltip=
+    <div onclick="F_TOGGLE_WINDOW('SETTINGS', this)" data-tooltip=
     "Настройки" class="BUTTON HEADER INVISIBLE">
       <div class="ICON">⚙️</div>
     </div>
-    <div onclick="F_TOGGLE_WINDOW('AUTHOR')" data-tooltip=
+    <div onclick="F_TOGGLE_WINDOW('AUTHOR', this)" data-tooltip=
     "Информация об авторе/странице" class="BUTTON HEADER INVISIBLE">
       <div class="ICON">👤</div>
     </div>
-    <div onclick="F_TOGGLE_WINDOW('HELP')" data-tooltip=
+    <div onclick="F_TOGGLE_WINDOW('HELP', this)" data-tooltip=
     "Помощь" class="BUTTON HEADER INVISIBLE">
       <div class="ICON">❔</div>
     </div>

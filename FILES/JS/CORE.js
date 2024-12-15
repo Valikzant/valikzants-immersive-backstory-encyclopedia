@@ -289,16 +289,6 @@ async function F_LOCAL_STORAGE_SET(c_Key, c_Value) {
   localStorage.setItem(c_Key, c_Value);
 }
 
-// [ LOGO ]
-
-// Обновление Логотипа
-async function F_LOGO_UPDATE() {
-  const c_ChangingSymbols = document.querySelectorAll('[id="LOGO_CHANGING_PART"]');
-  c_ChangingSymbols.forEach((element) => {
-    element.innerHTML = C_SYMBOLS[Math.floor(Math.random() * C_SYMBOLS.length)];
-  });
-}
-
 // [ LOADING ]
 
 // Показать экран загрузки
@@ -476,8 +466,9 @@ async function F_SETTINGS_CHANGE_HINTS(c_Mode) {
 // [ WINDOWS MANIPULATION ]
 
 // Показать окно
-async function F_TOGGLE_WINDOW(c_WindowId) {
+async function F_TOGGLE_WINDOW(c_WindowId, c_HeaderButton = null) {
   const c_Window = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID(c_WindowId);
+  const c_HeaderButtons = await F_INTERACT_WITH_HTML_QUERY_SELECTOR_FROM(document, ".BUTTON.HEADER");
   c_Window.classList.toggle('HIDDEN');
 
   // Список блоков, которые нужно обрабатывать
@@ -497,6 +488,16 @@ async function F_TOGGLE_WINDOW(c_WindowId) {
         if (i_Block.classList.contains('HIDDEN')) {
           i_Block.classList.toggle('HIDDEN');
         }
+      }
+      if (c_HeaderButton !== null) {
+        // Делаем кнопку активной
+        c_HeaderButton.classList.toggle('ACTIVE');
+        // Сбрасываем активность у всех кнопок, кроме переданной в аргументе функции
+        c_HeaderButtons.forEach(i_Button => {
+          if (i_Button !== c_HeaderButton) {
+            i_Button.classList.remove('ACTIVE');
+          }
+        })
       }
     }
   });
@@ -659,33 +660,32 @@ async function F_ON_EVENT_HIDE_TOOLTIP() {
   c_ToolTip.style.display = "none";
 }
 
-// Починка несовместимых размеру экрана модификаторов
-async function F_ON_EVENT_FIX_MODIFIERS() {
-
+// Починка несовместимых размеру экрана элементов/кнопок
+async function F_ON_EVENT_FIX_ELEMENTS() {
   const c_WindowWidth = window.innerWidth;
 
+  // Блокировка слишком маленького интерфейса и его увеличение с уменьшением экрана
   if (c_WindowWidth >= 768) {
     await F_INTERACT_WITH_HTML_ENABLE_ELEMENT_BY_ID("INTERFACE_SIZE_CHOOSER_SMALL");
     await F_INTERACT_WITH_HTML_ENABLE_ELEMENT_BY_ID("INTERFACE_SIZE_CHOOSER_MEDIUM");
-    return;
-  }
-
-  if (c_WindowWidth < 768 && c_WindowWidth >= 600) { // 768
-    if (await F_LOCAL_STORAGE_GET("interface-modifier") == 0) {
-      await F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(1);    
-    }
-
+  } else if (c_WindowWidth < 768 && c_WindowWidth >= 600) { // 768
+    await F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(1);    
     await F_INTERACT_WITH_HTML_DISABLE_ELEMENT_BY_ID("INTERFACE_SIZE_CHOOSER_SMALL");
 
     await F_INTERACT_WITH_HTML_ENABLE_ELEMENT_BY_ID("FONT_SIZE_CHOOSER_SMALL");
     await F_INTERACT_WITH_HTML_ENABLE_ELEMENT_BY_ID("INTERFACE_SIZE_CHOOSER_MEDIUM");
   } else if (c_WindowWidth < 600 && c_WindowWidth >= 0) { // 600
-    if (await F_LOCAL_STORAGE_GET("interface-modifier") == 1) {
-      await F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(2);    
-    }
-
+    await F_CUSTOMIZATION_CHANGE_INTERFACE_MODIFIER(2);    
     await F_INTERACT_WITH_HTML_DISABLE_ELEMENT_BY_ID("INTERFACE_SIZE_CHOOSER_SMALL");
     await F_INTERACT_WITH_HTML_DISABLE_ELEMENT_BY_ID("INTERFACE_SIZE_CHOOSER_MEDIUM");
+  }
+
+  // Сокращение текста VIBE при маленьких экранах
+  const c_HeaderLogo = await F_INTERACT_WITH_HTML_GET_ELEMENT_BY_ID("HEADER_LOGO")
+  if (c_WindowWidth >= 420) {
+    c_HeaderLogo.innerHTML = "V I B E"
+  } else if (c_WindowWidth < 420 && c_WindowWidth >= 0) { // 600
+    c_HeaderLogo.innerHTML = "V"
   }
 }
 
@@ -774,12 +774,8 @@ async function F_ON_LOAD_GENERATE_AND_SAVE_THEMES(c_ThemesFromHtml) {
 // Инициализация
 document.addEventListener('DOMContentLoaded', async function () {
 
-  // Добавление ивентов и интервалов функциям 
-  setInterval(F_LOGO_UPDATE, 2000); 
-  F_LOGO_UPDATE()
-  
-  window.addEventListener("resize", F_ON_EVENT_FIX_MODIFIERS);
-  window.addEventListener("orientationchange", F_ON_EVENT_FIX_MODIFIERS);
+  window.addEventListener("resize", F_ON_EVENT_FIX_ELEMENTS);
+  window.addEventListener("orientationchange", F_ON_EVENT_FIX_ELEMENTS);
 
   // Ставим при загрузке страницы значения в еще несуществующие переменные в памяти браузера
   if (await F_LOCAL_STORAGE_GET("customization-saved") == null) { await F_LOCAL_STORAGE_SET("customization-saved", "false");}
@@ -828,7 +824,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       if (await F_LOCAL_STORAGE_GET("hints") != null) {
         await F_SETTINGS_CHANGE_HINTS(await F_LOCAL_STORAGE_GET("hints"));
       }
-      F_ON_EVENT_FIX_MODIFIERS();
+      F_ON_EVENT_FIX_ELEMENTS();
       F_ON_LOAD_SETUP_HINTS();
     })
   })
